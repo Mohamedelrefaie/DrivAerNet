@@ -17,6 +17,10 @@ DrivAerNet is a large-scale, high-fidelity CFD dataset of 3D industry-standard c
 ## CFD Data
 ![Präsentation4](https://github.com/Mohamedelrefaie/DrivAerNet/assets/86707575/259d5f03-bac1-4ba6-9975-6c41c1e7d1f3)
 
+## Car Designs
+![DrivAerNetDesignsSmall](https://github.com/Mohamedelrefaie/DrivAerNet/assets/86707575/69959811-aea8-4e3b-9ddc-381d36e52cc3)
+
+
 ## Usage Instructions
 The dataset and accompanying Python scripts for data conversion are available at [GitHub repository link].
 
