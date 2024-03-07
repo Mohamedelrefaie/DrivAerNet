@@ -11,7 +11,8 @@ DrivAerNet is a large-scale, high-fidelity CFD dataset of 3D industry-standard c
 
 ## Parametric Model 
 The DrivAerNet dataset includes a parametric model of the DrivAer fastback, developed using ANSA® software to enable extensive exploration of automotive design variations. This model is defined by 50 geometric parameters, allowing the generation of 4000 unique car designs through Optimal Latin Hypercube sampling and the Enhanced Stochastic Evolutionary Algorithm. 
-![ezgif-7-f34675e4c0](https://github.com/Mohamedelrefaie/DrivAerNet/assets/86707575/4b4f1024-eedb-4a98-929f-541e9d7c2623)
+![DrivAerNetMorphingNew2-ezgif com-crop](https://github.com/Mohamedelrefaie/DrivAerNet/assets/86707575/ed7e825a-db41-4230-ac91-1286c69d61fe)
+
 ![ezgif-7-2930b4ea0d](https://github.com/Mohamedelrefaie/DrivAerNet/assets/86707575/f6af36aa-079b-49d9-8ac7-a6b20595faee)
 
 ## CFD Data
