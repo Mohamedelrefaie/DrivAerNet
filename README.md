@@ -21,6 +21,12 @@ The DrivAerNet dataset includes a parametric model of the DrivAer fastback, deve
 The DrivAerNet dataset specifically concentrates on conventional car designs, highlighting the significant role that minor geometric modifications play in aerodynamic efficiency. This focus enables researchers and engineers to explore the nuanced relationship between car geometry and aerodynamic performance, facilitating the optimization of vehicle designs for improved efficiency and performance.
 ![DrivAerNetDesigns2 (2)](https://github.com/Mohamedelrefaie/DrivAerNet/assets/86707575/1a8edd79-9821-42ca-ab21-6ba1566f62b3)
 
+
+
+https://github.com/Mohamedelrefaie/DrivAerNet/assets/86707575/86b8046f-8858-4193-a904-f80cc59544d0
+
+
+
 ## Usage Instructions
 The dataset and accompanying Python scripts for data conversion are available at [GitHub repository link].
 
