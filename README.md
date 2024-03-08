@@ -4,20 +4,18 @@ DrivAerNet: A Parametric Car Dataset for Data-driven Aerodynamic Design and Grap
 ## Introduction
 DrivAerNet is a large-scale, high-fidelity CFD dataset of 3D industry-standard car shapes designed for data-driven aerodynamic design. It comprises 4000 high-quality 3D car meshes and their corresponding aerodynamic performance coefficients, alongside full 3D flow field information.
 
-## Dataset Details
-- **3D Car Meshes**: 4000 designs with 0.5 million elements each.
-- **Aerodynamic Coefficients**: Includes Cd, Cl, Clr, Clf, and Cm.
-- **CFD Simulation Data**: Full 3D pressure, velocity fields, and wall-shear stresses computed using 8 million mesh elements.
+## Dataset Details & Contents
 
-## Dataset Contents
+The DrivAerNet dataset is meticulously crafted to serve a wide range of applications from aerodynamic analysis to the training of advanced machine learning models for automotive design optimization. It includes:
 
-The DrivAerNet dataset provides comprehensive data essential for aerodynamic studies and AI applications in automotive design, detailed as follows:
+- **3D Car Meshes**: A total of **4000 designs**, each with **0.5 million elements**, showcasing a variety of conventional car shapes and emphasizing the impact of minor geometric modifications on aerodynamic efficiency.
+- **Aerodynamic Coefficients**: Each car model comes with comprehensive **aerodynamic performance coefficients** including drag coefficient (Cd), total lift coefficient (Cl), front lift coefficient (Clf), rear lift coefficient (Clr), and moment coefficient (Cm).
+- **CFD Simulation Data**: The dataset features detailed **Computational Fluid Dynamics (CFD) simulation results**, including full 3D pressure, velocity fields, and wall-shear stresses, computed using **8 million mesh elements** for each car design. The total size of this extensive simulation data is around **16TB**.
+- **Curated CFD Simulations**: For ease of access and use, a **streamlined version of the CFD simulation data** is provided, refined to include key insights and data, reducing the size to approximately **1TB**. 
+- **Storage**: The 3D meshes and aerodynamic coefficients consume about **84GB**, making them manageable for various computational environments.
 
-- **3D Meshes**: Includes **4000 unique car designs** along with their **aerodynamic performance coefficients** (Cd, Cl, Clf, Clr, and Cm), taking up approximately **84GB**.
-- **CFD Simulation Data**: Offers extensive **Computational Fluid Dynamics (CFD) simulation results** for all car designs, with the total dataset size around **16TB**.
-- **Curated CFD Simulations**: A streamlined version of the CFD simulation data, refined for ease of use, with a size of about **1TB**.
+This rich dataset, with its focus on the nuanced effects of design changes on aerodynamics, provides an invaluable resource for researchers and practitioners in the field.
 
-This dataset is structured to support a wide array of uses, from detailed aerodynamic analysis to training advanced deep learning models aimed at optimizing vehicle designs.
 
 
 ## Parametric Model 
