@@ -23,6 +23,8 @@ The DrivAerNet dataset specifically concentrates on conventional car designs, hi
 
 https://github.com/Mohamedelrefaie/DrivAerNet/assets/86707575/86b8046f-8858-4193-a904-f80cc59544d0
 
+## RegDGCNN: Dynamic Graph Convolutional Neural Network for regression tasks
+
 
 ## Usage Instructions
 The dataset and accompanying Python scripts for data conversion are available at [GitHub repository link].
