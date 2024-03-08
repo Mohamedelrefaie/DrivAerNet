@@ -9,6 +9,17 @@ DrivAerNet is a large-scale, high-fidelity CFD dataset of 3D industry-standard c
 - **Aerodynamic Coefficients**: Includes Cd, Cl, Clr, Clf, and Cm.
 - **CFD Simulation Data**: Full 3D pressure, velocity fields, and wall-shear stresses computed using 8 million mesh elements.
 
+## Dataset Contents
+
+The DrivAerNet dataset provides comprehensive data essential for aerodynamic studies and AI applications in automotive design, detailed as follows:
+
+- **3D Meshes**: Includes **4000 unique car designs** along with their **aerodynamic performance coefficients** (Cd, Cl, Clf, Clr, and Cm), taking up approximately **84GB**.
+- **CFD Simulation Data**: Offers extensive **Computational Fluid Dynamics (CFD) simulation results** for all car designs, with the total dataset size around **16TB**.
+- **Curated CFD Simulations**: A streamlined version of the CFD simulation data, refined for ease of use, with a size of about **1TB**.
+
+This dataset is structured to support a wide array of uses, from detailed aerodynamic analysis to training advanced deep learning models aimed at optimizing vehicle designs.
+
+
 ## Parametric Model 
 The DrivAerNet dataset includes a parametric model of the DrivAer fastback, developed using ANSA® software to enable extensive exploration of automotive design variations. This model is defined by 50 geometric parameters, allowing the generation of 4000 unique car designs through Optimal Latin Hypercube sampling and the Enhanced Stochastic Evolutionary Algorithm. 
 ![DrivAerNetMorphingNew2-ezgif com-crop](https://github.com/Mohamedelrefaie/DrivAerNet/assets/86707575/ed7e825a-db41-4230-ac91-1286c69d61fe)
