@@ -34,6 +34,7 @@ https://github.com/Mohamedelrefaie/DrivAerNet/assets/86707575/86b8046f-8858-4193
 ![Prsentation4-ezgif com-crop](https://github.com/Mohamedelrefaie/DrivAerNet/assets/86707575/3d5e3b3e-4dcd-490f-9936-2a3dbda1402b)
 
 ## RegDGCNN: Dynamic Graph Convolutional Neural Network for Regression Tasks
+![RegDGCNN_animationLong-ezgif com-crop](https://github.com/Mohamedelrefaie/DrivAerNet/assets/86707575/a9a086e7-1e69-45cd-af8d-560b619172a8)
 
 
 ## Usage Instructions
