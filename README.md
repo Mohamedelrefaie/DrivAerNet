@@ -28,10 +28,10 @@ DrivAerNet dataset incorporates a wide range of geometric modifications, includi
 
 ## Car Designs
 The DrivAerNet dataset specifically concentrates on conventional car designs, highlighting the significant role that minor geometric modifications play in aerodynamic efficiency. This focus enables researchers and engineers to explore the nuanced relationship between car geometry and aerodynamic performance, facilitating the optimization of vehicle designs for improved efficiency and performance.
+<div align="center">
+    <video src="https://github.com/Mohamedelrefaie/DrivAerNet/assets/86707575/86b8046f-8858-4193-a904-f80cc59544d0" width="50%"></video>
+</div>
 
-[https://github.com/Mohamedelrefaie/DrivAerNet/assets/86707575/86b8046f-8858-4193-a904-f80cc59544d0
-](https://github.com/Mohamedelrefaie/DrivAerNet/assets/86707575/86b8046f-8858-4193-a904-f80cc59544d0
-)
 
 ## CFD Data
 ![Prsentation4-ezgif com-crop](https://github.com/Mohamedelrefaie/DrivAerNet/assets/86707575/3d5e3b3e-4dcd-490f-9936-2a3dbda1402b)
