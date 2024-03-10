@@ -36,6 +36,8 @@ https://github.com/Mohamedelrefaie/DrivAerNet/assets/86707575/86b8046f-8858-4193
 ## RegDGCNN: Dynamic Graph Convolutional Neural Network for Regression Tasks
 ![RegDGCNN_animationLong-ezgif com-crop](https://github.com/Mohamedelrefaie/DrivAerNet/assets/86707575/a9a086e7-1e69-45cd-af8d-560b619172a8)
 
+## Computational Efficiency of RegDGCNN
+RegDGCNN model is both lightweight, with just 3 million parameters and a 10MB size, and fast, estimating drag for a 500k mesh face car design in only 1.2 seconds on four A100 GPUs. This represents a significant reduction in computational time compared to the 2.3 hours required for a conventional CFD simulation on a system with 128 CPU cores.
 
 ## Usage Instructions
 The dataset and accompanying Python scripts for data conversion are available at [GitHub repository link].
