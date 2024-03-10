@@ -42,10 +42,23 @@ https://github.com/Mohamedelrefaie/DrivAerNet/assets/86707575/86b8046f-8858-4193
 RegDGCNN model is both lightweight, with just 3 million parameters and a 10MB size, and fast, estimating drag for a 500k mesh face car design in only 1.2 seconds on four A100 GPUs. This represents a significant reduction in computational time compared to the 2.3 hours required for a conventional CFD simulation on a system with 128 CPU cores.
 
 ## Effect of Training Dataset Size
-- DrivAerNet is 60\% larger than the previously available largest public dataset of cars and is the only opensource dataset that also models wheels and underbody, allowing accurate estimation of drag.
-- Within the DrivAerNet dataset, expanding the dataset from 560 to 2800 car designs resulted in a dramatic 75$\%$ decrease in error. A similar trend is observed with the ShapeNet cars dataset, where enlarging the number of training samples from 1270 to 6352 entries yielded a 56$\%$ error reduction, further validating the inherent value of large datasets in driving advancements in surrogate modeling.
-        
-<img src="https://github.com/Mohamedelrefaie/DrivAerNet/assets/86707575/30443fbb-5fe4-4a50-a9e0-d22af6f1aa2b" width="50%">
+
+<table>
+<tr>
+<td>
+
+- DrivAerNet is 60% larger than the previously available largest public dataset of cars and is the only opensource dataset that also models wheels and underbody, allowing accurate estimation of drag.
+- Within the DrivAerNet dataset, expanding the dataset from 560 to 2800 car designs resulted in a dramatic 75% decrease in error. A similar trend is observed with the ShapeNet cars dataset, where enlarging the number of training samples from 1270 to 6352 entries yielded a 56% error reduction, further validating the inherent value of large datasets in driving advancements in surrogate modeling.
+
+</td>
+<td>
+
+<img src="https://github.com/Mohamedelrefaie/DrivAerNet/assets/86707575/30443fbb-5fe4-4a50-a9e0-d22af6f1aa2b" width="100%">
+
+</td>
+</tr>
+</table>
+
 
 ## Usage Instructions
 The dataset and accompanying Python scripts for data conversion are available at [GitHub repository link].
