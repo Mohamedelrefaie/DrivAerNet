@@ -45,7 +45,7 @@ RegDGCNN model is both lightweight, with just 3 million parameters and a 10MB si
 - DrivAerNet is 60\% larger than the previously available largest public dataset of cars and is the only opensource dataset that also models wheels and underbody, allowing accurate estimation of drag.
 - Within the DrivAerNet dataset, expanding the dataset from 560 to 2800 car designs resulted in a dramatic 75$\%$ decrease in error. A similar trend is observed with the ShapeNet cars dataset, where enlarging the number of training samples from 1270 to 6352 entries yielded a 56$\%$ error reduction, further validating the inherent value of large datasets in driving advancements in surrogate modeling.
         
-<img src="https://github.com/Mohamedelrefaie/DrivAerNet/assets/86707575/30443fbb-5fe4-4a50-a9e0-d22af6f1aa2b" width="300" height="300">
+<img src="https://github.com/Mohamedelrefaie/DrivAerNet/assets/86707575/30443fbb-5fe4-4a50-a9e0-d22af6f1aa2b" width="500" height="400">
 
 ## Usage Instructions
 The dataset and accompanying Python scripts for data conversion are available at [GitHub repository link].
