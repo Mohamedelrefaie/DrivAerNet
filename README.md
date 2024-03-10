@@ -19,6 +19,8 @@ This rich dataset, with its focus on the nuanced effects of design changes on ae
 
 ## Parametric Model 
 The DrivAerNet dataset includes a parametric model of the DrivAer fastback, developed using ANSA® software to enable extensive exploration of automotive design variations. This model is defined by 50 geometric parameters, allowing the generation of 4000 unique car designs through Optimal Latin Hypercube sampling and the Enhanced Stochastic Evolutionary Algorithm. 
+
+The DrivAerNet dataset incorporates a wide range of geometric modifications, including changes to side mirror and muffler positions, windscreen and rear window dimensions, engine undercover size, front door and fender offsets, hood placement, headlight scale, overall car length and width, upper and underbody scaling, and key angles like the ramp, diffusor, and trunk lid angles, to thoroughly investigate their impacts on car aerodynamics.
 ![DrivAerNetMorphingNew2-ezgif com-crop](https://github.com/Mohamedelrefaie/DrivAerNet/assets/86707575/ed7e825a-db41-4230-ac91-1286c69d61fe)
 
 ![ezgif-7-2930b4ea0d](https://github.com/Mohamedelrefaie/DrivAerNet/assets/86707575/f6af36aa-079b-49d9-8ac7-a6b20595faee)
