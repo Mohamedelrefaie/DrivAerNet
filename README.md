@@ -11,7 +11,7 @@ The DrivAerNet dataset is meticulously crafted to serve a wide range of applicat
 - **CFD Simulation Data**: The raw dataset, including full 3D pressure, velocity fields, and wall-shear stresses, computed using **8-16 million mesh elements** for each car design has a total size of $\sim$ **16TB**.
 - **Curated CFD Simulations**: For ease of access and use, a **streamlined version of the CFD simulation data** is provided, refined to include key insights and data, reducing the size to $\sim$ **1TB**. 
 - **3D Car Meshes**: A total of **4000 designs**, showcasing a variety of conventional car shapes and emphasizing the impact of minor geometric modifications on aerodynamic efficiency. The 3D meshes and aerodynamic coefficients $\sim$ **84GB**.
-- 2D slices include the car's wake in the $x$-direction and the symmetry plane in the $y$-direction $\sim$ 12GB.
+- 2D slices include the car's wake in the $x$-direction and the symmetry plane in the $y$-direction $\sim$ **12GB**.
 
 This rich dataset, with its focus on the nuanced effects of design changes on aerodynamics, provides an invaluable resource for researchers and practitioners in the field.
 
