@@ -41,6 +41,9 @@ The DrivAerNet dataset specifically concentrates on conventional car designs, hi
 
 ## RegDGCNN: Dynamic Graph Convolutional Neural Network for Regression Tasks
 In this study, we adapt the Dynamic Graph Convolutional Neural Network (DGCNN) framework, traditionally used for classification tasks, to tackle regression problems, specifically predicting aerodynamic coefficients. Our RegDGCNN model integrates PointNet's spatial encoding with graph CNNs' relational analysis to understand fluid dynamics around objects. It employs edge convolution (EdgeConv) on dynamically updating graphs to capture fluid flow's intricate interactions, presenting a new approach for precise aerodynamic parameter estimation.
+
+RegDGCNN utilizes the extensive DrivAerNet dataset to deliver accurate drag predictions directly from 3D meshes, overcoming conventional challenges like the requirement for 2D image rendering or Signed Distance Fields (SDF) generation.
+
 ![RegDGCNN_animationLong-ezgif com-crop](https://github.com/Mohamedelrefaie/DrivAerNet/assets/86707575/a9a086e7-1e69-45cd-af8d-560b619172a8)
 
 ## Computational Efficiency of RegDGCNN
