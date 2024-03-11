@@ -16,7 +16,6 @@ The DrivAerNet dataset is meticulously crafted to serve a wide range of applicat
 This rich dataset, with its focus on the nuanced effects of design changes on aerodynamics, provides an invaluable resource for researchers and practitioners in the field.
 
 
-
 ## Parametric Model 
 The DrivAerNet dataset includes a parametric model of the DrivAer fastback, developed using ANSA® software to enable extensive exploration of automotive design variations. This model is defined by 50 geometric parameters, allowing the generation of 4000 unique car designs through Optimal Latin Hypercube sampling and the Enhanced Stochastic Evolutionary Algorithm. 
 
@@ -41,6 +40,7 @@ The DrivAerNet dataset specifically concentrates on conventional car designs, hi
 
 
 ## RegDGCNN: Dynamic Graph Convolutional Neural Network for Regression Tasks
+In this study, we adapt the Dynamic Graph Convolutional Neural Network (DGCNN) framework, traditionally used for classification tasks, to tackle regression problems, specifically predicting aerodynamic coefficients. Our RegDGCNN model integrates PointNet's spatial encoding with graph CNNs' relational analysis to understand fluid dynamics around objects. It employs edge convolution (EdgeConv) on dynamically updating graphs to capture fluid flow's intricate interactions, presenting a new approach for precise aerodynamic parameter estimation.
 ![RegDGCNN_animationLong-ezgif com-crop](https://github.com/Mohamedelrefaie/DrivAerNet/assets/86707575/a9a086e7-1e69-45cd-af8d-560b619172a8)
 
 ## Computational Efficiency of RegDGCNN
