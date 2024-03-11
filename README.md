@@ -34,15 +34,9 @@ The DrivAerNet dataset specifically concentrates on conventional car designs, hi
 
 
 ## CFD Data
-![image](https://github.com/Mohamedelrefaie/DrivAerNet/assets/86707575/6551f91b-8a10-4781-905d-7f03b9a0044e)
 
 ![Prsentation4-ezgif com-crop](https://github.com/Mohamedelrefaie/DrivAerNet/assets/86707575/3d5e3b3e-4dcd-490f-9936-2a3dbda1402b)
 
-
-<p float="left">
-  <img src="https://github.com/Mohamedelrefaie/DrivAerNet/assets/86707575/6551f91b-8a10-4781-905d-7f03b9a0044e" width="400" />
-  <img src="https://github.com/Mohamedelrefaie/DrivAerNet/assets/86707575/3d5e3b3e-4dcd-490f-9936-2a3dbda1402b" width="400" /> 
-</p>
 
 
 ## RegDGCNN: Dynamic Graph Convolutional Neural Network for Regression Tasks
