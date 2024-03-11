@@ -33,7 +33,7 @@ The DrivAerNet dataset specifically concentrates on conventional car designs, hi
 
 
 ## CFD Data
-The DrivAerNet dataset offers a comprehensive suite of aerodynamic data pertinent to car geometries, including key metrics such as the total moment coefficient $C_m$,  the total drag coefficient $C_d$, total lift coefficient $C_l$, front lift coefficient $C_{l,f}$, and rear lift coefficient $C_{l,r}$. Included within the dataset are crucial parameters like wall-shear stress, and the $y^{+}$ metric, integral for mesh quality evaluations. Further, the dataset provides insights into flow trajectories and detailed cross-sectional analyses of pressure and velocity fields along the $x$ and $y$-axes, enriching the understanding of aerodynamic interactions.
+The DrivAerNet dataset provides comprehensive 3D flow field data, including detailed analyses of pressure and velocity fields along the $x$ and $y$ axes, as well as wall-shear stresses, contributing to a deeper understanding of aerodynamic forces. Additionally, it offers key aerodynamic metrics relevant to car geometries, such as the total moment coefficient $C_m$, drag coefficient $C_d$, lift coefficient $C_l$, front lift coefficient $C_{l,f}$, and rear lift coefficient $C_{l,r}$. The dataset also encompasses important parameters like wall-shear stress and the $y^{+}$ metric, essential for mesh quality evaluations, and insights into flow trajectories, enhancing the comprehension of aerodynamic interactions.
 
 ![Prsentation4-ezgif com-crop](https://github.com/Mohamedelrefaie/DrivAerNet/assets/86707575/3d5e3b3e-4dcd-490f-9936-2a3dbda1402b)
 
