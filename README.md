@@ -60,9 +60,8 @@ RegDGCNN model is both lightweight, with just 3 million parameters and a 10MB si
 
 </td>
 <td>
-![TrainingDatasetSize_new](https://github.com/Mohamedelrefaie/DrivAerNet/assets/86707575/eb38b12a-3301-4358-8e3a-2a791376dc49)
 
-<img src="https://github.com/Mohamedelrefaie/DrivAerNet/assets/86707575/30443fbb-5fe4-4a50-a9e0-d22af6f1aa2b" width="150%">
+<img src="[https://github.com/Mohamedelrefaie/DrivAerNet/assets/86707575/30443fbb-5fe4-4a50-a9e0-d22af6f1aa2b](https://github.com/Mohamedelrefaie/DrivAerNet/assets/86707575/eb38b12a-3301-4358-8e3a-2a791376dc49)" width="150%">
 
 </td>
 </tr>
