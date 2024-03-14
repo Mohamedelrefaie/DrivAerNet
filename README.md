@@ -8,7 +8,7 @@ DrivAerNet is a large-scale, high-fidelity CFD dataset of 3D industry-standard c
 
 The DrivAerNet dataset is meticulously crafted to serve a wide range of applications from aerodynamic analysis to the training of advanced machine learning models for automotive design optimization. It includes:
 
-- **CFD Simulation Data**: The raw dataset, including full 3D pressure, velocity fields, and wall-shear stresses, computed using **8-16 million mesh elements** for each car design has a total size of $\sim$ **16TB**.
+- **CFD Simulation Data**: The raw dataset, including full 3D pressure, velocity fields, and wall-shear stresses, computed using **8-16 million mesh elements** has a total size of $\sim$ **16TB**.
 - **Curated CFD Simulations**: For ease of access and use, a **streamlined version of the CFD simulation data** is provided, refined to include key insights and data, reducing the size to $\sim$ **1TB**. 
 - **3D Car Meshes**: A total of **4000 designs**, showcasing a variety of conventional car shapes and emphasizing the impact of minor geometric modifications on aerodynamic efficiency. The 3D meshes and aerodynamic coefficients $\sim$ **84GB**.
 - 2D slices include the car's wake in the $x$-direction and the symmetry plane in the $y$-direction $\sim$ **12GB**.
