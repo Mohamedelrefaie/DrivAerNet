@@ -1,6 +1,8 @@
 # DrivAerNet
 DrivAerNet: A Parametric Car Dataset for Data-driven Aerodynamic Design and Graph-Based Drag Prediction
 
+Paper: https://arxiv.org/abs/2403.08055
+
 ## Introduction
 DrivAerNet is a large-scale, high-fidelity CFD dataset of 3D industry-standard car shapes designed for data-driven aerodynamic design. It comprises 4000 high-quality 3D car meshes and their corresponding aerodynamic performance coefficients, alongside full 3D flow field information.
 
