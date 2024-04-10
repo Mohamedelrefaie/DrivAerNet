@@ -3,7 +3,10 @@ DrivAerNet: A Parametric Car Dataset for Data-driven Aerodynamic Design and Grap
 
 Paper: https://arxiv.org/abs/2403.08055
 
-Update (29.03.2024): The DrivAerNet dataset and accompanying code from our paper will be available for download upon paper acceptance in the next couple of weeks.
+> Update (10.04.2024): Due to the high volume of requests and emails for the dataset, we're releasing a subset of the DrivAerNet dataset for early access. Full access will follow upon paper acceptance.
+
+A subset of the DrivAerNet dataset can be accessed [here](https://www.dropbox.com/scl/fo/mnnnogykaoixdus9j0wr7/AO0PywI7VAZ1_ZL0e2HcjaA?rlkey=iox7cd8510800iinkqalph9zx&dl=0).
+
 
 ## Introduction
 DrivAerNet is a large-scale, high-fidelity CFD dataset of 3D industry-standard car shapes designed for data-driven aerodynamic design. It comprises 4000 high-quality 3D car meshes and their corresponding aerodynamic performance coefficients, alongside full 3D flow field information.
@@ -79,17 +82,26 @@ The dataset and accompanying Python scripts for data conversion are available at
 We welcome contributions to improve the dataset or project. Please submit pull requests for review.
 
 ## Maintenance and Support
-Maintained by the DeCoDE Lab at MIT. Report issues via [GitHub issues link].
+Maintained by the DeCoDE Lab at MIT. Report issues via [GitHub issues](https://github.com/Mohamedelrefaie/DrivAerNet/issues).
 
 ## License
-Distributed under the Creative Commons Attribution (CC BY) license. Full terms [here](https://creativecommons.org/licenses/by/4.0/deed.en).
-
-## Citations
-Please cite the DrivAerNet dataset in your publications as: [Citation details].
+The code is distributed under the MIT License. The DrivAerNet dataset is distributed under the Creative Commons Attribution-NonCommercial (CC BY-NC) license. Full terms for the dataset license [here](https://creativecommons.org/licenses/by-nc/4.0/deed.en).
 
 ## Additional Resources
 - Tutorials: [Link]
 - Technical Documentation: [Link]
+
+  
+## Citations
+To cite this work, please use the following reference:
+```bibtex
+@article{elrefaie2024drivaernet,
+  title={DrivAerNet: A Parametric Car Dataset for Data-Driven Aerodynamic Design and Graph-Based Drag Prediction},
+  author={Elrefaie, Mohamed and Dai, Angela and Ahmed, Faez},
+  journal={arXiv preprint arXiv:2403.08055},
+  year={2024}
+}
+
 
 
 
