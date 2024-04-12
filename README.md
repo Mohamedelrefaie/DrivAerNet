@@ -11,17 +11,6 @@ A subset of the DrivAerNet dataset can be accessed [here](https://www.dropbox.co
 ## Introduction
 DrivAerNet is a large-scale, high-fidelity CFD dataset of 3D industry-standard car shapes designed for data-driven aerodynamic design. It comprises 4000 high-quality 3D car meshes and their corresponding aerodynamic performance coefficients, alongside full 3D flow field information.
 
-## Dataset Details & Contents
-
-The DrivAerNet dataset is meticulously crafted to serve a wide range of applications from aerodynamic analysis to the training of advanced machine learning models for automotive design optimization. It includes:
-
-- **CFD Simulation Data**: The raw dataset, including full 3D pressure, velocity fields, and wall-shear stresses, computed using **8-16 million mesh elements** has a total size of $\sim$ **16TB**.
-- **Curated CFD Simulations**: For ease of access and use, a **streamlined version of the CFD simulation data** is provided, refined to include key insights and data, reducing the size to $\sim$ **1TB**. 
-- **3D Car Meshes**: A total of **4000 designs**, showcasing a variety of conventional car shapes and emphasizing the impact of minor geometric modifications on aerodynamic efficiency. The 3D meshes and aerodynamic coefficients $\sim$ **84GB**.
-- 2D slices include the car's wake in the $x$-direction and the symmetry plane in the $y$-direction $\sim$ **12GB**.
-
-This rich dataset, with its focus on the nuanced effects of design changes on aerodynamics, provides an invaluable resource for researchers and practitioners in the field.
-
 
 ## Parametric Model 
 The DrivAerNet dataset includes a parametric model of the DrivAer fastback, developed using ANSA® software to enable extensive exploration of automotive design variations. This model is defined by 50 geometric parameters, allowing the generation of 4000 unique car designs through Optimal Latin Hypercube sampling and the Enhanced Stochastic Evolutionary Algorithm. 
@@ -75,6 +64,27 @@ RegDGCNN model is both lightweight, with just 3 million parameters and a 10MB si
 </table>
 
 
+## Dataset Details & Contents
+
+The DrivAerNet dataset is meticulously crafted to serve a wide range of applications from aerodynamic analysis to the training of advanced machine learning models for automotive design optimization. It includes:
+
+- **CFD Simulation Data**: The raw dataset, including full 3D pressure, velocity fields, and wall-shear stresses, computed using **8-16 million mesh elements** has a total size of $\sim$ **16TB**.
+- **Curated CFD Simulations**: For ease of access and use, a **streamlined version of the CFD simulation data** is provided, refined to include key insights and data, reducing the size to $\sim$ **1TB**. 
+- **3D Car Meshes**: A total of **4000 designs**, showcasing a variety of conventional car shapes and emphasizing the impact of minor geometric modifications on aerodynamic efficiency. The 3D meshes and aerodynamic coefficients $\sim$ **84GB**.
+- 2D slices include the car's wake in the $x$-direction and the symmetry plane in the $y$-direction $\sim$ **12GB**.
+
+This rich dataset, with its focus on the nuanced effects of design changes on aerodynamics, provides an invaluable resource for researchers and practitioners in the field.
+
+## Contents of the small subset
+- `DrivAerNet_projected_areas.txt`: Contains the projected frontal area for each car, which is essential for aerodynamic coefficient calculations.
+- `DrivAerNet_STLs_DoE`: A folder with car designs from the Design of Experiments (DoE) used for the CFD simulations and defining boundary conditions.
+- `DrivAerNet_STLs_Combined`: Contains combined STL files where each file represents a complete car model, including body and wheels, which can be directly used in AI models for aerodynamic drag predictions.
+- `yNormal`: Includes a normal slice for each car at the symmetry plane saved as VTK format (at y=0).
+- `xNormal`: Contains slices in the x-direction at x=4, capturing the wake of the car, saved as VTK.
+- `SurfacePressureVTK`: Comprises 3D car models with surface pressure fields saved in VTK format.
+- Videos: Two videos showcasing the 4000 designs are provided for better visualization.
+- `AeroCoefficients_DrivAerNet_FilteredCorrected.csv`: This file includes the aerodynamic coefficients for each design (drag, lift, frontal lift, and rear lift coefficients).
+  
 ## Usage Instructions
 The dataset and accompanying Python scripts for data conversion are available at [GitHub repository link].
 
