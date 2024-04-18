@@ -84,7 +84,8 @@ This rich dataset, with its focus on the nuanced effects of design changes on ae
 - `SurfacePressureVTK`: Comprises 3D car models with surface pressure fields saved in VTK format.
 - Videos: Two videos showcasing the 4000 designs are provided for better visualization.
 - `AeroCoefficients_DrivAerNet_FilteredCorrected.csv`: This file includes the aerodynamic coefficients for each design (drag, lift, frontal lift, and rear lift coefficients).
-  
+- `train_val_test_splits`: This folder includes the train/val/test splits.
+
 ## Usage Instructions
 The dataset and accompanying Python scripts for data conversion are available at [GitHub repository link].
 
