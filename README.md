@@ -2,7 +2,8 @@
 DrivAerNet: A Parametric Car Dataset for Data-driven Aerodynamic Design and Graph-Based Drag Prediction
 
 Paper: https://arxiv.org/abs/2403.08055
-> Update (24.04.2024): We've released the wall shear stresses data and the train/val/test splits for the DrivAerNet dataset. 
+> Update (24.04.2024): We've released the wall shear stresses data and the train/val/test splits for the DrivAerNet dataset.
+
 > Update (10.04.2024): Due to the high volume of requests and emails for the dataset, we're releasing a subset of the DrivAerNet dataset for early access. Full access will follow upon paper acceptance.
 
 A subset of the DrivAerNet dataset can be accessed [here](https://www.dropbox.com/scl/fo/mnnnogykaoixdus9j0wr7/AO0PywI7VAZ1_ZL0e2HcjaA?rlkey=iox7cd8510800iinkqalph9zx&dl=0).
