@@ -7,6 +7,7 @@ DrivAerNet: A Parametric Car Dataset for Data-driven Aerodynamic Design and Grap
 
 > Update (10.04.2024): Due to the high volume of requests and emails for the dataset, we're releasing a subset of the DrivAerNet dataset for early access. Full access will follow upon paper acceptance.
 
+Our new preprint: DrivAerNet++ [here](https://www.researchgate.net/publication/381470334_DrivAerNet_A_Large-Scale_Multimodal_Car_Dataset_with_Computational_Fluid_Dynamics_Simulations_and_Deep_Learning_Benchmarks)
 Paper: https://arxiv.org/abs/2403.08055
 
 A subset of the DrivAerNet dataset can be accessed [here](https://www.dropbox.com/scl/fo/mnnnogykaoixdus9j0wr7/AO0PywI7VAZ1_ZL0e2HcjaA?rlkey=iox7cd8510800iinkqalph9zx&dl=0).
