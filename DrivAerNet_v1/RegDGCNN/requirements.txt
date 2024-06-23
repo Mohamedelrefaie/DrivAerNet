@@ -1,0 +1,8 @@
+numpy==1.26.3
+pandas==2.1.4
+pyvista==0.43.3
+seaborn==0.13.2
+torch==2.0.1+cu117
+torchvision==0.15.2+cu117
+tqdm==4.65.2
+trimesh==4.0.8
