@@ -57,7 +57,7 @@ The code is distributed under the MIT License. The DrivAerNet++ dataset is distr
 
 ## Additional Resources
 
-- Tutorials: [Link]
+- Tutorials: [Link](https://github.com/Mohamedelrefaie/DrivAerNet/tree/main/tutorials)
 - Technical Documentation: [Link]
 
 ## Previous Version
