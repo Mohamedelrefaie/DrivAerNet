@@ -69,10 +69,10 @@ To replicate the code and experiments from the first version of DrivAerNet, plea
 
 To cite this work, please use the following reference:
 
-```bibtex
-@article{elrefaie2024drivaernetplusplus,
+```
+bibtex@article{elrefaie2024drivaernet++,
   title={DrivAerNet++: A Large-Scale Multimodal Car Dataset with Computational Fluid Dynamics Simulations and Deep Learning Benchmarks},
-  author={Elrefaie, Mohamed and Dai, Angela and Ahmed, Faez},
+  author={Elrefaie, Mohamed and Morar, Florin and Dai, Angela and Ahmed, Faez},
   journal={arXiv preprint arXiv:2406.09624},
   year={2024}
 }
