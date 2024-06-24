@@ -35,7 +35,7 @@ The dataset and accompanying Python scripts for data conversion are available at
 ## Usage Instructions
 
 To use the dataset, follow these steps:
-1. Clone the repository: `git clone https://github.com/yourusername/DrivAerNet.git`
+1. Clone the repository: `git clone https://github.com/Mohamedelrefaie/DrivAerNet.git`
 2. Navigate to the dataset directory: `cd DrivAerNet/dataset`
 3. Load the dataset using the provided Python scripts.
 
