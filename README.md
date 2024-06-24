@@ -39,6 +39,10 @@ To use the dataset, follow these steps:
 2. Navigate to the dataset directory: `cd DrivAerNet/dataset`
 3. Load the dataset using the provided Python scripts.
 
+## Computational Cost
+
+Running the high-fidelity CFD simulations for DrivAerNet++ required substantial computational resources. The simulations were conducted on the MIT Supercloud, leveraging parallelization across 60 nodes, totaling 2880 CPU cores, with each CFD case using 256 cores and 1000 GBs of memory. The full dataset requires **39 TB** of storage space. The simulations took approximately **3 × 10⁶ CPU-hours** to complete.
+
 ## Contributing
 
 We welcome contributions to improve the dataset or project. Please submit pull requests for review.
