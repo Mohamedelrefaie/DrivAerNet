@@ -6,7 +6,9 @@ We present DrivAerNet++, the largest and most comprehensive multimodal dataset f
 
 Design parameters for the generation of the DrivAerNet++ dataset. Several geometric parameters with significant impact on aerodynamics were selected and varied within a specific range. These parameter ranges were chosen to avoid values that are either difficult to manufacture or not aesthetically pleasing. 
 
-<img src="https://www.overleaf.com/project/663655133b7b7397b98ad6b1/file/665e2ba5ccf861aeb1a1f677" />
+<img src="https://github.com/Mohamedelrefaie/DrivAerNet/assets/86707575/7d5e016e-d2e5-4e7a-b5eb-cac5e0727009" />
+
+
 ## Dataset Contents
 
 - **CFD Simulation Data**: High-fidelity CFD simulation data for each car design, including 3D flow fields and surface pressure distributions.
