@@ -19,8 +19,6 @@ DrivAerNet++ covers all conventional car designs. The dataset encompasses variou
   </tr>
 </table>
 
-## Design Parameters
-
 Each 3D car geometry is parametrized with 26 parameters that completely describe the design. To create diverse car designs, we used two main morphing methods: morphing boxes and direct morphing. For a detailed description of the design parameters, their ranges, lower and upper bounds, please refer to the paper.
 
 ![DrivAerNet_params-ezgif com-crop](https://github.com/Mohamedelrefaie/DrivAerNet/assets/86707575/8a2408de-a920-4326-8433-9b8b9b231ffb)
