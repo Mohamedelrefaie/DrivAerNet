@@ -17,7 +17,12 @@ DrivAerNet++ covers all conventional car designs. The dataset encompasses variou
   <img src="https://github.com/Mohamedelrefaie/DrivAerNet/assets/86707575/0fc97e2a-f06c-4036-a9de-8d9d1c5e6a91" style="width: 49%;" />
 </div>
 
-
+<table>
+  <tr>
+    <td><img src="https://github.com/Mohamedelrefaie/DrivAerNet/assets/86707575/98064523-1a12-4ab3-9be4-8b745d1d1072" width="100%"></td>
+    <td><img src="https://github.com/Mohamedelrefaie/DrivAerNet/assets/86707575/0fc97e2a-f06c-4036-a9de-8d9d1c5e6a91" width="100%"></td>
+  </tr>
+</table>
 
 ## Dataset Contents
 
