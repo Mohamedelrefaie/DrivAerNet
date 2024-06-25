@@ -549,8 +549,8 @@ class DrivAerNetGNNDataset(Dataset):
 
 # Example usage
 if __name__ == '__main__':
-    dataset = DrivAerNetDataset(root_dir='/mnt/decodelab/mohamed/DrivAerNet/ParametricModels/DrivAerNet_ParametricModels/DrivAerNetPlusPlus_combined_all',
-                                csv_file='/mnt/decodelab/mohamed/DrivAerNet/DrivAerNet_NeurIPS/CFD_new/CFD_new/Combined_AeroCoefficients_DrivAerNet.csv',
+    dataset = DrivAerNetDataset(root_dir='../DrivAerNetPlusPlus_combined_all',
+                                csv_file='../Combined_AeroCoefficients_DrivAerNet.csv',
                                 num_points=100000,
                                 pointcloud_exist=False  # Set to False if point clouds do not exist as .pt files
                                 )
