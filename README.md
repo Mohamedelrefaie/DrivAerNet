@@ -62,11 +62,11 @@ To replicate the results based on geometric deep learning methods, please refer 
 
 ### Training Using Point Clouds
 You can access the preprocessed point clouds for training at the following link:  
-[DrivAerNet++ Processed Point Clouds (100k)](https://www.dropbox.com/work/decode_lab/Datasets/Public%20Documents/DrivAerNet%2B%2B/DrivAerNetPlusPlus_Processed_Point_Clouds_100k)
+[DrivAerNet++ Processed Point Clouds (100k)](https://www.dropbox.com/scl/fo/wfx02gf00ru3dqdqngaid/AFpGKPbNHCRxsbsghcwTPg4?rlkey=2ombux69rcu1apl68x607kjrz&dl=0)
 
 ### Training Using STL Files / Graphs
 For training using the STL files (for graph-based methods or point sampling at a different resolution), please download the STLs from the following link:  
-[DrivAerNet++ STL Files](https://www.dropbox.com/work/decode_lab/Datasets/Public%20Documents/DrivAerNet%2B%2B/DrivAerNetPlusPlus_STLs_Combined)
+[DrivAerNet++ STL Files](https://www.dropbox.com/scl/fo/s4njmmkho5hhtcjcjqcea/APi6lkrYDHDzgmTLskiduXg?rlkey=9ic8g595eoc1wl3iiavmhibnl&dl=0)
 
 
 The data will be released after the review process on Harvard Dataverse.
