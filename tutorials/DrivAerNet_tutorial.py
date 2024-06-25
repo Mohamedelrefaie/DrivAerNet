@@ -30,7 +30,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 # Load the dataset
-file_path = '/mnt/decodelab/mohamed/DrivAerNet/AeroCoefficients_DrivAerNet_FilteredCorrected.csv'
+file_path = '../AeroCoefficients_DrivAerNet_FilteredCorrected.csv'
 data = pd.read_csv(file_path)
 
 # Set the aesthetic style of the plots
@@ -80,7 +80,7 @@ import pyvista as pv
 import os
 
 # Replace with the actual path to your folder containing .stl files
-folder_path = '/mnt/decodelab/mohamed/DrivAerNet/DrivAerNet_STLs_Combined'
+folder_path = '../DrivAerNet_STLs_Combined'
 
 # List all .stl files in the folder
 stl_files = [f for f in os.listdir(folder_path) if f.endswith('.stl')]
@@ -174,7 +174,7 @@ def create_visualization_subplots(mesh, pressure_name='p', n_points=100000):
     plotter.show()
 
 # Load your mesh data here, ensure it has the pressure data in point_data
-mesh = pv.read('/mnt/decodelab/mohamed/DrivAerNet/SurfacePressureVTK/DrivAer_F_D_WM_WW_3000.vtk')
+mesh = pv.read('../SurfacePressureVTK/DrivAer_F_D_WM_WW_3000.vtk')
 
 # Visualize the mesh, mesh with pressure, and point cloud with pressure
 create_visualization_subplots(mesh, pressure_name='p', n_points=100000)
@@ -192,7 +192,7 @@ In this part, separate PyVista plots are created to visualize pressure ('p') and
 import pyvista as pv
 
 # Replace this with the actual path to your VTK file containing both 'p' and 'U' data
-vtk_file_path = '/mnt/decodelab/mohamed/DrivAerNet/yNormal/DrivAer_F_D_WM_WW_3000.vtk'
+vtk_file_path = '../yNormal/DrivAer_F_D_WM_WW_3000.vtk'
 
 # Load the VTK file
 mesh = pv.read(vtk_file_path)
@@ -229,7 +229,7 @@ In this part, separate PyVista plots are created to visualize pressure ('p') and
 import pyvista as pv
 
 # Replace this with the actual path to your VTK file containing both 'p' and 'U' data
-vtk_file_path = '/mnt/decodelab/mohamed/DrivAerNet/xNormal/DrivAer_F_D_WM_WW_3000.vtk'
+vtk_file_path = '../xNormal/DrivAer_F_D_WM_WW_3000.vtk'
 
 # Load the VTK file
 mesh = pv.read(vtk_file_path)
@@ -299,7 +299,7 @@ def visualize_flow_field(vtk_file_path, scalar_field='U'):
     return plotter
 
 # Example usage:
-vtk_file_path = '/mnt/decodelab/mohamed/DrivAerNet/CFD_VTK/Exp_0003/VTK/Exp_0003_1000.vtk'
+vtk_file_path = '../CFD_VTK/Exp_0003/VTK/Exp_0003_1000.vtk'
 scalar_field = 'U'  # or 'p' for pressure
 plotter = visualize_flow_field(vtk_file_path, scalar_field)
 plotter.show()
