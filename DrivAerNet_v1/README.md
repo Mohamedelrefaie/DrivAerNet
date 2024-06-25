@@ -1,19 +1,6 @@
 # DrivAerNet
 DrivAerNet: A Parametric Car Dataset for Data-driven Aerodynamic Design and Graph-Based Drag Prediction
 
-> Update (12.06.2024): We're releasing DrivAerNet++, the largest and most comprehensive multimodal dataset for aerodynamic car design. DrivAerNet++ comprises 8,000 diverse car designs.
-
-> Update (28.04.2024): We've released the code for training RegDGCNN, the wall shear stresses data, and the train/val/test splits for the DrivAerNet dataset.
-
-> Update (10.04.2024): Due to the high volume of requests and emails for the dataset, we're releasing a subset of the DrivAerNet dataset for early access. Full access will follow upon paper acceptance.
-
-Our new preprint: DrivAerNet++ paper [here](https://www.researchgate.net/publication/381470334_DrivAerNet_A_Large-Scale_Multimodal_Car_Dataset_with_Computational_Fluid_Dynamics_Simulations_and_Deep_Learning_Benchmarks)
-
-DrivAerNet Paper: [here](https://www.researchgate.net/publication/378937154_DrivAerNet_A_Parametric_Car_Dataset_for_Data-Driven_Aerodynamic_Design_and_Graph-Based_Drag_Prediction)
-
-A subset of the DrivAerNet dataset can be accessed [here](https://www.dropbox.com/scl/fo/mnnnogykaoixdus9j0wr7/AO0PywI7VAZ1_ZL0e2HcjaA?rlkey=iox7cd8510800iinkqalph9zx&dl=0).
-
-
 ## Introduction
 DrivAerNet is a large-scale, high-fidelity CFD dataset of 3D industry-standard car shapes designed for data-driven aerodynamic design. It comprises 4000 high-quality 3D car meshes and their corresponding aerodynamic performance coefficients, alongside full 3D flow field information.
 
