@@ -56,9 +56,19 @@ DrivAerNet++ supports a wide array of machine learning applications, including b
 - CFD simulation acceleration
 - Geometric classification
 
-## How to Access
+## Results Replication
 
-The dataset and accompanying Python scripts for data conversion are available at [].
+To replicate the results from our paper, please refer to the code saved in the [`DeepSurrogates`](https://github.com/Mohamedelrefaie/DrivAerNet/tree/main/DeepSurrogates) directory.
+
+### Training Using Point Clouds
+You can access the preprocessed point clouds for training at the following link:  
+[DrivAerNet++ Processed Point Clouds (100k)](https://www.dropbox.com/work/decode_lab/Datasets/Public%20Documents/DrivAerNet%2B%2B/DrivAerNetPlusPlus_Processed_Point_Clouds_100k)
+
+### Training Using STL Files
+For training using the STL files (for graph-based methods or point sampling at a different resolution), please download the STLs from the following link:  
+[DrivAerNet++ STL Files](https://www.dropbox.com/work/decode_lab/Datasets/Public%20Documents/DrivAerNet%2B%2B/DrivAerNetPlusPlus_STLs_Combined)
+
+**Note:** The data will be released after the review process on Harvard Dataverse.
 
 ## Usage Instructions
 
