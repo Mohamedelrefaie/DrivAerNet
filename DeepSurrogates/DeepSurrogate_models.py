@@ -302,8 +302,8 @@ class RegPointNet(nn.Module):
         features = x
         x = self.final_linear(x)
 
-        return x, features
-
+        #return x, features
+        return x
 
 class DragGNN(torch.nn.Module):
     """
