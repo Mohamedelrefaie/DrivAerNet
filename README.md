@@ -70,8 +70,7 @@ Running the high-fidelity CFD simulations for DrivAerNet++ required substantial 
 We welcome contributions to improve the dataset or project. Please submit pull requests for review.
 
 ## Maintenance and Support
-
-Maintained by the DeCoDE Lab at MIT. Report issues via [GitHub issues](https://github.com/yourusername/DrivAerNet/issues).
+Maintained by the DeCoDE Lab at MIT. Report issues via [GitHub issues](https://github.com/Mohamedelrefaie/DrivAerNet/issues).
 
 ## License
 
