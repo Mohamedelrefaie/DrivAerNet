@@ -165,15 +165,16 @@ class DrivAerNetDataset(Dataset):
         return vertices
 
     def _load_point_cloud(self, design_id: str) -> Optional[torch.Tensor]:
-        """Helper method to load point cloud if it exists, otherwise return None."""
-        point_cloud_path = os.path.join(self.root_dir, 'point_clouds', f"{design_id}.pt")
-        if os.path.exists(point_cloud_path):
+        load_path = os.path.join(self.root_dir, f"{design_id}.pt")
+        if os.path.exists(load_path) and os.path.getsize(load_path) > 0:
             try:
-                return torch.load(point_cloud_path)
-            except Exception as e:
-                logging.error(f"Failed to load point cloud file: {point_cloud_path}. Error: {e}")
+                return torch.load(load_path)
+            except (EOFError, RuntimeError) as e:
+                #logging.error(f"Failed to load point cloud file {load_path}: {e}")
                 return None
-        return None
+        else:
+            #logging.error(f"Point cloud file {load_path} does not exist or is empty.")
+            return None
 
     def __getitem__(self, idx: int, apply_augmentations: bool = True) -> Tuple[torch.Tensor, torch.Tensor]:
         """
@@ -191,37 +192,40 @@ class DrivAerNetDataset(Dataset):
 
         if idx in self.cache:
             return self.cache[idx]
+        while True:
+            row = self.data_frame.iloc[idx]
+            design_id = row['Design']
+            cd_value = row['Average Cd']
 
-        row = self.data_frame.iloc[idx]
-        design_id = row['Design']
-        cd_value = row['Average Cd']
+            if self.pointcloud_exist:
+                vertices = self._load_point_cloud(design_id)
+                
+                if vertices is None:
+                    #logging.warning(f"Skipping design {design_id} because point cloud is not found or corrupted.")
+                    idx = (idx + 1) % len(self.data_frame)
+                    continue
+            else:
+                geometry_path = os.path.join(self.root_dir, f"{design_id}.stl")
+                try:
+                    mesh = trimesh.load(geometry_path, force='mesh')
+                    vertices = torch.tensor(mesh.vertices, dtype=torch.float32)
+                    vertices = self._sample_or_pad_vertices(vertices, self.num_points)
+                except Exception as e:
+                    logging.error(f"Failed to load STL file: {geometry_path}. Error: {e}")
+                    raise
 
-        if self.pointcloud_exist:
-            vertices = self._load_point_cloud(design_id)
-            if vertices is None:
-                raise FileNotFoundError(f"Point cloud for design {design_id} not found.")
-        else:
-            geometry_path = os.path.join(self.root_dir, f"{design_id}.stl")
-            try:
-                mesh = trimesh.load(geometry_path, force='mesh')
-                vertices = torch.tensor(mesh.vertices, dtype=torch.float32)
-                vertices = self._sample_or_pad_vertices(vertices, self.num_points)
-            except Exception as e:
-                logging.error(f"Failed to load STL file: {geometry_path}. Error: {e}")
-                raise
+            if apply_augmentations:
+                vertices = self.augmentation.translate_pointcloud(vertices.numpy())
+                vertices = self.augmentation.jitter_pointcloud(vertices)
 
-        if apply_augmentations:
-            vertices = self.augmentation.translate_pointcloud(vertices.numpy())
-            vertices = self.augmentation.jitter_pointcloud(vertices)
+            if self.transform:
+                vertices = self.transform(vertices)
 
-        if self.transform:
-            vertices = self.transform(vertices)
+            point_cloud_normalized = self.min_max_normalize(vertices)
+            cd_value = torch.tensor(float(cd_value), dtype=torch.float32).view(-1)
 
-        point_cloud_normalized = self.min_max_normalize(vertices)
-        cd_value = torch.tensor(float(cd_value), dtype=torch.float32).view(-1)
-
-        self.cache[idx] = (point_cloud_normalized, cd_value)
-        return point_cloud_normalized, cd_value
+            self.cache[idx] = (point_cloud_normalized, cd_value)
+            return point_cloud_normalized, cd_value
 
     def split_data(self, train_ratio: float = 0.7, val_ratio: float = 0.15, test_ratio: float = 0.15) -> Tuple[List[int], List[int], List[int]]:
         """
@@ -547,18 +551,18 @@ class DrivAerNetGNNDataset(Dataset):
         plotter.show()
 
 
-# Example usage
-if __name__ == '__main__':
-    dataset = DrivAerNetDataset(root_dir='../DrivAerNetPlusPlus_combined_all',
-                                csv_file='../Combined_AeroCoefficients_DrivAerNet.csv',
-                                num_points=100000,
-                                pointcloud_exist=False  # Set to False if point clouds do not exist as .pt files
-                                )
-
-    dataset.visualize_mesh_with_node(10)  # Visualize the mesh with nodes of the 300th sample
-
-    dataset.visualize_point_cloud(10)  # Visualize the point cloud of the 300th sample
-
-    # Splitting data into train, validation, and test sets
-    #train_indices, val_indices, test_indices = dataset.split_data()
-    #logging.info(f"Train size: {len(train_indices)}, Validation size: {len(val_indices)}, Test size: {len(test_indices)}")
+# # Example usage
+# if __name__ == '__main__':
+#     dataset = DrivAerNetDataset(root_dir='../DrivAerNetPlusPlus_combined_all',
+#                                 csv_file='../Combined_AeroCoefficients_DrivAerNet.csv',
+#                                 num_points=100000,
+#                                 pointcloud_exist=False  # Set to False if point clouds do not exist as .pt files
+#                                 )
+#
+#     dataset.visualize_mesh_with_node(10)  # Visualize the mesh with nodes of the 300th sample
+#
+#     dataset.visualize_point_cloud(10)  # Visualize the point cloud of the 300th sample
+#
+#     # Splitting data into train, validation, and test sets
+#     #train_indices, val_indices, test_indices = dataset.split_data()
+#     #logging.info(f"Train size: {len(train_indices)}, Validation size: {len(val_indices)}, Test size: {len(test_indices)}")
