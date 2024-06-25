@@ -56,17 +56,21 @@ DrivAerNet++ supports a wide array of machine learning applications, including b
 
 ## Results Replication
 
-To replicate the results from our paper, please refer to the code saved in the [`DeepSurrogates`](https://github.com/Mohamedelrefaie/DrivAerNet/tree/main/DeepSurrogates) directory.
+To replicate the results based on the parametric tabular data, please refer to the [`ParametricModels`](https://github.com/Mohamedelrefaie/DrivAerNet/tree/main/ParametricModels) directory and the code in `AutoML_parametric.py`.
+
+To replicate the results based on geometric deep learning methods, please refer to the code saved in the [`DeepSurrogates`](https://github.com/Mohamedelrefaie/DrivAerNet/tree/main/DeepSurrogates) directory.
 
 ### Training Using Point Clouds
 You can access the preprocessed point clouds for training at the following link:  
 [DrivAerNet++ Processed Point Clouds (100k)](https://www.dropbox.com/work/decode_lab/Datasets/Public%20Documents/DrivAerNet%2B%2B/DrivAerNetPlusPlus_Processed_Point_Clouds_100k)
 
-### Training Using STL Files
+### Training Using STL Files / Graphs
 For training using the STL files (for graph-based methods or point sampling at a different resolution), please download the STLs from the following link:  
 [DrivAerNet++ STL Files](https://www.dropbox.com/work/decode_lab/Datasets/Public%20Documents/DrivAerNet%2B%2B/DrivAerNetPlusPlus_STLs_Combined)
 
-**Note:** The data will be released after the review process on Harvard Dataverse.
+
+The data will be released after the review process on Harvard Dataverse.
+
 
 ## Computational Cost
 
