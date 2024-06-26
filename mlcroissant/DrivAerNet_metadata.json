@@ -1,0 +1,192 @@
+{
+  "@context": {
+    "@language": "en",
+    "@vocab": "https://schema.org/",
+    "citeAs": "cr:citeAs",
+    "column": "cr:column",
+    "conformsTo": "dct:conformsTo",
+    "cr": "http://mlcommons.org/croissant/",
+    "rai": "http://mlcommons.org/croissant/RAI/",
+    "data": {
+      "@id": "cr:data",
+      "@type": "@json"
+    },
+    "dataType": {
+      "@id": "cr:dataType",
+      "@type": "@vocab"
+    },
+    "dct": "http://purl.org/dc/terms/",
+    "examples": {
+      "@id": "cr:examples",
+      "@type": "@json"
+    },
+    "extract": "cr:extract",
+    "field": "cr:field",
+    "fileProperty": "cr:fileProperty",
+    "fileObject": "cr:fileObject",
+    "fileSet": "cr:fileSet",
+    "format": "cr:format",
+    "includes": "cr:includes",
+    "isLiveDataset": "cr:isLiveDataset",
+    "jsonPath": "cr:jsonPath",
+    "key": "cr:key",
+    "md5": "cr:md5",
+    "parentField": "cr:parentField",
+    "path": "cr:path",
+    "recordSet": "cr:recordSet",
+    "references": "cr:references",
+    "regex": "cr:regex",
+    "repeated": "cr:repeated",
+    "replace": "cr:replace",
+    "sc": "https://schema.org/",
+    "separator": "cr:separator",
+    "source": "cr:source",
+    "subField": "cr:subField",
+    "transform": "cr:transform"
+  },
+  "@type": "sc:Dataset",
+  "name": "DrivAerNet++: A Large-Scale Multimodal Car Dataset with Computational Fluid Dynamics Simulations and Deep Learning Benchmarks",
+  "description": "DrivAerNet is a large-scale, multimodal dataset designed for data-driven aerodynamic design, incorporating high-fidelity CFD simulations of 8000 diverse car designs.",
+  "conformsTo": "http://mlcommons.org/croissant/1.0",
+  "citeAs": "@article{elrefaie2024drivaernet++, title={DrivAerNet++: A Large-Scale Multimodal Car Dataset with Computational Fluid Dynamics Simulations and Deep Learning Benchmarks}, author={Elrefaie, Mohamed and Morar, Florin and Dai, Angela and Ahmed, Faez}, year={2024}, journal={arXiv preprint arXiv:2406.09624}}",
+  "creator": {
+    "name": "Mohamed Elrefaie",
+    "affiliation": "Massachusetts Institute of Technology"
+  },
+  "keywords": [
+    "aerodynamics",
+    "CFD",
+    "automotive design",
+    "machine learning"
+  ],
+  "license": "Creative Commons Attribution-NonCommercial (CC BY-NC)",
+  "url": "https://github.com/Mohamedelrefaie/DrivAerNet",
+  "version": "1.0",
+  "distribution": [
+    {
+      "@type": "cr:FileObject",
+      "@id": "github-repository",
+      "name": "github-repository",
+      "description": "DrivAerNet repository on GitHub.",
+      "contentUrl": "https://github.com/Mohamedelrefaie/DrivAerNet",
+      "encodingFormat": "git+https",
+      "sha256": "main"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "mesh-files",
+      "name": "mesh-files",
+      "description": "3D mesh files hosted on the GitHub repository.",
+      "containedIn": {
+        "@id": "github-repository"
+      },
+      "encodingFormat": "application/stl",
+      "includes": "meshes/*.stl"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "parametric-data",
+      "name": "parametric-data",
+      "description": "Parametric data files hosted on the GitHub repository.",
+      "containedIn": {
+        "@id": "github-repository"
+      },
+      "encodingFormat": "application/csv",
+      "includes": "data/*.csv"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "point-cloud-files",
+      "name": "point-cloud-files",
+      "description": "Point cloud files hosted on the GitHub repository.",
+      "containedIn": {
+        "@id": "github-repository"
+      },
+      "encodingFormat": "application/octet-stream",
+      "includes": "point_clouds/*.pt"
+    }
+  ],
+  "recordSet": [
+    {
+      "@type": "cr:RecordSet",
+      "@id": "parametric-records",
+      "name": "parametric-records",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "parametric/parameter",
+          "name": "parameter",
+          "description": "Geometric parameters describing each car design.",
+          "dataType": "sc:Float",
+          "source": {
+            "fileSet": {
+              "@id": "parametric-data"
+            },
+            "extract": {
+              "column": "parameter"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "parametric/value",
+          "name": "value",
+          "description": "Values for each geometric parameter.",
+          "dataType": "sc:Float",
+          "source": {
+            "fileSet": {
+              "@id": "parametric-data"
+            },
+            "extract": {
+              "column": "value"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "mesh-records",
+      "name": "mesh-records",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "meshes/filename",
+          "name": "filename",
+          "description": "Filename of the mesh file.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "mesh-files"
+            },
+            "extract": {
+              "fileProperty": "filename"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "point-cloud-records",
+      "name": "point-cloud-records",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "point-clouds/filename",
+          "name": "filename",
+          "description": "Filename of the point cloud file.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "point-cloud-files"
+            },
+            "extract": {
+              "fileProperty": "filename"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
