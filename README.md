@@ -29,7 +29,7 @@ Each 3D car geometry is parametrized with 26 parameters that completely describe
 
 
 
-## Dataset Contents
+## Dataset Contents & Modalities
 - **Parametric Models**: Parametric models with tabular data, allowing extensive exploration of automotive design variations.
 - **Point Cloud Data**: Point cloud data for each car design.
 - **3D Car Meshes**: Detailed 3D meshes of each car design, suitable for various machine learning applications.
