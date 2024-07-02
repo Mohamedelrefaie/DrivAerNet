@@ -68,6 +68,8 @@ To replicate the results based on geometric deep learning methods, please refer 
 
 ![image](https://github.com/Mohamedelrefaie/DrivAerNet/assets/86707575/37dbd178-8fc1-46f0-a006-a873e0825bf1)
 
+Drag values for the 8k car designs can be found [Here](https://www.dropbox.com/work/decode_lab/Datasets/Public%20Documents/DrivAerNet%2B%2B/DrivAerNetPlusPlus_STLs_Combined?preview=DrivAerNetPlusPlus_Drag_8k.csv)
+
 ### Training Using Point Clouds
 You can access the preprocessed point clouds for training at the following link:  
 [DrivAerNet++ Processed Point Clouds (100k)](https://www.dropbox.com/scl/fo/wfx02gf00ru3dqdqngaid/AFpGKPbNHCRxsbsghcwTPg4?rlkey=2ombux69rcu1apl68x607kjrz&dl=0)
