@@ -45,6 +45,10 @@ utility for developing and testing advanced algorithms in automotive design and 
 ![DrivAerNet_ClassLabels_new](https://github.com/Mohamedelrefaie/DrivAerNet/assets/86707575/18833c92-6be9-437a-be10-4c52f9ed105f)
 
 
+## Computational Cost
+
+Running the high-fidelity CFD simulations for DrivAerNet++ required substantial computational resources. The simulations were conducted on the MIT Supercloud, leveraging parallelization across 60 nodes, totaling 2880 CPU cores, with each CFD case using 256 cores and 1000 GBs of memory. The full dataset requires **39 TB** of storage space. The simulations took approximately **3 × 10⁶ CPU-hours** to complete.
+
 ## Applications
 
 DrivAerNet++ supports a wide array of machine learning applications, including but not limited to:
@@ -56,9 +60,13 @@ DrivAerNet++ supports a wide array of machine learning applications, including b
 
 ## Results Replication
 
+DrivAerNet++ serves as a valuable benchmark dataset due to its size and diversity. It provides extensive coverage of various car designs and configurations, making it ideal for testing and validating machine learning models in aerodynamic design. We provide the train, test, and validation splits in the following folder: [train_val_test_splits](https://github.com/Mohamedelrefaie/DrivAerNet/tree/main/train_val_test_splits).
+
 To replicate the results based on the parametric tabular data, please refer to the [`ParametricModels`](https://github.com/Mohamedelrefaie/DrivAerNet/tree/main/ParametricModels) directory and the code in `AutoML_parametric.py`.
 
 To replicate the results based on geometric deep learning methods, please refer to the code saved in the [`DeepSurrogates`](https://github.com/Mohamedelrefaie/DrivAerNet/tree/main/DeepSurrogates) directory.
+
+![image](https://github.com/Mohamedelrefaie/DrivAerNet/assets/86707575/37dbd178-8fc1-46f0-a006-a873e0825bf1)
 
 ### Training Using Point Clouds
 You can access the preprocessed point clouds for training at the following link:  
@@ -69,12 +77,9 @@ For training using the STL files (for graph-based methods or point sampling at a
 [DrivAerNet++ STL Files](https://www.dropbox.com/scl/fo/s4njmmkho5hhtcjcjqcea/APi6lkrYDHDzgmTLskiduXg?rlkey=9ic8g595eoc1wl3iiavmhibnl&dl=0)
 
 
-The data will be released after the review process on Harvard Dataverse.
+The full data will be released after the review process on Harvard Dataverse.
 
 
-## Computational Cost
-
-Running the high-fidelity CFD simulations for DrivAerNet++ required substantial computational resources. The simulations were conducted on the MIT Supercloud, leveraging parallelization across 60 nodes, totaling 2880 CPU cores, with each CFD case using 256 cores and 1000 GBs of memory. The full dataset requires **39 TB** of storage space. The simulations took approximately **3 × 10⁶ CPU-hours** to complete.
 
 ## Contributing
 
