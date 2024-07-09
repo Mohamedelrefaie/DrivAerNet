@@ -89,6 +89,10 @@ For training using the STL files (for graph-based methods or point sampling at a
 The full data will be released after the review process on Harvard Dataverse.
 
 
+## Datasets Comparison
+DrivAerNet++ stands out as the largest and most comprehensive dataset in the field of car design.
+![image](https://github.com/Mohamedelrefaie/DrivAerNet/assets/86707575/3c5b33d5-7163-4c33-b734-eeffbb4fb1f0)
+
 
 ## Contributing
 
