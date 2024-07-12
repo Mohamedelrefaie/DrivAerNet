@@ -1,5 +1,9 @@
 # DrivAerNet++
 
+> Update (11.07.2024): DrivAerNet is now integrated into [NVIDIA Modulus](https://github.com/NVIDIA/modulus/blob/7a631ac01f80ba7bb70d8dee49c92ac234e624e9/examples/cfd/aero_graph_net/README.md#drivaer-training)
+
+
+
 Our new preprint: DrivAerNet++ paper [here](https://www.researchgate.net/publication/381470334_DrivAerNet_A_Large-Scale_Multimodal_Car_Dataset_with_Computational_Fluid_Dynamics_Simulations_and_Deep_Learning_Benchmarks)
 
 DrivAerNet Paper: [here](https://www.researchgate.net/publication/378937154_DrivAerNet_A_Parametric_Car_Dataset_for_Data-Driven_Aerodynamic_Design_and_Graph-Based_Drag_Prediction)
