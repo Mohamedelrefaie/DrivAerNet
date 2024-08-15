@@ -1,7 +1,8 @@
 # DrivAerNet++
 
-> Update (11.07.2024): DrivAerNet is now integrated into [NVIDIA Modulus](https://github.com/NVIDIA/modulus/blob/7a631ac01f80ba7bb70d8dee49c92ac234e624e9/examples/cfd/aero_graph_net/README.md#drivaer-training)
+> Update (15.08.2024): DrivAerNet++ has been utilized in the IJCAI 2024 competition. All competitors' code and results are available in the open-source repository: [Rapid Aerodynamic Drag Prediction for Arbitrary Vehicles in 3D Space](https://github.com/PaddlePaddle/PaddleScience/tree/develop/jointContribution/IJCAI_2024).
 
+> Update (11.07.2024): DrivAerNet is now integrated into [NVIDIA Modulus](https://github.com/NVIDIA/modulus/blob/7a631ac01f80ba7bb70d8dee49c92ac234e624e9/examples/cfd/aero_graph_net/README.md#drivaernet-dataset)
 
 
 Our new preprint: DrivAerNet++ paper [here](https://www.researchgate.net/publication/381470334_DrivAerNet_A_Large-Scale_Multimodal_Car_Dataset_with_Computational_Fluid_Dynamics_Simulations_and_Deep_Learning_Benchmarks)
