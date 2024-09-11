@@ -1,6 +1,6 @@
 # DrivAerNet++
 
-> 🚀 Update (20.08.2024): We're adding 400 new car designs and CFD simulations to DrivAerNet++, boosting dataset diversity and richness!
+> Update (11.09.2024): Due to the overwhelming interest and numerous inquiries from industry partners, we are excited to announce that we are now offering commercial licensing options for the DrivAerNet and DrivAerNet++ datasets. please refer to the [Commercial Usage of DrivAerNet/DrivAerNet++](#commercial-usage-of-drivaernetdrivaernet) section.
 
 > Update (15.08.2024): DrivAerNet has been utilized in the [IJCAI 2024 competition](https://aistudio.baidu.com/projectdetail/7459168?channelType=0&channel=0). All competitors' code and results are available in the open-source repository: [Rapid Aerodynamic Drag Prediction for Arbitrary Vehicles in 3D Space](https://github.com/PaddlePaddle/PaddleScience/tree/develop/jointContribution/IJCAI_2024).
 
@@ -123,6 +123,10 @@ The code is distributed under the MIT License. The DrivAerNet++ dataset is distr
 
 To replicate the code and experiments from the first version of DrivAerNet, please refer to the folder: [DrivAerNet_v1](https://github.com/Mohamedelrefaie/DrivAerNet/tree/main/DrivAerNet_v1). This includes 4,000 car designs based on the fastback category. The dataset can be accessed [here](https://www.dropbox.com/scl/fo/mnnnogykaoixdus9j0wr7/AO0PywI7VAZ1_ZL0e2HcjaA?rlkey=iox7cd8510800iinkqalph9zx&dl=0).
 
+
+## Commercial Usage of DrivAerNet/DrivAerNet++
+
+If you are interested in the commercial use of the DrivAerNet or DrivAerNet++ datasets, please contact Mohamed Elrefaie and the MIT Technology Licensing Office (TLO) with the subject line: "DrivAerNet Commercial Inquiry".
 
 
 ## Citations
