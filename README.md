@@ -117,7 +117,7 @@ The code is distributed under the MIT License. The DrivAerNet++ dataset is distr
 ## Additional Resources
 
 - Tutorials: [Link](https://github.com/Mohamedelrefaie/DrivAerNet/tree/main/tutorials)
-- Technical Documentation: [Link]
+- Technical Documentation: [Coming Soon]
 
 ## Previous Version
 
