@@ -126,7 +126,7 @@ To replicate the code and experiments from the first version of DrivAerNet, plea
 
 ## Commercial Usage of DrivAerNet/DrivAerNet++
 
-If you are interested in the commercial use of the DrivAerNet or DrivAerNet++ datasets, please contact Mohamed Elrefaie and the MIT Technology Licensing Office (TLO) with the subject line: "DrivAerNet Commercial Inquiry".
+If you are interested in the commercial use of the DrivAerNet or DrivAerNet++ datasets, please contact Mohamed Elrefaie and the MIT Technology Licensing Office (TLO) (apfowler@mit.edu or kevhogan@mit.edu) with the subject line: "DrivAerNet Commercial Inquiry".
 
 
 ## Citations
