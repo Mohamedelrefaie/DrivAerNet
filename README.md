@@ -45,6 +45,10 @@ Each 3D car geometry is parametrized with 26 parameters that completely describe
   
 ![DatasetContents](https://github.com/Mohamedelrefaie/DrivAerNet/assets/86707575/424a1aac-fe9b-4e4f-ba14-20f466311224)
 
+
+![DrivAerNet_Demo_cropped](https://github.com/user-attachments/assets/1fa8a865-9e26-4985-b807-245d0227c610)
+
+
 ## Dataset Annotations
 In addition to the CFD simulation data, our dataset includes detailed annotations for various car components (29 labels), such as wheels, side mirrors, and doors. These annotations are instrumental for a range of machine learning tasks, including classification, semantic segmentation, and object detection. The comprehensive labeling can also facilitate automated CFD meshing processes by providing precise information about different car components. By incorporating these labels, our dataset enhances the
 utility for developing and testing advanced algorithms in automotive design and analysis.
