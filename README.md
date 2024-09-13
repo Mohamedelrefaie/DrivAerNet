@@ -35,6 +35,11 @@ Each 3D car geometry is parametrized with 26 parameters that completely describe
 ![DrivAerNet_params-ezgif com-crop](https://github.com/Mohamedelrefaie/DrivAerNet/assets/86707575/8a2408de-a920-4326-8433-9b8b9b231ffb)
 
 
+## Importance of Dataset Diversity 
+
+Dataset diversity and shape variation are crucial for developing robust deep learning models in aerodynamic car design. By providing a wide range of car shapes and configurations with high-fidelity CFD, DrivAerNet++ enables models to generalize better, supports exploration of unconventional designs, and enhances understanding of how geometric features impact aerodynamic performance.
+
+![DrivAerNet_Demo_cropped](https://github.com/user-attachments/assets/1fa8a865-9e26-4985-b807-245d0227c610)
 
 ## Dataset Contents & Modalities
 - **Parametric Models**: Parametric models with tabular data, allowing extensive exploration of automotive design variations.
@@ -44,9 +49,6 @@ Each 3D car geometry is parametrized with 26 parameters that completely describe
 - **Aerodynamic Coefficients**: Key aerodynamic metrics such as drag coefficient (Cd), lift coefficient (Cl), and more.
   
 ![DatasetContents](https://github.com/Mohamedelrefaie/DrivAerNet/assets/86707575/424a1aac-fe9b-4e4f-ba14-20f466311224)
-
-
-![DrivAerNet_Demo_cropped](https://github.com/user-attachments/assets/1fa8a865-9e26-4985-b807-245d0227c610)
 
 
 ## Dataset Annotations
