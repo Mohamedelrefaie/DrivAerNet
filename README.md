@@ -132,7 +132,7 @@ The code is distributed under the MIT License. The DrivAerNet++ dataset is distr
 
 ## Commercial Usage of DrivAerNet/DrivAerNet++
 
-If you are interested in the commercial use of the DrivAerNet or DrivAerNet++ datasets, please contact Mohamed Elrefaie and the MIT Technology Licensing Office (TLO) (apfowler@mit.edu or kevhogan@mit.edu) with the subject line: "DrivAerNet Commercial Inquiry".
+If you are interested in the commercial use of the DrivAerNet or DrivAerNet++ datasets, please contact Mohamed Elrefaie (mohamed.elrefaie@mit.edu) and Faez Ahmed (faez@mit.edu) with the subject line: "DrivAerNet Commercial Inquiry".
 
 
 ## Citations
