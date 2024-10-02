@@ -1,5 +1,7 @@
 # DrivAerNet++
 
+> Update (02.10.2024): DrivAerNet++ has been accepted to NeurIPS 2024! The full dataset will be released on Harvard Dataverse in the next 2-3 weeks. 
+
 > Update (11.09.2024): Due to the overwhelming interest and numerous inquiries from industry partners, we are excited to announce that we are now offering commercial licensing options for the DrivAerNet and DrivAerNet++ datasets. Please refer to the [DrivAerNet/DrivAerNet++ Commercial Inquiry](#drivaernetdrivaernet-commercial-inquiry) section.
 
 > Update (15.08.2024): DrivAerNet has been utilized in the [IJCAI 2024 competition](https://aistudio.baidu.com/projectdetail/7459168?channelType=0&channel=0). All competitors' code and results are available in the open-source repository: [Rapid Aerodynamic Drag Prediction for Arbitrary Vehicles in 3D Space](https://github.com/PaddlePaddle/PaddleScience/tree/develop/jointContribution/IJCAI_2024).
