@@ -94,18 +94,6 @@ To replicate the results based on geometric deep learning methods, please refer 
 Drag values for the 8k car designs can be found [Here](https://www.dropbox.com/scl/fi/cfuv2zyaoxp87r7zgr0si/DrivAerNetPlusPlus_Drag_8k.csv?rlkey=3fd4c3c5a38plue3ir2r8kx7b&dl=0)
 
 
-### Training Using Point Clouds
-You can access the preprocessed point clouds for training at the following link:  
-[DrivAerNet++ Processed Point Clouds (100k)](https://www.dropbox.com/scl/fo/wfx02gf00ru3dqdqngaid/AFpGKPbNHCRxsbsghcwTPg4?rlkey=2ombux69rcu1apl68x607kjrz&dl=0)
-
-### Training Using STL Files / Graphs
-For training using the STL files (for graph-based methods or point sampling at a different resolution), please download the STLs from the following link:  
-[DrivAerNet++ STL Files](https://www.dropbox.com/scl/fo/s4njmmkho5hhtcjcjqcea/APi6lkrYDHDzgmTLskiduXg?rlkey=9ic8g595eoc1wl3iiavmhibnl&dl=0)
-
-
-The full data will be released after the review process on Harvard Dataverse.
-
-
 ## Datasets Comparison
 
 DrivAerNet++ stands out as the largest and most comprehensive dataset in the field of car design.
@@ -118,21 +106,22 @@ DrivAerNet++ stands out as the largest and most comprehensive dataset in the fie
 We welcome contributions to improve the dataset or project. Please submit pull requests for review.
 
 ## Maintenance and Support
+
 Maintained by the DeCoDE Lab at MIT. Report issues via [GitHub issues](https://github.com/Mohamedelrefaie/DrivAerNet/issues).
 
 
 ## Additional Resources
 
 - Tutorials: [Link](https://github.com/Mohamedelrefaie/DrivAerNet/tree/main/tutorials)
-- Technical Documentation: [Coming Soon]
+
 
 ## Previous Version
 
-To replicate the code and experiments from the first version of DrivAerNet, please refer to the folder: [DrivAerNet_v1](https://github.com/Mohamedelrefaie/DrivAerNet/tree/main/DrivAerNet_v1). This includes 4,000 car designs based on the fastback category. The dataset can be accessed [here](https://www.dropbox.com/scl/fo/mnnnogykaoixdus9j0wr7/AO0PywI7VAZ1_ZL0e2HcjaA?rlkey=7uo51ka60kgdhc1fgqf0begss&st=d503c8dt&dl=0).
+To replicate the code and experiments from the first version of DrivAerNet, please refer to the folder: [DrivAerNet_v1](https://github.com/Mohamedelrefaie/DrivAerNet/tree/main/DrivAerNet_v1). 
 
 ## License
 
-The code is distributed under the MIT License. The DrivAerNet++ dataset is distributed under the Creative Commons Attribution-NonCommercial (CC BY-NC) license. Full terms for the dataset license [here](https://creativecommons.org/licenses/by-nc/4.0/deed.en).
+The code is distributed under the MIT License. The DrivAerNet/DrivAerNet++ dataset is distributed under the Creative Commons Attribution-NonCommercial (CC BY-NC) license. Full terms for the dataset license [here](https://creativecommons.org/licenses/by-nc/4.0/deed.en).
 
 ## DrivAerNet/DrivAerNet++ Commercial Inquiry
 
