@@ -121,7 +121,8 @@ To replicate the code and experiments from the first version of DrivAerNet, plea
 
 ## License
 
-The code is distributed under the MIT License. The DrivAerNet/DrivAerNet++ dataset is distributed under the Creative Commons Attribution-NonCommercial (CC BY-NC) license. Full terms for the dataset license [here](https://creativecommons.org/licenses/by-nc/4.0/deed.en).
+**Strict Licensing Notice**: DrivAerNet/DrivAerNet++ is released under the Creative Commons Attribution-NonCommercial 4.0 International License [(CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/deed.en) and is exclusively for non-commercial research and educational purposes. Any commercial use—including, but not limited to, training machine learning models, developing generative AI tools, creating software products, running new simulations using the provided geometries or any derived geometries, or other commercial R&D applications—is strictly prohibited. Unauthorized commercial use of DrivAerNet/DrivAerNet++, or any derived data, will result in enforcement by the MIT Technology Licensing Office (MIT TLO) and may carry legal consequences. The code is distributed under the MIT License.
+
 
 ## DrivAerNet/DrivAerNet++ Commercial Inquiry
 
