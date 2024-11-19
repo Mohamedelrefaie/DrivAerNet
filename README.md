@@ -1,6 +1,6 @@
 # DrivAerNet++
 
-> Update (15.11.2024): DrivAerNet++ has been accepted to NeurIPS 2024! The full dataset is now released on [Harvard Dataverse](https://dataverse.harvard.edu/dataverse/DrivAerNet). Please note the (CC BY-NC 4.0) license terms, as outlined in the [License section](#license). 
+> Update (19.11.2024): DrivAerNet++ has been accepted to NeurIPS 2024! The full dataset is now released on [Harvard Dataverse](https://dataverse.harvard.edu/dataverse/DrivAerNet). Please note the (CC BY-NC 4.0) license terms, as outlined in the [License section](#license). 
 
 > Update (11.09.2024): Due to the overwhelming interest and numerous inquiries from industry partners, we are excited to announce that we are now offering commercial licensing options for the DrivAerNet and DrivAerNet++ datasets. Please refer to the [DrivAerNet/DrivAerNet++ Commercial Inquiry](#drivaernetdrivaernet-commercial-inquiry) section.
 
