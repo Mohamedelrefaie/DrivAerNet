@@ -328,6 +328,6 @@ def main(file_path: str, output_path: str) -> None:
     plotter = Plotter(all_results)
     plotter.plot_results()
 # Example usage
-file_path = '../ParametricData/combined_data.csv'
+file_path = '../ParametricData/DrivAerNet_ParametricData.csv'
 output_path = 'model_results_F_ALl.json'
 main(file_path, output_path)
