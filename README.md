@@ -144,7 +144,7 @@ To cite this work, please use the following reference:
 To cite the first version of DrivAerNet, please use the following reference:
 ```bibtex
 
-@proceedings{10.1115/DETC2024-143593,
+@proceedings{elrefaie2024drivaernet,
     author = {Elrefaie, Mohamed and Ahmed, Faez and Dai, Angela},
     title = {DrivAerNet: A Parametric Car Dataset for Data-Driven Aerodynamic Design and Graph-Based Drag Prediction},
     volume = {Volume 3A: 50th Design Automation Conference (DAC)},
