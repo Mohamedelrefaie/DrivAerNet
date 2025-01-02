@@ -91,8 +91,7 @@ To replicate the results based on geometric deep learning methods, please refer 
 
 ![image](https://github.com/Mohamedelrefaie/DrivAerNet/assets/86707575/37dbd178-8fc1-46f0-a006-a873e0825bf1)
 
-Drag values for the 8k car designs can be found [Here](https://www.dropbox.com/scl/fi/cfuv2zyaoxp87r7zgr0si/DrivAerNetPlusPlus_Drag_8k.csv?rlkey=3fd4c3c5a38plue3ir2r8kx7b&dl=0)
-
+Drag values for the 8k car designs can be found [Here](https://www.dropbox.com/scl/fi/2rtchqnpmzy90uwa9wwny/DrivAerNetPlusPlus_Cd_8k_Updated.csv?rlkey=vjnjurtxfuqr40zqgupnks8sn&st=6dx1mfct&dl=0) . Update 02.01.2025: The drag values are now normalized by each car's projected frontal area and are consistent with the STL and VTK files available on Harvard Dataverse.
 
 ## Datasets Comparison
 
