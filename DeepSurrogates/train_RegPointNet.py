@@ -38,7 +38,7 @@ config = {
     'linear_sizes': [128, 64, 32, 16],
     'output_channels': 1,
     'dataset_path': '../DrivAerNet_FEN_Processed_Point_Clouds_100k',  # Update this with your dataset path
-    'aero_coeff': '../Merged_AverageCd.csv',
+    'aero_coeff': '../DrivAerNetPlusPlus_Cd_8k_Updated.csv',
     'subset_dir': '../subset_dir'
 
 }
