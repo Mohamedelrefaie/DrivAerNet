@@ -188,7 +188,6 @@ def train_and_evaluate(model: torch.nn.Module, train_dataloader: DataLoader, val
             optimizer.zero_grad()
             outputs = model(data)
             loss = F.mse_loss(outputs.squeeze(), targets)
-            r2 = r2_score(outputs.squeeze(), targets)
 
             # Backward pass and optimizer step
             loss.backward()
@@ -196,23 +195,22 @@ def train_and_evaluate(model: torch.nn.Module, train_dataloader: DataLoader, val
 
             # Aggregate statistics
             total_loss += loss.item()
-            total_r2 += r2.item()
 
         # Calculate average loss and R² for the epoch
         avg_loss = total_loss / len(train_dataloader)
-        avg_r2 = total_r2 / len(train_dataloader)
         train_losses.append(avg_loss)
 
         # Epoch summary
         epoch_duration = time.time() - epoch_start_time
         print(f"Epoch {epoch + 1} Training Loss: {avg_loss:.6f} Time: {epoch_duration:.2f}s")
-        print(f"Average Training R²: {avg_r2:.4f}")
 
         # Validation phase
         model.eval()  # Set model to evaluation mode
         val_loss, val_r2 = 0, 0
         inference_times = []
-
+        all_preds = []
+        all_targets = []
+        
         with torch.no_grad():
             for data, targets in tqdm(val_dataloader, desc=f"Epoch {epoch + 1}/{config['epochs']} [Validation]"):
                 inference_start_time = time.time()
@@ -222,17 +220,26 @@ def train_and_evaluate(model: torch.nn.Module, train_dataloader: DataLoader, val
                 outputs = model(data)
                 loss = F.mse_loss(outputs.squeeze(), targets)
                 val_loss += loss.item()
-                val_r2 += r2_score(outputs.squeeze(), targets).item()
+                all_preds.append(outputs.squeeze().cpu().numpy())
+                all_targets.append(targets.cpu().numpy())
+                
                 inference_duration = time.time() - inference_start_time
                 inference_times.append(inference_duration)
 
+        # Concatenate all predictions and targets
+        all_preds = np.concatenate(all_preds)
+        all_targets = np.concatenate(all_targets)
+        
+        # Compute R² for the entire validation dataset
+        val_r2 = r2_score(all_targets, all_preds)
+        
         avg_val_loss = val_loss / len(val_dataloader)
         val_losses.append(avg_val_loss)
         avg_inference_time = sum(inference_times) / len(inference_times)
 
         # Validation summary
         print(f"Epoch {epoch + 1} Validation Loss: {avg_val_loss:.4f}, Avg Inference Time: {avg_inference_time:.4f}s")
-        print(f"Average Validation R²: {val_r2 / len(val_dataloader):.4f}")
+        print(f"Validation R²: {val_r2:.4f}")
 
         # Update the best model if the current model outperforms previous models
         if avg_val_loss < best_mse:
@@ -272,6 +279,8 @@ def test_model(model: torch.nn.Module, test_dataloader: DataLoader, config: dict
     max_mae = 0
     total_inference_time = 0  # To track total inference time
     total_samples = 0  # To count the total number of samples processed
+    all_preds = []
+    all_targets = []
 
     # Disable gradient calculation
     with torch.no_grad():
@@ -285,27 +294,32 @@ def test_model(model: torch.nn.Module, test_dataloader: DataLoader, config: dict
             end_time = time.time()  # End time for inference
             inference_time = end_time - start_time
             total_inference_time += inference_time  # Accumulate total inference time
-
+            
             mse = F.mse_loss(outputs.squeeze(), targets) #Mean Squared Error (MSE)
             mae = F.l1_loss(outputs.squeeze(), targets) #Mean Absolute Error (MAE),
-            r2 = r2_score(outputs.squeeze(), targets) #R-squared
 
+            # Collect predictions and targets for R² calculation
+            all_preds.append(outputs.squeeze().cpu().numpy())
+            all_targets.append(targets.cpu().numpy())
+            
             # Accumulate metrics to compute averages later
             total_mse += mse.item()
             total_mae += mae.item()
-            total_r2 += r2.item()
             max_mae = max(max_mae, mae.item())
             total_samples += targets.size(0)  # Increment total sample count
 
     # Compute average metrics over the entire test set
     avg_mse = total_mse / len(test_dataloader)
     avg_mae = total_mae / len(test_dataloader)
-    avg_r2 = total_r2 / len(test_dataloader)
+    # Concatenate all predictions and targets
+    all_preds = np.concatenate(all_preds)
+    all_targets = np.concatenate(all_targets)
+    test_r2 = r2_score(all_targets, all_preds)
 
     # Output test results
-    print(f"Test MSE: {avg_mse:.6f}, Test MAE: {avg_mae:.6f}, Max MAE: {max_mae:.6f}, Test R²: {avg_r2:.4f}")
+    print(f"Test MSE: {avg_mse:.6f}, Test MAE: {avg_mae:.6f}, Max MAE: {max_mae:.6f}, Test R²: {test_r2:.4f}")
     print(f"Total inference time: {total_inference_time:.2f}s for {total_samples} samples")
-    return {'MSE': avg_mse, 'MAE': avg_mae, 'Max MAE': max_mae, 'R2': avg_r2}
+    return {'MSE': avg_mse, 'MAE': avg_mae, 'Max MAE': max_mae, 'R2': test_r2}
 
 
 def load_and_test_model(model_path, test_dataloader, device):
