@@ -34,7 +34,7 @@ config = {
     'lr': 0.001,
     'optimizer': 'adam',
     'dataset_path': '../DrivAerNet_FEN_STLs',  # Update this with your dataset path
-    'aero_coeff': '../Combined_AeroCoefficients_DrivAerNet.csv',
+    'aero_coeff': '../DrivAerNetPlusPlus_Cd_8k_Updated.csv',
     'subset_dir': '../subset_dir'
 }
 
