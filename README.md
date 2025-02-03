@@ -104,14 +104,14 @@ DrivAerNet++ has been integrated into leading **Scientific Machine Learning (Sci
 ### NVIDIA Modulus  
 DrivAerNet++ is integrated into **NVIDIA Modulus**, supporting advanced deep learning models for CFD acceleration:  
 
-🔗 **[FIGConvUNet](https://github.com/NVIDIA/modulus/tree/main/examples/cfd/external_aerodynamics/figconvnet)** |  
+🔗 **[FIGConvUNet](https://github.com/NVIDIA/modulus/tree/main/examples/cfd/external_aerodynamics/figconvnet)**
 🔗 **[AeroGraphNet](https://github.com/NVIDIA/modulus/tree/main/examples/cfd/external_aerodynamics/aero_graph_net)**  
 
 ### PaddleScience & IJCAI 2024  
-DrivAerNet++ was featured in the **IJCAI 2024 competition**, enabling **rapid aerodynamic drag prediction for arbitrary vehicles** using deep learning. The dataset is now integrated into **PaddleScience**, Baidu’s SciML toolkit for physics-based AI.
+DrivAerNet++ was featured in the **IJCAI 2024 competition - Rapid aerodynamic drag prediction for arbitrary vehicles** using deep learning. The dataset is also integrated into **PaddleScience**, Baidu’s SciML toolkit for physics-based AI.
 
-🔗 **[IJCAI 2024 Competition](https://aistudio.baidu.com/projectdetail/7459168?channelType=0&channel=0)** |  
-🔗 **[PaddleScience DrivAerNet Example](https://paddlescience-docs.readthedocs.io/zh-cn/latest/zh/examples/drivaernet/#6)**  
+🔗 **[IJCAI 2024 Competition](https://aistudio.baidu.com/projectdetail/7459168?channelType=0&channel=0)** 
+🔗 **[PaddleScience DrivAerNet Example](https://paddlescience-docs.readthedocs.io/zh-cn/latest/zh/examples/drivaernet/)**  
 
 
 ## Contributing
