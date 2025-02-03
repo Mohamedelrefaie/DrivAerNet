@@ -97,21 +97,21 @@ DrivAerNet++ stands out as the largest and most comprehensive dataset in the fie
 
 ![image](https://github.com/Mohamedelrefaie/DrivAerNet/assets/86707575/3c5b33d5-7163-4c33-b734-eeffbb4fb1f0)
 
-## Integration into Scientific Machine Learning (SciML)
+## Integration into Scientific Machine Learning (SciML) Frameworks
 
-DrivAerNet++ has been integrated into leading **Scientific Machine Learning (SciML)** frameworks, enabling accelerated aerodynamic predictions, surrogate modeling, and generative AI-based design optimization.
+DrivAerNet has been integrated into leading **Scientific Machine Learning (SciML)** frameworks, enabling accelerated aerodynamic predictions, surrogate modeling, and generative AI-based design optimization.
 
 ### NVIDIA Modulus  
 DrivAerNet++ is integrated into **NVIDIA Modulus**, supporting advanced deep learning models for CFD acceleration:  
 
-🔗 **[FIGConvUNet](https://github.com/NVIDIA/modulus/tree/main/examples/cfd/external_aerodynamics/figconvnet)**
-🔗 **[AeroGraphNet](https://github.com/NVIDIA/modulus/tree/main/examples/cfd/external_aerodynamics/aero_graph_net)**  
+🔗 [FIGConvUNet](https://github.com/NVIDIA/modulus/tree/main/examples/cfd/external_aerodynamics/figconvnet)
+🔗 [AeroGraphNet](https://github.com/NVIDIA/modulus/tree/main/examples/cfd/external_aerodynamics/aero_graph_net)  
 
 ### PaddleScience & IJCAI 2024  
 DrivAerNet++ was featured in the **IJCAI 2024 competition - Rapid aerodynamic drag prediction for arbitrary vehicles** using deep learning. The dataset is also integrated into **PaddleScience**, Baidu’s SciML toolkit for physics-based AI.
 
-🔗 **[IJCAI 2024 Competition](https://aistudio.baidu.com/projectdetail/7459168?channelType=0&channel=0)** 
-🔗 **[PaddleScience DrivAerNet Example](https://paddlescience-docs.readthedocs.io/zh-cn/latest/zh/examples/drivaernet/)**  
+🔗 [IJCAI 2024 Competition](https://aistudio.baidu.com/projectdetail/7459168?channelType=0&channel=0)
+🔗 [PaddleScience DrivAerNet Example](https://paddlescience-docs.readthedocs.io/zh-cn/latest/zh/examples/drivaernet/)
 
 
 ## Contributing
