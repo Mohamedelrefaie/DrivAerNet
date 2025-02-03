@@ -102,7 +102,7 @@ DrivAerNet++ stands out as the largest and most comprehensive dataset in the fie
 DrivAerNet has been integrated into leading **Scientific Machine Learning (SciML)** frameworks, enabling accelerated aerodynamic predictions, surrogate modeling, and generative AI-based design optimization.
 
 ### NVIDIA Modulus  
-DrivAerNet++ is integrated into **NVIDIA Modulus**, supporting advanced deep learning models for CFD acceleration:  
+DrivAerNe is integrated into **NVIDIA Modulus**, supporting advanced deep learning models for CFD acceleration:  
 
 🔗 [FIGConvUNet](https://github.com/NVIDIA/modulus/tree/main/examples/cfd/external_aerodynamics/figconvnet)
 🔗 [AeroGraphNet](https://github.com/NVIDIA/modulus/tree/main/examples/cfd/external_aerodynamics/aero_graph_net)  
