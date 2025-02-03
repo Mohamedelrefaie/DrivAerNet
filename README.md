@@ -6,10 +6,6 @@
 
 > Update (11.09.2024): Due to the overwhelming interest and numerous inquiries from industry partners, we are excited to announce that we are now offering commercial licensing options for the DrivAerNet and DrivAerNet++ datasets. Please refer to the [DrivAerNet/DrivAerNet++ Commercial Inquiry](#drivaernetdrivaernet-commercial-inquiry) section.
 
-> Update (15.08.2024): DrivAerNet has been utilized in the [IJCAI 2024 competition](https://aistudio.baidu.com/projectdetail/7459168?channelType=0&channel=0). All competitors' code and results are available in the open-source repository: [Rapid Aerodynamic Drag Prediction for Arbitrary Vehicles in 3D Space](https://github.com/PaddlePaddle/PaddleScience/tree/develop/jointContribution/IJCAI_2024).
-
-> Update (11.07.2024): DrivAerNet is now integrated into NVIDIA Modulus [FIGConvUNet](https://github.com/NVIDIA/modulus/tree/main/examples/cfd/external_aerodynamics/figconvnet) and [AeroGraphNet](https://github.com/NVIDIA/modulus/tree/main/examples/cfd/external_aerodynamics/aero_graph_net)
-
 
 Our new preprint: DrivAerNet++ paper [here](https://www.researchgate.net/publication/381470334_DrivAerNet_A_Large-Scale_Multimodal_Car_Dataset_with_Computational_Fluid_Dynamics_Simulations_and_Deep_Learning_Benchmarks)
 
@@ -100,6 +96,22 @@ Drag values for the 8k car designs can be found [Here](https://www.dropbox.com/s
 DrivAerNet++ stands out as the largest and most comprehensive dataset in the field of car design.
 
 ![image](https://github.com/Mohamedelrefaie/DrivAerNet/assets/86707575/3c5b33d5-7163-4c33-b734-eeffbb4fb1f0)
+
+## Integration into Scientific Machine Learning (SciML)
+
+DrivAerNet++ has been integrated into leading **Scientific Machine Learning (SciML)** frameworks, enabling accelerated aerodynamic predictions, surrogate modeling, and generative AI-based design optimization.
+
+### NVIDIA Modulus  
+DrivAerNet++ is integrated into **NVIDIA Modulus**, supporting advanced deep learning models for CFD acceleration:  
+
+🔗 **[FIGConvUNet](https://github.com/NVIDIA/modulus/tree/main/examples/cfd/external_aerodynamics/figconvnet)** |  
+🔗 **[AeroGraphNet](https://github.com/NVIDIA/modulus/tree/main/examples/cfd/external_aerodynamics/aero_graph_net)**  
+
+### PaddleScience & IJCAI 2024  
+DrivAerNet++ was featured in the **IJCAI 2024 competition**, enabling **rapid aerodynamic drag prediction for arbitrary vehicles** using deep learning. The dataset is now integrated into **PaddleScience**, Baidu’s SciML toolkit for physics-based AI.
+
+🔗 **[IJCAI 2024 Competition](https://aistudio.baidu.com/projectdetail/7459168?channelType=0&channel=0)** |  
+🔗 **[PaddleScience DrivAerNet Example](https://paddlescience-docs.readthedocs.io/zh-cn/latest/zh/examples/drivaernet/#6)**  
 
 
 ## Contributing
