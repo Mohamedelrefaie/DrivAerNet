@@ -78,6 +78,16 @@ DrivAerNet++ supports a wide array of machine learning applications, including b
 - 🌐 **Part and shape classification**: Classify car categories or components to enhance design analysis.
 - 🔧 **Automated CFD meshing**: Automate the meshing process based on car components to streamline simulations.
 
+## Dataset Access & Download
+
+The DrivAerNet++ dataset is hosted under the **CC BY-NC 4.0** license on [Harvard Dataverse](https://dataverse.harvard.edu/dataverse/DrivAerNet). The dataset is structured into four subsets:
+
+- **3D Meshes**: Parametric car geometries in STL format.
+- **Pressure**: Surface pressure field data.
+- **Wall Shear Stress**: Aerodynamic wall shear stress distributions.
+- **CFD (Full CFD Domain)**: Complete volumetric CFD simulation data.
+
+We provide instructions on how to use Globus and to download the dataset. Please feel free to reach out if you encounter any problems/issues.
 
 ## Results Replication
 
@@ -158,8 +168,8 @@ To cite this work, please use the following reference:
 To cite the first version of DrivAerNet, please use the following reference:
 ```bibtex
 
-@proceedings{elrefaie2024drivaernet,
-    author = {Elrefaie, Mohamed and Ahmed, Faez and Dai, Angela},
+@proceedings{10.1115/DETC2024-143593,
+    author = {Elrefaie, Mohamed and Dai, Angela and Ahmed, Faez},
     title = {DrivAerNet: A Parametric Car Dataset for Data-Driven Aerodynamic Design and Graph-Based Drag Prediction},
     volume = {Volume 3A: 50th Design Automation Conference (DAC)},
     series = {International Design Engineering Technical Conferences and Computers and Information in Engineering Conference},
@@ -168,5 +178,5 @@ To cite the first version of DrivAerNet, please use the following reference:
     month = {08},
     doi = {10.1115/DETC2024-143593},
     url = {https://doi.org/10.1115/DETC2024-143593},
+    eprint = {https://asmedigitalcollection.asme.org/IDETC-CIE/proceedings-pdf/IDETC-CIE2024/88360/V03AT03A019/7402927/v03at03a019-detc2024-143593.pdf},
 }
-
