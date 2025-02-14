@@ -157,11 +157,16 @@ If you are interested in the commercial use of the DrivAerNet or DrivAerNet++ da
 To cite this work, please use the following reference:
 
 ```bibtex
-@article{elrefaie2024drivaernet++,
-  title={DrivAerNet++: A Large-Scale Multimodal Car Dataset with Computational Fluid Dynamics Simulations and Deep Learning Benchmarks},
-  author={Elrefaie, Mohamed and Morar, Florin and Dai, Angela and Ahmed, Faez},
-  journal={arXiv preprint arXiv:2406.09624},
-  year={2024}
+@inproceedings{NEURIPS2024_013cf29a,
+ author = {Elrefaie, Mohamed and Morar, Florin and Dai, Angela and Ahmed, Faez},
+ booktitle = {Advances in Neural Information Processing Systems},
+ editor = {A. Globerson and L. Mackey and D. Belgrave and A. Fan and U. Paquet and J. Tomczak and C. Zhang},
+ pages = {499--536},
+ publisher = {Curran Associates, Inc.},
+ title = {DrivAerNet++: A Large-Scale Multimodal Car Dataset with Computational Fluid Dynamics Simulations and Deep Learning Benchmarks},
+ url = {https://proceedings.neurips.cc/paper_files/paper/2024/file/013cf29a9e68e4411d0593040a8a1eb3-Paper-Datasets_and_Benchmarks_Track.pdf},
+ volume = {37},
+ year = {2024}
 }
 ```
 
