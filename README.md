@@ -9,11 +9,7 @@
 > Update (11.09.2024): Due to the overwhelming interest and numerous inquiries from industry partners, we are excited to announce that we are now offering commercial licensing options for the DrivAerNet and DrivAerNet++ datasets. Please refer to the [DrivAerNet/DrivAerNet++ Commercial Inquiry](#drivaernetdrivaernet-commercial-inquiry) section.
 
 
-Our new preprint: DrivAerNet++ paper [here](https://www.researchgate.net/publication/381470334_DrivAerNet_A_Large-Scale_Multimodal_Car_Dataset_with_Computational_Fluid_Dynamics_Simulations_and_Deep_Learning_Benchmarks)
-
-Video summary of DrivAerNet++ paper [here](https://youtu.be/Y2-s0R_yHpo?si=E9B4BzDzcJebAMsC)
-
-DrivAerNet paper: [here](https://www.researchgate.net/publication/378937154_DrivAerNet_A_Parametric_Car_Dataset_for_Data-Driven_Aerodynamic_Design_and_Graph-Based_Drag_Prediction)
+📄 [**DrivAerNet++ Paper (NeurIPS'24)**](https://arxiv.org/abs/2406.09624) | 📄 [**DrivAerNet Paper (JMD)**]([https://www.researchgate.net/publication/378937154_DrivAerNet_A_Parametric_Car_Dataset_for_Data-Driven_Aerodynamic_Design_and_Graph-Based_Drag_Prediction](https://arxiv.org/abs/2403.08055)) | 🎥 [**Video Summary**](https://youtu.be/Y2-s0R_yHpo?si=E9B4BzDzcJebAMsC) 
 
 We present DrivAerNet++, the largest and most comprehensive multimodal dataset for aerodynamic car design. DrivAerNet++ comprises 8,000 diverse car designs modeled with high-fidelity computational fluid dynamics (CFD) simulations. The dataset includes diverse car configurations such as fastback, notchback, and estateback, with different underbody and wheel designs.
 
