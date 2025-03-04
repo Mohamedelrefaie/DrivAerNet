@@ -1,5 +1,7 @@
 # DrivAerNet++
 
+> Update (04.03.2025): We are excited to announce the release of the [**DrivAerNet++ benchmark and leaderboard**](https://drivaernet-leaderboard.lovable.app/), evaluating state-of-the-art deep learning models for **aerodynamic drag prediction (3D meshes & tabular data), surface fields, and volumetric fields**.
+
 > Update (23.02.2025): Dataset annotation is now available at [DrivAerNet++: Annotations](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/CAWRXI).
 
 > Update (19.11.2024): DrivAerNet++ has been accepted to NeurIPS 2024! The full dataset is now released on [Harvard Dataverse](https://dataverse.harvard.edu/dataverse/DrivAerNet). Please note the (CC BY-NC 4.0) license terms, as outlined in the [License section](#license). 
