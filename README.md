@@ -1,6 +1,6 @@
 # DrivAerNet++
 
-> Update (04.03.2025): We are excited to announce the release of the [**DrivAerNet++ benchmark and leaderboard**](https://drivaernet-leaderboard.lovable.app/), evaluating state-of-the-art deep learning models for **aerodynamic drag prediction (3D meshes & tabular data), surface fields, and volumetric fields**.
+> Update (23.03.2025): We are excited to announce the release of the [**DrivAerNet++ benchmark and leaderboard**](https://drivaernet-leaderboard.lovable.app/), evaluating state-of-the-art deep learning models for **aerodynamic drag prediction (3D meshes & tabular data), surface fields, and volumetric fields**. Check out the [paper](https://www.researchgate.net/publication/390108672_TripNet_Learning_Large-scale_High-fidelity_3D_Car_Aerodynamics_with_Triplane_Networks)!
 
 > Update (23.02.2025): Dataset annotation is now available at [DrivAerNet++: Annotations](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/CAWRXI).
 
