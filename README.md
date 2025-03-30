@@ -103,7 +103,7 @@ For submission guidelines and current rankings, visit [DrivAerNet++ Leaderboard]
 
 DrivAerNet++ stands out as the largest and most comprehensive dataset in the field of car design.
 
-![image](https://github.com/Mohamedelrefaie/DrivAerNet/assets/86707575/3c5b33d5-7163-4c33-b734-eeffbb4fb1f0)
+![image](https://github.com/user-attachments/assets/f57fa33a-3c08-4f47-97eb-c76e46bca934)
 
 ## Integration into Scientific Machine Learning (SciML) Frameworks
 
