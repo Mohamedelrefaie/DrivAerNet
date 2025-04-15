@@ -123,6 +123,23 @@ DrivAerNet++ was featured in the **IJCAI 2024 competition - Rapid aerodynamic dr
 🔗 [IJCAI 2024 Competition](https://aistudio.baidu.com/projectdetail/7459168?channelType=0&channel=0)
 🔗 [PaddleScience DrivAerNet Example](https://paddlescience-docs.readthedocs.io/zh-cn/latest/zh/examples/drivaernet/)
 
+## ✏️ Sketch-to-Design Extension
+
+Car design is not just an engineering challenge — it's an art form.  
+To bridge the gap between conceptual creativity and computational design, we extend **DrivAerNet++** with a new modality: 2D hand-drawn sketches and photorealistic renderings.
+
+> 🖼️ Engineers and designers now have access to both engineering data (meshes, CFD simulations, surface fields) and design inputs (sketches and styled renderings) — in one unified dataset.
+
+<table>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/61d2107e-9d70-4a12-8c7f-758c60f93fa4" width="100%"></td>
+    <td><img src="https://github.com/user-attachments/assets/6c8cd505-2336-4da2-88b6-0e6fa40ddc53" width="100%"></td>
+  </tr>
+</table>
+
+🔍 For details, check out our recent Design Agents paper:
+- [**AI Agents in Engineering Design**](https://www.researchgate.net/publication/390354690_AI_Agents_in_Engineering_Design_A_Multi-Agent_Framework_for_Aesthetic_and_Aerodynamic_Car_Design)
+
 
 ## Contributing
 
