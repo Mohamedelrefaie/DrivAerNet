@@ -60,6 +60,22 @@ utility for developing and testing advanced algorithms in automotive design and 
 
 ![DrivAerNet_ClassLabels_new](https://github.com/Mohamedelrefaie/DrivAerNet/assets/86707575/18833c92-6be9-437a-be10-4c52f9ed105f)
 
+## ✏️ Sketch-to-Design Extension
+
+Car design is not just an engineering challenge — it's an art form.  
+To bridge the gap between conceptual creativity and computational design, we extend DrivAerNet++ with new modalities: 2D hand-drawn sketches and photorealistic renderings.
+
+> 🖼️ Engineers and designers now have access to both engineering data (meshes, CFD simulations, surface fields) and design inputs (sketches and styled renderings) — in one unified dataset.
+
+<table>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/f0ca86ae-f903-46d0-8ee5-9e63e83d88cf" width="100%"></td>
+    <td><img src="https://github.com/user-attachments/assets/e1e4ec63-c08c-496e-ba5b-2888ba637df0" width="100%"></td>
+  </tr>
+</table>
+
+🔍 For details, check out our recent Design Agents paper: [**AI Agents in Engineering Design**](https://www.researchgate.net/publication/390354690_AI_Agents_in_Engineering_Design_A_Multi-Agent_Framework_for_Aesthetic_and_Aerodynamic_Car_Design)
+  
 
 ## Computational Cost
 
@@ -122,23 +138,6 @@ DrivAerNet++ was featured in the **IJCAI 2024 competition - Rapid aerodynamic dr
 
 🔗 [IJCAI 2024 Competition](https://aistudio.baidu.com/projectdetail/7459168?channelType=0&channel=0)
 🔗 [PaddleScience DrivAerNet Example](https://paddlescience-docs.readthedocs.io/zh-cn/latest/zh/examples/drivaernet/)
-
-## ✏️ Sketch-to-Design Extension
-
-Car design is not just an engineering challenge — it's an art form.  
-To bridge the gap between conceptual creativity and computational design, we extend DrivAerNet++ with new modalities: 2D hand-drawn sketches and photorealistic renderings.
-
-> 🖼️ Engineers and designers now have access to both engineering data (meshes, CFD simulations, surface fields) and design inputs (sketches and styled renderings) — in one unified dataset.
-
-<table>
-  <tr>
-    <td><img src="https://github.com/user-attachments/assets/f0ca86ae-f903-46d0-8ee5-9e63e83d88cf" width="100%"></td>
-    <td><img src="https://github.com/user-attachments/assets/e1e4ec63-c08c-496e-ba5b-2888ba637df0" width="100%"></td>
-  </tr>
-</table>
-
-🔍 For details, check out our recent Design Agents paper: [**AI Agents in Engineering Design**](https://www.researchgate.net/publication/390354690_AI_Agents_in_Engineering_Design_A_Multi-Agent_Framework_for_Aesthetic_and_Aerodynamic_Car_Design)
-  
 
 
 ## Contributing
