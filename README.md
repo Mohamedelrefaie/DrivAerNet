@@ -126,7 +126,7 @@ DrivAerNet++ was featured in the **IJCAI 2024 competition - Rapid aerodynamic dr
 ## ✏️ Sketch-to-Design Extension
 
 Car design is not just an engineering challenge — it's an art form.  
-To bridge the gap between conceptual creativity and computational design, we extend **DrivAerNet++** with a new modality: 2D hand-drawn sketches and photorealistic renderings.
+To bridge the gap between conceptual creativity and computational design, we extend DrivAerNet++ with new modalities: 2D hand-drawn sketches and photorealistic renderings.
 
 > 🖼️ Engineers and designers now have access to both engineering data (meshes, CFD simulations, surface fields) and design inputs (sketches and styled renderings) — in one unified dataset.
 
