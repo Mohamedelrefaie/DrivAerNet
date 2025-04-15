@@ -132,13 +132,13 @@ To bridge the gap between conceptual creativity and computational design, we ext
 
 <table>
   <tr>
-    <td><img src="https://github.com/user-attachments/assets/61d2107e-9d70-4a12-8c7f-758c60f93fa4" width="100%"></td>
-    <td><img src="https://github.com/user-attachments/assets/6c8cd505-2336-4da2-88b6-0e6fa40ddc53" width="100%"></td>
+    <td><img src="https://github.com/user-attachments/assets/f0ca86ae-f903-46d0-8ee5-9e63e83d88cf" width="100%"></td>
+    <td><img src="https://github.com/user-attachments/assets/e1e4ec63-c08c-496e-ba5b-2888ba637df0" width="100%"></td>
   </tr>
 </table>
 
-🔍 For details, check out our recent Design Agents paper:
-- [**AI Agents in Engineering Design**](https://www.researchgate.net/publication/390354690_AI_Agents_in_Engineering_Design_A_Multi-Agent_Framework_for_Aesthetic_and_Aerodynamic_Car_Design)
+🔍 For details, check out our recent Design Agents paper: [**AI Agents in Engineering Design**](https://www.researchgate.net/publication/390354690_AI_Agents_in_Engineering_Design_A_Multi-Agent_Framework_for_Aesthetic_and_Aerodynamic_Car_Design)
+  
 
 
 ## Contributing
