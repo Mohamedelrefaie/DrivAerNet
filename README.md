@@ -3,10 +3,6 @@
 
 > Update (01.04.2025): We are excited to share our new paper on [**AI Agents in Engineering Design**](https://www.researchgate.net/publication/390354690_AI_Agents_in_Engineering_Design_A_Multi-Agent_Framework_for_Aesthetic_and_Aerodynamic_Car_Design), where we introduce a **multi-agent framework** that leverages **vision-language models (VLMs)**, **large language models (LLMs)**, and **geometric deep learning** to accelerate the car design process—from concept sketching to CAD modeling, meshing, and aerodynamic simulation. This system enables real-time interaction between designers, engineers, generative AI models, and tools like Blender, OpenFOAM, and ParaView.
 
-> Update (23.03.2025): We are excited to announce the release of the [**DrivAerNet++ benchmark and leaderboard**](https://drivaernet-leaderboard.lovable.app/), evaluating state-of-the-art deep learning models for **aerodynamic drag prediction (3D meshes & tabular data), surface fields, and volumetric fields**. Check out the [paper](https://www.researchgate.net/publication/390108672_TripNet_Learning_Large-scale_High-fidelity_3D_Car_Aerodynamics_with_Triplane_Networks)!
-
-> Update (23.02.2025): Dataset annotation is now available at [DrivAerNet++: Annotations](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/CAWRXI).
-
 > Update (19.11.2024): DrivAerNet++ has been accepted to NeurIPS 2024! The full dataset is now released on [Harvard Dataverse](https://dataverse.harvard.edu/dataverse/DrivAerNet). Please note the (CC BY-NC 4.0) license terms, as outlined in the [License section](#license). 
 
 > Update (11.09.2024): Due to the overwhelming interest and numerous inquiries from industry partners, we are excited to announce that we are now offering commercial licensing options for the DrivAerNet and DrivAerNet++ datasets. Please refer to the [DrivAerNet/DrivAerNet++ Commercial Inquiry](#drivaernetdrivaernet-commercial-inquiry) section.
