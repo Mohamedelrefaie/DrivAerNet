@@ -41,14 +41,43 @@ Dataset diversity and shape variation are crucial for developing robust deep lea
 
 ![DrivAerNet_Demo_cropped](https://github.com/user-attachments/assets/1fa8a865-9e26-4985-b807-245d0227c610)
 
-## Dataset Contents & Modalities
-- **Parametric Models**: Parametric models with tabular data, allowing extensive exploration of automotive design variations.
-- **Point Cloud Data**: Point cloud data for each car design.
-- **3D Car Meshes**: Detailed 3D meshes of each car design, suitable for various machine learning applications.
-- **CFD Simulation Data**: High-fidelity CFD simulation data for each car design, including 3D volumetric fields, surface fields, and streamlines.
-- **Aerodynamic Coefficients**: Key aerodynamic metrics such as drag coefficient (Cd), lift coefficient (Cl), and more.
+## 📦 Dataset Contents & Modalities
+
+### ✅ Available Modalities
+
+- **Parametric Models**  
+  Parametric car models with structured tabular design parameters, enabling controlled design variation and sensitivity studies.
+- **Volumetric Fields**  
+  Full 3D CFD simulation data (e.g., pressure, velocity, turbulence) in the flow domain around each vehicle.
+- **Surface Fields**  
+  Surface-level quantities such as pressure coefficient (Cp) and wall shear stress (WSS), mapped directly onto the car body.
+- **Streamlines**  
+  Flow visualization data illustrating streamlines around the car geometry, capturing wake structure and aerodynamic behavior.
+- **Point Clouds**  
+  Dense and sparse point cloud representations derived from surface meshes.
+- **Meshes**  
+  High-resolution 3D surface triangulations for geometry-based neural networks and meshing pipelines.
+- **Aerodynamic Coefficients**  
+  Global performance metrics such as drag coefficient (Cd), lift coefficient (Cl), and moment coefficients, computed via CFD.
+- **Annotations**  
+  Per-part semantic labels for each car, enabling part-aware learning and geometric reasoning.
   
-![DatasetContents](https://github.com/Mohamedelrefaie/DrivAerNet/assets/86707575/424a1aac-fe9b-4e4f-ba14-20f466311224)
+---
+
+### 🚧 Coming Soon
+
+- **Renderings**  
+  High-quality photorealistic 2D renderings from multiple views, useful for multimodal learning and image-based supervision.
+- **Sketches**  
+ Hand-drawn style sketches for vision-based tasks and generative models.
+- **2D Slices**  
+  Planar field extractions (2d silhouettes, 2d mesh, pressure, and velocity).
+- **Signed Distance Fields (SDF)**  
+  SDF representations of car shapes for occupancy modeling and implicit surface learning.
+- **Deformations**  
+  Simulation outputs under crash or pressure conditions for learning physical response under impact or force.
+
+![DrivAerNet_newModalities](https://github.com/user-attachments/assets/4c796412-6624-49a6-8b1a-cc0c0307df57)
 
 
 ## Dataset Annotations
