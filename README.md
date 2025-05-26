@@ -1,5 +1,5 @@
 # DrivAerNet++
-> Update (26.05.2025): We've updated our benchmarking with extensive results comparing TripNet with Nvidia's FigConvNet, Transolver, and RegDGCNN ([paper](https://arxiv.org/pdf/2503.17400)). > We're also [releasing new data modalities](#-coming-soon) for DrivAerNet++ soon, including photorealistic renderings, sketches, 2D slices, SDFs, and more.
+> Update (26.05.2025): We've updated our benchmarking with extensive results comparing TripNet with Nvidia's FigConvNet, Transolver, and RegDGCNN ([paper](https://arxiv.org/pdf/2503.17400)). We're also [releasing new data modalities](#-coming-soon) for DrivAerNet++ soon, including photorealistic renderings, sketches, 2D slices, SDFs, and more.
 
 > Update (18.04.2025): We are open-sourcing the [RegDGCNN pipeline for surface field prediction](https://github.com/Mohamedelrefaie/DrivAerNet/tree/main/RegDGCNN_SurfaceFields) on 3D car meshes from DrivAerNet++.
 
