@@ -1,9 +1,9 @@
 #!/bin/bash
 #BSUB -J DrivAerNet_Pressure_GPU      # Job name
-#BSUB -q hgx                        # Queue name (change if needed)
-#BSUB -n 1                            # Number of CPU cores
-#BSUB -R "span[ptile=1]"
-#BSUB -gpu "num=1"
+#BSUB -q  4-4080-e5                        # Queue name (change if needed)
+#BSUB -n 2                            # Number of CPU cores
+#BSUB -R "span[ptile=2]"
+#BSUB -gpu "num=2"
 #BSUB -oo logs/out_%J.log           # Standard output (%J = job ID)
 #BSUB -eo logs/err_%J.log           # Standard error
 #BSUB -env "all"                      # Export your current environment
