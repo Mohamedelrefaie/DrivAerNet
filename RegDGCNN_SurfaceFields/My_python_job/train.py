@@ -33,6 +33,15 @@ def parse_args():
     parser.add_argument('--output_channels', type=int, default=1, help='Number of output channels')
 
     return parser.parse_args()
+def train_evalute(rank, world_size, args):
+    """ main function for Distributed training and evaluation"""
+#    setup_seed(args.seed)
+
+    # Initialize process group for DDP
+    dist.init_process_group(backend='nccl', init_method='env://', world_size=world_size, rank=rank)
+
+    local_rank = rank
+    torch.cude.set_device(local_rank)
 
 def main():
     """ main function to parse arguments and start training."""
