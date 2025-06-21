@@ -3,6 +3,11 @@ import os
 import torch
 import argparse
 import torch.multiprocessing as mp
+import logging
+
+# Import modules
+from utils       import setup_logger, setup_seed
+from data_loader import get_dataloaders, PRESSURE_MEAN, PRESSURE_STD
 
 def parse_args():
     """Parse command line arguments."""
@@ -33,15 +38,53 @@ def parse_args():
     parser.add_argument('--output_channels', type=int, default=1, help='Number of output channels')
 
     return parser.parse_args()
-def train_evalute(rank, world_size, args):
+
+def initialize_model(argsm local_rank):
+    """ Initialize and return the RegDGCN model. """
+    args = vars(args)
+        
+    return model
+def train_and_evalute(rank, world_size, args):
     """ main function for Distributed training and evaluation"""
-#    setup_seed(args.seed)
+    setup_seed(args.seed)
 
     # Initialize process group for DDP
     dist.init_process_group(backend='nccl', init_method='env://', world_size=world_size, rank=rank)
 
     local_rank = rank
     torch.cude.set_device(local_rank)
+
+    # Set up logging (only on rank 0)
+    if local_rank == 0:
+        exp_dir = os.path.join('experiments', args.exp_name)
+        os.makedirs(exp_dir, exist_ok=True)
+        log_file = os.path.join(exp_dir, 'training.log')
+        setup_logger(log_file)
+        logging.info(f"Arguments: {args}")
+        logging.info(f"Starting training with {world_size} GPUs")
+        print(f"Starting training with {world_size} GPUs")
+
+    # Initialize model
+    model = initialize_model(args, local_rank)
+
+    if local_rank == 0
+        total_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
+        logging.info(f"Total trainable parameters: {total_params}")
+        print(f"Total trainable parameters: {total_params}")
+
+    # Prepare DataLoaders
+    train_dataloader, val_dataloader, test_dataloader = get_dataloaders(
+        args.dataset_path, args.subset_dir, args.num_points,
+        args.batch_size, world_size, rank, args.cache_dir,
+        args.num_workers
+    )
+
+    # Log dataset info
+    if local_rank == 0:
+        logging.info(
+            f"Data loaded: {len(train_dataloader)} training batches, {len(val_dataloader)} validation batches, {len(test_dataloader)} test batches")
+        print(
+            f"Data loaded: {len(train_dataloader)} training batches, {len(val_dataloader)} validation batches, {len(test_dataloader)} test batches")
 
 def main():
     """ main function to parse arguments and start training."""
@@ -60,7 +103,7 @@ def main():
     os.makedirs(exp_dir, exist_ok=True)
 
     # Start distributed training
-#    mp.spawn(train_and_evaluate, args=(world_size, args), nprocs=world_size, join=True)
+    mp.spawn(train_and_evaluate, args=(world_size, args), nprocs=world_size, join=True)
 
 
 if __name__=="__main__":
