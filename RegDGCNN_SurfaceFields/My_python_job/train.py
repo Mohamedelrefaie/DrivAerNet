@@ -2,6 +2,7 @@
 import os
 import torch
 import argparse
+import torch.multiprocessing as mp
 
 def parse_args():
     """Parse command line arguments."""
@@ -45,5 +46,14 @@ def main():
     world_size = len(gpu_list.split(','))
     print(f"world_size = {world_size}")
 
+    # Create experiment directory
+    exp_dir = os.path.join('experiments', args.exp_name)
+    os.makedirs(exp_dir, exist_ok=True)
+
+    # Start distributed training
+#    mp.spawn(train_and_evaluate, args=(world_size, args), nprocs=world_size, join=True)
+
+
 if __name__=="__main__":
     main()
+
