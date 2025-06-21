@@ -63,7 +63,10 @@ def initialize_model(args, local_rank):
 
     model = RegDGCNN_pressure(args).to(local_rank)
     model = torch.nn.parallel.DistributedDataParallel(
-        model, device_ids=[local_rank], find_unused_parameters=True, output_device=local_rank
+        model,
+        device_ids=[local_rank], 
+        find_unused_parameters=True, 
+        output_device=local_rank
     )
     return model
 
@@ -200,6 +203,7 @@ def train_and_evaluate(rank, world_size, args):
     setup_seed(args.seed)
 
     # Initialize process group for DDP
+    # DDP: Distributed Data Parallel
     dist.init_process_group(backend='nccl', init_method='env://', world_size=world_size, rank=rank)
 
     local_rank = rank
