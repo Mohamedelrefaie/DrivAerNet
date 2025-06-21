@@ -7,7 +7,7 @@ python run_pipeline.py \
     --num_points 10000 \
     --batch_size 12 \
     --epochs 150 \
-    --gpus "0"
+    --gpus "0, 1"
 
 
 # === Variable  ===
