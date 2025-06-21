@@ -1,5 +1,9 @@
 # ============ Function Usage ============
+import torch
+import torch.distributed as dist
+import torch.multiprocessing as mp
 '''
+# DDP: Distributed Data Parallel
 1. 
     world_size = len(gpu_list.split(','))
 #! 
@@ -33,5 +37,20 @@
     train_evaluate(rank=3, world_size= , args=args)
     ...
     
+5.
+    dist.init_process_group(backend='nccl', init_method='env://', world_size=world_size, rank=rank)
+#!
+    Starts the communication backend for DDP
+    # nccl:        NVDIA backend for multi-GPU
+    # evv://       Uses evvironmen variables(e.g. RANK, WORLD_SIZE, etc)
 
+6. 
+    torch.cuda.set_device(local_rank)
+#! 
+    Each process uses a single GPU
+    Set the GPU this process will use
 '''
+
+
+
+
