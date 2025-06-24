@@ -107,7 +107,7 @@ from model_pressure import RegDGCNN_pressure
 #!
     Uses Adam(Adaptive Moment Estimation), a popular optimizer that adjusts learning rates for each parameter
 #!
-    model.parameter()    
+    model.parameters()    
     ->Tell the optimizer which parameters to update
 #!
     lr = args.lr
@@ -124,12 +124,15 @@ from model_pressure import RegDGCNN_pressure
     'min'
     ->Try to minimize val loss
     -> By default 1e-4
+
 #!
     patience=10 
     ->Wait for 10 epochs without improvement
+
 #!
     factor=0.1
     ->Multiplies LR by 0.1
+
 #!
     e.g.
     Epoch 1 - Validation Loss: 0.470
@@ -141,7 +144,85 @@ from model_pressure import RegDGCNN_pressure
     Epoch 4 - Validation Loss: 0.470
     LR : 0.01*0.1
     
+14.----
+    train_dataloader.sampler.set_epoch(epoch)
+    -> DDP needed function
+    -> Helps ensure different GPU processes don't get the same data every epoch
+
+15.----
+    train_loss = train_one_epoch(model, train_dataloader, optimizer, criterion, local_rank)
+    -> function for training
+    
+#!
+    model.train()
+    -> bulit-in function for nn.Module API
+    -> set the model to training mode
+
+#!
+    for data, targets in tqdm(train_dataloader, desc="[Training]"):
+    -> tqdm is just a process bar
+    -> [Training]:  56%|█████████████████▌         | 50/90 [00:05<00:04,  8.23it/s]
+    -> Tells you are on batch 50/90
+    -> Is the same as " for data, targets in train_dataloader "
+
+#!
+    data, targets = data.squeeze(1).to(local_rank), targets.squeeze(1).to(local_rank)
+    -> .to(local_rank) sent data to GPU "local_rank"
+    -> .squeeze(1) rm the element "1" in the data and target
+    -> I do not know "1" stands for what
+
+#!
+    targets = (targets - PRESSURE_MEAN) / PRESSURE_STD
+    -> Normalizes the ground truth targets(pressure values)
+PRESSURE_MEAN = -94.5
+PRESSURE_STD = 117.25
+
+#!
+    optimizer.zero_grad()
+    -> Clears previous gradients stored in the model(from last batch)
+
+#!
+    outputs = model(data)
+    -> outputs could be predicted pressure values
+    -> Triggers DDP's _call_() method
+    -> DDP calls forward(data) function
+    -> forward() defined in model_pressure.py
+    -> Equivalent to outputs = model.forward(data)
+
+#!
+    loss = criterion(outputs.squeeze(1), targets)
+    -> MSE function for Pressure part
+    -> loss = ((outputs - targets)**2).mean()
+
+#!
+    loss.backward()
+    -> Computes gradients of the loss w.r.t all model parameters
+    -> See model_pressure.py backward() function
+
+#!
+    optimizer.step()
+    -> Updates the model's weights using the computed gradients in loss.backward()
+
+#!
+    total_loss += loss.item()
+    -> loss.item() converts the scalar tensor to a python number
+
+#!
+    return total_loss / len(train_dataloader)
+    -> Returns the average loss per batch over the entire epoch
+    -> len(train_dataloader) the number of batches passed from the command-line
+    
 '''
+
+
+
+
+
+
+
+
+
+
 
 
 
