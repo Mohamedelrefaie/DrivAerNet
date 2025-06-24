@@ -15,6 +15,7 @@ python run_pipeline.py \
 # It defines how many samples are processed at once per training step
 #
 # --epochs
+#   One epoch = one full pass through the training dataset
 # 
 # Total number of training rounds over the whole dataset
 # e.g. 10000 samples, batch_size = 100
