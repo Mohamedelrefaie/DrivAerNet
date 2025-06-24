@@ -1,13 +1,13 @@
 python run_pipeline.py \
     --stages train \
-    --exp_name "DrivAerNet_Pressure" \
-    --dataset_path "$HOME/ML_Turbulent/Data_Pressure_Field/Data_Pressure/PressureVTK/N_S_WWS_WM" \
+    --exp_name "Train Test" \
+    --dataset_path "$HOME/ML_Turbulent/DrivAerNet/RegDGCNN_SurfaceFields/My_python_job/Pressure_VTK" \
     --subset_dir "$HOME/ML_Turbulent/DrivAerNet/train_val_test_splits" \
-    --cache_dir "$HOME/ML_Turbulent/Data_Pressure_Field/Cache_data" \
+    --cache_dir "$HOME/ML_Turbulent/DrivAerNet/RegDGCNN_SurfaceFields/My_python_job/Cache_data" \
     --num_points 10000 \
-    --batch_size 12 \
-    --epochs 150 \
-    --gpus "0, 1, 2"
+    --batch_size 6 \
+    --epochs 10 \
+    --gpus "0"
 
 
 # === Variable  ===
