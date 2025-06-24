@@ -80,6 +80,12 @@ def train_and_evaluate(rank, world_size, args):
         logging.info(f"Arguments: {args}")
         logging.info(f"Starting training with {world_size} GPUs")
 
+        # Checkout .npz file
+        data = np.load("./Cache_data/N_S_WWS_WM_001.npz")
+        logging.info("Key in the .npz file", data.files)
+        for key in data.files:
+            logging.info(f"{key}: shape = {data[key].shape}, dtype = {data[key].dtype}")
+
     # Initialize model
     model = initialize_model(args, local_rank)
 
@@ -122,6 +128,7 @@ def main():
     # Create experiment directory
     exp_dir = os.path.join('experiments', args.exp_name)
     os.makedirs(exp_dir, exist_ok=True)
+
 
     # Start distributed training
     mp.spawn(train_and_evaluate, args=(world_size, args), nprocs=world_size, join=True)
