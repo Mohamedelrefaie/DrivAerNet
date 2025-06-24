@@ -12,7 +12,8 @@
 
 
 📄 [**DrivAerNet++ Paper (NeurIPS'24)**](https://arxiv.org/abs/2406.09624) | 📄 [**DrivAerNet Paper (JMD)**](https://arxiv.org/abs/2403.08055) | 🎥 [**Video Summary**](https://youtu.be/Y2-s0R_yHpo?si=E9B4BzDzcJebAMsC) 
-🎙️[**DrivAerNet++ podcast**](https://soundcloud.com/mohamed-elrefaie-6/drivaernet-podcast) | 🎙️[**AI Design Agents podcast**]([https://soundcloud.com/mohamed-elrefaie-6/drivaernet-podcast](https://substack.com/@hodgesj/note/p-166693500)) 
+
+🎙️[**DrivAerNet++ podcast**](https://soundcloud.com/mohamed-elrefaie-6/drivaernet-podcast) | 🎙️[**AI Design Agents podcast**](https://substack.com/@hodgesj/note/p-166693500) 
 
 
 We present DrivAerNet++, the largest and most comprehensive multimodal dataset for aerodynamic car design. DrivAerNet++ comprises 8,000 diverse car designs modeled with high-fidelity computational fluid dynamics (CFD) simulations. The dataset includes diverse car configurations such as fastback, notchback, and estateback, with different underbody and wheel designs.
