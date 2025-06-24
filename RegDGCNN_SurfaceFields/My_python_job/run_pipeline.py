@@ -2,18 +2,29 @@
 # run_pipeline.py
 
 import os
+import torch
+import torch.distributed as dist
+import torch.multiprocessing as mp
+import torch.nn.functional as F
+import torch.optim as optim
+from   torch.optim.lr_scheduler import ReduceLROnPlateau
+import numpy as np
 import time
-import logging
 import argparse
-import datetime  
-import subprocess
-#from   utils import setup_logger
+import matplotlib.pyplot as plt
+from   tqdm import tqdm
+import logging
 
-logging.basicConfig(
-    level=logging.INFO,  # <-- This enables logging.info()
-    format='[%(asctime)s] %(levelname)s: %(message)s',
-    datefmt='%H:%M:%S'
-)
+# Import modules
+from data_loader import get_dataloaders, PRESSURE_MEAN, PRESSURE_STD
+from model_pressure import RegDGCNN_pressure
+from utils import setup_logger, setup_seed
+
+#logging.basicConfig(
+#    level=logging.INFO,  # <-- This enables logging.info()
+#    format='[%(asctime)s] %(levelname)s: %(message)s',
+#    datefmt='%H:%M:%S'
+#)
 
 def parse_args():
 
@@ -94,84 +105,16 @@ def train_model(args):
 
 def main():
     """ main function to run the complete pipeline. """
-
     args = parse_args()
 
-    print(args.exp_name)
+    # Set up logging
+    timestamp = datatime.now().strftime("%Y%m%d_%H%M%S")
+    log_dir = os.path.join("logs", args_exp_name)
+    os.makedirs(log_dir, exist_ok=True)
+    log_file = os.path.join(log_dir, f"pipeline_{timestamp.log}")
+#    setup_logger(log_file)
 
-
-    # Set up environment variables for distributed training
-    env = os.environ.copy()
-    env["CUDA_VISIBLE_DEVICES"] = args.gpus
-    print("Environment variables for trainning: ") 
-    print("CUDA_VISIBLE_DEVICES = ", env["CUDA_VISIBLE_DEVICES"])
-
-    # Execute the selected pipeline stages
-    stages = args.stages.splits(',') if ',' in args.stages else [args.stages]
-    if 'all' in stages:
-        stages = ['preprocess', 'train', 'evaluate']
-
-    results = {}
-
-    # Train model 
-    if 'train' in stages:
-        print("*****************************")
-        results['train'] = train_model(args)
-
-    # Print summary
-    logging.info("*********************************************Pipeline execution complete.")
-    logging.info("Results summary:")
-    for stage, success in results.items():
-        status = "Success" if success else "Failed"
-        logging.info(f"  {stage}: {status}")
-
-    # Check if experiment was successful overall
-    overall_success = all(results.values())
-    logging.info(f"Overall status: {'Success' if overall_success else 'Failed'}")
-    return 0 if overall_success else 1
 
 if __name__=="__main__":
     exit(main())
-
-# ======== function usage ========
-'''
-1.
-    for key, value in env.items():
-        print(f"{key} = {value}") 
-
-key                 : the name of environment variable
-value               : key's value
-f"{key} = {value}"  : f-strings(formatted strings)
-
-2. 
-    stages = args.stages.splits(',') if ',' in args.stages else [args.exp_name]
-#!
-    This is a ternary expression
-    stages = <A> if <condition> else <B>
-#!
-    e.g. --stage "preprocess, train"
-    -> stages = ['preprocess, train']
-
-    e.g. --stage "all"
-    -> stages = [all]
-
-3. 
-    results = {}
-#!
-    create an empty directory
-#!
-    e.g. results = {
-        "preprocess": True, 
-        "train":      flase,
-        "evaluate":   True
-    }
-
-    e.g. results.get('train', False)
-    -> resluts have train, get True
-       whether get False
-4.
-    logging.info
-#!
-    Need explicit declaration
-'''
 
