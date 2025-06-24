@@ -39,13 +39,13 @@ def parse_args():
 
     return parser.parse_args()
 
-def initialize_model(argsm local_rank):
+def initialize_model(args, local_rank):
     """ Initialize and return the RegDGCN model. """
     args = vars(args)
         
     return model
 def train_and_evalute(rank, world_size, args):
-    """ main function for Distributed training and evaluation"""
+    """ main function for Distributed training and evaluation. """
     setup_seed(args.seed)
 
     # Initialize process group for DDP
@@ -60,6 +60,7 @@ def train_and_evalute(rank, world_size, args):
         os.makedirs(exp_dir, exist_ok=True)
         log_file = os.path.join(exp_dir, 'training.log')
         setup_logger(log_file)
+        logging.info(f"args.exp_name : {args.exp_name}")
         logging.info(f"Arguments: {args}")
         logging.info(f"Starting training with {world_size} GPUs")
         print(f"Starting training with {world_size} GPUs")
@@ -86,9 +87,15 @@ def train_and_evalute(rank, world_size, args):
         print(
             f"Data loaded: {len(train_dataloader)} training batches, {len(val_dataloader)} validation batches, {len(test_dataloader)} test batches")
 
+    # Clean up
+    dist.destroy_process_group()
 def main():
     """ main function to parse arguments and start training."""
     args = parse_args() 
+
+    # Set the master address and port for DDP
+    os.environ['MASTER_ADDR'] = 'localhost'
+    os.environ['MASTER_PORT'] = '12355'
 
     # Set visible GPUS
     gpu_list = args.gpus
