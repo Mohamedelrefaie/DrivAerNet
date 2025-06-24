@@ -1,13 +1,22 @@
 # train.py
 import os
 import torch
-import argparse
+import torch.distributed as dist
 import torch.multiprocessing as mp
+import torch.nn.functional as F
+import torch.optim as optim
+from torch.optim.lr_scheduler import ReduceLROnPlateau
+import numpy as np
+import time
+import argparse
+import matplotlib.pyplot as plt
+from tqdm import tqdm
 import logging
 
 # Import modules
-from utils       import setup_logger, setup_seed
 from data_loader import get_dataloaders, PRESSURE_MEAN, PRESSURE_STD
+from model_pressure import RegDGCNN_pressure
+from utils import setup_logger, setup_seed
 
 def parse_args():
     """Parse command line arguments."""
@@ -42,9 +51,16 @@ def parse_args():
 def initialize_model(args, local_rank):
     """ Initialize and return the RegDGCN model. """
     args = vars(args)
-        
+    model = RegDGCNN_pressure(args).to(local_rank)
+    model = torch.nn.parallel.DistributedDataParallel(
+            model,
+            device_ids=[local_rank],
+            find_unused_parameters=True,
+            output_device=local_rank
+    )
     return model
-def train_and_evalute(rank, world_size, args):
+
+def train_and_evaluate(rank, world_size, args):
     """ main function for Distributed training and evaluation. """
     setup_seed(args.seed)
 
@@ -52,7 +68,7 @@ def train_and_evalute(rank, world_size, args):
     dist.init_process_group(backend='nccl', init_method='env://', world_size=world_size, rank=rank)
 
     local_rank = rank
-    torch.cude.set_device(local_rank)
+    torch.cuda.set_device(local_rank)
 
     # Set up logging (only on rank 0)
     if local_rank == 0:
@@ -63,35 +79,34 @@ def train_and_evalute(rank, world_size, args):
         logging.info(f"args.exp_name : {args.exp_name}")
         logging.info(f"Arguments: {args}")
         logging.info(f"Starting training with {world_size} GPUs")
-        print(f"Starting training with {world_size} GPUs")
 
     # Initialize model
     model = initialize_model(args, local_rank)
 
-    if local_rank == 0
-        total_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
-        logging.info(f"Total trainable parameters: {total_params}")
-        print(f"Total trainable parameters: {total_params}")
-
-    # Prepare DataLoaders
-    train_dataloader, val_dataloader, test_dataloader = get_dataloaders(
-        args.dataset_path, args.subset_dir, args.num_points,
-        args.batch_size, world_size, rank, args.cache_dir,
-        args.num_workers
-    )
-
-    # Log dataset info
-    if local_rank == 0:
-        logging.info(
-            f"Data loaded: {len(train_dataloader)} training batches, {len(val_dataloader)} validation batches, {len(test_dataloader)} test batches")
-        print(
-            f"Data loaded: {len(train_dataloader)} training batches, {len(val_dataloader)} validation batches, {len(test_dataloader)} test batches")
+#    if local_rank == 0:
+#        total_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
+#        logging.info(f"Total trainable parameters: {total_params}")
+#        print(f"Total trainable parameters: {total_params}")
+#
+#    # Prepare DataLoaders
+#    train_dataloader, val_dataloader, test_dataloader = get_dataloaders(
+#        args.dataset_path, args.subset_dir, args.num_points,
+#        args.batch_size, world_size, rank, args.cache_dir,
+#        args.num_workers
+#    )
+#
+#    # Log dataset info
+#    if local_rank == 0:
+#        logging.info(
+#            f"Data loaded: {len(train_dataloader)} training batches, {len(val_dataloader)} validation batches, {len(test_dataloader)} test batches")
+#        print(
+#            f"Data loaded: {len(train_dataloader)} training batches, {len(val_dataloader)} validation batches, {len(test_dataloader)} test batches")
 
     # Clean up
     dist.destroy_process_group()
 def main():
     """ main function to parse arguments and start training."""
-    args = parse_args() 
+    args = parse_args()
 
     # Set the master address and port for DDP
     os.environ['MASTER_ADDR'] = 'localhost'
@@ -103,7 +118,6 @@ def main():
 
     # Count number of GPUs to use
     world_size = len(gpu_list.split(','))
-    print(f"world_size = {world_size}")
 
     # Create experiment directory
     exp_dir = os.path.join('experiments', args.exp_name)
