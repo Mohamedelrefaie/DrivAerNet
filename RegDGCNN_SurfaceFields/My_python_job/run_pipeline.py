@@ -2,23 +2,15 @@
 # run_pipeline.py
 
 import os
-import torch
-import torch.distributed as dist
-import torch.multiprocessing as mp
-import torch.nn.functional as F
-import torch.optim as optim
-from   torch.optim.lr_scheduler import ReduceLROnPlateau
-import numpy as np
-import time
 import argparse
-import matplotlib.pyplot as plt
-from   tqdm import tqdm
+import subprocess
 import logging
+import time
+import pprint
+from datetime import datetime
+from utils import setup_logger
 
-# Import modules
-from data_loader import get_dataloaders, PRESSURE_MEAN, PRESSURE_STD
-from model_pressure import RegDGCNN_pressure
-from utils import setup_logger, setup_seed
+
 
 #logging.basicConfig(
 #    level=logging.INFO,  # <-- This enables logging.info()
@@ -62,7 +54,7 @@ def parse_args():
     return parser.parse_args()
 
 def train_model(args):
-    logging.info("Starting model training...")
+    logging.info("**********************Starting model training...")
 
     # Prepare command for training script
     cmd = [
@@ -80,7 +72,7 @@ def train_model(args):
         "--k", str(args.k),
         "--output_channels", str(args.output_channels),
         "--seed", str(args.seed)
-    ] 
+    ]
 
     if args.cache_dir:
         cmd.extend(["--cache_dir", args.cache_dir])
@@ -99,7 +91,7 @@ def train_model(args):
         return False
 
     elapsed_time = time.time() - start_time
-    print(f"Model training completed ")
+    logging.info(f"**********************Model training completed ")
     logging.info(f"Model training completed in {elapsed_time:.2f} seconds")
     return True
 
@@ -108,11 +100,36 @@ def main():
     args = parse_args()
 
     # Set up logging
-    timestamp = datatime.now().strftime("%Y%m%d_%H%M%S")
-    log_dir = os.path.join("logs", args_exp_name)
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    log_dir = os.path.join("logs", args.exp_name)
     os.makedirs(log_dir, exist_ok=True)
-    log_file = os.path.join(log_dir, f"pipeline_{timestamp.log}")
-#    setup_logger(log_file)
+    log_file = os.path.join(log_dir, f"pipeline_{timestamp}.log")
+    setup_logger(log_file)
+
+    logging.info(f"Starting DrivAerNet pipeline - Experiment: {args.exp_name}")
+    logging.info(f"Arguments:\n" + pprint.pformat(vars(args), indent=2))
+
+    # Execute the selected pipeline stages
+    stages = args.stages.split(',') if ',' in args.stages else [args.stages]
+    if 'all' in stages:
+        stages = ['preporcess', 'train', 'evaluate']
+
+    results = {}
+
+    if 'train' in stages:
+        results['train'] = train_model(args) 
+        
+    # Print Summary
+    logging.info("Pipleline execution complete.")
+    logging.info("Results summary: ")
+    for stage, success in results.items():
+        status = "Success" if success else "Failed"
+        logging.info(f" {stage}: {status}")
+
+    # Check if experiment was successful overall
+#    overall_success = all(results.values())
+#    loggiing.info(f"Overall status: {'Success' if overall_success else 'Failed'}")
+#    return 0 if overall_success else 1
 
 
 if __name__=="__main__":
