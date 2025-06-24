@@ -1,5 +1,13 @@
+# ======== Hyperparameter ========
+1.
+    self.k = args['k']
+    -> k
+    -> Number of nearnest neighbors(for graph edge construction)
+
+2.
+    
 # ======== function usage ========
-'''
+
 1.
     for key, value in env.items():
         print(f"{key} = {value}") 
@@ -38,6 +46,6 @@ f"{key} = {value}"  : f-strings(formatted strings)
     logging.info
 #!
     Need explicit declaration
-'''
+
 
 
