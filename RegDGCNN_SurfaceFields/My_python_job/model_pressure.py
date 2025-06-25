@@ -102,14 +102,14 @@ class Transform_Net(nn.Module):
         batch_size = x.size(0)
 
         x = self.conv1(x)                       # (batch_size, 3*2, num_points, k) -> (batch_size, 64, num_points, k)
-        x = self.conv2(x)                       # (batch_size, 64, num_points, k) -> (batch_size, 128, num_points, k)
+        x = self.conv2(x)                       # (batch_size, 64, num_points, k)  -> (batch_size, 128, num_points, k)
         x = x.max(dim=-1, keepdim=False)[0]     # (batch_size, 128, num_points, k) -> (batch_size, 128, num_points)
 
-        x = self.conv3(x)                       # (batch_size, 128, num_points) -> (batch_size, 1024, num_points)
+        x = self.conv3(x)                       # (batch_size, 128, num_points)  -> (batch_size, 1024, num_points)
         x = x.max(dim=-1, keepdim=False)[0]     # (batch_size, 1024, num_points) -> (batch_size, 1024)
 
         x = F.leaky_relu(self.bn4(self.linear1(x)), negative_slope=0.2)     # (batch_size, 1024) -> (batch_size, 512)
-        x = F.leaky_relu(self.bn5(self.linear2(x)), negative_slope=0.2)     # (batch_size, 512) -> (batch_size, 256)
+        x = F.leaky_relu(self.bn5(self.linear2(x)), negative_slope=0.2)     # (batch_size, 512)  -> (batch_size, 256)
 
         x = self.transform(x)                   # (batch_size, 256) -> (batch_size, 3*3)
         x = x.view(batch_size, 3, 3)            # (batch_size, 3*3) -> (batch_size, 3, 3)
