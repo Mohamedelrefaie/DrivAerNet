@@ -64,8 +64,8 @@ def initialize_model(args, local_rank):
     model = RegDGCNN_pressure(args).to(local_rank)
     model = torch.nn.parallel.DistributedDataParallel(
         model,
-        device_ids=[local_rank], 
-        find_unused_parameters=True, 
+        device_ids=[local_rank],
+        find_unused_parameters=True,
         output_device=local_rank
     )
     return model
