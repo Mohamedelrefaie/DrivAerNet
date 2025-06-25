@@ -81,32 +81,31 @@ def train_and_evaluate(rank, world_size, args):
         logging.info(f"Starting training with {world_size} GPUs")
 
         # Checkout .npz file
-        data = np.load("./Cache_data/N_S_WWS_WM_001.npz")
-        logging.info("Key in the .npz file", data.files)
-        for key in data.files:
-            logging.info(f"{key}: shape = {data[key].shape}, dtype = {data[key].dtype}")
+        #data = np.load("./Cache_data/N_S_WWS_WM_001.npz")
+        #logging.info("Key in the .npz file", data.files)
+        #for key in data.files:
+        #    logging.info(f"{key}: shape = {data[key].shape}, dtype = {data[key].dtype}")
 
     # Initialize model
     model = initialize_model(args, local_rank)
 
-#    if local_rank == 0:
-#        total_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
-#        logging.info(f"Total trainable parameters: {total_params}")
-#        print(f"Total trainable parameters: {total_params}")
-#
-#    # Prepare DataLoaders
-#    train_dataloader, val_dataloader, test_dataloader = get_dataloaders(
-#        args.dataset_path, args.subset_dir, args.num_points,
-#        args.batch_size, world_size, rank, args.cache_dir,
-#        args.num_workers
-#    )
-#
-#    # Log dataset info
-#    if local_rank == 0:
-#        logging.info(
-#            f"Data loaded: {len(train_dataloader)} training batches, {len(val_dataloader)} validation batches, {len(test_dataloader)} test batches")
-#        print(
-#            f"Data loaded: {len(train_dataloader)} training batches, {len(val_dataloader)} validation batches, {len(test_dataloader)} test batches")
+    if local_rank == 0:
+        total_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
+        logging.info(f"Total trainable parameters: {total_params}")
+
+    # Prepare DataLoaders
+    train_dataloader, val_dataloader, test_dataloader = get_dataloaders(
+        args.dataset_path, args.subset_dir, args.num_points,
+        args.batch_size, world_size, rank, args.cache_dir,
+        args.num_workers
+    )
+
+    # Log dataset info
+    if local_rank == 0:
+        logging.info(
+            f"Data loaded: {len(train_dataloader)} training batches, {len(val_dataloader)} validation batches, {len(test_dataloader)} test batches")
+        print(
+            f"Data loaded: {len(train_dataloader)} training batches, {len(val_dataloader)} validation batches, {len(test_dataloader)} test batches")
 
     # Clean up
     dist.destroy_process_group()
