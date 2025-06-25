@@ -10,7 +10,7 @@ from model_pressure import RegDGCNN_pressure
 # DDP: Distributed Data Parallel
 1.----
     world_size = len(gpu_list.split(','))
-#! 
+#!
     gpu_list                   -> "0, 1, 2"
     gpu_list.split(',')        -> ['0', '1', '2']
     len(gpu_list.split(','))   -> 3
@@ -31,7 +31,7 @@ from model_pressure import RegDGCNN_pressure
    train_and_evaluate(rank, world_size, args)
    # rank :        which GPU this process is using
    # world_size :  total number of GPUS
-   # args:         your parsed command-line arguments 
+   # args:         your parsed command-line arguments
 #!
     mp.spawn(...)
     ->
@@ -40,7 +40,7 @@ from model_pressure import RegDGCNN_pressure
     train_evaluate(rank=2, world_size= , args=args)
     train_evaluate(rank=3, world_size= , args=args)
     ...
-    
+
 5.----
     dist.init_process_group(backend='nccl', init_method='env://', world_size=world_size, rank=rank)
 #!
@@ -50,7 +50,7 @@ from model_pressure import RegDGCNN_pressure
 
 6.-----
     torch.cuda.set_device(local_rank)
-#! 
+#!
     Each process uses a single GPU
     Set the GPU this process will use
 
@@ -72,7 +72,7 @@ from model_pressure import RegDGCNN_pressure
     model = torch.nn.parallel.DistributedDataParallel(
         model,
         device_ids=[local_rank],
-        find_unused_parameters=True, 
+        find_unused_parameters=True,
         output_device=local_rank
     )
 #!
@@ -90,10 +90,10 @@ from model_pressure import RegDGCNN_pressure
     -> so please handle that correctly"
         The detail please see Usage_model_pressure.py forwar() function
 
-#!  
+#!
     output_device=local_rank
     Ensures outputs go to the same GPU as inputs
-    
+
 11.----
     criterion = torch.nn.MSELoss()
 #!
@@ -101,24 +101,24 @@ from model_pressure import RegDGCNN_pressure
     This sets up Mean Squared Error(MSE) as the loss function, commonly used for regression problems
     It measures the average of the squares of the differences between predicted and actual values:
         MSE = 1/n * sum((yi - y)^2)      i = 1, ... , n
-    
+
 12.----
     optimizer = optim.Adam(model.parameters(), lr=args.lr, weight_decay=1e-4)
 #!
     Uses Adam(Adaptive Moment Estimation), a popular optimizer that adjusts learning rates for each parameter
 #!
-    model.parameters()    
+    model.parameters()
     ->Tell the optimizer which parameters to update
 #!
     lr = args.lr
-    ->learning rate 
+    ->learning rate
 #!
     weight_decay=1e-4
     ->adds L2 regularization to reduce overfitting
 
 13.----
     scheduler = ReduceLROnPlateau(optimizer, 'min', patience=10, factor=0.1, verbose=True)
-#!    
+#!
     Automatically reduces the learning rate when the validation loss plateaus(stops improving)
 #!
     'min'
@@ -126,7 +126,7 @@ from model_pressure import RegDGCNN_pressure
     -> By default 1e-4
 
 #!
-    patience=10 
+    patience=10
     ->Wait for 10 epochs without improvement
 
 #!
@@ -143,7 +143,7 @@ from model_pressure import RegDGCNN_pressure
     LR : 0.01
     Epoch 4 - Validation Loss: 0.470
     LR : 0.01*0.1
-    
+
 14.----
     train_dataloader.sampler.set_epoch(epoch)
     -> DDP needed function
@@ -152,7 +152,7 @@ from model_pressure import RegDGCNN_pressure
 15.----
     train_loss = train_one_epoch(model, train_dataloader, optimizer, criterion, local_rank)
     -> function for training
-    
+
 #!
     model.train()
     -> bulit-in function for nn.Module API
@@ -212,8 +212,25 @@ PRESSURE_STD = 117.25
     -> Returns the average loss per batch over the entire epoch
     -> len(train_dataloader) the number of batches passed from the command-line
 
+16.----
+    total_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
+    -> Calculates the total number of trainable parameters in a PyTorch model
 
+    #!
+    model.parameters()
+    -> Returns an iterator over all parameters
 
+    #!
+    p.requires_grad
+    -> True:  PyTorch will update it during training
+    -> False: Leave it unchanged
+
+    #!
+    p.numel()
+    -> Return the number of trainable parameters in each layer
+    -> example
+        p = torch.randn(3, 4)
+        p.numel()  # → 12  (because 3 rows × 4 columns = 12 elements)
 
 
 
