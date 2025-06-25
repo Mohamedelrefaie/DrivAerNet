@@ -168,8 +168,8 @@ def get_dataloaders(dataset_path: str, subset_dir: str, num_points: int, batch_s
     )
 
     train_dataset = create_subset(full_dataset, os.path.join(subset_dir, 'train_design_ids.txt'))
-    val_dataset = create_subset(full_dataset, os.path.join(subset_dir, 'val_design_ids.txt'))
-    test_dataset = create_subset(full_dataset, os.path.join(subset_dir, 'test_design_ids.txt'))
+    val_dataset   = create_subset(full_dataset, os.path.join(subset_dir, 'val_design_ids.txt'))
+    test_dataset  = create_subset(full_dataset, os.path.join(subset_dir, 'test_design_ids.txt'))
 
     # Distributed samplers for DDP
     train_sampler = torch.utils.data.distributed.DistributedSampler(
