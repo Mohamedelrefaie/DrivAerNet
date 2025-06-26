@@ -132,7 +132,7 @@ def create_subset(dataset, ids_file):
     try:
         with open(ids_file, 'r') as file:
             subset_ids = [id_.strip() for id_ in file.readlines()]
-        subset_files = [f for f in dataset.vtk_files if any(id_ in f for id_ in subset_ids)]
+        subset_files   = [f for f in dataset.vtk_files if any(id_ in f for id_ in subset_ids)]
         subset_indices = [dataset.vtk_files.index(f) for f in subset_files]
         if not subset_indices:
             logging.error(f"No matching VTK files found for IDs in {ids_file}.")
