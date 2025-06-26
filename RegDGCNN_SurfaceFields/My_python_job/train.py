@@ -100,6 +100,24 @@ def train_and_evaluate(rank, world_size, args):
         args.num_workers
     )
 
+    # Checkout the DataLoader object
+    dataset = train_dataloader.dataset
+    logging.info(f"Type of dataset: {type(train_dataloader)}")
+    logging.info(f"Number of samples in full_dataset: {len(train_dataloader)}")
+    logging.info(f"List all methods and attributs: {dir(train_dataloader)}")
+    for ii, (points, pressure)in enumerate(train_dataloader):
+        logging.info(f"Batch: {ii}")
+        logging.info(f"Batch.points: {points}")
+        logging.info(f"Batch.Pressure: {pressure}")
+
+
+    # Checkout the full_dataset i.e. all .vtk files
+#    logging.info(f"Type of train_dataloader: {type(train_dataloader)}")
+#    logging.info(f"Number of samples in train_dataset: {len(train_dataloader)}")
+#    logging.info(f"Root Dir: {dataset.root_dir}")
+#    logging.info(f"Number of .vtk files: {len(dataset.vtk_files)}")
+#    logging.info(f"List all .vtk files: {dataset.vtk_files}")
+
     # Log dataset info
     if local_rank == 0:
         logging.info(
