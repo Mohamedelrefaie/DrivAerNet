@@ -117,8 +117,11 @@ Usage
           subset_ids = ['0001', '0003']
        -> subset_files = ['car_0001.vtk', 'car_0003.vtk']
 
-
-
+    #!
+    return Subset(dataset, subset_indices)
+    -> from torch.utils.data import Dataset, Subset, DataLoader
+        -> Subset is an object of torch.utils.data
+        -> It maps your "subset index" to a "real index" in the full dataset
 
 
 
@@ -157,10 +160,30 @@ Usage
           -> batch_size = 12
           -> the leftover of 7 is discarded
 
-
-
-
-
-
-
+    -> train_dataloader = DataLoader(
+        train_dataset, batch_size=batch_size, sampler=train_sampler,
+        drop_last=True, num_workers=num_workers
+        )
+       -> Whenever you ask me for batch, I will call train_dataset[i]
+       -> It is an object of type: torch.utils.DataLoader
+          -> It does not story the data directly.
+          -> It wraps a dataset and serves data in batches when you iterate
+       -> Usage
+          -> for ii, Batch in enumerate(train_dataloader):
+                logging.info(f"Batch: {ii}")
+                logging.info(f"Batch.points: {Batch.points}")
+                logging.info(f"Batch.Pressure: {Batch.pressure}")
+             -> Use enmuerate() to get index ii and the data in each batch
+             -> This will call dataset[ii] i.e. __getitem__
+          -> train_dataloader.dataset.indices
+             -> List of selected sample indices
+          -> train_dataloader.dataset
+             -> Type is Subset
+             -> Subset is an object of torch.utils.data
+          -> train_dataloader.dataset.dataset
+             -> The full of class SurfacePressureDataset
+             -> dataset = train_dataloader.dataset.dataset
+             -> logging.info(f"Type of dataset: {type(dataset)}")
+       -> Checkout the methods and attributes in this object
+          -> logging.info(f"List all methods and attributs: {dir(dataset)}")
 
