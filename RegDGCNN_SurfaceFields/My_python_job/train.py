@@ -101,22 +101,60 @@ def train_and_evaluate(rank, world_size, args):
     )
 
     # Checkout the DataLoader object
-    dataset = train_dataloader.dataset
-    logging.info(f"Type of dataset: {type(train_dataloader)}")
-    logging.info(f"Number of samples in full_dataset: {len(train_dataloader)}")
-    logging.info(f"List all methods and attributs: {dir(train_dataloader)}")
+    logging.info(f"Type of train_dataloader: {type(train_dataloader)}")
+    logging.info(f"Number of train_dataloader: {len(train_dataloader)}")
+    #logging.info(f"List all methods and attributs of Dataloader: {dir(train_dataloader)}")
+    logging.info(f"We can access the internal conetnt by dataloader: ")
     for ii, (points, pressure)in enumerate(train_dataloader):
         logging.info(f"Batch: {ii}")
-        logging.info(f"Batch.points: {points}")
-        logging.info(f"Batch.Pressure: {pressure}")
+        logging.info(f"Batch.points.shape: {points.shape}") # [2, 1, 3, 10000]
+
+        sample_0 = points[0]                    # [1, 3, 10000]
+        sample_1 = points[1]                    # [1, 3, 10000]
+        logging.info(f"points_sample_0.shape: {sample_0.shape}")
+
+        sample_0 = sample_0.squeeze(0)          # [3, 10000]
+        sample_1 = sample_1.squeeze(0)          # [3, 10000]
+        logging.info(f"points_sample_0.shape: {sample_0.shape}")
+
+        x0 = sample_0[0]
+        x1 = sample_1[0]
+        logging.info(f"The first 10 points in x_coor for the sample_0: {x0[:10]}")
+        logging.info(f"The first 10 points in x_coor for the sample_1: {x1[:10]}")
+
+        logging.info(f"Batch.Pressure.shape: {pressure.shape}") #[2, 1, 10000]
+
+        sample_0 = pressure[0]                    # [1, 10000]
+        sample_1 = pressure[1]                    # [1, 10000]
+        logging.info(f"pressure_sample_0.shape: {sample_0.shape}")
+
+        sample_0 = sample_0.squeeze(0)          # [10000]
+        sample_1 = sample_1.squeeze(0)          # [10000]
+        logging.info(f"pressure_sample_0.shape: {sample_0.shape}")
+
+        logging.info(f"The first 10 points pressure for the sample_0: {sample_0[:10]}")
+        logging.info(f"The first 10 points pressure for the sample_1: {sample_1[:10]}")
+
+
+    # Checkout the torch.utils.data.subset object
+    train_subset = train_dataloader.dataset
+    logging.info(f"Type of train_subset: {type(train_subset)}")
+    logging.info(f"Number of samples of train_subset : {len(train_subset)}")
+    logging.info(f"Subset indices: {train_subset.indices[:5]}")
+    logging.info(f"List the train_subset vtk files:")
+    for ii, idx in enumerate(train_subset.indices):
+        vtk_file = train_subset.dataset.vtk_files[idx]
+        logging.info(f"{ii:3d}: {vtk_file}")
+    #logging.info(f"List all methods and attributs of subset: {dir(dataset)})")
 
 
     # Checkout the full_dataset i.e. all .vtk files
-#    logging.info(f"Type of train_dataloader: {type(train_dataloader)}")
-#    logging.info(f"Number of samples in train_dataset: {len(train_dataloader)}")
-#    logging.info(f"Root Dir: {dataset.root_dir}")
-#    logging.info(f"Number of .vtk files: {len(dataset.vtk_files)}")
-#    logging.info(f"List all .vtk files: {dataset.vtk_files}")
+    full_dataset = train_subset.dataset
+    logging.info(f"Type of full_dataset: {type(full_dataset)}")
+    logging.info(f"Number of samples of full_dataset: {len(full_dataset.vtk_files)}")
+    for f, ii in enumerate(full_dataset.vtk_files):
+        logging.info(f"  {ii: >2}: {f}")
+
 
     # Log dataset info
     if local_rank == 0:
@@ -124,6 +162,34 @@ def train_and_evaluate(rank, world_size, args):
             f"Data loaded: {len(train_dataloader)} training batches, {len(val_dataloader)} validation batches, {len(test_dataloader)} test batches")
         print(
             f"Data loaded: {len(train_dataloader)} training batches, {len(val_dataloader)} validation batches, {len(test_dataloader)} test batches")
+
+    # Set up criterion, optimizer, and scheduler
+    criterion = torch.nn.MSELoss()
+    optimizer = optim.Adam(model.parameters(), lr=args.lr, weight_decay=1e-4)
+    scheduler = ReduceLROnPlateau(optimizer, 'min', patience=10, factor=0.1, verbose=True)
+
+    best_model_path  = os.path.join('experiments', args.exp_name, 'best_model_pth')
+    final_model_path = os.path.join('experiments', args.exp_name, 'final_model_pth')
+
+    # Check if test_only and model exists
+    if args.test_only and os.path.exists(best_model_path):
+        if local_rank == 0:
+            logging.info("Loading best model for testing only")
+            print("Testing the best model:")
+        model.load_state_dict(torch.load(best_model_path, map_location=f'cuda:{local_rank}'))
+        test_model(model, test_dataloader, criterion, local_rank, os.path.join('experiments', args.exp_name))
+        dist.destroy_process_group()
+        return
+
+    # Training tracking
+    best_val_loss = float('inf')
+    train_losses = []
+    val_losses = []
+
+    if local_rank == 0:
+        logging.info(f"Staring training for {args.epochs} epochs")
+
+    # Training loop
 
     # Clean up
     dist.destroy_process_group()
