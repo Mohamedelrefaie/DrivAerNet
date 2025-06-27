@@ -134,6 +134,9 @@ from model_pressure import RegDGCNN_pressure
     ->Multiplies LR by 0.1
 
 #!
+    verbose=True
+    -> print a message whenever the learning rate changes
+#!
     e.g.
     Epoch 1 - Validation Loss: 0.470
     LR : 0.01
