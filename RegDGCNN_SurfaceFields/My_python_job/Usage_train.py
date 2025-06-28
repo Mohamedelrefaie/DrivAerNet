@@ -187,7 +187,7 @@ PRESSURE_STD = 117.25
 #!
     outputs = model(data)
     -> outputs could be predicted pressure values
-    -> Triggers DDP's _call_() method
+    -> Triggers DDP _call_() method
     -> DDP calls forward(data) function
     -> forward() defined in model_pressure.py
     -> Equivalent to outputs = model.forward(data)
@@ -204,7 +204,7 @@ PRESSURE_STD = 117.25
 
 #!
     optimizer.step()
-    -> Updates the model's weights using the computed gradients in loss.backward()
+    -> Updates the model weights using the computed gradients in loss.backward()
 
 #!
     total_loss += loss.item()
@@ -235,11 +235,36 @@ PRESSURE_STD = 117.25
         p = torch.randn(3, 4)
         p.numel()  # → 12  (because 3 rows × 4 columns = 12 elements)
 
+17.----
+   train_dataloader.sampler.set_epoch(epoch)
+   -> Ensure different GPUs shuffle differently at each epoch
 
 
+18.----
+   def train_one_epoch(...)
+   #!
+   targets = (targets - PRESSURE_MEAN) / PRESSURE_STD
+   -> Normalize all "num_points" per sample
 
+19.----
+   torch.save(model.state_dict(), best_model_path)
+   #!
+   model.state_dict ()
+   -> Returns a dictionary containing all the model learnable parameters i.e. weights and biases
 
+   #!
+   torch.save()
+   -> This function can save a PyTorch object to a file
 
+20.----
+   model.load_state_dict(torch.load(best_model_path, map_location=f'cuda:{localhost}'))
+   #!
+   torch.load()
+   -> load the model into a specified GPU
+   -> Return a dictionary
+   #!
+   model.load_state_dict()
+   -> Assigin that dictinoary to your model parameters
 
 
 
