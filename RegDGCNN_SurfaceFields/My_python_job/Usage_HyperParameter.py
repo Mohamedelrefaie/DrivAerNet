@@ -10,6 +10,6 @@
 2. epochs
  Total number of training rounds over the whole dataset
  e.g. 10000 samples, batch_size = 100
-      10 000 / 100 = 100 steps for one epoch
+      10 000 / 100 = 100 batches for one epoch
       epochs 150 have 150 times loop
 
