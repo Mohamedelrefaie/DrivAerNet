@@ -1,6 +1,6 @@
 #!/bin/bash
 #BSUB -J DrivAerNet_Pressure_GPU      # Job name
-#BSUB -q hgx                          # Queue name (change if needed)
+#BSUB -q  hgx                      # Queue name (change if needed)
 #BSUB -n 1                            # Number of CPU cores
 #BSUB -R "span[ptile=1]"
 #BSUB -gpu "num=1"
@@ -28,7 +28,7 @@ nvidia-smi
 find ./logs/ -name '*.log' ! -name "*_${LSB_JOBID}*.log" -delete
 
 # Run your Preprocess script
-# sh Model_Preprocess.sh
+# sh Model_Preprocess.sh 
 
 # Run your training script
  sh Model_Training.sh
