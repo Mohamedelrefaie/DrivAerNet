@@ -60,6 +60,42 @@ def initialize_model(args, local_rank):
     )
     return model
 
+def train_one_epoch(model, train_dataloader, optimizer, criterion, local_rank):
+    """Train for one epoch."""
+    model.train()
+    total_loss = 0
+
+    for data, targets in tqdm(train_dataloader, desc="[Training]"):
+        data    = data.squeeze(1).to(local_rank)
+        tragets = targets.squeeze(1).to(local_rank)
+        targets = (targets - PRESSURE_MEAN) / PRESSURE_STD
+        targets = targets.to(local_rank)
+
+        optimizer.zero_grad()
+        outputs = model(data)
+        loss = criterion(outputs.squeeze(1), targets)
+
+        loss.backward()
+        optimizer.step()
+        total_loss += loss.item()
+
+    return total_loss / len(train_dataloader)
+
+def validate(model, val_dataloader, criterion, local_rank):
+    """ Validate the model"""
+    total_loss = 0
+
+    with torch.no_grad():
+        for data, targets in tqdm(val_dataloader, desc="[Validation]"):
+            data    = data.squeeze(1).to(local_rank)
+            targets = targets.squeeze(1).to(local_rank)
+            targets = (targets - PRESSURE_MEAN) / PRESSURE_STD
+
+            outputs     = model(data)
+            loss        = criterion(outputs.squeeze(1), targets)
+            total_loss += loss.item()
+    return total_loss / len(val_dataloader)
+
 def train_and_evaluate(rank, world_size, args):
     """ main function for Distributed training and evaluation. """
     setup_seed(args.seed)
@@ -80,12 +116,6 @@ def train_and_evaluate(rank, world_size, args):
         logging.info(f"Arguments: {args}")
         logging.info(f"Starting training with {world_size} GPUs")
 
-        # Checkout .npz file
-        #data = np.load("./Cache_data/N_S_WWS_WM_001.npz")
-        #logging.info("Key in the .npz file", data.files)
-        #for key in data.files:
-        #    logging.info(f"{key}: shape = {data[key].shape}, dtype = {data[key].dtype}")
-
     # Initialize model
     model = initialize_model(args, local_rank)
 
@@ -100,6 +130,120 @@ def train_and_evaluate(rank, world_size, args):
         args.num_workers
     )
 
+
+    # Log dataset info
+    if local_rank == 0:
+        logging.info(
+            f"Data loaded: {len(train_dataloader)} training batches, {len(val_dataloader)} validation batches, {len(test_dataloader)} test batches")
+
+    # Set up criterion, optimizer, and scheduler
+    criterion = torch.nn.MSELoss()
+    optimizer = optim.Adam(model.parameters(), lr=args.lr, weight_decay=1e-4)
+    scheduler = ReduceLROnPlateau(optimizer, 'min', patience=10, factor=0.1, verbose=True)
+
+    best_model_path  = os.path.join('experiments', args.exp_name, 'best_model_pth')
+    final_model_path = os.path.join('experiments', args.exp_name, 'final_model_pth')
+
+    # Check if test_only and model exists
+    if args.test_only and os.path.exists(best_model_path):
+        if local_rank == 0:
+            logging.info("Loading best model for testing only")
+            print("Testing the best model:")
+        model.load_state_dict(torch.load(best_model_path, map_location=f'cuda:{local_rank}'))
+        test_model(model, test_dataloader, criterion, local_rank, os.path.join('experiments', args.exp_name))
+        dist.destroy_process_group()
+        return
+
+    # Training tracking
+    best_val_loss = float('inf')
+    train_losses = []
+    val_losses = []
+
+    if local_rank == 0:
+        logging.info(f"Staring training for {args.epochs} epochs")
+
+    # Training loop
+    for epoch in range(args.epochs):
+        # Set epoch for the DistributedSampler
+        train_dataloader.sampler.set_epoch(epoch)
+
+        # Training
+        train_loss = train_one_epoch(model, train_dataloader, optimizer, criterion, local_rank)
+
+        # Validation
+        val_loss = validate(model, val_dataloader, criterion, local_rank)
+
+        # Record losses
+        if local_rank == 0:
+            train_losses.append(train_loss)
+            val_losses.append(val_loss)
+            logging.info(f"Epoch {epoch + 1}/{args.epochs} - Train Loss: {train_loss:.6f}, Val Loss: {val_loss:.6f}")
+
+            # Save the best model
+            if val_loss < best_val_loss:
+                best_val_loss = val_loss
+                torch.save(model.state_dict(), best_model_path)
+                logging.info(f"New best model saved with Val Loss: {best_val_loss:.6f}")
+
+            # Update learning rate scheduler
+            scheduler.step(val_loss)
+
+            # Save progress rate scheduler
+            if (epoch + 1) % 10 == 0 or epoch == args.epochs - 1:
+                plt.figure(figsize=(10, 5))
+                plt.plot(range(1, epoch + 2), train_losses, label='Training Loss')
+                plt.plot(range(1, epoch + 2), val_losses,   label='Validation Loss')
+                plt.xlabel('Epoch')
+                plt.ylabel('Loss')
+                plt.legend()
+                plt.title(f'Training Progress - RegDGCNN')
+                plt.savefig(os.path.join('experiments', args.exp_name, f'training_progress_epoch_{epoch+1}.png'))
+                plt.close()
+
+    # Save final model
+    if local_rank == 0:
+        torch.save(model.state_dict(), final_model_path)
+        logging.info(f"Final model saved to {final_model_path}")
+
+    # Make sure all processes sync up before testing
+    dist.barrier()
+
+    # Test the best model
+    if local_rank == 0:
+        log.info("Testing the final model")
+        model.load_state_dict(torch.load(best_model_path, map_location=f'cuda:{localhost}'))
+        #test_model(model, test_dataloader, criterion, local_rank, os.path.join('experiments', args.exp_name))
+
+    # Clean up
+    dist.destroy_process_group()
+def main():
+    """ main function to parse arguments and start training."""
+    args = parse_args()
+
+    # Set the master address and port for DDP
+    os.environ['MASTER_ADDR'] = 'localhost'
+    os.environ['MASTER_PORT'] = '12355'
+
+    # Set visible GPUS
+    gpu_list = args.gpus
+    os.environ['CUDA_VISIBLE_DEVICES'] = gpu_list
+
+    # Count number of GPUs to use
+    world_size = len(gpu_list.split(','))
+
+    # Create experiment directory
+    exp_dir = os.path.join('experiments', args.exp_name)
+    os.makedirs(exp_dir, exist_ok=True)
+
+
+    # Start distributed training
+    mp.spawn(train_and_evaluate, args=(world_size, args), nprocs=world_size, join=True)
+
+
+if __name__=="__main__":
+    main()
+
+'''
     # Checkout the DataLoader object
     logging.info(f"Type of train_dataloader: {type(train_dataloader)}")
     logging.info(f"Number of train_dataloader: {len(train_dataloader)}")
@@ -154,69 +298,4 @@ def train_and_evaluate(rank, world_size, args):
     logging.info(f"Number of samples of full_dataset: {len(full_dataset.vtk_files)}")
     for f, ii in enumerate(full_dataset.vtk_files):
         logging.info(f"  {ii: >2}: {f}")
-
-
-    # Log dataset info
-    if local_rank == 0:
-        logging.info(
-            f"Data loaded: {len(train_dataloader)} training batches, {len(val_dataloader)} validation batches, {len(test_dataloader)} test batches")
-        print(
-            f"Data loaded: {len(train_dataloader)} training batches, {len(val_dataloader)} validation batches, {len(test_dataloader)} test batches")
-
-    # Set up criterion, optimizer, and scheduler
-    criterion = torch.nn.MSELoss()
-    optimizer = optim.Adam(model.parameters(), lr=args.lr, weight_decay=1e-4)
-    scheduler = ReduceLROnPlateau(optimizer, 'min', patience=10, factor=0.1, verbose=True)
-
-    best_model_path  = os.path.join('experiments', args.exp_name, 'best_model_pth')
-    final_model_path = os.path.join('experiments', args.exp_name, 'final_model_pth')
-
-    # Check if test_only and model exists
-    if args.test_only and os.path.exists(best_model_path):
-        if local_rank == 0:
-            logging.info("Loading best model for testing only")
-            print("Testing the best model:")
-        model.load_state_dict(torch.load(best_model_path, map_location=f'cuda:{local_rank}'))
-        test_model(model, test_dataloader, criterion, local_rank, os.path.join('experiments', args.exp_name))
-        dist.destroy_process_group()
-        return
-
-    # Training tracking
-    best_val_loss = float('inf')
-    train_losses = []
-    val_losses = []
-
-    if local_rank == 0:
-        logging.info(f"Staring training for {args.epochs} epochs")
-
-    # Training loop
-
-    # Clean up
-    dist.destroy_process_group()
-def main():
-    """ main function to parse arguments and start training."""
-    args = parse_args()
-
-    # Set the master address and port for DDP
-    os.environ['MASTER_ADDR'] = 'localhost'
-    os.environ['MASTER_PORT'] = '12355'
-
-    # Set visible GPUS
-    gpu_list = args.gpus
-    os.environ['CUDA_VISIBLE_DEVICES'] = gpu_list
-
-    # Count number of GPUs to use
-    world_size = len(gpu_list.split(','))
-
-    # Create experiment directory
-    exp_dir = os.path.join('experiments', args.exp_name)
-    os.makedirs(exp_dir, exist_ok=True)
-
-
-    # Start distributed training
-    mp.spawn(train_and_evaluate, args=(world_size, args), nprocs=world_size, join=True)
-
-
-if __name__=="__main__":
-    main()
-
+'''
