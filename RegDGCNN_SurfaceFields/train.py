@@ -312,6 +312,7 @@ def train_and_evaluate(rank, world_size, args):
         torch.save(model.state_dict(), final_model_path)
         logging.info(f"Final model saved to {final_model_path}")
         print(f"Final model saved to {final_model_path}")
+    test_model(model, test_dataloader, criterion, local_rank, os.path.join('experiments', args.exp_name))
 
     # Make sure all processes sync up before testing
     dist.barrier()
