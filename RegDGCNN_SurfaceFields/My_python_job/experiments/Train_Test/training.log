@@ -8869,3 +8869,420 @@ tensor([[[-0.0301],
 2025-06-28 16:38:56,794 - INFO - New best model saved with Val Loss: 0.980210
 2025-06-28 16:39:09,038 - INFO - Epoch 12/12 - Train Loss: 1.172093, Val Loss: 1.007287
 2025-06-28 16:39:09,168 - INFO - Final model saved to experiments/Train_Test/final_model_pth
+2025-06-28 16:44:58,608 - INFO - args.exp_name : Train_Test
+2025-06-28 16:44:58,610 - INFO - Arguments: Namespace(exp_name='Train_Test', seed=1, dataset_path='/work/mae-zhangbj/Data_Pressure/Pressure_VTK', subset_dir='/work/mae-zhangbj/ML_Turbulent/DrivAerNet/train_val_test_splits', cache_dir='/work/mae-zhangbj/Data_Pressure/Cache_data', num_points=10000, batch_size=8, epochs=12, lr=0.001, num_workers=1, test_only=False, gpus='0', dropout=0.4, emb_dims=1024, k=40, output_channels=1)
+2025-06-28 16:44:58,610 - INFO - Starting training with 1 GPUs
+2025-06-28 16:45:03,908 - INFO - Total trainable parameters: 1437705
+2025-06-28 16:45:03,962 - INFO - Data loaded: 10 training batches, 2 validation batches, 3 test batches
+2025-06-28 16:45:03,968 - INFO - Staring training for 12 epochs
+2025-06-28 16:46:09,320 - INFO - Epoch 1/12 - Train Loss: 1.253324, Val Loss: 1.131323
+2025-06-28 16:46:09,362 - INFO - New best model saved with Val Loss: 1.131323
+2025-06-28 16:46:24,542 - INFO - Epoch 2/12 - Train Loss: 1.188332, Val Loss: 1.119962
+2025-06-28 16:46:24,560 - INFO - New best model saved with Val Loss: 1.119962
+2025-06-28 16:46:35,885 - INFO - Epoch 3/12 - Train Loss: 1.182359, Val Loss: 1.114902
+2025-06-28 16:46:35,902 - INFO - New best model saved with Val Loss: 1.114902
+2025-06-28 16:46:48,232 - INFO - Epoch 4/12 - Train Loss: 1.184324, Val Loss: 1.109728
+2025-06-28 16:46:48,262 - INFO - New best model saved with Val Loss: 1.109728
+2025-06-28 16:47:01,475 - INFO - Epoch 5/12 - Train Loss: 1.177681, Val Loss: 1.104723
+2025-06-28 16:47:01,493 - INFO - New best model saved with Val Loss: 1.104723
+2025-06-28 16:47:19,029 - INFO - Epoch 6/12 - Train Loss: 1.175024, Val Loss: 1.096504
+2025-06-28 16:47:19,047 - INFO - New best model saved with Val Loss: 1.096504
+2025-06-28 16:47:31,678 - INFO - Epoch 7/12 - Train Loss: 1.177505, Val Loss: 1.082989
+2025-06-28 16:47:31,696 - INFO - New best model saved with Val Loss: 1.082989
+2025-06-28 16:47:44,080 - INFO - Epoch 8/12 - Train Loss: 1.175777, Val Loss: 1.058120
+2025-06-28 16:47:44,099 - INFO - New best model saved with Val Loss: 1.058120
+2025-06-28 16:47:55,991 - INFO - Epoch 9/12 - Train Loss: 1.170325, Val Loss: 1.028193
+2025-06-28 16:47:56,008 - INFO - New best model saved with Val Loss: 1.028193
+2025-06-28 16:48:08,047 - INFO - Epoch 10/12 - Train Loss: 1.160947, Val Loss: 1.010467
+2025-06-28 16:48:08,065 - INFO - New best model saved with Val Loss: 1.010467
+2025-06-28 16:48:21,738 - INFO - Epoch 11/12 - Train Loss: 1.173847, Val Loss: 0.980210
+2025-06-28 16:48:21,762 - INFO - New best model saved with Val Loss: 0.980210
+2025-06-28 16:48:35,348 - INFO - Epoch 12/12 - Train Loss: 1.172093, Val Loss: 1.007287
+2025-06-28 16:48:35,481 - INFO - Final model saved to experiments/Train_Test/final_model_pth
+2025-06-28 16:48:35,493 - INFO - Testing the final model
+2025-06-28 16:49:38,705 - INFO - args.exp_name : Train_Test
+2025-06-28 16:49:38,714 - INFO - Arguments: Namespace(exp_name='Train_Test', seed=1, dataset_path='/work/mae-zhangbj/Data_Pressure/Pressure_VTK', subset_dir='/work/mae-zhangbj/ML_Turbulent/DrivAerNet/train_val_test_splits', cache_dir='/work/mae-zhangbj/Data_Pressure/Cache_data', num_points=10000, batch_size=8, epochs=12, lr=0.001, num_workers=1, test_only=False, gpus='0', dropout=0.4, emb_dims=1024, k=40, output_channels=1)
+2025-06-28 16:49:38,714 - INFO - Starting training with 1 GPUs
+2025-06-28 16:49:43,284 - INFO - Total trainable parameters: 1437705
+2025-06-28 16:49:43,340 - INFO - Data loaded: 10 training batches, 2 validation batches, 3 test batches
+2025-06-28 16:49:43,345 - INFO - Staring training for 12 epochs
+2025-06-28 16:50:00,842 - INFO - Epoch 1/12 - Train Loss: 1.253324, Val Loss: 1.131323
+2025-06-28 16:50:00,887 - INFO - New best model saved with Val Loss: 1.131323
+2025-06-28 16:50:13,527 - INFO - Epoch 2/12 - Train Loss: 1.188332, Val Loss: 1.119962
+2025-06-28 16:50:13,545 - INFO - New best model saved with Val Loss: 1.119962
+2025-06-28 16:50:26,179 - INFO - Epoch 3/12 - Train Loss: 1.182359, Val Loss: 1.114902
+2025-06-28 16:50:26,197 - INFO - New best model saved with Val Loss: 1.114902
+2025-06-28 16:50:38,916 - INFO - Epoch 4/12 - Train Loss: 1.184324, Val Loss: 1.109728
+2025-06-28 16:50:38,935 - INFO - New best model saved with Val Loss: 1.109728
+2025-06-28 16:50:51,177 - INFO - Epoch 5/12 - Train Loss: 1.177681, Val Loss: 1.104723
+2025-06-28 16:50:51,194 - INFO - New best model saved with Val Loss: 1.104723
+2025-06-28 16:51:03,522 - INFO - Epoch 6/12 - Train Loss: 1.175024, Val Loss: 1.096504
+2025-06-28 16:51:03,538 - INFO - New best model saved with Val Loss: 1.096504
+2025-06-28 16:51:14,828 - INFO - Epoch 7/12 - Train Loss: 1.177505, Val Loss: 1.082989
+2025-06-28 16:51:14,844 - INFO - New best model saved with Val Loss: 1.082989
+2025-06-28 16:51:26,940 - INFO - Epoch 8/12 - Train Loss: 1.175777, Val Loss: 1.058120
+2025-06-28 16:51:26,957 - INFO - New best model saved with Val Loss: 1.058120
+2025-06-28 16:51:39,875 - INFO - Epoch 9/12 - Train Loss: 1.170325, Val Loss: 1.028193
+2025-06-28 16:51:39,891 - INFO - New best model saved with Val Loss: 1.028193
+2025-06-28 16:51:52,764 - INFO - Epoch 10/12 - Train Loss: 1.160947, Val Loss: 1.010467
+2025-06-28 16:51:52,783 - INFO - New best model saved with Val Loss: 1.010467
+2025-06-28 16:52:04,711 - INFO - Epoch 11/12 - Train Loss: 1.173847, Val Loss: 0.980210
+2025-06-28 16:52:04,729 - INFO - New best model saved with Val Loss: 0.980210
+2025-06-28 16:52:17,143 - INFO - Epoch 12/12 - Train Loss: 1.172093, Val Loss: 1.007287
+2025-06-28 16:52:17,274 - INFO - Final model saved to experiments/Train_Test/final_model_pth
+2025-06-28 16:52:17,289 - INFO - Testing the final model
+2025-06-28 17:40:57,583 - INFO - args.exp_name : Train_Test
+2025-06-28 17:40:57,592 - INFO - Arguments: Namespace(exp_name='Train_Test', seed=1, dataset_path='/work/mae-zhangbj/Data_Pressure/Pressure_VTK', subset_dir='/work/mae-zhangbj/ML_Turbulent/DrivAerNet/train_val_test_splits', cache_dir='/work/mae-zhangbj/Data_Pressure/Cache_data', num_points=10000, batch_size=8, epochs=12, lr=0.001, num_workers=1, test_only=False, gpus='0', dropout=0.4, emb_dims=1024, k=40, output_channels=1)
+2025-06-28 17:40:57,593 - INFO - Starting training with 1 GPUs
+2025-06-28 17:41:02,288 - INFO - Total trainable parameters: 1437705
+2025-06-28 17:41:02,349 - INFO - Data loaded: 10 training batches, 2 validation batches, 3 test batches
+2025-06-28 17:41:02,353 - INFO - Staring training for 12 epochs
+2025-06-28 17:41:20,569 - INFO - Epoch 1/12 - Train Loss: 1.253324, Val Loss: 1.140946
+2025-06-28 17:41:20,597 - INFO - New best model saved with Val Loss: 1.140946
+2025-06-28 17:41:33,602 - INFO - Epoch 2/12 - Train Loss: 1.188389, Val Loss: 1.113803
+2025-06-28 17:41:33,622 - INFO - New best model saved with Val Loss: 1.113803
+2025-06-28 17:41:45,120 - INFO - Epoch 3/12 - Train Loss: 1.182415, Val Loss: 1.121538
+2025-06-28 17:41:58,656 - INFO - Epoch 4/12 - Train Loss: 1.184420, Val Loss: 1.125069
+2025-06-28 17:42:11,109 - INFO - Epoch 5/12 - Train Loss: 1.177936, Val Loss: 1.114436
+2025-06-28 17:42:27,952 - INFO - Epoch 6/12 - Train Loss: 1.174998, Val Loss: 1.103332
+2025-06-28 17:42:27,982 - INFO - New best model saved with Val Loss: 1.103332
+2025-06-28 17:42:40,462 - INFO - Epoch 7/12 - Train Loss: 1.177706, Val Loss: 1.091069
+2025-06-28 17:42:40,485 - INFO - New best model saved with Val Loss: 1.091069
+2025-06-28 17:42:52,824 - INFO - Epoch 8/12 - Train Loss: 1.176191, Val Loss: 1.076332
+2025-06-28 17:42:52,849 - INFO - New best model saved with Val Loss: 1.076332
+2025-06-28 17:43:10,553 - INFO - Epoch 9/12 - Train Loss: 1.170609, Val Loss: 1.064585
+2025-06-28 17:43:10,570 - INFO - New best model saved with Val Loss: 1.064585
+2025-06-28 17:43:23,868 - INFO - Epoch 10/12 - Train Loss: 1.161243, Val Loss: 1.050977
+2025-06-28 17:43:23,898 - INFO - New best model saved with Val Loss: 1.050977
+2025-06-28 17:43:35,538 - INFO - Epoch 11/12 - Train Loss: 1.173800, Val Loss: 1.018686
+2025-06-28 17:43:35,567 - INFO - New best model saved with Val Loss: 1.018686
+2025-06-28 17:43:47,557 - INFO - Epoch 12/12 - Train Loss: 1.172042, Val Loss: 0.995451
+2025-06-28 17:43:47,574 - INFO - New best model saved with Val Loss: 0.995451
+2025-06-28 17:43:47,722 - INFO - Final model saved to experiments/Train_Test/final_model_pth
+2025-06-28 17:43:47,732 - INFO - Testing the final model
+2025-06-28 17:43:50,700 - INFO - mse type: <class 'torch.Tensor'>
+2025-06-28 18:21:25,619 - INFO - args.exp_name : Train_Test
+2025-06-28 18:21:25,622 - INFO - Arguments: Namespace(exp_name='Train_Test', seed=1, dataset_path='/work/mae-zhangbj/Data_Pressure/Pressure_VTK', subset_dir='/work/mae-zhangbj/ML_Turbulent/DrivAerNet/train_val_test_splits', cache_dir='/work/mae-zhangbj/Data_Pressure/Cache_data', num_points=10000, batch_size=8, epochs=12, lr=0.001, num_workers=1, test_only=False, gpus='0', dropout=0.4, emb_dims=1024, k=40, output_channels=1)
+2025-06-28 18:21:25,622 - INFO - Starting training with 1 GPUs
+2025-06-28 18:21:27,703 - INFO - Total trainable parameters: 1437705
+2025-06-28 18:21:27,761 - INFO - Data loaded: 10 training batches, 2 validation batches, 3 test batches
+2025-06-28 18:21:27,762 - INFO - Staring training for 12 epochs
+2025-06-28 18:21:39,806 - INFO - Epoch 1/12 - Train Loss: 1.253324, Val Loss: 1.140946
+2025-06-28 18:21:39,849 - INFO - New best model saved with Val Loss: 1.140946
+2025-06-28 18:21:50,336 - INFO - Epoch 2/12 - Train Loss: 1.188389, Val Loss: 1.113803
+2025-06-28 18:21:50,361 - INFO - New best model saved with Val Loss: 1.113803
+2025-06-28 18:22:01,754 - INFO - Epoch 3/12 - Train Loss: 1.182415, Val Loss: 1.121538
+2025-06-28 18:22:13,083 - INFO - Epoch 4/12 - Train Loss: 1.184420, Val Loss: 1.125069
+2025-06-28 18:22:23,809 - INFO - Epoch 5/12 - Train Loss: 1.177936, Val Loss: 1.114436
+2025-06-28 18:22:34,385 - INFO - Epoch 6/12 - Train Loss: 1.174998, Val Loss: 1.103332
+2025-06-28 18:22:34,412 - INFO - New best model saved with Val Loss: 1.103332
+2025-06-28 18:22:44,971 - INFO - Epoch 7/12 - Train Loss: 1.177706, Val Loss: 1.091069
+2025-06-28 18:22:44,996 - INFO - New best model saved with Val Loss: 1.091069
+2025-06-28 18:22:55,323 - INFO - Epoch 8/12 - Train Loss: 1.176191, Val Loss: 1.076332
+2025-06-28 18:22:55,348 - INFO - New best model saved with Val Loss: 1.076332
+2025-06-28 18:23:05,672 - INFO - Epoch 9/12 - Train Loss: 1.170609, Val Loss: 1.064585
+2025-06-28 18:23:05,696 - INFO - New best model saved with Val Loss: 1.064585
+2025-06-28 18:23:16,284 - INFO - Epoch 10/12 - Train Loss: 1.161243, Val Loss: 1.050977
+2025-06-28 18:23:16,309 - INFO - New best model saved with Val Loss: 1.050977
+2025-06-28 18:23:26,649 - INFO - Epoch 11/12 - Train Loss: 1.173800, Val Loss: 1.018686
+2025-06-28 18:23:26,675 - INFO - New best model saved with Val Loss: 1.018686
+2025-06-28 18:23:37,014 - INFO - Epoch 12/12 - Train Loss: 1.172042, Val Loss: 0.995451
+2025-06-28 18:23:37,038 - INFO - New best model saved with Val Loss: 0.995451
+2025-06-28 18:23:37,175 - INFO - Final model saved to experiments/Train_Test/final_model_pth
+2025-06-28 18:23:37,175 - INFO - Testing the final model
+2025-06-28 18:23:40,000 - INFO - mse type: <class 'torch.Tensor'>
+2025-06-28 18:23:40,005 - INFO - mse shape: torch.Size([])
+2025-06-28 18:23:40,005 - INFO - mae type: <class 'torch.Tensor'>
+2025-06-28 18:23:40,005 - INFO - mae shape: torch.Size([])
+2025-06-28 18:23:40,041 - INFO - mse type: <class 'torch.Tensor'>
+2025-06-28 18:23:40,041 - INFO - mse shape: torch.Size([])
+2025-06-28 18:23:40,041 - INFO - mae type: <class 'torch.Tensor'>
+2025-06-28 18:23:40,041 - INFO - mae shape: torch.Size([])
+2025-06-28 18:23:40,275 - INFO - mse type: <class 'torch.Tensor'>
+2025-06-28 18:23:40,279 - INFO - mse shape: torch.Size([])
+2025-06-28 18:23:40,279 - INFO - mae type: <class 'torch.Tensor'>
+2025-06-28 18:23:40,288 - INFO - mae shape: torch.Size([])
+2025-06-28 18:30:15,743 - INFO - args.exp_name : Train_Test
+2025-06-28 18:30:15,755 - INFO - Arguments: Namespace(exp_name='Train_Test', seed=1, dataset_path='/work/mae-zhangbj/Data_Pressure/Pressure_VTK', subset_dir='/work/mae-zhangbj/ML_Turbulent/DrivAerNet/train_val_test_splits', cache_dir='/work/mae-zhangbj/Data_Pressure/Cache_data', num_points=10000, batch_size=8, epochs=12, lr=0.001, num_workers=1, test_only=False, gpus='0', dropout=0.4, emb_dims=1024, k=40, output_channels=1)
+2025-06-28 18:30:15,755 - INFO - Starting training with 1 GPUs
+2025-06-28 18:30:22,593 - INFO - Total trainable parameters: 1437705
+2025-06-28 18:30:22,648 - INFO - Data loaded: 10 training batches, 2 validation batches, 3 test batches
+2025-06-28 18:30:22,651 - INFO - Staring training for 12 epochs
+2025-06-28 18:30:42,202 - INFO - Epoch 1/12 - Train Loss: 1.253324, Val Loss: 1.140946
+2025-06-28 18:30:42,231 - INFO - New best model saved with Val Loss: 1.140946
+2025-06-28 18:30:58,928 - INFO - Epoch 2/12 - Train Loss: 1.188389, Val Loss: 1.113803
+2025-06-28 18:30:58,949 - INFO - New best model saved with Val Loss: 1.113803
+2025-06-28 18:31:15,250 - INFO - Epoch 3/12 - Train Loss: 1.182415, Val Loss: 1.121538
+2025-06-28 18:31:31,814 - INFO - Epoch 4/12 - Train Loss: 1.184420, Val Loss: 1.125069
+2025-06-28 18:31:47,594 - INFO - Epoch 5/12 - Train Loss: 1.177936, Val Loss: 1.114436
+2025-06-28 18:32:03,738 - INFO - Epoch 6/12 - Train Loss: 1.174998, Val Loss: 1.103332
+2025-06-28 18:32:03,759 - INFO - New best model saved with Val Loss: 1.103332
+2025-06-28 18:32:20,505 - INFO - Epoch 7/12 - Train Loss: 1.177706, Val Loss: 1.091069
+2025-06-28 18:32:20,525 - INFO - New best model saved with Val Loss: 1.091069
+2025-06-28 18:34:09,706 - INFO - args.exp_name : Train_Test
+2025-06-28 18:34:09,715 - INFO - Arguments: Namespace(exp_name='Train_Test', seed=1, dataset_path='/work/mae-zhangbj/Data_Pressure/Pressure_VTK', subset_dir='/work/mae-zhangbj/ML_Turbulent/DrivAerNet/train_val_test_splits', cache_dir='/work/mae-zhangbj/Data_Pressure/Cache_data', num_points=10000, batch_size=8, epochs=12, lr=0.001, num_workers=1, test_only=False, gpus='0', dropout=0.4, emb_dims=1024, k=40, output_channels=1)
+2025-06-28 18:34:09,715 - INFO - Starting training with 1 GPUs
+2025-06-28 18:34:15,351 - INFO - Total trainable parameters: 1437705
+2025-06-28 18:34:15,413 - INFO - Data loaded: 10 training batches, 2 validation batches, 3 test batches
+2025-06-28 18:34:15,419 - INFO - Staring training for 12 epochs
+2025-06-28 18:34:34,140 - INFO - Epoch 1/12 - Train Loss: 1.253324, Val Loss: 1.140946
+2025-06-28 18:34:34,190 - INFO - New best model saved with Val Loss: 1.140946
+2025-06-28 18:34:48,816 - INFO - Epoch 2/12 - Train Loss: 1.188389, Val Loss: 1.113803
+2025-06-28 18:34:48,837 - INFO - New best model saved with Val Loss: 1.113803
+2025-06-28 18:35:03,056 - INFO - Epoch 3/12 - Train Loss: 1.182415, Val Loss: 1.121538
+2025-06-28 18:35:16,281 - INFO - Epoch 4/12 - Train Loss: 1.184420, Val Loss: 1.125069
+2025-06-28 18:35:31,027 - INFO - Epoch 5/12 - Train Loss: 1.177936, Val Loss: 1.114436
+2025-06-28 18:35:45,304 - INFO - Epoch 6/12 - Train Loss: 1.174998, Val Loss: 1.103332
+2025-06-28 18:35:45,339 - INFO - New best model saved with Val Loss: 1.103332
+2025-06-28 18:35:59,806 - INFO - Epoch 7/12 - Train Loss: 1.177706, Val Loss: 1.091069
+2025-06-28 18:35:59,823 - INFO - New best model saved with Val Loss: 1.091069
+2025-06-28 18:36:15,787 - INFO - Epoch 8/12 - Train Loss: 1.176191, Val Loss: 1.076332
+2025-06-28 18:36:15,807 - INFO - New best model saved with Val Loss: 1.076332
+2025-06-28 18:36:30,336 - INFO - Epoch 9/12 - Train Loss: 1.170609, Val Loss: 1.064585
+2025-06-28 18:36:30,356 - INFO - New best model saved with Val Loss: 1.064585
+2025-06-28 18:36:44,411 - INFO - Epoch 10/12 - Train Loss: 1.161243, Val Loss: 1.050977
+2025-06-28 18:36:44,430 - INFO - New best model saved with Val Loss: 1.050977
+2025-06-28 18:37:00,978 - INFO - Epoch 11/12 - Train Loss: 1.173800, Val Loss: 1.018686
+2025-06-28 18:37:01,001 - INFO - New best model saved with Val Loss: 1.018686
+2025-06-28 18:37:14,497 - INFO - Epoch 12/12 - Train Loss: 1.172042, Val Loss: 0.995451
+2025-06-28 18:37:14,518 - INFO - New best model saved with Val Loss: 0.995451
+2025-06-28 18:37:14,668 - INFO - Final model saved to experiments/Train_Test/final_model_pth
+2025-06-28 18:37:14,679 - INFO - Testing the final model
+2025-06-28 18:37:19,202 - INFO - mse type: <class 'torch.Tensor'>
+2025-06-28 18:37:19,208 - INFO - mse value: 1.0333396196365356
+2025-06-28 18:37:19,208 - INFO - mse value_with_item: 1.0333396196365356
+2025-06-28 18:37:19,208 - INFO - mae type: <class 'torch.Tensor'>
+2025-06-28 18:37:19,209 - INFO - mae value: 0.6205043792724609
+2025-06-28 18:37:19,209 - INFO - mae value_with_item: 0.6205043792724609
+2025-06-28 18:37:19,246 - INFO - rel_l1 value: 0.9312472343444824
+2025-06-28 18:37:19,246 - INFO - rel_l1_with_item value: 0.9312472343444824
+2025-06-28 18:37:19,246 - INFO - rel_l2 value: 0.9395401477813721
+2025-06-28 18:37:19,246 - INFO - rel_l2_with_item value: 0.9395401477813721
+2025-06-28 18:37:19,252 - INFO - mse type: <class 'torch.Tensor'>
+2025-06-28 18:37:19,478 - INFO - mse value: 1.0370538234710693
+2025-06-28 18:37:19,478 - INFO - mse value_with_item: 1.0370538234710693
+2025-06-28 18:37:19,478 - INFO - mae type: <class 'torch.Tensor'>
+2025-06-28 18:37:19,478 - INFO - mae value: 0.6142085194587708
+2025-06-28 18:37:19,478 - INFO - mae value_with_item: 0.6142085194587708
+2025-06-28 18:37:19,479 - INFO - rel_l1 value: 0.9384238719940186
+2025-06-28 18:37:19,479 - INFO - rel_l1_with_item value: 0.9384238719940186
+2025-06-28 18:37:19,479 - INFO - rel_l2 value: 0.9456447958946228
+2025-06-28 18:37:19,479 - INFO - rel_l2_with_item value: 0.9456447958946228
+2025-06-28 18:37:19,484 - INFO - mse type: <class 'torch.Tensor'>
+2025-06-28 18:37:19,710 - INFO - mse value: 0.9745650291442871
+2025-06-28 18:37:19,711 - INFO - mse value_with_item: 0.9745650291442871
+2025-06-28 18:37:19,711 - INFO - mae type: <class 'torch.Tensor'>
+2025-06-28 18:37:19,711 - INFO - mae value: 0.5982407927513123
+2025-06-28 18:37:19,711 - INFO - mae value_with_item: 0.5982407927513123
+2025-06-28 18:37:19,711 - INFO - rel_l1 value: 0.9408509731292725
+2025-06-28 18:37:19,712 - INFO - rel_l1_with_item value: 0.9408509731292725
+2025-06-28 18:37:19,712 - INFO - rel_l2 value: 0.9449415802955627
+2025-06-28 18:37:19,712 - INFO - rel_l2_with_item value: 0.9449415802955627
+2025-06-30 14:25:18,222 - INFO - args.exp_name : Train_Test
+2025-06-30 14:25:18,227 - INFO - Arguments: Namespace(exp_name='Train_Test', seed=1, dataset_path='/work/mae-zhangbj/Data_Pressure/Pressure_VTK', subset_dir='/work/mae-zhangbj/ML_Turbulent/DrivAerNet/train_val_test_splits', cache_dir='/work/mae-zhangbj/Data_Pressure/Cache_data', num_points=10000, batch_size=8, epochs=12, lr=0.001, num_workers=1, test_only=False, gpus='0', dropout=0.4, emb_dims=1024, k=40, output_channels=1)
+2025-06-30 14:25:18,227 - INFO - Starting training with 1 GPUs
+2025-06-30 14:25:45,431 - INFO - Total trainable parameters: 1437705
+2025-06-30 14:25:45,731 - INFO - Data loaded: 10 training batches, 2 validation batches, 3 test batches
+2025-06-30 14:25:45,772 - INFO - Staring training for 12 epochs
+2025-06-30 14:26:41,222 - INFO - Epoch 1/12 - Train Loss: 1.253324, Val Loss: 1.140946
+2025-06-30 14:26:41,322 - INFO - New best model saved with Val Loss: 1.140946
+2025-06-30 14:27:12,608 - INFO - Epoch 2/12 - Train Loss: 1.188389, Val Loss: 1.113803
+2025-06-30 14:27:12,671 - INFO - New best model saved with Val Loss: 1.113803
+2025-06-30 14:27:33,990 - INFO - Epoch 3/12 - Train Loss: 1.182415, Val Loss: 1.121538
+2025-06-30 14:27:51,809 - INFO - Epoch 4/12 - Train Loss: 1.184420, Val Loss: 1.125069
+2025-06-30 14:28:10,981 - INFO - Epoch 5/12 - Train Loss: 1.177936, Val Loss: 1.114436
+2025-06-30 14:28:35,485 - INFO - Epoch 6/12 - Train Loss: 1.174998, Val Loss: 1.103332
+2025-06-30 14:28:35,537 - INFO - New best model saved with Val Loss: 1.103332
+2025-06-30 14:28:54,890 - INFO - Epoch 7/12 - Train Loss: 1.177706, Val Loss: 1.091069
+2025-06-30 14:28:54,934 - INFO - New best model saved with Val Loss: 1.091069
+2025-06-30 14:29:14,007 - INFO - Epoch 8/12 - Train Loss: 1.176191, Val Loss: 1.076332
+2025-06-30 14:29:14,059 - INFO - New best model saved with Val Loss: 1.076332
+2025-06-30 14:29:47,099 - INFO - Epoch 9/12 - Train Loss: 1.170609, Val Loss: 1.064585
+2025-06-30 14:29:47,152 - INFO - New best model saved with Val Loss: 1.064585
+2025-06-30 14:30:13,224 - INFO - Epoch 10/12 - Train Loss: 1.161243, Val Loss: 1.050977
+2025-06-30 14:30:13,276 - INFO - New best model saved with Val Loss: 1.050977
+2025-06-30 14:30:34,450 - INFO - Epoch 11/12 - Train Loss: 1.173800, Val Loss: 1.018686
+2025-06-30 14:30:34,507 - INFO - New best model saved with Val Loss: 1.018686
+2025-06-30 14:30:52,670 - INFO - Epoch 12/12 - Train Loss: 1.172042, Val Loss: 0.995451
+2025-06-30 14:30:52,716 - INFO - New best model saved with Val Loss: 0.995451
+2025-06-30 14:30:53,130 - INFO - Final model saved to experiments/Train_Test/final_model_pth
+2025-06-30 14:30:53,131 - INFO - Testing the final model
+2025-06-30 14:30:59,473 - INFO - normalized_outputs type: <class 'torch.Tensor'>
+2025-06-30 14:30:59,505 - INFO - normalized_outputs shape: torch.Size([8, 10000])
+2025-06-30 14:30:59,505 - INFO - normalized_targets type: <class 'torch.Tensor'>
+2025-06-30 14:30:59,505 - INFO - normalized_targets shape: torch.Size([8, 10000])
+2025-06-30 14:30:59,705 - INFO - mse type: <class 'torch.Tensor'>
+2025-06-30 14:30:59,706 - INFO - mse value: 1.0333396196365356
+2025-06-30 14:30:59,706 - INFO - mse value_with_item: 1.0333396196365356
+2025-06-30 14:30:59,706 - INFO - mae type: <class 'torch.Tensor'>
+2025-06-30 14:30:59,706 - INFO - mae value: 0.6205043792724609
+2025-06-30 14:30:59,706 - INFO - mae value_with_item: 0.6205043792724609
+2025-06-30 14:30:59,744 - INFO - rel_l1 value: 0.9312472343444824
+2025-06-30 14:30:59,744 - INFO - rel_l1_with_item value: 0.9312472343444824
+2025-06-30 14:30:59,744 - INFO - rel_l2 value: 0.9395401477813721
+2025-06-30 14:30:59,744 - INFO - rel_l2_with_item value: 0.9395401477813721
+2025-06-30 14:30:59,811 - INFO - normalized_outputs type: <class 'torch.Tensor'>
+2025-06-30 14:30:59,812 - INFO - normalized_outputs shape: torch.Size([8, 10000])
+2025-06-30 14:30:59,812 - INFO - normalized_targets type: <class 'torch.Tensor'>
+2025-06-30 14:30:59,822 - INFO - normalized_targets shape: torch.Size([8, 10000])
+2025-06-30 14:30:59,822 - INFO - mse type: <class 'torch.Tensor'>
+2025-06-30 14:31:00,037 - INFO - mse value: 1.0370538234710693
+2025-06-30 14:31:00,038 - INFO - mse value_with_item: 1.0370538234710693
+2025-06-30 14:31:00,038 - INFO - mae type: <class 'torch.Tensor'>
+2025-06-30 14:31:00,038 - INFO - mae value: 0.6142085194587708
+2025-06-30 14:31:00,038 - INFO - mae value_with_item: 0.6142085194587708
+2025-06-30 14:31:00,038 - INFO - rel_l1 value: 0.9384238719940186
+2025-06-30 14:31:00,038 - INFO - rel_l1_with_item value: 0.9384238719940186
+2025-06-30 14:31:00,038 - INFO - rel_l2 value: 0.9456447958946228
+2025-06-30 14:31:00,038 - INFO - rel_l2_with_item value: 0.9456447958946228
+2025-06-30 14:31:00,227 - INFO - normalized_outputs type: <class 'torch.Tensor'>
+2025-06-30 14:31:00,227 - INFO - normalized_outputs shape: torch.Size([8, 10000])
+2025-06-30 14:31:00,227 - INFO - normalized_targets type: <class 'torch.Tensor'>
+2025-06-30 14:31:00,227 - INFO - normalized_targets shape: torch.Size([8, 10000])
+2025-06-30 14:31:00,227 - INFO - mse type: <class 'torch.Tensor'>
+2025-06-30 14:31:00,467 - INFO - mse value: 0.9745650291442871
+2025-06-30 14:31:00,497 - INFO - mse value_with_item: 0.9745650291442871
+2025-06-30 14:31:00,497 - INFO - mae type: <class 'torch.Tensor'>
+2025-06-30 14:31:00,497 - INFO - mae value: 0.5982407927513123
+2025-06-30 14:31:00,497 - INFO - mae value_with_item: 0.5982407927513123
+2025-06-30 14:31:00,498 - INFO - rel_l1 value: 0.9408509731292725
+2025-06-30 14:31:00,498 - INFO - rel_l1_with_item value: 0.9408509731292725
+2025-06-30 14:31:00,498 - INFO - rel_l2 value: 0.9449415802955627
+2025-06-30 14:31:00,498 - INFO - rel_l2_with_item value: 0.9449415802955627
+2025-06-30 14:45:59,768 - INFO - args.exp_name : Train_Test
+2025-06-30 14:45:59,773 - INFO - Arguments: Namespace(exp_name='Train_Test', seed=1, dataset_path='/work/mae-zhangbj/Data_Pressure/Pressure_VTK', subset_dir='/work/mae-zhangbj/ML_Turbulent/DrivAerNet/train_val_test_splits', cache_dir='/work/mae-zhangbj/Data_Pressure/Cache_data', num_points=10000, batch_size=8, epochs=12, lr=0.001, num_workers=1, test_only=False, gpus='0', dropout=0.4, emb_dims=1024, k=40, output_channels=1)
+2025-06-30 14:45:59,773 - INFO - Starting training with 1 GPUs
+2025-06-30 14:46:18,462 - INFO - Total trainable parameters: 1437705
+2025-06-30 14:46:18,629 - INFO - Data loaded: 10 training batches, 2 validation batches, 3 test batches
+2025-06-30 14:46:18,665 - INFO - Staring training for 12 epochs
+2025-06-30 14:48:56,460 - INFO - args.exp_name : Train_Test
+2025-06-30 14:48:56,483 - INFO - Arguments: Namespace(exp_name='Train_Test', seed=1, dataset_path='/work/mae-zhangbj/Data_Pressure/Pressure_VTK', subset_dir='/work/mae-zhangbj/ML_Turbulent/DrivAerNet/train_val_test_splits', cache_dir='/work/mae-zhangbj/Data_Pressure/Cache_data', num_points=10000, batch_size=8, epochs=12, lr=0.001, num_workers=1, test_only=False, gpus='0', dropout=0.4, emb_dims=1024, k=40, output_channels=1)
+2025-06-30 14:48:56,483 - INFO - Starting training with 1 GPUs
+2025-06-30 14:49:13,574 - INFO - Total trainable parameters: 1437705
+2025-06-30 14:49:13,861 - INFO - Data loaded: 10 training batches, 2 validation batches, 3 test batches
+2025-06-30 14:49:13,876 - INFO - Staring training for 12 epochs
+2025-06-30 14:49:13,956 - INFO - Final model saved to experiments/Train_Test/final_model_pth
+2025-06-30 14:49:13,959 - INFO - Testing the final model
+2025-06-30 14:49:35,414 - INFO - normalized_outputs type: <class 'torch.Tensor'>
+2025-06-30 15:15:54,168 - INFO - args.exp_name : Train_Test
+2025-06-30 15:15:54,192 - INFO - Arguments: Namespace(exp_name='Train_Test', seed=1, dataset_path='/work/mae-zhangbj/Data_Pressure/Pressure_VTK', subset_dir='/work/mae-zhangbj/ML_Turbulent/DrivAerNet/train_val_test_splits', cache_dir='/work/mae-zhangbj/Data_Pressure/Cache_data', num_points=10000, batch_size=8, epochs=12, lr=0.001, num_workers=1, test_only=False, gpus='0', dropout=0.4, emb_dims=1024, k=40, output_channels=1)
+2025-06-30 15:15:54,199 - INFO - Starting training with 1 GPUs
+2025-06-30 15:16:04,837 - INFO - Total trainable parameters: 1437705
+2025-06-30 15:16:04,900 - INFO - Data loaded: 10 training batches, 2 validation batches, 3 test batches
+2025-06-30 15:16:04,909 - INFO - Staring training for 12 epochs
+2025-06-30 15:16:04,949 - INFO - Final model saved to experiments/Train_Test/final_model_pth
+2025-06-30 15:16:04,959 - INFO - Testing the final model
+2025-06-30 15:16:19,803 - INFO - normalized_outputs type: <class 'torch.Tensor'>
+2025-06-30 15:16:19,803 - INFO - normalized_outputs length : 1
+2025-06-30 15:16:20,056 - INFO - normalized_outputs type: <class 'torch.Tensor'>
+2025-06-30 15:16:20,056 - INFO - normalized_outputs length : 2
+2025-06-30 15:16:20,288 - INFO - normalized_outputs type: <class 'torch.Tensor'>
+2025-06-30 15:16:20,288 - INFO - normalized_outputs length : 3
+2025-06-30 15:19:06,968 - INFO - args.exp_name : Train_Test
+2025-06-30 15:19:06,985 - INFO - Arguments: Namespace(exp_name='Train_Test', seed=1, dataset_path='/work/mae-zhangbj/Data_Pressure/Pressure_VTK', subset_dir='/work/mae-zhangbj/ML_Turbulent/DrivAerNet/train_val_test_splits', cache_dir='/work/mae-zhangbj/Data_Pressure/Cache_data', num_points=10000, batch_size=8, epochs=12, lr=0.001, num_workers=1, test_only=False, gpus='0', dropout=0.4, emb_dims=1024, k=40, output_channels=1)
+2025-06-30 15:19:06,985 - INFO - Starting training with 1 GPUs
+2025-06-30 15:19:16,304 - INFO - Total trainable parameters: 1437705
+2025-06-30 15:19:16,388 - INFO - Data loaded: 10 training batches, 2 validation batches, 3 test batches
+2025-06-30 15:19:16,389 - INFO - Staring training for 12 epochs
+2025-06-30 15:19:16,454 - INFO - Final model saved to experiments/Train_Test/final_model_pth
+2025-06-30 15:19:16,462 - INFO - Testing the final model
+2025-06-30 15:19:29,598 - INFO - normalized_outputs type: <class 'torch.Tensor'>
+2025-06-30 15:19:29,640 - INFO - normalized_outputs first 5 value : [tensor([[-0.0004,  0.0395,  0.0787,  ...,  0.0295,  0.0384, -0.0151],
+        [ 0.0676,  0.0940, -0.1913,  ...,  0.0342,  0.0119, -0.0270],
+        [-0.1073,  0.0153, -0.0993,  ..., -0.0663,  0.0120,  0.0184],
+        ...,
+        [-0.0584, -0.1467,  0.0653,  ..., -0.0670,  0.0390, -0.0941],
+        [-0.1066, -0.1257, -0.0436,  ...,  0.0280, -0.1407, -0.0362],
+        [-0.1631, -0.0101,  0.0420,  ..., -0.0108,  0.0685,  0.0153]])]
+2025-06-30 15:19:29,872 - INFO - normalized_outputs type: <class 'torch.Tensor'>
+2025-06-30 15:19:29,874 - INFO - normalized_outputs first 5 value : [tensor([[-0.0004,  0.0395,  0.0787,  ...,  0.0295,  0.0384, -0.0151],
+        [ 0.0676,  0.0940, -0.1913,  ...,  0.0342,  0.0119, -0.0270],
+        [-0.1073,  0.0153, -0.0993,  ..., -0.0663,  0.0120,  0.0184],
+        ...,
+        [-0.0584, -0.1467,  0.0653,  ..., -0.0670,  0.0390, -0.0941],
+        [-0.1066, -0.1257, -0.0436,  ...,  0.0280, -0.1407, -0.0362],
+        [-0.1631, -0.0101,  0.0420,  ..., -0.0108,  0.0685,  0.0153]]), tensor([[-1.3223e-01,  4.0609e-01, -1.0546e-01,  ...,  8.2760e-02,
+         -2.9105e-02, -7.0697e-02],
+        [ 2.6392e-02,  2.4208e-03,  7.3777e-02,  ..., -7.4097e-02,
+         -7.5070e-02, -1.2867e-01],
+        [-8.9194e-02, -1.5162e-01,  9.0782e-03,  ...,  2.4502e-02,
+          3.7299e-02,  4.6280e-02],
+        ...,
+        [-1.6333e-02, -9.1008e-02, -1.0734e-01,  ...,  9.9977e-03,
+          4.0366e-02,  1.9166e-02],
+        [-3.6702e-02, -8.2186e-02, -9.7411e-02,  ..., -8.2859e-02,
+         -9.1823e-02, -1.0160e-02],
+        [ 2.6854e-02, -1.2274e-01, -2.8979e-04,  ..., -1.3167e-01,
+          1.9786e-02, -1.7892e-02]])]
+2025-06-30 15:19:30,106 - INFO - normalized_outputs type: <class 'torch.Tensor'>
+2025-06-30 15:19:30,108 - INFO - normalized_outputs first 5 value : [tensor([[-0.0004,  0.0395,  0.0787,  ...,  0.0295,  0.0384, -0.0151],
+        [ 0.0676,  0.0940, -0.1913,  ...,  0.0342,  0.0119, -0.0270],
+        [-0.1073,  0.0153, -0.0993,  ..., -0.0663,  0.0120,  0.0184],
+        ...,
+        [-0.0584, -0.1467,  0.0653,  ..., -0.0670,  0.0390, -0.0941],
+        [-0.1066, -0.1257, -0.0436,  ...,  0.0280, -0.1407, -0.0362],
+        [-0.1631, -0.0101,  0.0420,  ..., -0.0108,  0.0685,  0.0153]]), tensor([[-1.3223e-01,  4.0609e-01, -1.0546e-01,  ...,  8.2760e-02,
+         -2.9105e-02, -7.0697e-02],
+        [ 2.6392e-02,  2.4208e-03,  7.3777e-02,  ..., -7.4097e-02,
+         -7.5070e-02, -1.2867e-01],
+        [-8.9194e-02, -1.5162e-01,  9.0782e-03,  ...,  2.4502e-02,
+          3.7299e-02,  4.6280e-02],
+        ...,
+        [-1.6333e-02, -9.1008e-02, -1.0734e-01,  ...,  9.9977e-03,
+          4.0366e-02,  1.9166e-02],
+        [-3.6702e-02, -8.2186e-02, -9.7411e-02,  ..., -8.2859e-02,
+         -9.1823e-02, -1.0160e-02],
+        [ 2.6854e-02, -1.2274e-01, -2.8979e-04,  ..., -1.3167e-01,
+          1.9786e-02, -1.7892e-02]]), tensor([[ 9.4023e-02, -1.7952e-01, -5.0626e-02,  ...,  8.2223e-02,
+         -2.3529e-03, -4.7622e-02],
+        [-8.2041e-02, -7.6069e-03,  4.4658e-02,  ..., -4.3549e-02,
+         -5.0403e-02,  1.9752e-02],
+        [-4.7886e-02, -1.0890e-02, -7.9050e-02,  ..., -1.2168e-01,
+         -7.0545e-02,  1.5359e-01],
+        ...,
+        [-8.7113e-02, -1.1998e-01, -1.0086e-01,  ..., -1.1805e-01,
+         -3.3237e-02, -1.0960e-01],
+        [ 6.0501e-02,  3.9387e-02, -8.4609e-02,  ...,  8.6239e-03,
+         -1.6217e-01,  2.3374e-02],
+        [ 5.2814e-02, -8.3480e-02, -7.3634e-05,  ..., -1.2143e-01,
+          1.0725e-02, -3.9310e-02]])]
+2025-06-30 15:29:57,305 - INFO - args.exp_name : Train_Test
+2025-06-30 15:29:57,353 - INFO - Arguments: Namespace(exp_name='Train_Test', seed=1, dataset_path='/work/mae-zhangbj/Data_Pressure/Pressure_VTK', subset_dir='/work/mae-zhangbj/ML_Turbulent/DrivAerNet/train_val_test_splits', cache_dir='/work/mae-zhangbj/Data_Pressure/Cache_data', num_points=10000, batch_size=8, epochs=12, lr=0.001, num_workers=1, test_only=False, gpus='0', dropout=0.4, emb_dims=1024, k=40, output_channels=1)
+2025-06-30 15:29:57,353 - INFO - Starting training with 1 GPUs
+2025-06-30 15:30:10,243 - INFO - Total trainable parameters: 1437705
+2025-06-30 15:30:10,306 - INFO - Data loaded: 10 training batches, 2 validation batches, 3 test batches
+2025-06-30 15:30:10,311 - INFO - Staring training for 12 epochs
+2025-06-30 15:30:10,330 - INFO - Final model saved to experiments/Train_Test/final_model_pth
+2025-06-30 15:30:10,334 - INFO - Testing the final model
+2025-06-30 15:30:24,502 - INFO - Total MSE across all processes: 24.359668731689453
+2025-06-30 16:19:27,843 - INFO - args.exp_name : Train_Test
+2025-06-30 16:19:27,891 - INFO - Arguments: Namespace(exp_name='Train_Test', seed=1, dataset_path='/work/mae-zhangbj/Data_Pressure/Pressure_VTK', subset_dir='/work/mae-zhangbj/ML_Turbulent/DrivAerNet/train_val_test_splits', cache_dir='/work/mae-zhangbj/Data_Pressure/Cache_data', num_points=10000, batch_size=8, epochs=12, lr=0.001, num_workers=1, test_only=False, gpus='0', dropout=0.4, emb_dims=1024, k=40, output_channels=1)
+2025-06-30 16:19:27,891 - INFO - Starting training with 1 GPUs
+2025-06-30 16:19:47,594 - INFO - Total trainable parameters: 1437705
+2025-06-30 16:19:47,668 - INFO - Data loaded: 10 training batches, 2 validation batches, 3 test batches
+2025-06-30 16:19:47,701 - INFO - Staring training for 12 epochs
+2025-06-30 16:24:15,185 - INFO - Final model saved to experiments/Train_Test/final_model_pth
+2025-06-30 16:24:26,595 - INFO - Total MSE across all processes: 24.359668731689453
+2025-06-30 16:24:26,597 - INFO - mean value for all_targets: {tmp}
+2025-06-30 16:24:26,599 - INFO - Test MSE: 1.014986, Test MAE: 0.610985, Max MAE: 17.060396, Test R2: 0.1095
+2025-06-30 16:24:26,599 - INFO - Relative L2 Error: 0.943376, Relative L1 error: 0.936841
+2025-06-30 16:24:26,599 - INFO - Total inference time:  0.01s for 24 samples
+2025-06-30 16:24:26,600 - INFO - Testing the final model
+2025-06-30 16:24:34,020 - INFO - Total MSE across all processes: 24.359668731689453
+2025-06-30 16:24:34,021 - INFO - mean value for all_targets: {tmp}
+2025-06-30 16:24:34,022 - INFO - Test MSE: 1.014986, Test MAE: 0.610985, Max MAE: 17.060396, Test R2: 0.1095
+2025-06-30 16:24:34,022 - INFO - Relative L2 Error: 0.943376, Relative L1 error: 0.936841
+2025-06-30 16:24:34,030 - INFO - Total inference time:  0.01s for 24 samples
+2025-06-30 16:40:49,296 - INFO - args.exp_name : Train_Test
+2025-06-30 16:40:49,336 - INFO - Arguments: Namespace(exp_name='Train_Test', seed=1, dataset_path='/work/mae-zhangbj/Data_Pressure/Pressure_VTK', subset_dir='/work/mae-zhangbj/ML_Turbulent/DrivAerNet/train_val_test_splits', cache_dir='/work/mae-zhangbj/Data_Pressure/Cache_data', num_points=10000, batch_size=8, epochs=12, lr=0.001, num_workers=1, test_only=False, gpus='0', dropout=0.4, emb_dims=1024, k=40, output_channels=1)
+2025-06-30 16:40:49,336 - INFO - Starting training with 1 GPUs
+2025-06-30 16:41:01,051 - INFO - Total trainable parameters: 1437705
+2025-06-30 16:41:01,107 - INFO - Data loaded: 10 training batches, 2 validation batches, 3 test batches
+2025-06-30 16:41:01,110 - INFO - Staring training for 12 epochs
+2025-06-30 16:41:37,009 - INFO - Epoch 1/12 - Train Loss: 1.253324, Val Loss: 1.140946
+2025-06-30 16:41:37,088 - INFO - New best model saved with Val Loss: 1.140946
+2025-06-30 16:42:02,680 - INFO - Epoch 2/12 - Train Loss: 1.188389, Val Loss: 1.113803
+2025-06-30 16:42:02,725 - INFO - New best model saved with Val Loss: 1.113803
+2025-06-30 16:42:27,807 - INFO - Epoch 3/12 - Train Loss: 1.182415, Val Loss: 1.121538
+2025-06-30 16:42:52,816 - INFO - Epoch 4/12 - Train Loss: 1.184420, Val Loss: 1.125069
+2025-06-30 16:43:10,803 - INFO - Epoch 5/12 - Train Loss: 1.177936, Val Loss: 1.114436
