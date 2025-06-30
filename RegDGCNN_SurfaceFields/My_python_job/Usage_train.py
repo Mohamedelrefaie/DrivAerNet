@@ -257,14 +257,84 @@ PRESSURE_STD = 117.25
    -> This function can save a PyTorch object to a file
 
 20.----
-   model.load_state_dict(torch.load(best_model_path, map_location=f'cuda:{localhost}'))
+   model.load_state_dict(torch.load(best_model_path, map_location=f'cuda:{local_rank}'))
    #!
    torch.load()
    -> load the model into a specified GPU
    -> Return a dictionary
    #!
    model.load_state_dict()
-   -> Assigin that dictinoary to your model parameters
+   -> Assigin that directinoary to your model parameters
+
+21.----
+   rel_l2 = torch.mean(torch.norm(normalized_outputs - normalized_targets, p=2, dim=-1) /
+                       torch.norm(normalized_targets, p=2, dim=-1))
+   #!
+   -> L2_relative = norm(diff) / norm(targets)
+   -> Before mean() L2_relative is a tensor for every sample
+   -> We need take mean() for "batch_size" samples
+      -> i.e. just a scalar value for current batch
+
+13.----
+   batch_size = targets.size(0)
+   -> Get the first dimension
+
+14.----
+   outputs = model(data)
+   mse = criterion(normalized_outputs, normalized_targets)
+   -> outputs is a tensor
+   -> mse is a scalar value
+
+15.----
+   all_outputs.append(normalized_outputs.cpu())
+   -> normalized_outputs.cpu()
+      -> Move the GPU tensor to CPU tensor
+   -> all_outputs.append()
+      -> Save all results to a big list
+
+16.----
+   dist.reduce(total_mse_tensor, dst=0, op=dist.ReduceOp.SUM)
+   -> dst=0
+      -> The target is rank=0
+   -> op=dist.ReduceOp.SUM)
+      -> SUM all total_mse_tensor value to rank=0
+
+17.----
+   ss_tot = np.sum((all_targets - np.mean(all_targets)) ** 2)
+   -> Measures total variance in the true data
+      -> i.e. How much the targets deviate from their mean
+   -> Total Sum of Squares
+   -> SS_tot = SUM((y_i - y^)**2)
+
+18.----
+   ss_res = np.sum((all_targets - all_outputs) ** 2)
+   -> Measures the error between predictions and true values
+   -> Residual Sum of Squares
+   -> SS_res = SUM((y_i - y_i^)**2)
+
+19.----
+   r_squared = 1 - (ss_res / ss_tot) if ss_tot > 0 else 0
+   -> R^2 score
+      -> coefficient of determination
+   -> Measures How well your predictionbs approximate the truth data
+   -> R^2 = 1 - SS_res / SS_tot
+   -> Physcial Meaning
+      -> R^2 = 1
+         -> Perfect Prediction
+      -> R^2 = 0
+         -> Predictions no better than using mean value
+      -> R^2 < 0
+         -> Predictions worse that using mean value
+
+20.----
+   MAE = 1/N * (abs(y_i - y^))
+   -> Mean Absolute Error
+
+   MSE= 1/N * (abs(y_i - y^)**2))
+   -> Mean Squared Error
+
+
+
 
 
 
