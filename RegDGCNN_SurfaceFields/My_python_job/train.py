@@ -95,6 +95,7 @@ def validate(model, val_dataloader, criterion, local_rank):
             outputs     = model(data)
             loss        = criterion(outputs.squeeze(1), targets)
             total_loss += loss.item()
+
     return total_loss / len(val_dataloader)
 
 def test_model(model, test_dataloader, criterion, local_rank, exp_dir):
@@ -174,9 +175,9 @@ def test_model(model, test_dataloader, criterion, local_rank, exp_dir):
         ss_res = np.sum((all_targets - all_outputs) ** 2)
         r_squared = 1 - (ss_res / ss_tot) if ss_tot > 0 else 0
 
-        # Calculate max MAE
-        max_mae = np.max(np.abs(all_targets - all_outputs))
-        logging.info(f"Test MSE: {avg_mse:.6f}, Test MAE: {avg_mae:.6f}, Max MAE: {max_mae:.6f}, Test R2: {r_squared:.4f}")
+        # Calculate max AE
+        max_ae = np.max(np.abs(all_targets - all_outputs))
+        logging.info(f"Test MSE: {avg_mse:.6f}, Test MAE: {avg_mae:.6f}, Max AE: {max_ae:.6f}, Test R2: {r_squared:.4f}")
         logging.info(f"Relative L2 Error: {avg_rel_l2:.6f}, Relative L1 error: {avg_rel_l1:.6f}")
         logging.info(f"Total inference time: {total_inference_time: .2f}s for {total_samples_tensor.item()} samples")
 
@@ -322,7 +323,7 @@ def main():
 
     # Set the master address and port for DDP
     os.environ['MASTER_ADDR'] = 'localhost'
-    os.environ['MASTER_PORT'] = '12355'
+    os.environ['MASTER_PORT'] = '29500'
 
     # Set visible GPUS
     gpu_list = args.gpus
