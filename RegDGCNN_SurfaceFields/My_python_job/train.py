@@ -293,7 +293,7 @@ def train_and_evaluate(rank, world_size, args):
                 plt.ylabel('Loss')
                 plt.legend()
                 plt.title(f'Training Progress - RegDGCNN')
-                plt.savefig(os.path.join('experiments', args.exp_name, f'training_progress_epoch_{epoch+1}.png'))
+                plt.savefig(os.path.join('experiments', args.exp_name, f'training_progress.png'))
                 plt.close()
 
     # Save final model
