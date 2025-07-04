@@ -1,6 +1,7 @@
 python ../run_pipeline.py \
     --stages train \
     --exp_name "Train_Test" \
+    --test_only  \
     --num_points 10000 \
     --num_workers 1 \
     --dataset_path "$HOME/ML_Turbulent/Data_Pressure_Field/Data_Pressure/PressureVTK/N_S_WWS_WM" \

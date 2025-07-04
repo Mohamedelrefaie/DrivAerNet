@@ -36,7 +36,6 @@ def parse_args():
     parser.add_argument('--batch_size', type=int, default=12, help='Batch size per GPU')
     parser.add_argument('--epochs', type=int, default=150, help='Number of epochs')
     parser.add_argument('--lr', type=float, default=0.001, help='Learning rate')
-    parser.add_argument('--num_workers', type=int, default=4, help='Number of data loading workers')
     parser.add_argument('--test_only', action='store_true', help='Only test the model, no training')
     parser.add_argument('--gpus', type=str, default='0', help='GPUs to use (comma-separated)')
 
