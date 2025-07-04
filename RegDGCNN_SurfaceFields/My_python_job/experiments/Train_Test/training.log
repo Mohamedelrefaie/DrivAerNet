@@ -19720,3 +19720,8 @@ tensor([[[-0.0301],
 2025-07-04 14:41:54,988 - INFO - Epoch 68/150 - Train Loss: 0.120537, Val Loss: 0.140712
 2025-07-04 14:42:12,760 - INFO - Epoch 69/150 - Train Loss: 0.116008, Val Loss: 0.133827
 2025-07-04 14:42:30,473 - INFO - Epoch 70/150 - Train Loss: 0.117500, Val Loss: 0.125367
+2025-07-04 14:42:48,329 - INFO - Epoch 71/150 - Train Loss: 0.115497, Val Loss: 0.111867
+2025-07-04 14:42:48,346 - INFO - New best model saved with Val Loss: 0.111867
+2025-07-04 14:43:06,082 - INFO - Epoch 72/150 - Train Loss: 0.113848, Val Loss: 0.149078
+2025-07-04 14:43:23,840 - INFO - Epoch 73/150 - Train Loss: 0.115463, Val Loss: 0.112712
+2025-07-04 14:43:41,626 - INFO - Epoch 74/150 - Train Loss: 0.112697, Val Loss: 0.117975
