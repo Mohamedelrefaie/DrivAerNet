@@ -28,16 +28,16 @@ nvidia-smi
 find ./logs/ -name '*.log' ! -name "*_${LSB_JOBID}*.log" -delete
 
 # Run your Preprocess script
-# sh Model_Preprocess.sh 
+# sh ./Model_Script/Model_Preprocess.sh 
 
 # Run your training script
- sh Model_Training.sh
+ sh ./Model_Script/Model_Training.sh
 
 # Run your Evaluation script
-# sh Model_Evaluation.sh
+# sh ./Model_Script/Model_Evaluation.sh
 
 # Run your Test script
-# sh Model_Test.sh
+# sh ./Model_Script/Model_Test.sh
 
 
 
