@@ -9720,3 +9720,109 @@ tensor([[[-0.0301],
 2025-07-04 09:16:42,323 - INFO - Test MSE: 0.892259, Test MAE: 0.572756, Max AE: 16.443457, Test R2: 0.2171
 2025-07-04 09:16:42,323 - INFO - Relative L2 Error: 0.884298, Relative L1 error: 0.878014
 2025-07-04 09:16:42,323 - INFO - Total inference time:  0.01s for 24 samples
+2025-07-04 09:59:21,112 - INFO - args.exp_name : Train_Test
+2025-07-04 09:59:21,114 - INFO - Arguments: Namespace(exp_name='Train_Test', seed=1, dataset_path='/work/mae-zhangbj/Data_Pressure/Pressure_VTK', subset_dir='/work/mae-zhangbj/ML_Turbulent/DrivAerNet/train_val_test_splits', cache_dir='/work/mae-zhangbj/Data_Pressure/Cache_data', num_points=10000, batch_size=6, epochs=50, lr=0.001, num_workers=1, test_only=False, gpus='0', dropout=0.4, emb_dims=1024, k=40, output_channels=1)
+2025-07-04 09:59:21,114 - INFO - Starting training with 1 GPUs
+2025-07-04 09:59:25,975 - INFO - Total trainable parameters: 1437705
+2025-07-04 09:59:26,039 - INFO - Data loaded: 2 training batches, 0 validation batches, 1 test batches
+2025-07-04 09:59:26,042 - INFO - Staring training for 50 epochs
+2025-07-04 10:26:58,897 - INFO - args.exp_name : Train_Test
+2025-07-04 10:26:58,903 - INFO - Arguments: Namespace(exp_name='Train_Test', seed=1, dataset_path='/work/mae-zhangbj/Data_Pressure/Pressure_VTK', subset_dir='/work/mae-zhangbj/ML_Turbulent/DrivAerNet/train_val_test_splits', cache_dir='/work/mae-zhangbj/Data_Pressure/Cache_data', num_points=10000, batch_size=6, epochs=50, lr=0.001, num_workers=1, test_only=False, gpus='0', dropout=0.4, emb_dims=1024, k=40, output_channels=1)
+2025-07-04 10:26:58,903 - INFO - Starting training with 1 GPUs
+2025-07-04 10:27:03,799 - INFO - Total trainable parameters: 1437705
+2025-07-04 10:27:03,857 - INFO - Data loaded: 2 training batches, 0 validation batches, 1 test batches
+2025-07-04 10:27:03,860 - INFO - Staring training for 50 epochs
+2025-07-04 10:31:47,052 - INFO - args.exp_name : Train_Test
+2025-07-04 10:31:47,056 - INFO - Arguments: Namespace(exp_name='Train_Test', seed=1, dataset_path='/work/mae-zhangbj/Data_Pressure/Pressure_VTK', subset_dir='/work/mae-zhangbj/ML_Turbulent/DrivAerNet/train_val_test_splits', cache_dir='/work/mae-zhangbj/Data_Pressure/Cache_data', num_points=10000, batch_size=6, epochs=50, lr=0.001, num_workers=1, test_only=False, gpus='0', dropout=0.4, emb_dims=1024, k=40, output_channels=1)
+2025-07-04 10:31:47,057 - INFO - Starting training with 1 GPUs
+2025-07-04 10:31:50,475 - INFO - Total trainable parameters: 1437705
+2025-07-04 10:31:50,539 - INFO - Data loaded: 3 training batches, 1 validation batches, 1 test batches
+2025-07-04 10:31:50,539 - INFO - Staring training for 50 epochs
+2025-07-04 10:31:59,013 - INFO - Epoch 1/50 - Train Loss: 1.283437, Val Loss: 1.146866
+2025-07-04 10:31:59,031 - INFO - New best model saved with Val Loss: 1.146866
+2025-07-04 10:32:05,120 - INFO - Epoch 2/50 - Train Loss: 1.159811, Val Loss: 1.148012
+2025-07-04 10:32:11,178 - INFO - Epoch 3/50 - Train Loss: 1.015355, Val Loss: 1.148288
+2025-07-04 10:32:17,249 - INFO - Epoch 4/50 - Train Loss: 0.916734, Val Loss: 1.249089
+2025-07-04 10:32:23,285 - INFO - Epoch 5/50 - Train Loss: 0.839702, Val Loss: 1.442995
+2025-07-04 10:32:29,338 - INFO - Epoch 6/50 - Train Loss: 0.757819, Val Loss: 1.361055
+2025-07-04 10:32:35,401 - INFO - Epoch 7/50 - Train Loss: 0.661384, Val Loss: 1.379884
+2025-07-04 10:32:41,459 - INFO - Epoch 8/50 - Train Loss: 0.608690, Val Loss: 1.595568
+2025-07-04 10:32:47,524 - INFO - Epoch 9/50 - Train Loss: 0.560139, Val Loss: 1.838627
+2025-07-04 10:32:53,574 - INFO - Epoch 10/50 - Train Loss: 0.526667, Val Loss: 1.521763
+2025-07-04 10:32:59,809 - INFO - Epoch 11/50 - Train Loss: 0.494009, Val Loss: 1.437564
+2025-07-04 10:33:05,869 - INFO - Epoch 12/50 - Train Loss: 0.474216, Val Loss: 1.348367
+2025-07-04 10:33:11,941 - INFO - Epoch 13/50 - Train Loss: 0.457834, Val Loss: 1.089559
+2025-07-04 10:33:11,957 - INFO - New best model saved with Val Loss: 1.089559
+2025-07-04 10:33:18,018 - INFO - Epoch 14/50 - Train Loss: 0.455360, Val Loss: 0.832426
+2025-07-04 10:33:18,031 - INFO - New best model saved with Val Loss: 0.832426
+2025-07-04 10:33:24,074 - INFO - Epoch 15/50 - Train Loss: 0.447783, Val Loss: 0.654857
+2025-07-04 10:33:24,097 - INFO - New best model saved with Val Loss: 0.654857
+2025-07-04 10:33:30,177 - INFO - Epoch 16/50 - Train Loss: 0.446389, Val Loss: 0.548675
+2025-07-04 10:33:30,191 - INFO - New best model saved with Val Loss: 0.548675
+2025-07-04 10:33:36,251 - INFO - Epoch 17/50 - Train Loss: 0.440610, Val Loss: 0.495317
+2025-07-04 10:33:36,265 - INFO - New best model saved with Val Loss: 0.495317
+2025-07-04 10:33:42,334 - INFO - Epoch 18/50 - Train Loss: 0.438833, Val Loss: 0.464275
+2025-07-04 10:33:42,347 - INFO - New best model saved with Val Loss: 0.464275
+2025-07-04 10:33:48,433 - INFO - Epoch 19/50 - Train Loss: 0.439969, Val Loss: 0.443737
+2025-07-04 10:33:48,447 - INFO - New best model saved with Val Loss: 0.443737
+2025-07-04 10:33:54,533 - INFO - Epoch 20/50 - Train Loss: 0.431883, Val Loss: 0.428062
+2025-07-04 10:33:54,547 - INFO - New best model saved with Val Loss: 0.428062
+2025-07-04 10:34:00,781 - INFO - Epoch 21/50 - Train Loss: 0.431155, Val Loss: 0.423547
+2025-07-04 10:34:00,796 - INFO - New best model saved with Val Loss: 0.423547
+2025-07-04 10:34:06,859 - INFO - Epoch 22/50 - Train Loss: 0.428144, Val Loss: 0.426146
+2025-07-04 10:34:12,893 - INFO - Epoch 23/50 - Train Loss: 0.425435, Val Loss: 0.427524
+2025-07-04 10:34:18,948 - INFO - Epoch 24/50 - Train Loss: 0.422210, Val Loss: 0.422279
+2025-07-04 10:34:18,962 - INFO - New best model saved with Val Loss: 0.422279
+2025-07-04 10:34:25,023 - INFO - Epoch 25/50 - Train Loss: 0.423424, Val Loss: 0.427988
+2025-07-04 10:34:31,079 - INFO - Epoch 26/50 - Train Loss: 0.416589, Val Loss: 0.438708
+2025-07-04 10:34:37,114 - INFO - Epoch 27/50 - Train Loss: 0.415543, Val Loss: 0.429039
+2025-07-04 10:34:43,202 - INFO - Epoch 28/50 - Train Loss: 0.413719, Val Loss: 0.420002
+2025-07-04 10:34:43,218 - INFO - New best model saved with Val Loss: 0.420002
+2025-07-04 10:34:49,247 - INFO - Epoch 29/50 - Train Loss: 0.410406, Val Loss: 0.413966
+2025-07-04 10:34:49,260 - INFO - New best model saved with Val Loss: 0.413966
+2025-07-04 10:34:55,327 - INFO - Epoch 30/50 - Train Loss: 0.409573, Val Loss: 0.411146
+2025-07-04 10:34:55,341 - INFO - New best model saved with Val Loss: 0.411146
+2025-07-04 10:35:01,513 - INFO - Epoch 31/50 - Train Loss: 0.407763, Val Loss: 0.405612
+2025-07-04 10:35:01,527 - INFO - New best model saved with Val Loss: 0.405612
+2025-07-04 10:35:07,573 - INFO - Epoch 32/50 - Train Loss: 0.407623, Val Loss: 0.406176
+2025-07-04 10:35:13,616 - INFO - Epoch 33/50 - Train Loss: 0.403604, Val Loss: 0.407962
+2025-07-04 10:35:19,690 - INFO - Epoch 34/50 - Train Loss: 0.399802, Val Loss: 0.401497
+2025-07-04 10:35:19,714 - INFO - New best model saved with Val Loss: 0.401497
+2025-07-04 10:35:25,778 - INFO - Epoch 35/50 - Train Loss: 0.400421, Val Loss: 0.400646
+2025-07-04 10:35:25,792 - INFO - New best model saved with Val Loss: 0.400646
+2025-07-04 10:35:31,848 - INFO - Epoch 36/50 - Train Loss: 0.395775, Val Loss: 0.403946
+2025-07-04 10:35:37,907 - INFO - Epoch 37/50 - Train Loss: 0.395949, Val Loss: 0.401222
+2025-07-04 10:35:43,955 - INFO - Epoch 38/50 - Train Loss: 0.393724, Val Loss: 0.398120
+2025-07-04 10:35:43,969 - INFO - New best model saved with Val Loss: 0.398120
+2025-07-04 10:35:50,023 - INFO - Epoch 39/50 - Train Loss: 0.390039, Val Loss: 0.399025
+2025-07-04 10:35:56,058 - INFO - Epoch 40/50 - Train Loss: 0.391684, Val Loss: 0.390313
+2025-07-04 10:35:56,072 - INFO - New best model saved with Val Loss: 0.390313
+2025-07-04 10:36:02,256 - INFO - Epoch 41/50 - Train Loss: 0.386746, Val Loss: 0.386531
+2025-07-04 10:36:02,269 - INFO - New best model saved with Val Loss: 0.386531
+2025-07-04 10:36:08,328 - INFO - Epoch 42/50 - Train Loss: 0.386503, Val Loss: 0.384749
+2025-07-04 10:36:08,341 - INFO - New best model saved with Val Loss: 0.384749
+2025-07-04 10:36:14,404 - INFO - Epoch 43/50 - Train Loss: 0.385221, Val Loss: 0.382403
+2025-07-04 10:36:14,419 - INFO - New best model saved with Val Loss: 0.382403
+2025-07-04 10:36:20,488 - INFO - Epoch 44/50 - Train Loss: 0.379563, Val Loss: 0.379401
+2025-07-04 10:36:20,502 - INFO - New best model saved with Val Loss: 0.379401
+2025-07-04 10:36:26,565 - INFO - Epoch 45/50 - Train Loss: 0.381152, Val Loss: 0.383046
+2025-07-04 10:36:32,639 - INFO - Epoch 46/50 - Train Loss: 0.377841, Val Loss: 0.374077
+2025-07-04 10:36:32,654 - INFO - New best model saved with Val Loss: 0.374077
+2025-07-04 10:36:38,710 - INFO - Epoch 47/50 - Train Loss: 0.376989, Val Loss: 0.374267
+2025-07-04 10:36:44,771 - INFO - Epoch 48/50 - Train Loss: 0.372625, Val Loss: 0.375827
+2025-07-04 10:36:50,824 - INFO - Epoch 49/50 - Train Loss: 0.373013, Val Loss: 0.377917
+2025-07-04 10:36:56,862 - INFO - Epoch 50/50 - Train Loss: 0.370192, Val Loss: 0.374004
+2025-07-04 10:36:56,876 - INFO - New best model saved with Val Loss: 0.374004
+2025-07-04 10:36:57,017 - INFO - Final model saved to experiments/Train_Test/final_model_pth
+2025-07-04 10:36:57,023 - INFO - Testing the final model
+2025-07-04 10:36:59,752 - INFO - Total MSE across all processes: 2.023336172103882
+2025-07-04 10:36:59,753 - INFO - mean value for all_targets: {tmp}
+2025-07-04 10:36:59,753 - INFO - Test MSE: 0.337223, Test MAE: 0.317886, Max AE: 7.466796, Test R2: 0.7012
+2025-07-04 10:36:59,753 - INFO - Relative L2 Error: 0.546824, Relative L1 error: 0.485240
+2025-07-04 10:36:59,753 - INFO - Total inference time:  0.00s for 6 samples
+2025-07-04 10:36:59,755 - INFO - Testing the best model
+2025-07-04 10:37:02,454 - INFO - Total MSE across all processes: 2.023336172103882
+2025-07-04 10:37:02,454 - INFO - mean value for all_targets: {tmp}
+2025-07-04 10:37:02,454 - INFO - Test MSE: 0.337223, Test MAE: 0.317886, Max AE: 7.466796, Test R2: 0.7012
+2025-07-04 10:37:02,455 - INFO - Relative L2 Error: 0.546824, Relative L1 error: 0.485240
+2025-07-04 10:37:02,455 - INFO - Total inference time:  0.00s for 6 samples
