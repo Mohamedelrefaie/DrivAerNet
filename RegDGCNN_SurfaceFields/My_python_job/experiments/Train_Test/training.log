@@ -9680,3 +9680,43 @@ tensor([[[-0.0301],
 2025-07-04 09:11:00,545 - INFO - Epoch 115/150 - Train Loss: 1.154351, Val Loss: 0.873536
 2025-07-04 09:11:10,150 - INFO - Epoch 116/150 - Train Loss: 1.151255, Val Loss: 0.873927
 2025-07-04 09:11:19,770 - INFO - Epoch 117/150 - Train Loss: 1.153796, Val Loss: 0.874327
+2025-07-04 09:11:29,393 - INFO - Epoch 118/150 - Train Loss: 1.151567, Val Loss: 0.873807
+2025-07-04 09:11:39,037 - INFO - Epoch 119/150 - Train Loss: 1.150924, Val Loss: 0.873749
+2025-07-04 09:11:48,649 - INFO - Epoch 120/150 - Train Loss: 1.152751, Val Loss: 0.873765
+2025-07-04 09:11:58,385 - INFO - Epoch 121/150 - Train Loss: 1.152423, Val Loss: 0.872958
+2025-07-04 09:12:08,003 - INFO - Epoch 122/150 - Train Loss: 1.152789, Val Loss: 0.873576
+2025-07-04 09:12:17,592 - INFO - Epoch 123/150 - Train Loss: 1.154129, Val Loss: 0.873808
+2025-07-04 09:12:27,202 - INFO - Epoch 124/150 - Train Loss: 1.151936, Val Loss: 0.873762
+2025-07-04 09:12:36,834 - INFO - Epoch 125/150 - Train Loss: 1.152352, Val Loss: 0.873750
+2025-07-04 09:12:46,484 - INFO - Epoch 126/150 - Train Loss: 1.155440, Val Loss: 0.873888
+2025-07-04 09:12:56,138 - INFO - Epoch 127/150 - Train Loss: 1.153147, Val Loss: 0.873769
+2025-07-04 09:13:05,770 - INFO - Epoch 128/150 - Train Loss: 1.151241, Val Loss: 0.874397
+2025-07-04 09:13:15,391 - INFO - Epoch 129/150 - Train Loss: 1.153389, Val Loss: 0.873702
+2025-07-04 09:13:25,023 - INFO - Epoch 130/150 - Train Loss: 1.154868, Val Loss: 0.873116
+2025-07-04 09:13:34,778 - INFO - Epoch 131/150 - Train Loss: 1.152740, Val Loss: 0.873281
+2025-07-04 09:13:44,427 - INFO - Epoch 132/150 - Train Loss: 1.152790, Val Loss: 0.873503
+2025-07-04 09:13:54,049 - INFO - Epoch 133/150 - Train Loss: 1.153289, Val Loss: 0.873433
+2025-07-04 09:14:03,687 - INFO - Epoch 134/150 - Train Loss: 1.152448, Val Loss: 0.873979
+2025-07-04 09:14:13,339 - INFO - Epoch 135/150 - Train Loss: 1.153034, Val Loss: 0.874439
+2025-07-04 09:14:22,965 - INFO - Epoch 136/150 - Train Loss: 1.152523, Val Loss: 0.873218
+2025-07-04 09:14:32,595 - INFO - Epoch 137/150 - Train Loss: 1.152435, Val Loss: 0.874103
+2025-07-04 09:14:42,199 - INFO - Epoch 138/150 - Train Loss: 1.152524, Val Loss: 0.874153
+2025-07-04 09:14:51,824 - INFO - Epoch 139/150 - Train Loss: 1.152752, Val Loss: 0.874754
+2025-07-04 09:15:01,444 - INFO - Epoch 140/150 - Train Loss: 1.152819, Val Loss: 0.874353
+2025-07-04 09:15:11,212 - INFO - Epoch 141/150 - Train Loss: 1.149516, Val Loss: 0.873920
+2025-07-04 09:15:20,859 - INFO - Epoch 142/150 - Train Loss: 1.151008, Val Loss: 0.872659
+2025-07-04 09:15:30,492 - INFO - Epoch 143/150 - Train Loss: 1.140574, Val Loss: 0.873182
+2025-07-04 09:15:40,157 - INFO - Epoch 144/150 - Train Loss: 1.140706, Val Loss: 0.873095
+2025-07-04 09:15:49,799 - INFO - Epoch 145/150 - Train Loss: 1.153340, Val Loss: 0.873945
+2025-07-04 09:15:59,441 - INFO - Epoch 146/150 - Train Loss: 1.151823, Val Loss: 0.873226
+2025-07-04 09:16:09,108 - INFO - Epoch 147/150 - Train Loss: 1.153316, Val Loss: 0.873210
+2025-07-04 09:16:18,725 - INFO - Epoch 148/150 - Train Loss: 1.151713, Val Loss: 0.873454
+2025-07-04 09:16:29,039 - INFO - Epoch 149/150 - Train Loss: 1.152790, Val Loss: 0.873946
+2025-07-04 09:16:38,662 - INFO - Epoch 150/150 - Train Loss: 1.152922, Val Loss: 0.873481
+2025-07-04 09:16:38,811 - INFO - Final model saved to experiments/Train_Test/final_model_pth
+2025-07-04 09:16:38,820 - INFO - Testing the final model
+2025-07-04 09:16:42,320 - INFO - Total MSE across all processes: 21.41421890258789
+2025-07-04 09:16:42,321 - INFO - mean value for all_targets: {tmp}
+2025-07-04 09:16:42,323 - INFO - Test MSE: 0.892259, Test MAE: 0.572756, Max AE: 16.443457, Test R2: 0.2171
+2025-07-04 09:16:42,323 - INFO - Relative L2 Error: 0.884298, Relative L1 error: 0.878014
+2025-07-04 09:16:42,323 - INFO - Total inference time:  0.01s for 24 samples
