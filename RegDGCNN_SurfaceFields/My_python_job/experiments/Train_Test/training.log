@@ -19707,3 +19707,4 @@ tensor([[[-0.0301],
 2025-07-04 14:38:39,435 - INFO - Epoch 57/150 - Train Loss: 0.123328, Val Loss: 0.150480
 2025-07-04 14:38:57,197 - INFO - Epoch 58/150 - Train Loss: 0.122286, Val Loss: 0.167857
 2025-07-04 14:39:14,939 - INFO - Epoch 59/150 - Train Loss: 0.121922, Val Loss: 0.140145
+2025-07-04 14:39:32,703 - INFO - Epoch 60/150 - Train Loss: 0.117993, Val Loss: 0.169449
