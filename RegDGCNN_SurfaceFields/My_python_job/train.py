@@ -66,10 +66,10 @@ def train_one_epoch(model, train_dataloader, optimizer, criterion, local_rank):
     total_loss = 0
 
     for data, targets in tqdm(train_dataloader, desc="[Training]"):
-        data    = data.squeeze(1).to(local_rank)
-        tragets = targets.squeeze(1).to(local_rank)
+        data, targets = data.squeeze(1).to(local_rank), targets.squeeze(1).to(local_rank)
         targets = (targets - PRESSURE_MEAN) / PRESSURE_STD
-        targets = targets.to(local_rank)
+
+       # targets = targets.to(local_rank)
 
         optimizer.zero_grad()
         outputs = model(data)
@@ -186,7 +186,7 @@ def test_model(model, test_dataloader, criterion, local_rank, exp_dir):
         with open(metrics_file, 'w') as f:
           f.write(f"Test MSE: {avg_mse:.6f}\n")
           f.write(f"Test MAE: {avg_mae:.6f}\n")
-          f.write(f"Max MAE: {max_mae:.6f}\n")
+          f.write(f"Max MAE: {max_ae:.6f}\n")
           f.write(f"Test R2: {r_squared:.4f}\n")
           f.write(f"Relative L2 Error: {avg_rel_l2:.6f}\n")
           f.write(f"Relative L1 error: {avg_rel_l1:.6f}\n")
