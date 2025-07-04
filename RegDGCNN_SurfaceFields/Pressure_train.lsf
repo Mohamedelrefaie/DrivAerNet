@@ -1,9 +1,9 @@
 #!/bin/bash
 #BSUB -J DrivAerNet_Pressure_GPU      # Job name
-#BSUB -q  4-4080-e5                        # Queue name (change if needed)
-#BSUB -n 2                            # Number of CPU cores
-#BSUB -R "span[ptile=2]"
-#BSUB -gpu "num=2"
+#BSUB -q 2a100-80                # Queue name (change if needed)
+#BSUB -n 1                            # Number of CPU cores
+#BSUB -R "span[ptile=1]"
+#BSUB -gpu "num=1"
 #BSUB -oo logs/out_%J.log           # Standard output (%J = job ID)
 #BSUB -eo logs/err_%J.log           # Standard error
 #BSUB -env "all"                      # Export your current environment
@@ -25,7 +25,7 @@ conda activate d2l
 nvidia-smi
 
 # Remove old logs but keep the ones for this job
-find ./logs/ -name '*.log' ! -name "*_${LSB_JOBID}*.log" -delete
+#find ./logs/ -name '*.log' ! -name "*_${LSB_JOBID}*.log" -delete
 
 # Run your Preprocess script
 # sh Model_Preprocess.sh
