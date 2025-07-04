@@ -66,10 +66,22 @@ def train_one_epoch(model, train_dataloader, optimizer, criterion, local_rank):
     total_loss = 0
 
     for data, targets in tqdm(train_dataloader, desc="[Training]"):
+        global PRESSURE_MEAN, PRESSURE_STD
+
+        # Right version
+        """
+        PRESSURE_MEAN = torch.tensor(PRESSURE_MEAN, device=data.device)
+        PRESSURE_STD  = torch.tensor(PRESSURE_STD, device=data.device)
+
         data, targets = data.squeeze(1).to(local_rank), targets.squeeze(1).to(local_rank)
         targets = (targets - PRESSURE_MEAN) / PRESSURE_STD
+        """
 
-       # targets = targets.to(local_rank)
+        # Logic bug version
+        data = data.squeeze(1).to(local_rank)
+        targets = targets.squeeze(1).to(local_rank)
+
+        targets = (targets - PRESSURE_MEAN) / PRESSURE_STD
 
         optimizer.zero_grad()
         outputs = model(data)
@@ -237,8 +249,10 @@ def train_and_evaluate(rank, world_size, args):
     optimizer = optim.Adam(model.parameters(), lr=args.lr, weight_decay=1e-4)
     scheduler = ReduceLROnPlateau(optimizer, 'min', patience=10, factor=0.1, verbose=True)
 
-    best_model_path  = os.path.join('experiments', args.exp_name, 'best_model_pth')
-    final_model_path = os.path.join('experiments', args.exp_name, 'final_model_pth')
+    #best_model_path  = os.path.join('experiments', args.exp_name, 'best_model_pth')
+    #final_model_path = os.path.join('experiments', args.exp_name, 'final_model_pth')
+    best_model_path  = os.path.join('experiments', args.exp_name, 'best_model_tmp')
+    final_model_path = os.path.join('experiments', args.exp_name, 'final_model_tmp')
 
     # Check if test_only and model exists
     if args.test_only and os.path.exists(best_model_path):
@@ -307,13 +321,13 @@ def train_and_evaluate(rank, world_size, args):
     # Test the final model
     if local_rank == 0:
         logging.info("Testing the final model")
-    test_model(model, test_dataloader, criterion, local_rank, os.path.join('experiments', args.exp_name))
+    #test_model(model, test_dataloader, criterion, local_rank, os.path.join('experiments', args.exp_name))
 
     # Test the best model
     if local_rank == 0:
         logging.info("Testing the best model")
         model.load_state_dict(torch.load(best_model_path, map_location=f'cuda:{local_rank}'))
-    test_model(model, test_dataloader, criterion, local_rank, os.path.join('experiments', args.exp_name))
+    #test_model(model, test_dataloader, criterion, local_rank, os.path.join('experiments', args.exp_name))
 
     # Clean up
     dist.destroy_process_group()
@@ -323,7 +337,7 @@ def main():
 
     # Set the master address and port for DDP
     os.environ['MASTER_ADDR'] = 'localhost'
-    os.environ['MASTER_PORT'] = '29500'
+    os.environ['MASTER_PORT'] = '12355'
 
     # Set visible GPUS
     gpu_list = args.gpus
