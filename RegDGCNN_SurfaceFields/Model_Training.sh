@@ -5,9 +5,10 @@ python run_pipeline.py \
     --subset_dir "$HOME/ML_Turbulent/DrivAerNet/train_val_test_splits" \
     --cache_dir "$HOME/ML_Turbulent/Data_Pressure_Field/Cache_data" \
     --num_points 10000 \
-    --batch_size 12 \
+    --num_workers 1 \
+    --batch_size 6 \
     --epochs 150 \
-    --gpus "0, 1"
+    --gpus "0"
 
 
 # === Variable  ===
@@ -21,3 +22,11 @@ python run_pipeline.py \
 # e.g. 10000 samples, batch_size = 100
 #      10 000 / 100 = 100 steps for one epoch
 #      --epochs 150 have 150 times loop
+
+#    --dataset_path "$HOME/Data_Pressure/Pressure_VTK" \
+#    --subset_dir "$HOME/ML_Turbulent/DrivAerNet/train_val_test_splits" \
+#    --cache_dir "$HOME/Data_Pressure/Cache_data" \
+
+#    --dataset_path "$HOME/ML_Turbulent/Data_Pressure_Field/Data_Pressure/PressureVTK/N_S_WWS_WM" \
+#    --subset_dir "$HOME/ML_Turbulent/DrivAerNet/train_val_test_splits" \
+#    --cache_dir "$HOME/ML_Turbulent/Data_Pressure_Field/Cache_data" \
