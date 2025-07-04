@@ -63,14 +63,23 @@ def train_one_epoch(model, train_dataloader, optimizer, criterion, local_rank):
     """Train for one epoch."""
     model.train()
     total_loss = 0
-    global PRESSURE_MEAN, PRESSURE_STD
 
     for data, targets in tqdm(train_dataloader, desc="[Training]"):
+        global PRESSURE_MEAN, PRESSURE_STD
 
+        # Right version
+        """
         PRESSURE_MEAN = torch.tensor(PRESSURE_MEAN, device=data.device)
         PRESSURE_STD  = torch.tensor(PRESSURE_STD, device=data.device)
 
         data, targets = data.squeeze(1).to(local_rank), targets.squeeze(1).to(local_rank)
+        targets = (targets - PRESSURE_MEAN) / PRESSURE_STD
+        """
+
+        # Logic bug version
+        data = data.squeeze(1).to(local_rank)
+        targets = targets.squeeze(1).to(local_rank)
+
         targets = (targets - PRESSURE_MEAN) / PRESSURE_STD
 
         optimizer.zero_grad()
