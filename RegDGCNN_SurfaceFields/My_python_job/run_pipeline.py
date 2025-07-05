@@ -41,7 +41,7 @@ def parse_args():
     parser.add_argument('--batch_size', type=int, default=12, help='Batch size per GPU')
     parser.add_argument('--epochs', type=int, default=150, help='Number of epochs')
     parser.add_argument('--lr', type=float, default=0.001, help='Learning rate')
-#    parser.add_argument('--test_only', action='store_true', help='Only test the model, no training')
+    parser.add_argument('--test_only', type=int, default=0, help='Only test the model, no training')
     parser.add_argument('--num_workers', type=int, default=4, help='Number of data loading workers')
     parser.add_argument('--gpus', type=str, default='0', help='GPUs to use (comma-separated)')
 
@@ -51,11 +51,13 @@ def parse_args():
     parser.add_argument('--k', type=int, default=40, help='Number of nearest neighbors')
     parser.add_argument('--output_channels', type=int, default=1, help='Number of output channels')
 
+    # Evaluation settings
+    parser.add_argument('--num_eval_samples', type=int, default=5, help='Number of samples to evaluate in detail')
 
     return parser.parse_args()
 
 def train_model(args):
-    logging.info("**********************Starting model training...")
+    logging.info("*************************Starting model training...")
 
     # Prepare command for training script
     cmd = [
@@ -67,12 +69,13 @@ def train_model(args):
         "--batch_size", str(args.batch_size),
         "--epochs", str(args.epochs),
         "--lr", str(args.lr),
-        "--num_workers", str(args.num_workers),
         "--dropout", str(args.dropout),
         "--emb_dims", str(args.emb_dims),
         "--k", str(args.k),
         "--output_channels", str(args.output_channels),
-        "--seed", str(args.seed)
+        "--seed", str(args.seed),
+        "--num_workers", str(args.num_workers),
+        "--test_only", str(args.test_only)
     ]
 
     if args.cache_dir:
@@ -96,6 +99,59 @@ def train_model(args):
     logging.info(f"Model training completed in {elapsed_time:.2f} seconds")
     return True
 
+def evaluate_model(args):
+    """
+    Evaluatie the trained model using the evaluate.py script.
+
+    Args:
+        args: Command line arguments
+
+    Returns:
+        True if evaluation was successful, False otherwise
+    """
+    logging.info("*************************starting model evaluation...")
+
+    # Path to the trained model
+    model_checkpoint = os.path.join("experiments", args.exp_name, "best_model_pth")
+
+    if not os.path.exists(model_checkpoint):
+        logging.error(f"Model checkpoint not found at {model_checkpoint}")
+        return False
+
+    # Prepare command for evaluation script
+    cmd = [
+        "python", "evaluate.py",
+        "--exp_name", args.exp_name,
+        "--model_checkpoint", model_checkpoint,
+        "--dataset_path", args.dataset_path,
+        "--num_points", str(args.num_points),
+        "--num_vis_samples", str(args.num_eval_samples),
+        "--visualize",  # This will now save raw data instead of generating plots
+        "--dropout", str(args.dropout),
+        "--emb_dims", str(args.emb_dims),
+        "--k", str(args.k),
+        "--output_channels", str(args.output_channels),
+        "--seed", str(args.seed)
+    ]
+
+    if args.cache_dir:
+        cmd.extend(["--cache_dir", args.cache_dir])
+
+    # Run the evaluation script
+    env = os.environ.copy()
+    env["CUDA_VISIBLE_DEVICES"] = args.gpus.split(',')[0]  # Use just the first GPU for evaluation
+
+    process = subprocess.Popen(cmd, env=env)
+    process.wait()
+
+    if process.returncode != 0:
+        logging.error("Evaluation failed!")
+        return False
+
+    logging.info("Model evaluation complete")
+    return True
+
+
 def main():
     """ main function to run the complete pipeline. """
     args = parse_args()
@@ -117,8 +173,31 @@ def main():
 
     results = {}
 
-    if 'train' in stages:
+    # Preprocess data if requested
+    if 'preprocess' in stages:
+        results['preprocess'] = preprocess_data(args)
+    else:
+        # Skip preprocessing but mark as successful to allow training to proceed
+        results['preprocess'] = True
+        logging.info("Preprocessing stage skipped.")
+
+    # Train model if requested and preprocessing succeeded
+    if 'train' in stages and results['preprocess']:
         results['train'] = train_model(args)
+    else:
+        # If training not requested, mark as successful for evaluation to proceed
+        if 'train' not in stages:
+            results['train'] = True
+            logging.info("Training stage skipped.")
+
+    # Evaluate model if requested and training succeeded
+    if 'evaluate' in stages and results.get('train', False):
+        results['evaluate'] = evaluate_model(args)
+    else:
+        # If evaluation not requested, mark as true for final success check
+        if 'evaluation' not in stages:
+            results['evaluate'] = True
+            logging.info("Evaluation stage skipped.")
 
     # Print Summary
     logging.info("Pipleline execution complete.")
