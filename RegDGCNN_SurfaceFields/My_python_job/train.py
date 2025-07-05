@@ -12,6 +12,7 @@ import argparse
 import matplotlib.pyplot as plt
 from tqdm import tqdm
 import logging
+import pprint
 
 # Import modules
 from data_loader import get_dataloaders, PRESSURE_MEAN, PRESSURE_STD
@@ -36,7 +37,9 @@ def parse_args():
     parser.add_argument('--batch_size', type=int, default=12, help='Batch size per GPU')
     parser.add_argument('--epochs', type=int, default=150, help='Number of epochs')
     parser.add_argument('--lr', type=float, default=0.001, help='Learning rate')
-    parser.add_argument('--test_only', action='store_true', help='Only test the model, no training')
+#    parser.add_argument('--test_only', action='store_true', help='Only test the model, no training')
+    parser.add_argument('--test_only', type=int, default=0, help='Only test the model, no training')
+    parser.add_argument('--num_workers', type=int, default=4, help='Number of data loading workers')
     parser.add_argument('--gpus', type=str, default='0', help='GPUs to use (comma-separated)')
 
     # Model settings
@@ -220,7 +223,7 @@ def train_and_evaluate(rank, world_size, args):
         log_file = os.path.join(exp_dir, 'training.log')
         setup_logger(log_file)
         logging.info(f"args.exp_name : {args.exp_name}")
-        logging.info(f"Arguments: {args}")
+        logging.info(f"Arguments:\n" + pprint.pformat(vars(args), indent=2))
         logging.info(f"Starting training with {world_size} GPUs")
 
     # Initialize model
@@ -248,10 +251,10 @@ def train_and_evaluate(rank, world_size, args):
     optimizer = optim.Adam(model.parameters(), lr=args.lr, weight_decay=1e-4)
     scheduler = ReduceLROnPlateau(optimizer, 'min', patience=10, factor=0.1, verbose=True)
 
-    #best_model_path  = os.path.join('experiments', args.exp_name, 'best_model_pth')
-    #final_model_path = os.path.join('experiments', args.exp_name, 'final_model_pth')
-    best_model_path  = os.path.join('experiments', args.exp_name, 'best_model_tmp')
-    final_model_path = os.path.join('experiments', args.exp_name, 'final_model_tmp')
+    best_model_path  = os.path.join('experiments', args.exp_name, 'best_model_pth')
+    final_model_path = os.path.join('experiments', args.exp_name, 'final_model_pth')
+    #best_model_path  = os.path.join('experiments', args.exp_name, 'best_model_tmp')
+    #final_model_path = os.path.join('experiments', args.exp_name, 'final_model_tmp')
 
     # Check if test_only and model exists
     if args.test_only and os.path.exists(best_model_path):
