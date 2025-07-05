@@ -1,0 +1,361 @@
+2025-07-05 14:08:10,495 - INFO - **************************** Starting evaluation of RegDGCNN model
+2025-07-05 14:08:10,495 - INFO - Arguments:
+{ 'cache_dir': '/work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data',
+  'dataset_path': '/work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Data_Pressure/PressureVTK/N_S_WWS_WM',
+  'dropout': 0.4,
+  'emb_dims': 1024,
+  'exp_name': 'Train_Test',
+  'k': 40,
+  'model_checkpoint': 'experiments/Train_Test/best_model_pth',
+  'num_points': 10000,
+  'num_vis_samples': 5,
+  'output_channels': 1,
+  'sample_ids': None,
+  'seed': 1,
+  'visualize': True}
+2025-07-05 14:10:06,895 - INFO - **************************** Starting evaluation of RegDGCNN model
+2025-07-05 14:10:06,903 - INFO - Arguments:
+{ 'cache_dir': '/work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data',
+  'dataset_path': '/work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Data_Pressure/PressureVTK/N_S_WWS_WM',
+  'dropout': 0.4,
+  'emb_dims': 1024,
+  'exp_name': 'Train_Test',
+  'k': 40,
+  'model_checkpoint': 'experiments/Train_Test/best_model_pth',
+  'num_points': 10000,
+  'num_vis_samples': 5,
+  'output_channels': 1,
+  'sample_ids': None,
+  'seed': 1,
+  'visualize': True}
+2025-07-05 14:10:40,818 - INFO - **************************** Starting evaluation of RegDGCNN model
+2025-07-05 14:10:40,823 - INFO - Arguments:
+{ 'cache_dir': '/work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data',
+  'dataset_path': '/work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Data_Pressure/PressureVTK/N_S_WWS_WM',
+  'dropout': 0.4,
+  'emb_dims': 1024,
+  'exp_name': 'Train_Test',
+  'k': 40,
+  'model_checkpoint': 'experiments/Train_Test/best_model_pth',
+  'num_points': 10000,
+  'num_vis_samples': 5,
+  'output_channels': 1,
+  'sample_ids': None,
+  'seed': 1,
+  'visualize': True}
+2025-07-05 14:11:07,822 - INFO - **************************** Starting evaluation of RegDGCNN model
+2025-07-05 14:11:07,822 - INFO - Arguments:
+{ 'cache_dir': '/work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data',
+  'dataset_path': '/work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Data_Pressure/PressureVTK/N_S_WWS_WM',
+  'dropout': 0.4,
+  'emb_dims': 1024,
+  'exp_name': 'Train_Test',
+  'k': 40,
+  'model_checkpoint': 'experiments/Train_Test/best_model_pth',
+  'num_points': 10000,
+  'num_vis_samples': 5,
+  'output_channels': 1,
+  'sample_ids': None,
+  'seed': 1,
+  'visualize': True}
+2025-07-05 14:11:08,062 - INFO - Using device: cuda:0
+2025-07-05 14:11:46,832 - INFO - **************************** Starting evaluation of RegDGCNN model
+2025-07-05 14:11:46,832 - INFO - Arguments:
+{ 'cache_dir': '/work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data',
+  'dataset_path': '/work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Data_Pressure/PressureVTK/N_S_WWS_WM',
+  'dropout': 0.4,
+  'emb_dims': 1024,
+  'exp_name': 'Train_Test',
+  'k': 40,
+  'model_checkpoint': 'experiments/Train_Test/best_model_pth',
+  'num_points': 10000,
+  'num_vis_samples': 5,
+  'output_channels': 1,
+  'sample_ids': None,
+  'seed': 1,
+  'visualize': True}
+2025-07-05 14:11:47,066 - INFO - Using device: cuda:0
+2025-07-05 14:11:47,066 - INFO - args: ['__class__', '__contains__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_get_args', '_get_kwargs', 'cache_dir', 'dataset_path', 'dropout', 'emb_dims', 'exp_name', 'k', 'model_checkpoint', 'num_points', 'num_vis_samples', 'output_channels', 'sample_ids', 'seed', 'visualize']
+2025-07-05 14:41:33,838 - INFO - **************************** Starting evaluation of RegDGCNN model
+2025-07-05 14:41:33,839 - INFO - Arguments:
+{ 'cache_dir': '/work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data',
+  'dataset_path': '/work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Data_Pressure/PressureVTK/N_S_WWS_WM',
+  'dropout': 0.4,
+  'emb_dims': 1024,
+  'exp_name': 'Train_Test',
+  'k': 40,
+  'model_checkpoint': 'experiments/Train_Test/best_model_pth',
+  'num_points': 10000,
+  'num_vis_samples': 5,
+  'output_channels': 1,
+  'sample_ids': None,
+  'seed': 1,
+  'visualize': True}
+2025-07-05 14:41:34,090 - INFO - Using device: cuda:0
+2025-07-05 14:41:34,271 - INFO - Loading model form experiments/Train_Test/best_model_pth
+2025-07-05 14:41:34,336 - INFO - 0, module.transform_net.bn1.weight
+2025-07-05 14:41:34,336 - INFO - 1, module.transform_net.bn1.bias
+2025-07-05 14:41:34,336 - INFO - 2, module.transform_net.bn1.running_mean
+2025-07-05 14:41:34,336 - INFO - 3, module.transform_net.bn1.running_var
+2025-07-05 14:41:34,336 - INFO - 4, module.transform_net.bn1.num_batches_tracked
+2025-07-05 14:41:34,336 - INFO - 5, module.transform_net.bn2.weight
+2025-07-05 14:41:34,336 - INFO - 6, module.transform_net.bn2.bias
+2025-07-05 14:41:34,336 - INFO - 7, module.transform_net.bn2.running_mean
+2025-07-05 14:41:34,336 - INFO - 8, module.transform_net.bn2.running_var
+2025-07-05 14:41:34,336 - INFO - 9, module.transform_net.bn2.num_batches_tracked
+2025-07-05 14:41:34,336 - INFO - 10, module.transform_net.bn3.weight
+2025-07-05 14:41:34,336 - INFO - 11, module.transform_net.bn3.bias
+2025-07-05 14:41:34,336 - INFO - 12, module.transform_net.bn3.running_mean
+2025-07-05 14:41:34,336 - INFO - 13, module.transform_net.bn3.running_var
+2025-07-05 14:41:34,336 - INFO - 14, module.transform_net.bn3.num_batches_tracked
+2025-07-05 14:41:34,336 - INFO - 15, module.transform_net.conv1.0.weight
+2025-07-05 14:41:34,336 - INFO - 16, module.transform_net.conv1.1.weight
+2025-07-05 14:41:34,336 - INFO - 17, module.transform_net.conv1.1.bias
+2025-07-05 14:41:34,336 - INFO - 18, module.transform_net.conv1.1.running_mean
+2025-07-05 14:41:34,336 - INFO - 19, module.transform_net.conv1.1.running_var
+2025-07-05 14:41:34,336 - INFO - 20, module.transform_net.conv1.1.num_batches_tracked
+2025-07-05 14:41:34,336 - INFO - 21, module.transform_net.conv2.0.weight
+2025-07-05 14:41:34,336 - INFO - 22, module.transform_net.conv2.1.weight
+2025-07-05 14:41:34,336 - INFO - 23, module.transform_net.conv2.1.bias
+2025-07-05 14:41:34,336 - INFO - 24, module.transform_net.conv2.1.running_mean
+2025-07-05 14:41:34,336 - INFO - 25, module.transform_net.conv2.1.running_var
+2025-07-05 14:41:34,337 - INFO - 26, module.transform_net.conv2.1.num_batches_tracked
+2025-07-05 14:41:34,337 - INFO - 27, module.transform_net.conv3.0.weight
+2025-07-05 14:41:34,337 - INFO - 28, module.transform_net.conv3.1.weight
+2025-07-05 14:41:34,337 - INFO - 29, module.transform_net.conv3.1.bias
+2025-07-05 14:41:34,337 - INFO - 30, module.transform_net.conv3.1.running_mean
+2025-07-05 14:41:34,337 - INFO - 31, module.transform_net.conv3.1.running_var
+2025-07-05 14:41:34,339 - INFO - 32, module.transform_net.conv3.1.num_batches_tracked
+2025-07-05 14:41:34,339 - INFO - 33, module.transform_net.linear1.weight
+2025-07-05 14:41:34,340 - INFO - 34, module.transform_net.bn4.weight
+2025-07-05 14:41:34,340 - INFO - 35, module.transform_net.bn4.bias
+2025-07-05 14:41:34,340 - INFO - 36, module.transform_net.bn4.running_mean
+2025-07-05 14:41:34,340 - INFO - 37, module.transform_net.bn4.running_var
+2025-07-05 14:41:34,340 - INFO - 38, module.transform_net.bn4.num_batches_tracked
+2025-07-05 14:41:34,340 - INFO - 39, module.transform_net.linear2.weight
+2025-07-05 14:41:34,340 - INFO - 40, module.transform_net.bn5.weight
+2025-07-05 14:41:34,340 - INFO - 41, module.transform_net.bn5.bias
+2025-07-05 14:41:34,340 - INFO - 42, module.transform_net.bn5.running_mean
+2025-07-05 14:41:34,340 - INFO - 43, module.transform_net.bn5.running_var
+2025-07-05 14:41:34,340 - INFO - 44, module.transform_net.bn5.num_batches_tracked
+2025-07-05 14:41:34,340 - INFO - 45, module.transform_net.transform.weight
+2025-07-05 14:41:34,340 - INFO - 46, module.transform_net.transform.bias
+2025-07-05 14:41:34,340 - INFO - 47, module.bn1.weight
+2025-07-05 14:41:34,340 - INFO - 48, module.bn1.bias
+2025-07-05 14:41:34,340 - INFO - 49, module.bn1.running_mean
+2025-07-05 14:41:34,340 - INFO - 50, module.bn1.running_var
+2025-07-05 14:41:34,340 - INFO - 51, module.bn1.num_batches_tracked
+2025-07-05 14:41:34,340 - INFO - 52, module.bn2.weight
+2025-07-05 14:41:34,340 - INFO - 53, module.bn2.bias
+2025-07-05 14:41:34,340 - INFO - 54, module.bn2.running_mean
+2025-07-05 14:41:34,340 - INFO - 55, module.bn2.running_var
+2025-07-05 14:41:34,340 - INFO - 56, module.bn2.num_batches_tracked
+2025-07-05 14:41:34,340 - INFO - 57, module.bn3.weight
+2025-07-05 14:41:34,340 - INFO - 58, module.bn3.bias
+2025-07-05 14:41:34,340 - INFO - 59, module.bn3.running_mean
+2025-07-05 14:41:34,340 - INFO - 60, module.bn3.running_var
+2025-07-05 14:41:34,341 - INFO - 61, module.bn3.num_batches_tracked
+2025-07-05 14:41:34,341 - INFO - 62, module.bn4.weight
+2025-07-05 14:41:34,341 - INFO - 63, module.bn4.bias
+2025-07-05 14:41:34,341 - INFO - 64, module.bn4.running_mean
+2025-07-05 14:41:34,341 - INFO - 65, module.bn4.running_var
+2025-07-05 14:41:34,341 - INFO - 66, module.bn4.num_batches_tracked
+2025-07-05 14:41:34,341 - INFO - 67, module.bn5.weight
+2025-07-05 14:41:34,341 - INFO - 68, module.bn5.bias
+2025-07-05 14:41:34,341 - INFO - 69, module.bn5.running_mean
+2025-07-05 14:41:34,341 - INFO - 70, module.bn5.running_var
+2025-07-05 14:41:34,341 - INFO - 71, module.bn5.num_batches_tracked
+2025-07-05 14:41:34,341 - INFO - 72, module.bn6.weight
+2025-07-05 14:41:34,341 - INFO - 73, module.bn6.bias
+2025-07-05 14:41:34,341 - INFO - 74, module.bn6.running_mean
+2025-07-05 14:41:34,341 - INFO - 75, module.bn6.running_var
+2025-07-05 14:41:34,341 - INFO - 76, module.bn6.num_batches_tracked
+2025-07-05 14:41:34,341 - INFO - 77, module.bn7.weight
+2025-07-05 14:41:34,341 - INFO - 78, module.bn7.bias
+2025-07-05 14:41:34,341 - INFO - 79, module.bn7.running_mean
+2025-07-05 14:41:34,341 - INFO - 80, module.bn7.running_var
+2025-07-05 14:41:34,341 - INFO - 81, module.bn7.num_batches_tracked
+2025-07-05 14:41:34,341 - INFO - 82, module.bn8.weight
+2025-07-05 14:41:34,341 - INFO - 83, module.bn8.bias
+2025-07-05 14:41:34,341 - INFO - 84, module.bn8.running_mean
+2025-07-05 14:41:34,341 - INFO - 85, module.bn8.running_var
+2025-07-05 14:41:34,341 - INFO - 86, module.bn8.num_batches_tracked
+2025-07-05 14:41:34,341 - INFO - 87, module.bn9.weight
+2025-07-05 14:41:34,341 - INFO - 88, module.bn9.bias
+2025-07-05 14:41:34,341 - INFO - 89, module.bn9.running_mean
+2025-07-05 14:41:34,341 - INFO - 90, module.bn9.running_var
+2025-07-05 14:41:34,341 - INFO - 91, module.bn9.num_batches_tracked
+2025-07-05 14:41:34,341 - INFO - 92, module.bn10.weight
+2025-07-05 14:41:34,341 - INFO - 93, module.bn10.bias
+2025-07-05 14:41:34,341 - INFO - 94, module.bn10.running_mean
+2025-07-05 14:41:34,341 - INFO - 95, module.bn10.running_var
+2025-07-05 14:41:34,342 - INFO - 96, module.bn10.num_batches_tracked
+2025-07-05 14:41:34,342 - INFO - 97, module.conv1.0.weight
+2025-07-05 14:41:34,342 - INFO - 98, module.conv1.1.weight
+2025-07-05 14:41:34,342 - INFO - 99, module.conv1.1.bias
+2025-07-05 14:41:34,342 - INFO - 100, module.conv1.1.running_mean
+2025-07-05 14:41:34,342 - INFO - 101, module.conv1.1.running_var
+2025-07-05 14:41:34,342 - INFO - 102, module.conv1.1.num_batches_tracked
+2025-07-05 14:41:34,342 - INFO - 103, module.conv2.0.weight
+2025-07-05 14:41:34,342 - INFO - 104, module.conv2.1.weight
+2025-07-05 14:41:34,342 - INFO - 105, module.conv2.1.bias
+2025-07-05 14:41:34,342 - INFO - 106, module.conv2.1.running_mean
+2025-07-05 14:41:34,342 - INFO - 107, module.conv2.1.running_var
+2025-07-05 14:41:34,342 - INFO - 108, module.conv2.1.num_batches_tracked
+2025-07-05 14:41:34,342 - INFO - 109, module.conv3.0.weight
+2025-07-05 14:41:34,342 - INFO - 110, module.conv3.1.weight
+2025-07-05 14:41:34,342 - INFO - 111, module.conv3.1.bias
+2025-07-05 14:41:34,342 - INFO - 112, module.conv3.1.running_mean
+2025-07-05 14:41:34,342 - INFO - 113, module.conv3.1.running_var
+2025-07-05 14:41:34,342 - INFO - 114, module.conv3.1.num_batches_tracked
+2025-07-05 14:41:34,342 - INFO - 115, module.conv4.0.weight
+2025-07-05 14:41:34,342 - INFO - 116, module.conv4.1.weight
+2025-07-05 14:41:34,342 - INFO - 117, module.conv4.1.bias
+2025-07-05 14:41:34,342 - INFO - 118, module.conv4.1.running_mean
+2025-07-05 14:41:34,342 - INFO - 119, module.conv4.1.running_var
+2025-07-05 14:41:34,342 - INFO - 120, module.conv4.1.num_batches_tracked
+2025-07-05 14:41:34,342 - INFO - 121, module.conv5.0.weight
+2025-07-05 14:41:34,342 - INFO - 122, module.conv5.1.weight
+2025-07-05 14:41:34,342 - INFO - 123, module.conv5.1.bias
+2025-07-05 14:41:34,342 - INFO - 124, module.conv5.1.running_mean
+2025-07-05 14:41:34,342 - INFO - 125, module.conv5.1.running_var
+2025-07-05 14:41:34,342 - INFO - 126, module.conv5.1.num_batches_tracked
+2025-07-05 14:41:34,342 - INFO - 127, module.conv6.0.weight
+2025-07-05 14:41:34,342 - INFO - 128, module.conv6.1.weight
+2025-07-05 14:41:34,342 - INFO - 129, module.conv6.1.bias
+2025-07-05 14:41:34,342 - INFO - 130, module.conv6.1.running_mean
+2025-07-05 14:41:34,343 - INFO - 131, module.conv6.1.running_var
+2025-07-05 14:41:34,343 - INFO - 132, module.conv6.1.num_batches_tracked
+2025-07-05 14:41:34,343 - INFO - 133, module.conv7.0.weight
+2025-07-05 14:41:34,343 - INFO - 134, module.conv7.1.weight
+2025-07-05 14:41:34,343 - INFO - 135, module.conv7.1.bias
+2025-07-05 14:41:34,343 - INFO - 136, module.conv7.1.running_mean
+2025-07-05 14:41:34,343 - INFO - 137, module.conv7.1.running_var
+2025-07-05 14:41:34,343 - INFO - 138, module.conv7.1.num_batches_tracked
+2025-07-05 14:41:34,343 - INFO - 139, module.conv8.0.weight
+2025-07-05 14:41:34,343 - INFO - 140, module.conv8.1.weight
+2025-07-05 14:41:34,343 - INFO - 141, module.conv8.1.bias
+2025-07-05 14:41:34,343 - INFO - 142, module.conv8.1.running_mean
+2025-07-05 14:41:34,343 - INFO - 143, module.conv8.1.running_var
+2025-07-05 14:41:34,343 - INFO - 144, module.conv8.1.num_batches_tracked
+2025-07-05 14:41:34,343 - INFO - 145, module.conv9.0.weight
+2025-07-05 14:41:34,343 - INFO - 146, module.conv9.1.weight
+2025-07-05 14:41:34,343 - INFO - 147, module.conv9.1.bias
+2025-07-05 14:41:34,343 - INFO - 148, module.conv9.1.running_mean
+2025-07-05 14:41:34,343 - INFO - 149, module.conv9.1.running_var
+2025-07-05 14:41:34,343 - INFO - 150, module.conv9.1.num_batches_tracked
+2025-07-05 14:41:34,343 - INFO - 151, module.conv10.0.weight
+2025-07-05 14:41:34,343 - INFO - 152, module.conv10.1.weight
+2025-07-05 14:41:34,343 - INFO - 153, module.conv10.1.bias
+2025-07-05 14:41:34,343 - INFO - 154, module.conv10.1.running_mean
+2025-07-05 14:41:34,343 - INFO - 155, module.conv10.1.running_var
+2025-07-05 14:41:34,343 - INFO - 156, module.conv10.1.num_batches_tracked
+2025-07-05 14:41:34,343 - INFO - 157, module.conv11.weight
+2025-07-05 14:47:03,873 - INFO - **************************** Starting evaluation of RegDGCNN model
+2025-07-05 14:47:03,874 - INFO - Arguments:
+{ 'cache_dir': '/work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data',
+  'dataset_path': '/work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Data_Pressure/PressureVTK/N_S_WWS_WM',
+  'dropout': 0.4,
+  'emb_dims': 1024,
+  'exp_name': 'Train_Test',
+  'k': 40,
+  'model_checkpoint': 'experiments/Train_Test/best_model_pth',
+  'num_points': 10000,
+  'num_vis_samples': 5,
+  'output_channels': 1,
+  'sample_ids': None,
+  'seed': 1,
+  'visualize': True}
+2025-07-05 14:47:04,099 - INFO - Using device: cuda:0
+2025-07-05 14:47:04,273 - INFO - Loading model form experiments/Train_Test/best_model_pth
+2025-07-05 14:47:04,334 - INFO - ['module.transform_net.bn1.weight', 'module.transform_net.bn1.bias', 'module.transform_net.bn1.running_mean', 'module.transform_net.bn1.running_var', 'module.transform_net.bn1.num_batches_tracked', 'module.transform_net.bn2.weight', 'module.transform_net.bn2.bias', 'module.transform_net.bn2.running_mean', 'module.transform_net.bn2.running_var', 'module.transform_net.bn2.num_batches_tracked', 'module.transform_net.bn3.weight', 'module.transform_net.bn3.bias', 'module.transform_net.bn3.running_mean', 'module.transform_net.bn3.running_var', 'module.transform_net.bn3.num_batches_tracked', 'module.transform_net.conv1.0.weight', 'module.transform_net.conv1.1.weight', 'module.transform_net.conv1.1.bias', 'module.transform_net.conv1.1.running_mean', 'module.transform_net.conv1.1.running_var', 'module.transform_net.conv1.1.num_batches_tracked', 'module.transform_net.conv2.0.weight', 'module.transform_net.conv2.1.weight', 'module.transform_net.conv2.1.bias', 'module.transform_net.conv2.1.running_mean', 'module.transform_net.conv2.1.running_var', 'module.transform_net.conv2.1.num_batches_tracked', 'module.transform_net.conv3.0.weight', 'module.transform_net.conv3.1.weight', 'module.transform_net.conv3.1.bias', 'module.transform_net.conv3.1.running_mean', 'module.transform_net.conv3.1.running_var', 'module.transform_net.conv3.1.num_batches_tracked', 'module.transform_net.linear1.weight', 'module.transform_net.bn4.weight', 'module.transform_net.bn4.bias', 'module.transform_net.bn4.running_mean', 'module.transform_net.bn4.running_var', 'module.transform_net.bn4.num_batches_tracked', 'module.transform_net.linear2.weight', 'module.transform_net.bn5.weight', 'module.transform_net.bn5.bias', 'module.transform_net.bn5.running_mean', 'module.transform_net.bn5.running_var', 'module.transform_net.bn5.num_batches_tracked', 'module.transform_net.transform.weight', 'module.transform_net.transform.bias', 'module.bn1.weight', 'module.bn1.bias', 'module.bn1.running_mean', 'module.bn1.running_var', 'module.bn1.num_batches_tracked', 'module.bn2.weight', 'module.bn2.bias', 'module.bn2.running_mean', 'module.bn2.running_var', 'module.bn2.num_batches_tracked', 'module.bn3.weight', 'module.bn3.bias', 'module.bn3.running_mean', 'module.bn3.running_var', 'module.bn3.num_batches_tracked', 'module.bn4.weight', 'module.bn4.bias', 'module.bn4.running_mean', 'module.bn4.running_var', 'module.bn4.num_batches_tracked', 'module.bn5.weight', 'module.bn5.bias', 'module.bn5.running_mean', 'module.bn5.running_var', 'module.bn5.num_batches_tracked', 'module.bn6.weight', 'module.bn6.bias', 'module.bn6.running_mean', 'module.bn6.running_var', 'module.bn6.num_batches_tracked', 'module.bn7.weight', 'module.bn7.bias', 'module.bn7.running_mean', 'module.bn7.running_var', 'module.bn7.num_batches_tracked', 'module.bn8.weight', 'module.bn8.bias', 'module.bn8.running_mean', 'module.bn8.running_var', 'module.bn8.num_batches_tracked', 'module.bn9.weight', 'module.bn9.bias', 'module.bn9.running_mean', 'module.bn9.running_var', 'module.bn9.num_batches_tracked', 'module.bn10.weight', 'module.bn10.bias', 'module.bn10.running_mean', 'module.bn10.running_var', 'module.bn10.num_batches_tracked', 'module.conv1.0.weight', 'module.conv1.1.weight', 'module.conv1.1.bias', 'module.conv1.1.running_mean', 'module.conv1.1.running_var', 'module.conv1.1.num_batches_tracked', 'module.conv2.0.weight', 'module.conv2.1.weight', 'module.conv2.1.bias', 'module.conv2.1.running_mean', 'module.conv2.1.running_var', 'module.conv2.1.num_batches_tracked', 'module.conv3.0.weight', 'module.conv3.1.weight', 'module.conv3.1.bias', 'module.conv3.1.running_mean', 'module.conv3.1.running_var', 'module.conv3.1.num_batches_tracked', 'module.conv4.0.weight', 'module.conv4.1.weight', 'module.conv4.1.bias', 'module.conv4.1.running_mean', 'module.conv4.1.running_var', 'module.conv4.1.num_batches_tracked', 'module.conv5.0.weight', 'module.conv5.1.weight', 'module.conv5.1.bias', 'module.conv5.1.running_mean', 'module.conv5.1.running_var', 'module.conv5.1.num_batches_tracked', 'module.conv6.0.weight', 'module.conv6.1.weight', 'module.conv6.1.bias', 'module.conv6.1.running_mean', 'module.conv6.1.running_var', 'module.conv6.1.num_batches_tracked', 'module.conv7.0.weight', 'module.conv7.1.weight', 'module.conv7.1.bias', 'module.conv7.1.running_mean', 'module.conv7.1.running_var', 'module.conv7.1.num_batches_tracked', 'module.conv8.0.weight', 'module.conv8.1.weight', 'module.conv8.1.bias', 'module.conv8.1.running_mean', 'module.conv8.1.running_var', 'module.conv8.1.num_batches_tracked', 'module.conv9.0.weight', 'module.conv9.1.weight', 'module.conv9.1.bias', 'module.conv9.1.running_mean', 'module.conv9.1.running_var', 'module.conv9.1.num_batches_tracked', 'module.conv10.0.weight', 'module.conv10.1.weight', 'module.conv10.1.bias', 'module.conv10.1.running_mean', 'module.conv10.1.running_var', 'module.conv10.1.num_batches_tracked', 'module.conv11.weight']
+2025-07-05 14:47:04,339 - INFO - Evaluation Results: 
+2025-07-05 14:47:48,810 - INFO - **************************** Starting evaluation of RegDGCNN model
+2025-07-05 14:47:48,811 - INFO - Arguments:
+{ 'cache_dir': '/work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data',
+  'dataset_path': '/work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Data_Pressure/PressureVTK/N_S_WWS_WM',
+  'dropout': 0.4,
+  'emb_dims': 1024,
+  'exp_name': 'Train_Test',
+  'k': 40,
+  'model_checkpoint': 'experiments/Train_Test/best_model_pth',
+  'num_points': 10000,
+  'num_vis_samples': 5,
+  'output_channels': 1,
+  'sample_ids': None,
+  'seed': 1,
+  'visualize': True}
+2025-07-05 14:47:49,044 - INFO - Using device: cuda:0
+2025-07-05 14:47:49,217 - INFO - Loading model form experiments/Train_Test/best_model_pth
+2025-07-05 14:47:49,279 - INFO - module.transform_net.bn1.weight
+2025-07-05 14:47:49,279 - INFO - Evaluation Results: 
+2025-07-05 15:01:53,850 - INFO - **************************** Starting evaluation of RegDGCNN model
+2025-07-05 15:01:53,856 - INFO - Arguments:
+{ 'cache_dir': '/work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data',
+  'dataset_path': '/work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Data_Pressure/PressureVTK/N_S_WWS_WM',
+  'dropout': 0.4,
+  'emb_dims': 1024,
+  'exp_name': 'Train_Test',
+  'k': 40,
+  'model_checkpoint': 'experiments/Train_Test/best_model_pth',
+  'num_points': 10000,
+  'num_vis_samples': 5,
+  'output_channels': 1,
+  'sample_ids': None,
+  'seed': 1,
+  'visualize': True}
+2025-07-05 15:01:54,112 - INFO - Using device: cuda:0
+2025-07-05 15:01:54,285 - INFO - Loading model form experiments/Train_Test/best_model_pth
+2025-07-05 15:02:25,823 - INFO - **************************** Starting evaluation of RegDGCNN model
+2025-07-05 15:02:25,828 - INFO - Arguments:
+{ 'cache_dir': '/work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data',
+  'dataset_path': '/work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Data_Pressure/PressureVTK/N_S_WWS_WM',
+  'dropout': 0.4,
+  'emb_dims': 1024,
+  'exp_name': 'Train_Test',
+  'k': 40,
+  'model_checkpoint': 'experiments/Train_Test/best_model_pth',
+  'num_points': 10000,
+  'num_vis_samples': 5,
+  'output_channels': 1,
+  'sample_ids': None,
+  'seed': 1,
+  'visualize': True}
+2025-07-05 15:02:26,064 - INFO - Using device: cuda:0
+2025-07-05 15:02:26,238 - INFO - Loading model form experiments/Train_Test/best_model_pth
+2025-07-05 15:05:45,188 - INFO - **************************** Starting evaluation of RegDGCNN model
+2025-07-05 15:05:45,196 - INFO - Arguments:
+{ 'cache_dir': '/work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data',
+  'dataset_path': '/work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Data_Pressure/PressureVTK/N_S_WWS_WM',
+  'dropout': 0.4,
+  'emb_dims': 1024,
+  'exp_name': 'Train_Test',
+  'k': 40,
+  'model_checkpoint': 'experiments/Train_Test/best_model_pth',
+  'num_points': 10000,
+  'num_vis_samples': 5,
+  'output_channels': 1,
+  'sample_ids': None,
+  'seed': 1,
+  'visualize': True}
+2025-07-05 15:05:45,565 - INFO - Using device: cuda:0
+2025-07-05 15:05:45,754 - INFO - Loading model form experiments/Train_Test/best_model_pth
+2025-07-05 15:05:45,819 - INFO - Evaluation Results: 
+2025-07-05 15:52:21,318 - INFO - **************************** Starting evaluation of RegDGCNN model
+2025-07-05 15:52:21,318 - INFO - Arguments:
+{ 'cache_dir': '/work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data',
+  'dataset_path': '/work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Data_Pressure/PressureVTK/N_S_WWS_WM',
+  'dropout': 0.4,
+  'emb_dims': 1024,
+  'exp_name': 'Train_Test',
+  'k': 40,
+  'model_checkpoint': 'experiments/Train_Test/best_model_pth',
+  'num_points': 10000,
+  'num_vis_samples': 5,
+  'output_channels': 1,
+  'sample_ids': None,
+  'seed': 1,
+  'visualize': True}
+2025-07-05 15:52:21,556 - INFO - Using device: cuda:0
+2025-07-05 15:52:21,728 - INFO - Loading model form experiments/Train_Test/best_model_pth
+2025-07-05 15:52:21,790 - INFO - ********************
