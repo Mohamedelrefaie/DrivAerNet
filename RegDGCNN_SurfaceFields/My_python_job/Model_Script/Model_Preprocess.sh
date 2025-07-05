@@ -1,4 +1,4 @@
-python run_pipeline.py \
+python ./run_pipeline.py \
     --stages preprocess \
     --exp_name "DrivAerNet_Pressure" \
     --dataset_path "$HOME/ML_Turbulent/Data_Pressure_Field/Data_Pressure/PressureVTK/N_S_WWS_WM" \
