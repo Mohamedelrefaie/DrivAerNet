@@ -15,6 +15,7 @@ import pprint
 from data_loader import SurfacePressureDataset, PRESSURE_MEAN, PRESSURE_STD
 from model_pressure import RegDGCNN_pressure
 from utils import setup_logger, setup_seed, visualize_pressure_field, plot_error_distribution, calculate_metrics
+from colorama import Fore, Style
 
 def parse_args():
     """ Parse command line arguments. """
@@ -97,7 +98,7 @@ def prepare_dataset(args):
         cache_dir  = args.cache_dir
     )
 
-    # *********************************** Need to be considered
+    # *********************************** The if statement is not used, Just else statement
     # Determine which samples to evaluate
     if args.sample_ids:
         try:
@@ -113,15 +114,15 @@ def prepare_dataset(args):
             logging.error(f"Error loading sample IDs: {e}")
             sample_indices = list(range(len(dataset)))
 
-        else:
-            # Use all samples
-            sample_indices = list(range(len(dataset)))
+    else:
+        # Use all samples
+        sample_indices = list(range(len(dataset)))
 
-            # If visualizing, limit to the specified number
-            if args.visualize and args.num_vis_samples < len(sample_indices):
-                sample_indices = sample_indices[:args.num_vis_samples]
+        # If visualizing, limit to the specified number
+        if args.visualize and args.num_vis_samples < len(sample_indices):
+            sample_indices = sample_indices[:args.num_vis_samples]
 
-        return dataset, sample_indices
+    return dataset, sample_indices
 
 def evaluate_model(model, dataset, sample_indices, args):
     """
@@ -138,6 +139,103 @@ def evaluate_model(model, dataset, sample_indices, args):
     """
     model.eval()
     device = next(model.parameters()).device
+
+    all_metrics = []
+    results_dir = os.path.join('results', args.exp_name)
+    os.makedirs(results_dir, exist_ok=True)
+
+    # Directory for saving raw prediction data
+    data_dir = os.path.join(results_dir, 'prediction_data')
+    if args.visualize:
+        os.makedirs(data_dir, exist_ok=True)
+
+    with torch.no_grad():
+        for idx in tqdm(sample_indices, desc="Evaluating samples"):
+            # Get sample
+            data, targets = dataset[idx]
+
+            # Skip invalid samples
+            if data is None or targets is None:
+                logging.warning(f"Skipped invalid sample at index {idx}")
+                continue
+
+            # Prepare inputs
+            data = data.squeeze(1).to(device)
+            targets = targets.squeeze(1).to(device)
+            normalized_targets = (targets - PRESSURE_MEAN) / PRESSURE_STD
+
+            # Forward pass
+            outputs = model(data)
+            normalized_outputs = outputs.squeeze(1)
+
+            # Calculate metrics on normalized values
+            batch_metrics = calculate_metrics(normalized_targets.cpu().numpy(), normalized_outputs.cpu().numpy())
+            all_metrics.append(batch_metrics)
+
+            # Denormalize for data saving
+            outputs = normalized_outputs * PRESSURE_STD + PRESSURE_MEAN
+
+            # Save raw prediction data if requested
+            if args.visualize:
+                vtk_file = dataset.vtk_files[idx]
+                sample_name = os.path.basename(vtk_file).replace('.vtk', '')
+
+                # Extract points from  the data tensor - correct format for later visualization
+                points = data.cpu().numpy().squeeze(0).transpose(1, 0)  # (3, 10000) -> (10000, 3)
+                true_pressure_np = targets.cpu().numpy().squeeze()
+                pred_pressure_np = outputs.cpu().numpy().squeeze()
+
+                # Save raw data for later visualization
+                output_data = {
+                        'points': points,
+                        'true_pressure_np': true_pressure_np,
+                        'pred_pressure_np': pred_pressure_np,
+                        'sample_name': sample_name,
+                        'vtk_file': vtk_file,
+                        'metrics': batch_metrics
+                }
+
+                # Save to npz file
+                data_path = os.path.join(data_dir, f"{sample_name}_prediction_data.npz")
+                np.savez(data_path, **output_data)
+                logging.info(f"Saved raw prdiction data to {data_path}")
+
+                # Calculate error metrics
+                error      = np.abs(true_pressure_np - pred_pressure_np)
+                max_error  = np.max(error)
+                mean_error = np.mean(error)
+                std_error  = np.std(error)
+
+                # Log some basic error statistics
+                logging.info(f"Sample: {sample_name}")
+                logging.info(f"\tMax Error: {max_error: .6f}")
+                logging.info(f"\tMean Error: {mean_error: .6f}")
+                logging.info(f"\tStd Error: {std_error: .6f}")
+
+    # Aggregate metrics
+    agg_metrics = {}
+    for metric_name in all_metrics[0].keys():
+        agg_metrics[f"{metric_name}_mean"] = np.mean([m[metric_name] for m in all_metrics])
+        agg_metrics[f"{metric_name}_std"] = np.std([m[metric_name] for m in all_metrics])
+
+
+    # Save metrics
+    metrics_file = os.path.join(results_dir, 'evaluation_metrics.txt')
+    with open(metrics_file, 'w') as f:
+        f.write(f"Evaluation Metrics for RegDGCNN\n")
+        f.write(f"Model Checkpoint: {args.model_checkpoint}\n")
+        f.write(f"Number of samples: {len(sample_indices)}\n\n")
+
+        for metric_name, value in agg_metrics.items():
+            f.write(f"{metric_name}: {value: .6f}\n")
+
+    # Also save aggregated metrics as numpy file for easy loading
+    np.savez(os.path.join(results_dir, 'aggregated_metrics.npz'), **agg_metrics)
+
+    logging.info(f"Evaluation complete, Results save to {results_dir}")
+    logging.info(f"Raw prediction data saved to {data_dir}")
+
+    return  agg_metrics
 
 
 def main():
@@ -170,18 +268,11 @@ def main():
 
     # Log results
     logging.info("Evaluation Results: ")
-#    for metric_name, value in metrics.items():
-#        logging.info(f"{metric_name}: {value: .6f}")
+    for metric_name, value in metrics.items():
+        logging.info(f"{Fore.YELLOW}{metric_name}: {value: .6f}{Style.RESET_ALL}")
 
 if __name__ == "__main__":
     main()
-
-
-
-
-
-
-
 
 
 
