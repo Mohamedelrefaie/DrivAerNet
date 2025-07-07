@@ -771,3 +771,10 @@
 2025-07-02 16:37:04,443 - INFO - Final model saved to experiments/DrivAerNet_Pressure/final_model.pth
 2025-07-02 16:37:04,444 - INFO - Testing the final model
 2025-07-02 16:37:11,795 - INFO - Testing the best model
+2025-07-04 18:33:44,985 - INFO - Arguments: Namespace(exp_name='DrivAerNet_Pressure', seed=1, dataset_path='/work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Data_Pressure/PressureVTK/N_S_WWS_WM', subset_dir='/work/mae-zhangbj/ML_Turbulent/DrivAerNet/train_val_test_splits', cache_dir='/work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data', num_points=10000, batch_size=6, epochs=150, lr=0.001, num_workers=1, test_only=False, gpus='0', dropout=0.4, emb_dims=1024, k=40, output_channels=1)
+2025-07-04 18:33:45,003 - INFO - Starting training with 1 GPUs
+2025-07-04 18:33:47,828 - INFO - Total trainable parameters: 1437705
+2025-07-04 18:33:48,076 - INFO - Data loaded: 39 training batches, 8 validation batches, 9 test batches
+2025-07-04 18:33:48,078 - INFO - Starting training for 150 epochs
+2025-07-04 18:34:11,313 - INFO - Epoch 1/150 - Train Loss: 0.765392, Val Loss: 1.117532
+2025-07-04 18:34:11,347 - INFO - New best model saved with Val Loss: 1.117532
