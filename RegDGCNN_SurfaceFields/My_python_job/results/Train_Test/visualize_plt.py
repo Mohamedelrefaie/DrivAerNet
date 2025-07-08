@@ -1,12 +1,14 @@
+import os
 import numpy as np
 import matplotlib.pyplot as plt
 
-data = np.load('./prediction_data/N_S_WWS_WM_292_prediction_data.npz')
+DataPath = os.path.expandvars('$HOME/ML_Turbulent/DrivAerNet/RegDGCNN_SurfaceFields/My_python_job/results/Train_Test/prediction_data/N_S_WWS_WM_292_prediction_data.npz')
+data = np.load(DataPath)
 points = data['points']            # shape (N_points, 3)
 true_p = data['true_pressure_np']  # shape (N_points,)
 pred_p = data['pred_pressure_np']  # shape (N_points,)
 
-fig = plt.figure(figsize=(10, 5))
+fig = plt.figure(figsize=(16, 8))
 ax = fig.add_subplot(121, projection='3d')
 p = ax.scatter(points[:, 0], points[:, 1], points[:, 2], c=true_p, cmap='jet')
 ax.set_title('True Pressure')
@@ -27,7 +29,10 @@ ax.set_title('Prediction Error')
 fig.colorbar(p3, ax=ax)
 """
 
-plt.savefig("visualization.png", dpi=300)
+visualization_path = os.path.expandvars('$HOME/ML_Turbulent/DrivAerNet/RegDGCNN_SurfaceFields/My_python_job/results/Train_Test/visualization')
+os.makedirs(visualization_path, exist_ok=True)
+
+plt.savefig(os.path.join(visualization_path, "visualization.png"), dpi=300)
 print("Saved to visualization.png")
 
 
