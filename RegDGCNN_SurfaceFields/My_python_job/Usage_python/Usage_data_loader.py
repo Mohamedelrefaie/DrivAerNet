@@ -59,7 +59,66 @@ Usage
         sample_point_cloud_with_pressure
     -> Normal public method
 
+#!-------------------------------------
+    def _get_cache_path(self, vtk_file_path):
+        base_name = os.path.basename(vtk_file_path).replace('.vtk', '.npz')
+        -> os.path.basename()
+        -> Get the last part of path
 
+#!---------------------------------------------------------------
+    def __getitem__(self, idx):
+    mesh = pv.read(vtk_file_path)
+    -> Use pyvista to read a VTK mesh file
+
+#!--------------
+    point_cloud, pressures = self.sample_point_cloud_with_pressure(mesh, self.num_points)
+
+#!---------------------------------------------------------------
+    def sample_point_cloud_with_pressure(self, mesh, n_points=5000):
+    indices = np.random.choice(mesh.n_points, n_points, replace=False)
+    -> Randomly select n_points in mesh.n_points
+    -> indices is a NumPy array
+    -> replace=False
+       -> No repeated number in indices
+
+#!--------------
+    indices = np.arange(mesh.n_points)
+    -> Create a NumPy array of evenly spaced integers
+    -> Example:
+       indices = np.arange(5)
+       array([0, 1, 2, 3, 4])
+
+#!--------------
+    sampled_points = mesh.points[indices]
+    -> Select only the points in mesh.points corresponding to the indices in "indices"
+    -> Example:
+        mesh.points =
+        [[0.0, 0.0, 0.0],    # point 0
+         [1.0, 0.0, 0.0],    # point 1
+         [1.0, 1.0, 0.0],    # point 2
+         [0.0, 1.0, 0.0]]    # point 3
+
+        indices = np.array([1, 3])
+
+        [[1.0, 0.0, 0.0],   # point 1
+         [0.0, 1.0, 0.0]]   # point 3
+
+#!--------------
+    sampled_pressures = sampled_pressures.flatten()
+    -> Convert a Multi-D array into a "1D" array
+    -> Example:
+        sampled_pressures =
+        [[1.0],
+         [2.0],
+         [3.0]]
+
+        [1.0, 2.0, 3.0]
+
+#!--------------
+    return pv.PolyData(sampled_points), sampled_pressures
+    -> Make it a PyVisata object easying for postprocess
+    -> sampled_points.shape
+       -> (N,3)
 
 # ============ Function Usage ============
 1. def create_subset(dataset, ids_file):
