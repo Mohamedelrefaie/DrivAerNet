@@ -16,7 +16,7 @@ import matplotlib.pyplot as plt
        -> Create a "3D" plot
 
 #!----------------
-    p = ax.scatter(points[:, 0], points[:, 1], points[:, 2], c=true_p, cmap='jet')
+    p = ax.scatter(points[:, 0], points[:, 1], points[:, 2], c=true_p, cmap='jet', s=1)
     -> Create a "3D" scatter plot on the first subplot "ax"
     -> points[:,0]
        -> x-coordinate of each point
@@ -31,17 +31,23 @@ import matplotlib.pyplot as plt
        -> Low  values: blue
        -> Mid  values: yellow
        -> High values: red
+    -> s=1
+       -> s stands for 'size' of the points in the scatter plot
+       -> s = 10
+          -> Medium points
+       -> s = 50
+          -> Big points
 
 #!----------------
     fig.colorbar(p, ax=ax)
     -> Add a colorbar next to the first subplot
 
 #!----------------
-os.makedirs(visualization_path, exist_ok=True)
+    os.makedirs(visualization_path, exist_ok=True)
     -> Create folder if it does not exist
 
 #!----------------
-plt.savefig(os.path.join(visualization_path, "visualization.png"), dpi=300)
+    plt.savefig(os.path.join(visualization_path, "visualization.png"), dpi=300)
     -> dpi
        -> dots for per inch
        -> low resolution
@@ -51,7 +57,9 @@ plt.savefig(os.path.join(visualization_path, "visualization.png"), dpi=300)
           -> dpi = 300
           -> Used in scientific paper
 
-
+#!----------------
+    plt.tight_layout()
+    -> Automatically adjusts the spacing between subplots and surrounding text to the prevent overlap
 
 
 
