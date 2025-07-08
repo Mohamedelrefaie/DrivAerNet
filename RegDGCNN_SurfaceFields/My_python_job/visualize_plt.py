@@ -2,6 +2,8 @@ import os
 import numpy as np
 import matplotlib.pyplot as plt
 
+from utils import setup_logger, setup_seed, visualize_pressure_field, plot_error_distribution, calculate_metrics
+
 
 DataPath = os.path.expandvars('$HOME/ML_Turbulent/DrivAerNet/RegDGCNN_SurfaceFields/My_python_job/results/Train_Test/prediction_data/N_S_WWS_WM_292_prediction_data.npz')
 data = np.load(DataPath)
@@ -38,7 +40,7 @@ fig.colorbar(p3, ax=ax)
 """
 
 plt.tight_layout()
-plt.savefig(os.path.join(output_path, "visualization.png"), dpi=300)
+plt.savefig(os.path.join(output_path, "matplotlib_version.png"), dpi=300)
 print(f"[Info]Saved to {os.path.join(output_path, 'visualization.png')}")
 
 
