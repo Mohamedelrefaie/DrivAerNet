@@ -5804,3 +5804,86 @@
 2025-07-08 08:30:58,932 - INFO - [33mRel_L2_std:  0.335800[0m
 2025-07-08 08:30:58,932 - INFO - [33mRel_L1_mean:  1.924997[0m
 2025-07-08 08:30:58,932 - INFO - [33mRel_L1_std:  0.335800[0m
+2025-07-08 10:45:24,792 - INFO - **************************** Starting evaluation of RegDGCNN model
+2025-07-08 10:45:24,801 - INFO - Arguments:
+{ 'cache_dir': '/work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data',
+  'dataset_path': '/work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Data_Pressure/PressureVTK/N_S_WWS_WM',
+  'dropout': 0.4,
+  'emb_dims': 1024,
+  'exp_name': 'Train_Test',
+  'k': 40,
+  'model_checkpoint': 'experiments/Train_Test/best_model_pth',
+  'num_points': 10000,
+  'num_vis_samples': 5,
+  'output_channels': 1,
+  'sample_ids': None,
+  'seed': 1,
+  'visualize': True}
+2025-07-08 10:45:25,202 - INFO - Using device: cuda:0
+2025-07-08 10:45:25,454 - INFO - Loading model form experiments/Train_Test/best_model_pth
+2025-07-08 10:45:25,484 - INFO - ********************
+2025-07-08 10:45:25,584 - INFO - Loading cached data from /work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data/N_S_WWS_WM_292.npz
+2025-07-08 10:45:26,164 - INFO - [32mtargets: torch.Size([1, 10000])[0m
+2025-07-08 10:45:26,164 - INFO - [33moutputs: torch.Size([1, 10000])[0m
+2025-07-08 10:45:26,164 - INFO - [32mtrue_pressure_np.shape: (10000,)[0m
+2025-07-08 10:45:26,164 - INFO - [33mpred_pressure_np.shape: (10000,)[0m
+2025-07-08 10:45:26,174 - INFO - [35mSaved raw prdiction data to results/Train_Test/prediction_data/N_S_WWS_WM_292_prediction_data.npz[0m
+2025-07-08 10:45:26,174 - INFO - Sample: N_S_WWS_WM_292
+2025-07-08 10:45:26,174 - INFO - 	Max Error:  474.005371
+2025-07-08 10:45:26,174 - INFO - 	Mean Error:  19.724190
+2025-07-08 10:45:26,174 - INFO - 	Std Error:  27.830032
+2025-07-08 10:45:26,175 - INFO - Loading cached data from /work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data/N_S_WWS_WM_215.npz
+2025-07-08 10:45:26,230 - INFO - [32mtargets: torch.Size([1, 10000])[0m
+2025-07-08 10:45:26,230 - INFO - [33moutputs: torch.Size([1, 10000])[0m
+2025-07-08 10:45:26,231 - INFO - [32mtrue_pressure_np.shape: (10000,)[0m
+2025-07-08 10:45:26,231 - INFO - [33mpred_pressure_np.shape: (10000,)[0m
+2025-07-08 10:45:26,240 - INFO - [35mSaved raw prdiction data to results/Train_Test/prediction_data/N_S_WWS_WM_215_prediction_data.npz[0m
+2025-07-08 10:45:26,240 - INFO - Sample: N_S_WWS_WM_215
+2025-07-08 10:45:26,240 - INFO - 	Max Error:  475.202637
+2025-07-08 10:45:26,240 - INFO - 	Mean Error:  18.083265
+2025-07-08 10:45:26,240 - INFO - 	Std Error:  27.598852
+2025-07-08 10:45:26,241 - INFO - Loading cached data from /work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data/N_S_WWS_WM_073.npz
+2025-07-08 10:45:26,280 - INFO - [32mtargets: torch.Size([1, 10000])[0m
+2025-07-08 10:45:26,285 - INFO - [33moutputs: torch.Size([1, 10000])[0m
+2025-07-08 10:45:26,285 - INFO - [32mtrue_pressure_np.shape: (10000,)[0m
+2025-07-08 10:45:26,286 - INFO - [33mpred_pressure_np.shape: (10000,)[0m
+2025-07-08 10:45:26,295 - INFO - [35mSaved raw prdiction data to results/Train_Test/prediction_data/N_S_WWS_WM_073_prediction_data.npz[0m
+2025-07-08 10:45:26,297 - INFO - Sample: N_S_WWS_WM_073
+2025-07-08 10:45:26,297 - INFO - 	Max Error:  7346.312012
+2025-07-08 10:45:26,297 - INFO - 	Mean Error:  20.367575
+2025-07-08 10:45:26,297 - INFO - 	Std Error:  106.303505
+2025-07-08 10:45:26,299 - INFO - Loading cached data from /work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data/N_S_WWS_WM_323.npz
+2025-07-08 10:45:26,366 - INFO - [32mtargets: torch.Size([1, 10000])[0m
+2025-07-08 10:45:26,366 - INFO - [33moutputs: torch.Size([1, 10000])[0m
+2025-07-08 10:45:26,366 - INFO - [32mtrue_pressure_np.shape: (10000,)[0m
+2025-07-08 10:45:26,366 - INFO - [33mpred_pressure_np.shape: (10000,)[0m
+2025-07-08 10:45:26,375 - INFO - [35mSaved raw prdiction data to results/Train_Test/prediction_data/N_S_WWS_WM_323_prediction_data.npz[0m
+2025-07-08 10:45:26,375 - INFO - Sample: N_S_WWS_WM_323
+2025-07-08 10:45:26,375 - INFO - 	Max Error:  558.258301
+2025-07-08 10:45:26,375 - INFO - 	Mean Error:  19.368584
+2025-07-08 10:45:26,375 - INFO - 	Std Error:  31.317421
+2025-07-08 10:45:26,376 - INFO - Loading cached data from /work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data/N_S_WWS_WM_240.npz
+2025-07-08 10:45:26,428 - INFO - [32mtargets: torch.Size([1, 10000])[0m
+2025-07-08 10:45:26,428 - INFO - [33moutputs: torch.Size([1, 10000])[0m
+2025-07-08 10:45:26,428 - INFO - [32mtrue_pressure_np.shape: (10000,)[0m
+2025-07-08 10:45:26,428 - INFO - [33mpred_pressure_np.shape: (10000,)[0m
+2025-07-08 10:45:26,438 - INFO - [35mSaved raw prdiction data to results/Train_Test/prediction_data/N_S_WWS_WM_240_prediction_data.npz[0m
+2025-07-08 10:45:26,438 - INFO - Sample: N_S_WWS_WM_240
+2025-07-08 10:45:26,438 - INFO - 	Max Error:  568.939941
+2025-07-08 10:45:26,438 - INFO - 	Mean Error:  20.642050
+2025-07-08 10:45:26,438 - INFO - 	Std Error:  28.538563
+2025-07-08 10:45:26,446 - INFO - Evaluation complete, Results save to results/Train_Test
+2025-07-08 10:45:26,447 - INFO - [35mRaw prediction data saved to results/Train_Test/prediction_data[0m
+2025-07-08 10:45:26,447 - INFO - Evaluation Results: 
+2025-07-08 10:45:26,447 - INFO - [33mMSE_mean:  0.240974[0m
+2025-07-08 10:45:26,447 - INFO - [33mMSE_std:  0.305666[0m
+2025-07-08 10:45:26,447 - INFO - [33mMAE_mean:  0.167481[0m
+2025-07-08 10:45:26,447 - INFO - [33mMAE_std:  0.007664[0m
+2025-07-08 10:45:26,447 - INFO - [33mRMSE_mean:  0.421983[0m
+2025-07-08 10:45:26,447 - INFO - [33mRMSE_std:  0.250806[0m
+2025-07-08 10:45:26,447 - INFO - [33mMax_Error_mean:  16.072868[0m
+2025-07-08 10:45:26,447 - INFO - [33mMax_Error_std:  23.293617[0m
+2025-07-08 10:45:26,447 - INFO - [33mRel_L2_mean:  1.924997[0m
+2025-07-08 10:45:26,447 - INFO - [33mRel_L2_std:  0.335800[0m
+2025-07-08 10:45:26,447 - INFO - [33mRel_L1_mean:  1.924997[0m
+2025-07-08 10:45:26,447 - INFO - [33mRel_L1_std:  0.335800[0m
