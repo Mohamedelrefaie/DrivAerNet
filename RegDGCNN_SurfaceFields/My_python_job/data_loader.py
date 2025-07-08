@@ -16,6 +16,7 @@ import torch.distributed as dist
 import pyvista as pv
 import logging
 
+from colorama import Fore, Style
 
 class SurfacePressureDataset(Dataset):
     """
@@ -99,6 +100,7 @@ class SurfacePressureDataset(Dataset):
                 logging.info(f"Preprocessing and caching data for {vtk_file_path}")
                 try:
                     mesh = pv.read(vtk_file_path)
+                    logging.info(f"{Fore.YELLOW} mesh dir: {dir(mesh)}")
                 except Exception as e:
                     logging.error(f"Failed to load VTK file: {vtk_file_path}. Error: {e}")
                     return None, None  # Skip the file and return None
