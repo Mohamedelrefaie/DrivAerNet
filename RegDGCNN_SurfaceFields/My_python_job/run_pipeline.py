@@ -56,6 +56,45 @@ def parse_args():
 
     return parser.parse_args()
 
+def preprocess_data(args):
+
+    """
+    Preprocess the dataset to create cached point cloud data.
+
+    Args:
+        True if preprocessing was successful, False otherwise
+    """
+
+    logging.info("**************************Starting data preprocessing...")
+
+    # Create cache directory if it doesn't exist
+    cache_dir = args.cache_dir or os.path.join(args.dataset_path, "processed_data")
+    os.makedirs(cache_dir, exist_ok=True)
+
+    try:
+        # Import required modules for preprocessing
+        from data_loader import SurfacePressureDataset
+
+        # Create the dataset with preprocessing enabled
+        dataset = SurfacePressureDataset(
+            root_dir = args.dataset_path,
+            num_points = args.num_points,
+            preprocess = True,
+            cache_dir = cache_dir
+            )
+
+        # Process all files
+        logging.info(f"Processing {len(dataset.vtk_files)} VTK files with {args.num_points} points per sample")
+        for i, vtk_files in enumerate(dataset.vtk_files):
+            logging.info(f"Processing file {i+1} / {len(dataset.vtk_files)}: {os.path.basename(vtk_file)}")
+            _ = dataset[i] # This will trigger preprocessing and caching
+
+        logging.info(f"{Fore.MAGENTA}Data preprocessing complete. Cache data saved to {cache_dir}{Style.RESET_ALL}")
+        return True
+    except Exception as e:
+        logging.error(f"Preprocessing failed with error: {e}")
+        return False
+
 def train_model(args):
     logging.info("*************************Starting model training...")
 
