@@ -213,10 +213,10 @@ def evaluate_model(model, dataset, sample_indices, args):
                 std_error  = np.std(error)
 
                 # Log some basic error statistics
-                logging.info(f"Sample: {sample_name}")
-                logging.info(f"\tMax Error: {max_error: .6f}")
-                logging.info(f"\tMean Error: {mean_error: .6f}")
-                logging.info(f"\tStd Error: {std_error: .6f}")
+                #logging.info(f"Sample: {sample_name}")
+                #logging.info(f"\tMax Error: {max_error: .6f}")
+                #logging.info(f"\tMean Error: {mean_error: .6f}")
+                #logging.info(f"\tStd Error: {std_error: .6f}")
 
     # Aggregate metrics
     agg_metrics = {}
