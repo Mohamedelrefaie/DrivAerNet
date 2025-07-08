@@ -180,10 +180,16 @@ def evaluate_model(model, dataset, sample_indices, args):
                 vtk_file = dataset.vtk_files[idx]
                 sample_name = os.path.basename(vtk_file).replace('.vtk', '')
 
-                # Extract points from  the data tensor - correct format for later visualization
+                logging.info(f"{Fore.GREEN}targets: {targets.shape}{Style.RESET_ALL}")
+                logging.info(f"{Fore.YELLOW}outputs: {outputs.shape}{Style.RESET_ALL}")
+
+                # Extract points from the data tensor - correct format for later visualization
                 points = data.cpu().numpy().squeeze(0).transpose(1, 0)  # (3, 10000) -> (10000, 3)
                 true_pressure_np = targets.cpu().numpy().squeeze()
                 pred_pressure_np = outputs.cpu().numpy().squeeze()
+
+                logging.info(f"{Fore.GREEN}true_pressure_np.shape: {true_pressure_np.shape}{Style.RESET_ALL}")
+                logging.info(f"{Fore.YELLOW}pred_pressure_np.shape: {pred_pressure_np.shape}{Style.RESET_ALL}")
 
                 # Save raw data for later visualization
                 output_data = {
@@ -198,7 +204,7 @@ def evaluate_model(model, dataset, sample_indices, args):
                 # Save to npz file
                 data_path = os.path.join(data_dir, f"{sample_name}_prediction_data.npz")
                 np.savez(data_path, **output_data)
-                logging.info(f"Saved raw prdiction data to {data_path}")
+                logging.info(f"{Fore.MAGENTA}Saved raw prdiction data to {data_path}{Style.RESET_ALL}")
 
                 # Calculate error metrics
                 error      = np.abs(true_pressure_np - pred_pressure_np)
@@ -233,7 +239,7 @@ def evaluate_model(model, dataset, sample_indices, args):
     np.savez(os.path.join(results_dir, 'aggregated_metrics.npz'), **agg_metrics)
 
     logging.info(f"Evaluation complete, Results save to {results_dir}")
-    logging.info(f"Raw prediction data saved to {data_dir}")
+    logging.info(f"{Fore.MAGENTA}Raw prediction data saved to {data_dir}{Style.RESET_ALL}")
 
     return  agg_metrics
 
