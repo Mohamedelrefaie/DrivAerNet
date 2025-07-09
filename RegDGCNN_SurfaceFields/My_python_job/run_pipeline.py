@@ -9,6 +9,7 @@ import time
 import pprint
 from datetime import datetime
 from utils import setup_logger
+from colorama import Fore, Style
 
 
 
@@ -85,9 +86,9 @@ def preprocess_data(args):
 
         # Process all files
         logging.info(f"Processing {len(dataset.vtk_files)} VTK files with {args.num_points} points per sample")
-        for i, vtk_files in enumerate(dataset.vtk_files):
-            logging.info(f"Processing file {i+1} / {len(dataset.vtk_files)}: {os.path.basename(vtk_file)}")
-            _ = dataset[i] # This will trigger preprocessing and caching
+        for ii, vtk_file in enumerate(dataset.vtk_files):
+            logging.info(f"Processing file {ii+1} / {len(dataset.vtk_files)}: {os.path.basename(vtk_file)}")
+            _ = dataset[ii] # This will trigger preprocessing and caching
 
         logging.info(f"{Fore.MAGENTA}Data preprocessing complete. Cache data saved to {cache_dir}{Style.RESET_ALL}")
         return True
