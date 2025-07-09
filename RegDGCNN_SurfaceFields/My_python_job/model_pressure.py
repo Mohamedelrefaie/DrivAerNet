@@ -39,6 +39,11 @@ def get_graph_feature(x, k=20, idx=None, dim9=False):
     """
     Construct edge features for graph convolution.
 
+    When you create this function first, Just use 1 batch_size, 2 dims, 2 points
+    to Understand this code
+
+    Then Enlarge it meeting the physical need
+
     Args:
         x: Input tensor of shape (batch_size, feature_dim, num_points)
         k: Number of neighbors to use for graph construction
