@@ -230,7 +230,7 @@ class Transform_Net(nn.Module):
         x = F.leaky_relu(self.bn4(self.linear1(x)), negative_slope=0.2)     # (batch_size, 1024) -> (batch_size, 512)
         -> Sequence: self.linear1(x) -> self.bn4 -> F.leadky_relu(x, slope)
 
-#!------------------------------------------------
+#!----------------------------------------------------------------------------
     def get_graph_feature(x, k=20, idx=None, dim9=False):
 
     -> x = x.view(batch_size, -1, num_points)
@@ -246,8 +246,80 @@ class Transform_Net(nn.Module):
              -> The -1 size: 2 × ? × 4 = 24
                              => ? = 3
 
+#!------------------------
+    idx_base = torch.arange(0, batch_size, device=device).view(-1, 1, 1) * num_points
+    -> torch.arange(0, batch_size, device=device)
+       -> Create a "1D" tensor of integers from '0' not including 'batch_size'
+       -> Result: ([0, 1, 2, ..., batch_size-1])
+    -> .view(-1, 1, 1)
+       -> Shape changes from (batch_size-1, 1, 1) to (batch_size-1, 1, 1)
+    -> * num_points
+       -> Each batch has "num_points" points
+       -> First  batch: indices [0           , num_points-1]
+       -> second batch: indices [num_points-1, 2*num_points-1]
+       -> ...
 
-#!------------------------------------------------
+#!------------------------
+    idx = idx + idx_base
+    -> idx_base is an offset
+    -> Example:
+       -> idx before adjustment (batch 0): [0, 1, 2]
+          idx before adjustment (batch 1): [0, 1, 2]
+       -> batch 0 offset: 0
+          → indices stay [0, 1, 2]
+          batch 1 offset: 5
+          → indices become [5, 6, 7]
+
+#!------------------------
+    idx = idx.view(-1)
+    -> Flatten this tensor into a "1D" vector
+    -> To use these indices to directly index a flat array
+    -> idx.shape = (batch_size * num_points * k)
+
+#!------------------------
+    x = x.transpose(2, 1).contiguous()  # (batch_size, num_points, num_dims)
+    -> After .transpose(), the memory maybe not continuous
+    -> .contiguous() make sure continuous
+       -> Without it, maybe shows RuntimeError
+       -> RuntimeError: view size is not compatible with input tensor's size and stride...
+
+#!------------------------
+    feature = x.view(batch_size * num_points, -1)[idx, :]
+    -> Now I can find each x_j for each x_i
+    -> "feature" holds the neighbor points x_j
+    -> feature.shape = (batch_size * num_points * k, num_dims)
+    -> x.view()
+       -> Reshape x to (batch_size*num_points, num_dims)
+       -> "-1" stands for the last dimension
+    -> [idx, :]
+       -> use "idx" to select specific points in this flattened array
+       -> specific points i.e. the "K nearest" points
+
+#!------------------------
+    feature = feature.view(batch_size, num_points, k, num_dims)
+    -> Reshape "feature"
+
+#!------------------------
+    x = x.view(batch_size, num_points, 1, num_dims).repeat(1, 1, k, 1)
+    -> Reshape "x" to [batch_size, num_points, k, num_dims]
+    -> Repeted k times for each points
+
+#!------------------------
+    feature = torch.cat((feature - x, x), dim=3).permute(0, 3, 1, 2).contiguous()
+    -> feature - x
+       -> means x_j - x_i
+    -> torch.cat((feature - x, x), dim=3)
+       -> dim = 3 means "0, 1, 2, 3" slot for shape size
+       -> build a pair
+          -> (x_j - x_i, x_i)
+       -> After cat
+          -> num_dim(diff) + num_dim(center point) = 2 * num_dims
+          -> feature.shape = (batch_size, num_points, k, 2*num_dims)
+    -> .permute(0, 3, 1, 2)
+       -> feature.shape = (batch_size, 2*num_dims, num_points, k)
+
+
+#!----------------------------------------------------------------------------
     def knn(x, k):
     -> inner = -2 * torch.matmul(x.transpose(2, 1), x)
     -> inner.shape = (batch_size, num_points, num_points)
