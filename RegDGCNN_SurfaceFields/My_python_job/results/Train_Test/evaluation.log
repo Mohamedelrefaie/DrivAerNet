@@ -5887,3 +5887,22 @@
 2025-07-08 10:45:26,447 - INFO - [33mRel_L2_std:  0.335800[0m
 2025-07-08 10:45:26,447 - INFO - [33mRel_L1_mean:  1.924997[0m
 2025-07-08 10:45:26,447 - INFO - [33mRel_L1_std:  0.335800[0m
+2025-07-09 11:39:41,247 - INFO - **************************** Starting evaluation of RegDGCNN model
+2025-07-09 11:39:41,251 - INFO - Arguments:
+{ 'cache_dir': '/work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data',
+  'dataset_path': '/work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Data_Pressure/PressureVTK/N_S_WWS_WM',
+  'dropout': 0.4,
+  'emb_dims': 1024,
+  'exp_name': 'Train_Test',
+  'k': 40,
+  'model_checkpoint': 'experiments/Train_Test/best_model_pth',
+  'num_points': 100000,
+  'num_vis_samples': 5,
+  'output_channels': 1,
+  'sample_ids': None,
+  'seed': 1,
+  'visualize': True}
+2025-07-09 11:39:41,340 - INFO - Using device: cuda:0
+2025-07-09 11:39:41,604 - INFO - Loading model form experiments/Train_Test/best_model_pth
+2025-07-09 11:39:41,639 - INFO - ********************
+2025-07-09 11:39:41,652 - INFO - Loading cached data from /work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data/N_S_WWS_WM_292.npz
