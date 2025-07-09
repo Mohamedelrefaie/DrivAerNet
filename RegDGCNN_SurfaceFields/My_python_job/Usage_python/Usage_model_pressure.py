@@ -230,6 +230,90 @@ class Transform_Net(nn.Module):
         x = F.leaky_relu(self.bn4(self.linear1(x)), negative_slope=0.2)     # (batch_size, 1024) -> (batch_size, 512)
         -> Sequence: self.linear1(x) -> self.bn4 -> F.leadky_relu(x, slope)
 
+#!------------------------------------------------
+    def get_graph_feature(x, k=20, idx=None, dim9=False):
+
+    -> x = x.view(batch_size, -1, num_points)
+       -> In PyTorch, x.view() reshapes a tensor without changing its data
+       -> Similar to NumPy .reshape()
+       -> Must specify the new shape using dimensions
+       -> -1
+          -> Auto-computes this dimension size
+          -> Make sure feature dimension is flexible
+          -> Example:
+             -> x = torch.randn(2, 3, 4)
+             -> Total element: 2 × 3 × 4 = 24
+             -> The -1 size: 2 × ? × 4 = 24
+                             => ? = 3
+
+
+#!------------------------------------------------
+    def knn(x, k):
+    -> inner = -2 * torch.matmul(x.transpose(2, 1), x)
+    -> inner.shape = (batch_size, num_points, num_points)
+       -> It is an inner product operation
+       -> Low dimension size Example:
+          -> x.shape = (1, 2, 3)
+             -> x = torch.tensor([[[1.0, 2.0, 3.0],    # x coordinates [4.0, 5.0, 6.0]]])   # y coordinates
+          -> x.transpose(2, 1)
+             -> [
+                 [[1.0, 4.0],    # point 0
+                  [2.0, 5.0],    # point 1
+                  [3.0, 6.0]]    # point 2
+                ]
+          -> inner = torch.matmul(x.transpose(2, 1), x)
+             -> inner.shape = (1, 3, 3)
+             -> [
+                 [P_0*P_0, P_0*P_1, P_0*P_2],
+                 [P_1*P_0, P_1*P_1, P_1*P_2],
+                 [P_2*P_0, P_2*P_1, P_2*P_2]
+                ]
+             -> Further step
+                -> inner[0][0]    = [P_0*P_0, P_0*P_1, P_0*P_2]
+                -> inner[0][0][0] = P_0*P_0
+
+#!------------------------
+    xx = torch.sum(x ** 2, dim=1, keepdim=True)
+    -> xx.shape = (batch_size, 1, num_points)
+    -> Compute the squared norm of each point, ||x|| = x_1^2 + x_2*2 + x_3*2
+    -> dim=1
+       -> dim argu controls which axis you sum along
+    -> keepdim=True
+       -> keep the summation dimension with size 1
+       -> i.e. xx.shape = (1, 1, num_points)
+    -> Examples: xx.shape = [1, 1, 3]
+       -> xx = [[P0_norm, P1_norm, P2_norm]]
+       -> xx_T = xx.transpost(2,1)
+          -> xx_T.shape = [1, 3, 1]
+          -> [[P0_norm], [P1_norm], [P2_norm]]
+
+#!------------------------
+    pairwise_distance = -xx - inner - xx.transpose(2, 1)
+    -> pairwise_distance is a negative value between points
+    -> And I think it is bullshit about operating dimension in PyTorch!!!
+       -> xx.shape            = (batch_size, 1         , num_points)
+       -> inner.shape         = (batch_size, num_points, num_points)
+       -> xx_T.shape          = (batch_size, num_points, 1)
+       -> pair_distance.shape = (batch_size, num_points, num_points)
+    -> Example:
+       -> pair_distance.shape = (1 ,2, 2)
+       -> [[P0-P0, P0-P1], [P1-P0], [P1-P1]]
+
+#!------------------------
+    idx = pairwise_distance.topk(k=k, dim=-1)[1]  # (batch_size, num_points, k)
+    -> Select the top K largest values along dimension -1 i.e. The last dimension
+    -> The distance is all negative, The largest value means nearest point
+    -> .topk(k=k, dim=-1)
+       -> Example: pairwise_distance[0, 0] = [-1, -4, -10]
+          -> pairwise_distance[0, 0].topk(k=2)
+          -> Return value is [-1, -4]
+    -> [1]
+       -> values, indices = tensor.topk(...)
+       -> We just need indices
+
+
+#!------------------------
+
 
 
 
