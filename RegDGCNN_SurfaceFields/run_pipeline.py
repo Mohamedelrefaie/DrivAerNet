@@ -43,7 +43,7 @@ def parse_args():
     parser.add_argument('--epochs', type=int, default=150, help='Number of epochs')
     parser.add_argument('--lr', type=float, default=0.001, help='Learning rate')
     parser.add_argument('--num_workers', type=int, default=4, help='Number of data loading workers')
-    parser.add_argument('--gpus', type=str, default='0,1,2,3', help='GPUs to use (comma-separated)')
+    parser.add_argument('--gpus', type=str, default="0", help='GPUs to use (comma-separated)')
 
     # Model settings
     parser.add_argument('--dropout', type=float, default=0.4, help='Dropout rate')
