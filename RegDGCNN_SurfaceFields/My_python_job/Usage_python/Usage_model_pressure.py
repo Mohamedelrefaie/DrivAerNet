@@ -130,6 +130,22 @@ class RegDGCNN_SurfaceFields(nn.Module):
     super().__init__()
     -> Calls the parent class nn.Module constructor to set up internal PyTorch machinery
 
+#!----------------------------------------------------------------------------
+    def forward(self, x):
+    x0 = get_graph_feature(x, k=self.k)  # (batch_size, 3, num_points) -> (batch_size, 3*2, num_points, k)
+    t = self.transform_net(x0)  # (batch_size, 3, 3)
+    x = x.transpose(2, 1)  # (batch_size, 3, num_points) -> (batch_size, num_points, 3)
+    x = torch.bmm(x, t)    # (batch_size, num_points, 3) * (batch_size, 3, 3) -> (batch_size, num_points, 3)
+    x = x.transpose(2, 1)  # (batch_size, num_points, 3) -> (batch_size, 3, num_points)
+    -> The above 5 lines is a module-like stuff
+       -> t = self.transform_net(x0) uses edge features to predict a 3*3 transformation matrix per batch sample
+       -> x = torch.bmm(x, t) applies this matrix to all points to align them before further feature extraction
+          -> .bmm() is a matrix multiply function
+          -> (B, N, 3) * (B, 3, 3) -> (B, 3, 3)
+
+
+
+
 2.
 class Transform_Net(nn.Module):
     -> This modules learns a transformation matrix to align the input point cloud or local features
