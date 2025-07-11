@@ -181,7 +181,7 @@ class RegDGCNN_pressure(nn.Module):
         x0 = get_graph_feature(x, k=self.k)  # (batch_size, 3, num_points) -> (batch_size, 3*2, num_points, k)
         t = self.transform_net(x0)  # (batch_size, 3, 3)
         x = x.transpose(2, 1)  # (batch_size, 3, num_points) -> (batch_size, num_points, 3)
-        x = torch.bmm(x, t)  # (batch_size, num_points, 3) * (batch_size, 3, 3) -> (batch_size, num_points, 3)
+        x = torch.bmm(x, t)    # (batch_size, num_points, 3) * (batch_size, 3, 3) -> (batch_size, num_points, 3)
         x = x.transpose(2, 1)  # (batch_size, num_points, 3) -> (batch_size, 3, num_points)
 
         x = get_graph_feature(x, k=self.k)  # (batch_size, 3, num_points) -> (batch_size, 3*2, num_points, k)
