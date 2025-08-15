@@ -268,7 +268,7 @@ class Transform_Net(nn.Module):
        -> Create a "1D" tensor of integers from '0' not including 'batch_size'
        -> Result: ([0, 1, 2, ..., batch_size-1])
     -> .view(-1, 1, 1)
-       -> Shape changes from (batch_size-1, 1, 1) to (batch_size-1, 1, 1)
+       -> Shape changes from [batch_size-1] to (batch_size-1, 1, 1)
     -> * num_points
        -> Each batch has "num_points" points
        -> First  batch: indices [0           , num_points-1]
@@ -278,12 +278,13 @@ class Transform_Net(nn.Module):
 #!------------------------
     idx = idx + idx_base
     -> idx_base is an offset
+    -> The index is changed by offset
     -> Example:
        -> idx before adjustment (batch 0): [0, 1, 2]
           idx before adjustment (batch 1): [0, 1, 2]
        -> batch 0 offset: 0
           → indices stay [0, 1, 2]
-          batch 1 offset: 5
+          batch 1 offset: num_points=5
           → indices become [5, 6, 7]
 
 #!------------------------
@@ -309,12 +310,22 @@ class Transform_Net(nn.Module):
        -> "-1" stands for the last dimension
     -> [idx, :]
        -> use "idx" to select specific points in this flattened array
-       -> specific points i.e. the "K nearest" points
+          -> Specific points i.e. the "K nearest" points
+          -> Each row is a point, the column is the point coordinates
+          -> Select the rows from feature whose indices are given by 'idx'
+       -> :
+          -> Means select all columns for each row
 
 #!------------------------
     feature = feature.view(batch_size, num_points, k, num_dims)
     -> Reshape "feature"
-
+    -> Test
+       -> logging.info(f"feature batch 0, point 0, k 0: {feature[0, 0, 0,:]}")
+       -> logging.info(f"feature batch 0, point 0, k 1: {feature[0, 0, 1,:]}")
+       -> logging.info(f"feature batch 0, point 2, k 0: {feature[0, 2, 0,:]}")
+       -> logging.info(f"feature batch 0, point 2, k 1: {feature[0, 2, 1,:]}")
+       -> point i with 'k' neareast point
+       -> The last dimension is the 'k' nearest point coordinate
 #!------------------------
     x = x.view(batch_size, num_points, 1, num_dims).repeat(1, 1, k, 1)
     -> Reshape "x" to [batch_size, num_points, k, num_dims]
@@ -327,7 +338,8 @@ class Transform_Net(nn.Module):
     -> torch.cat((feature - x, x), dim=3)
        -> dim = 3 means "0, 1, 2, 3" slot for shape size
        -> build a pair
-          -> (x_j - x_i, x_i)
+          -> (x_j - x_i,  x_i)
+          -> 3+3
        -> After cat
           -> num_dim(diff) + num_dim(center point) = 2 * num_dims
           -> feature.shape = (batch_size, num_points, k, 2*num_dims)
@@ -360,6 +372,10 @@ class Transform_Net(nn.Module):
                 -> inner[0][0]    = [P_0*P_0, P_0*P_1, P_0*P_2]
                 -> inner[0][0][0] = P_0*P_0
 
+    -> Test code
+       -> logging.info(f"inner.shape: {inner.shape}")
+       -> logging.info(f"inner[0][0] value: {inner[0, 3, :]}")
+
 #!------------------------
     xx = torch.sum(x ** 2, dim=1, keepdim=True)
     -> xx.shape = (batch_size, 1, num_points)
@@ -379,6 +395,7 @@ class Transform_Net(nn.Module):
     pairwise_distance = -xx - inner - xx.transpose(2, 1)
     -> pairwise_distance is a negative value between points
     -> And I think it is bullshit about operating dimension in PyTorch!!!
+       -> "I get it!" The system will automatically broadcast into same shape
        -> xx.shape            = (batch_size, 1         , num_points)
        -> inner.shape         = (batch_size, num_points, num_points)
        -> xx_T.shape          = (batch_size, num_points, 1)
@@ -398,6 +415,10 @@ class Transform_Net(nn.Module):
     -> [1]
        -> values, indices = tensor.topk(...)
        -> We just need indices
+    -> Checkout
+       -> value = pairwise_distance.topk(k=k, dim=-1)[0]              # (batch_size, num_points, k)
+       -> idx = pairwise_distance.topk(k=k, dim=-1)[1]                # (batch_size, num_points, k)
+       -> logging.info(f"point 3: {value[0,3,:], idx[0,3,:]}")
 
 
 #!------------------------
