@@ -1,5 +1,6 @@
 import numpy as np
 import pyvista as pv
+pv.OFF_SCREEN = True  # Disable interactive display
 
 def write_pointnet_vtk(points,
                        pressure,
