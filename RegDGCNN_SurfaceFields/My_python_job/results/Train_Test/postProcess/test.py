@@ -4,8 +4,8 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 from pointNet_To_vtk import write_pointnet_vtk
 import numpy as np
 import pyvista as pv
+pv.OFF_SCREEN = True  # Disable interactive display
 
-pv.start_xvfb()
 DataPath = os.path.expandvars('$HOME/ML_Turbulent/DrivAerNet/RegDGCNN_SurfaceFields/My_python_job/results/Train_Test/prediction_data/N_S_WWS_WM_292_prediction_data.npz')
 data = np.load(DataPath)
 points = data['points']            # shape (N_points, 3)
