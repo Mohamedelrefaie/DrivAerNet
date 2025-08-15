@@ -255,7 +255,7 @@ def main():
     log_file = os.path.join(results_dir, 'evaluation.log')
     setup_logger(log_file)
 
-    logging.info(f"**************************** Starting evaluation of RegDGCNN model")
+    logging.info(f"{Fore.RED}**************************** Starting evaluation of RegDGCNN model{Style.RESET_ALL}")
     logging.info(f"Arguments:\n" + pprint.pformat(vars(args), indent=2))
 
     # Determine device

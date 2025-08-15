@@ -5906,3 +5906,411 @@
 2025-07-09 11:39:41,604 - INFO - Loading model form experiments/Train_Test/best_model_pth
 2025-07-09 11:39:41,639 - INFO - ********************
 2025-07-09 11:39:41,652 - INFO - Loading cached data from /work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data/N_S_WWS_WM_292.npz
+2025-07-11 17:25:45,213 - INFO - [31m**************************** Starting evaluation of RegDGCNN model[0m
+2025-07-11 17:25:45,215 - INFO - Arguments:
+{ 'cache_dir': '/work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data',
+  'dataset_path': '/work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Data_Pressure/PressureVTK/N_S_WWS_WM',
+  'dropout': 0.4,
+  'emb_dims': 1024,
+  'exp_name': 'Train_Test',
+  'k': 40,
+  'model_checkpoint': 'experiments/Train_Test/best_model_pth',
+  'num_points': 100000,
+  'num_vis_samples': 5,
+  'output_channels': 1,
+  'sample_ids': None,
+  'seed': 1,
+  'visualize': True}
+2025-07-11 17:25:45,234 - INFO - Using device: cuda:0
+2025-07-11 17:25:45,416 - INFO - Loading model form experiments/Train_Test/best_model_pth
+2025-07-11 17:25:45,437 - INFO - ********************
+2025-07-11 17:25:45,445 - INFO - Loading cached data from /work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data/N_S_WWS_WM_292.npz
+2025-07-11 17:25:45,772 - INFO - [32mtargets: torch.Size([1, 10000])[0m
+2025-07-11 17:25:45,772 - INFO - [33moutputs: torch.Size([1, 10000])[0m
+2025-07-11 17:25:45,773 - INFO - [32mtrue_pressure_np.shape: (10000,)[0m
+2025-07-11 17:25:45,773 - INFO - [33mpred_pressure_np.shape: (10000,)[0m
+2025-07-11 17:25:45,778 - INFO - [35mSaved raw prdiction data to results/Train_Test/prediction_data/N_S_WWS_WM_292_prediction_data.npz[0m
+2025-07-11 17:25:45,778 - INFO - Loading cached data from /work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data/N_S_WWS_WM_215.npz
+2025-07-11 17:25:45,845 - INFO - [32mtargets: torch.Size([1, 10000])[0m
+2025-07-11 17:25:45,845 - INFO - [33moutputs: torch.Size([1, 10000])[0m
+2025-07-11 17:25:45,845 - INFO - [32mtrue_pressure_np.shape: (10000,)[0m
+2025-07-11 17:25:45,845 - INFO - [33mpred_pressure_np.shape: (10000,)[0m
+2025-07-11 17:25:45,850 - INFO - [35mSaved raw prdiction data to results/Train_Test/prediction_data/N_S_WWS_WM_215_prediction_data.npz[0m
+2025-07-11 17:25:45,850 - INFO - Loading cached data from /work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data/N_S_WWS_WM_073.npz
+2025-07-11 17:25:45,915 - INFO - [32mtargets: torch.Size([1, 10000])[0m
+2025-07-11 17:25:45,915 - INFO - [33moutputs: torch.Size([1, 10000])[0m
+2025-07-11 17:25:45,915 - INFO - [32mtrue_pressure_np.shape: (10000,)[0m
+2025-07-11 17:25:45,915 - INFO - [33mpred_pressure_np.shape: (10000,)[0m
+2025-07-11 17:25:45,920 - INFO - [35mSaved raw prdiction data to results/Train_Test/prediction_data/N_S_WWS_WM_073_prediction_data.npz[0m
+2025-07-11 17:25:45,920 - INFO - Loading cached data from /work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data/N_S_WWS_WM_323.npz
+2025-07-11 17:25:45,984 - INFO - [32mtargets: torch.Size([1, 10000])[0m
+2025-07-11 17:25:45,984 - INFO - [33moutputs: torch.Size([1, 10000])[0m
+2025-07-11 17:25:45,984 - INFO - [32mtrue_pressure_np.shape: (10000,)[0m
+2025-07-11 17:25:45,984 - INFO - [33mpred_pressure_np.shape: (10000,)[0m
+2025-07-11 17:25:45,989 - INFO - [35mSaved raw prdiction data to results/Train_Test/prediction_data/N_S_WWS_WM_323_prediction_data.npz[0m
+2025-07-11 17:25:45,989 - INFO - Loading cached data from /work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data/N_S_WWS_WM_240.npz
+2025-07-11 17:25:46,053 - INFO - [32mtargets: torch.Size([1, 10000])[0m
+2025-07-11 17:25:46,053 - INFO - [33moutputs: torch.Size([1, 10000])[0m
+2025-07-11 17:25:46,053 - INFO - [32mtrue_pressure_np.shape: (10000,)[0m
+2025-07-11 17:25:46,053 - INFO - [33mpred_pressure_np.shape: (10000,)[0m
+2025-07-11 17:25:46,058 - INFO - [35mSaved raw prdiction data to results/Train_Test/prediction_data/N_S_WWS_WM_240_prediction_data.npz[0m
+2025-07-11 17:25:46,077 - INFO - Evaluation complete, Results save to results/Train_Test
+2025-07-11 17:25:46,077 - INFO - [35mRaw prediction data saved to results/Train_Test/prediction_data[0m
+2025-07-11 17:25:46,077 - INFO - Evaluation Results: 
+2025-07-11 17:25:46,077 - INFO - [33mMSE_mean:  0.241383[0m
+2025-07-11 17:25:46,077 - INFO - [33mMSE_std:  0.307004[0m
+2025-07-11 17:25:46,077 - INFO - [33mMAE_mean:  0.167414[0m
+2025-07-11 17:25:46,077 - INFO - [33mMAE_std:  0.007522[0m
+2025-07-11 17:25:46,077 - INFO - [33mRMSE_mean:  0.421962[0m
+2025-07-11 17:25:46,077 - INFO - [33mRMSE_std:  0.251656[0m
+2025-07-11 17:25:46,077 - INFO - [33mMax_Error_mean:  16.080824[0m
+2025-07-11 17:25:46,077 - INFO - [33mMax_Error_std:  23.295095[0m
+2025-07-11 17:25:46,078 - INFO - [33mRel_L2_mean:  1.932155[0m
+2025-07-11 17:25:46,078 - INFO - [33mRel_L2_std:  0.345641[0m
+2025-07-11 17:25:46,078 - INFO - [33mRel_L1_mean:  1.932155[0m
+2025-07-11 17:25:46,078 - INFO - [33mRel_L1_std:  0.345641[0m
+2025-07-11 18:13:28,038 - INFO - [31m**************************** Starting evaluation of RegDGCNN model[0m
+2025-07-11 18:13:28,040 - INFO - Arguments:
+{ 'cache_dir': '/work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data',
+  'dataset_path': '/work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Data_Pressure/PressureVTK/N_S_WWS_WM',
+  'dropout': 0.4,
+  'emb_dims': 1024,
+  'exp_name': 'Train_Test',
+  'k': 40,
+  'model_checkpoint': 'experiments/Train_Test/best_model_pth',
+  'num_points': 100000,
+  'num_vis_samples': 5,
+  'output_channels': 1,
+  'sample_ids': None,
+  'seed': 1,
+  'visualize': True}
+2025-07-11 18:13:28,059 - INFO - Using device: cuda:0
+2025-07-11 18:13:28,241 - INFO - Loading model form experiments/Train_Test/best_model_pth
+2025-07-11 18:13:28,262 - INFO - ********************
+2025-07-11 18:13:28,270 - INFO - Loading cached data from /work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data/N_S_WWS_WM_292.npz
+2025-07-11 18:13:28,589 - INFO - [32mtargets: torch.Size([1, 10000])[0m
+2025-07-11 18:13:28,589 - INFO - [33moutputs: torch.Size([1, 10000])[0m
+2025-07-11 18:13:28,590 - INFO - [32mtrue_pressure_np.shape: (10000,)[0m
+2025-07-11 18:13:28,590 - INFO - [33mpred_pressure_np.shape: (10000,)[0m
+2025-07-11 18:13:28,595 - INFO - [35mSaved raw prdiction data to results/Train_Test/prediction_data/N_S_WWS_WM_292_prediction_data.npz[0m
+2025-07-11 18:13:28,596 - INFO - Loading cached data from /work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data/N_S_WWS_WM_215.npz
+2025-07-11 18:13:28,660 - INFO - [32mtargets: torch.Size([1, 10000])[0m
+2025-07-11 18:13:28,661 - INFO - [33moutputs: torch.Size([1, 10000])[0m
+2025-07-11 18:13:28,667 - INFO - [32mtrue_pressure_np.shape: (10000,)[0m
+2025-07-11 18:13:28,673 - INFO - [33mpred_pressure_np.shape: (10000,)[0m
+2025-07-11 18:13:28,684 - INFO - [35mSaved raw prdiction data to results/Train_Test/prediction_data/N_S_WWS_WM_215_prediction_data.npz[0m
+2025-07-11 18:13:28,686 - INFO - Loading cached data from /work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data/N_S_WWS_WM_073.npz
+2025-07-11 18:13:28,755 - INFO - [32mtargets: torch.Size([1, 10000])[0m
+2025-07-11 18:13:28,756 - INFO - [33moutputs: torch.Size([1, 10000])[0m
+2025-07-11 18:13:28,756 - INFO - [32mtrue_pressure_np.shape: (10000,)[0m
+2025-07-11 18:13:28,757 - INFO - [33mpred_pressure_np.shape: (10000,)[0m
+2025-07-11 18:13:28,761 - INFO - [35mSaved raw prdiction data to results/Train_Test/prediction_data/N_S_WWS_WM_073_prediction_data.npz[0m
+2025-07-11 18:13:28,762 - INFO - Loading cached data from /work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data/N_S_WWS_WM_323.npz
+2025-07-11 18:13:28,826 - INFO - [32mtargets: torch.Size([1, 10000])[0m
+2025-07-11 18:13:28,826 - INFO - [33moutputs: torch.Size([1, 10000])[0m
+2025-07-11 18:13:28,826 - INFO - [32mtrue_pressure_np.shape: (10000,)[0m
+2025-07-11 18:13:28,826 - INFO - [33mpred_pressure_np.shape: (10000,)[0m
+2025-07-11 18:13:28,831 - INFO - [35mSaved raw prdiction data to results/Train_Test/prediction_data/N_S_WWS_WM_323_prediction_data.npz[0m
+2025-07-11 18:13:28,831 - INFO - Loading cached data from /work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data/N_S_WWS_WM_240.npz
+2025-07-11 18:13:28,894 - INFO - [32mtargets: torch.Size([1, 10000])[0m
+2025-07-11 18:13:28,894 - INFO - [33moutputs: torch.Size([1, 10000])[0m
+2025-07-11 18:13:28,895 - INFO - [32mtrue_pressure_np.shape: (10000,)[0m
+2025-07-11 18:13:28,895 - INFO - [33mpred_pressure_np.shape: (10000,)[0m
+2025-07-11 18:13:28,899 - INFO - [35mSaved raw prdiction data to results/Train_Test/prediction_data/N_S_WWS_WM_240_prediction_data.npz[0m
+2025-07-11 18:13:28,902 - INFO - Evaluation complete, Results save to results/Train_Test
+2025-07-11 18:13:28,902 - INFO - [35mRaw prediction data saved to results/Train_Test/prediction_data[0m
+2025-07-11 18:13:28,902 - INFO - Evaluation Results: 
+2025-07-11 18:13:28,902 - INFO - [33mMSE_mean:  0.242434[0m
+2025-07-11 18:13:28,902 - INFO - [33mMSE_std:  0.307976[0m
+2025-07-11 18:13:28,902 - INFO - [33mMAE_mean:  0.167413[0m
+2025-07-11 18:13:28,902 - INFO - [33mMAE_std:  0.007127[0m
+2025-07-11 18:13:28,902 - INFO - [33mRMSE_mean:  0.423062[0m
+2025-07-11 18:13:28,902 - INFO - [33mRMSE_std:  0.251898[0m
+2025-07-11 18:13:28,902 - INFO - [33mMax_Error_mean:  16.225632[0m
+2025-07-11 18:13:28,902 - INFO - [33mMax_Error_std:  23.296082[0m
+2025-07-11 18:13:28,902 - INFO - [33mRel_L2_mean:  1.861108[0m
+2025-07-11 18:13:28,902 - INFO - [33mRel_L2_std:  0.297842[0m
+2025-07-11 18:13:28,902 - INFO - [33mRel_L1_mean:  1.861108[0m
+2025-07-11 18:13:28,902 - INFO - [33mRel_L1_std:  0.297842[0m
+2025-07-11 18:53:31,140 - INFO - [31m**************************** Starting evaluation of RegDGCNN model[0m
+2025-07-11 18:53:31,143 - INFO - Arguments:
+{ 'cache_dir': '/work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data',
+  'dataset_path': '/work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Data_Pressure/PressureVTK/N_S_WWS_WM',
+  'dropout': 0.4,
+  'emb_dims': 1024,
+  'exp_name': 'Train_Test',
+  'k': 40,
+  'model_checkpoint': 'experiments/Train_Test/best_model_pth',
+  'num_points': 100000,
+  'num_vis_samples': 5,
+  'output_channels': 1,
+  'sample_ids': None,
+  'seed': 1,
+  'visualize': True}
+2025-07-11 18:53:31,229 - INFO - Using device: cuda:0
+2025-07-11 18:53:31,426 - INFO - Loading model form experiments/Train_Test/best_model_pth
+2025-07-11 18:53:31,447 - INFO - ********************
+2025-07-11 18:53:31,458 - INFO - Loading cached data from /work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data/N_S_WWS_WM_292.npz
+2025-07-11 18:53:31,854 - INFO - [32mtargets: torch.Size([1, 10000])[0m
+2025-07-11 18:53:31,857 - INFO - [33moutputs: torch.Size([1, 10000])[0m
+2025-07-11 18:53:31,857 - INFO - [32mtrue_pressure_np.shape: (10000,)[0m
+2025-07-11 18:53:31,857 - INFO - [33mpred_pressure_np.shape: (10000,)[0m
+2025-07-11 18:53:31,862 - INFO - [35mSaved raw prdiction data to results/Train_Test/prediction_data/N_S_WWS_WM_292_prediction_data.npz[0m
+2025-07-11 18:53:31,863 - INFO - Loading cached data from /work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data/N_S_WWS_WM_215.npz
+2025-07-11 18:53:31,930 - INFO - [32mtargets: torch.Size([1, 10000])[0m
+2025-07-11 18:53:31,930 - INFO - [33moutputs: torch.Size([1, 10000])[0m
+2025-07-11 18:53:31,930 - INFO - [32mtrue_pressure_np.shape: (10000,)[0m
+2025-07-11 18:53:31,930 - INFO - [33mpred_pressure_np.shape: (10000,)[0m
+2025-07-11 18:53:31,935 - INFO - [35mSaved raw prdiction data to results/Train_Test/prediction_data/N_S_WWS_WM_215_prediction_data.npz[0m
+2025-07-11 18:53:31,935 - INFO - Loading cached data from /work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data/N_S_WWS_WM_073.npz
+2025-07-11 18:53:32,001 - INFO - [32mtargets: torch.Size([1, 10000])[0m
+2025-07-11 18:53:32,001 - INFO - [33moutputs: torch.Size([1, 10000])[0m
+2025-07-11 18:53:32,002 - INFO - [32mtrue_pressure_np.shape: (10000,)[0m
+2025-07-11 18:53:32,002 - INFO - [33mpred_pressure_np.shape: (10000,)[0m
+2025-07-11 18:53:32,006 - INFO - [35mSaved raw prdiction data to results/Train_Test/prediction_data/N_S_WWS_WM_073_prediction_data.npz[0m
+2025-07-11 18:53:32,007 - INFO - Loading cached data from /work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data/N_S_WWS_WM_323.npz
+2025-07-11 18:53:32,072 - INFO - [32mtargets: torch.Size([1, 10000])[0m
+2025-07-11 18:53:32,072 - INFO - [33moutputs: torch.Size([1, 10000])[0m
+2025-07-11 18:53:32,072 - INFO - [32mtrue_pressure_np.shape: (10000,)[0m
+2025-07-11 18:53:32,074 - INFO - [33mpred_pressure_np.shape: (10000,)[0m
+2025-07-11 18:53:32,078 - INFO - [35mSaved raw prdiction data to results/Train_Test/prediction_data/N_S_WWS_WM_323_prediction_data.npz[0m
+2025-07-11 18:53:32,078 - INFO - Loading cached data from /work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data/N_S_WWS_WM_240.npz
+2025-07-11 18:53:32,142 - INFO - [32mtargets: torch.Size([1, 10000])[0m
+2025-07-11 18:53:32,142 - INFO - [33moutputs: torch.Size([1, 10000])[0m
+2025-07-11 18:53:32,143 - INFO - [32mtrue_pressure_np.shape: (10000,)[0m
+2025-07-11 18:53:32,143 - INFO - [33mpred_pressure_np.shape: (10000,)[0m
+2025-07-11 18:53:32,147 - INFO - [35mSaved raw prdiction data to results/Train_Test/prediction_data/N_S_WWS_WM_240_prediction_data.npz[0m
+2025-07-11 18:53:32,149 - INFO - Evaluation complete, Results save to results/Train_Test
+2025-07-11 18:53:32,150 - INFO - [35mRaw prediction data saved to results/Train_Test/prediction_data[0m
+2025-07-11 18:53:32,150 - INFO - Evaluation Results: 
+2025-07-11 18:53:32,150 - INFO - [33mMSE_mean:  0.242434[0m
+2025-07-11 18:53:32,150 - INFO - [33mMSE_std:  0.307976[0m
+2025-07-11 18:53:32,150 - INFO - [33mMAE_mean:  0.167413[0m
+2025-07-11 18:53:32,150 - INFO - [33mMAE_std:  0.007127[0m
+2025-07-11 18:53:32,150 - INFO - [33mRMSE_mean:  0.423062[0m
+2025-07-11 18:53:32,150 - INFO - [33mRMSE_std:  0.251898[0m
+2025-07-11 18:53:32,150 - INFO - [33mMax_Error_mean:  16.225632[0m
+2025-07-11 18:53:32,150 - INFO - [33mMax_Error_std:  23.296082[0m
+2025-07-11 18:53:32,150 - INFO - [33mRel_L2_mean:  1.861108[0m
+2025-07-11 18:53:32,150 - INFO - [33mRel_L2_std:  0.297842[0m
+2025-07-11 18:53:32,150 - INFO - [33mRel_L1_mean:  1.861108[0m
+2025-07-11 18:53:32,150 - INFO - [33mRel_L1_std:  0.297842[0m
+2025-07-11 18:58:55,639 - INFO - [31m**************************** Starting evaluation of RegDGCNN model[0m
+2025-07-11 18:58:55,641 - INFO - Arguments:
+{ 'cache_dir': '/work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data',
+  'dataset_path': '/work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Data_Pressure/PressureVTK/N_S_WWS_WM',
+  'dropout': 0.4,
+  'emb_dims': 1024,
+  'exp_name': 'Train_Test',
+  'k': 40,
+  'model_checkpoint': 'experiments/Train_Test/best_model_pth',
+  'num_points': 100000,
+  'num_vis_samples': 5,
+  'output_channels': 1,
+  'sample_ids': None,
+  'seed': 1,
+  'visualize': True}
+2025-07-11 18:58:55,736 - INFO - Using device: cuda:0
+2025-07-11 18:58:55,924 - INFO - Loading model form experiments/Train_Test/best_model_pth
+2025-07-11 18:58:55,948 - INFO - ********************
+2025-07-11 18:58:55,957 - INFO - Loading cached data from /work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data/N_S_WWS_WM_292.npz
+2025-07-11 18:58:56,344 - INFO - [32mtargets: torch.Size([1, 10000])[0m
+2025-07-11 18:58:56,346 - INFO - [33moutputs: torch.Size([1, 10000])[0m
+2025-07-11 18:58:56,347 - INFO - [32mtrue_pressure_np.shape: (10000, 3)[0m
+2025-07-11 18:58:56,347 - INFO - [32mtrue_pressure_np.shape: (10000,)[0m
+2025-07-11 18:58:56,347 - INFO - [33mpred_pressure_np.shape: (10000,)[0m
+2025-07-11 18:58:56,352 - INFO - [35mSaved raw prdiction data to results/Train_Test/prediction_data/N_S_WWS_WM_292_prediction_data.npz[0m
+2025-07-11 18:58:56,353 - INFO - Loading cached data from /work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data/N_S_WWS_WM_215.npz
+2025-07-11 18:58:56,419 - INFO - [32mtargets: torch.Size([1, 10000])[0m
+2025-07-11 18:58:56,419 - INFO - [33moutputs: torch.Size([1, 10000])[0m
+2025-07-11 18:58:56,419 - INFO - [32mtrue_pressure_np.shape: (10000, 3)[0m
+2025-07-11 18:58:56,419 - INFO - [32mtrue_pressure_np.shape: (10000,)[0m
+2025-07-11 18:58:56,419 - INFO - [33mpred_pressure_np.shape: (10000,)[0m
+2025-07-11 18:58:56,424 - INFO - [35mSaved raw prdiction data to results/Train_Test/prediction_data/N_S_WWS_WM_215_prediction_data.npz[0m
+2025-07-11 18:58:56,424 - INFO - Loading cached data from /work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data/N_S_WWS_WM_073.npz
+2025-07-11 18:58:56,489 - INFO - [32mtargets: torch.Size([1, 10000])[0m
+2025-07-11 18:58:56,489 - INFO - [33moutputs: torch.Size([1, 10000])[0m
+2025-07-11 18:58:56,490 - INFO - [32mtrue_pressure_np.shape: (10000, 3)[0m
+2025-07-11 18:58:56,490 - INFO - [32mtrue_pressure_np.shape: (10000,)[0m
+2025-07-11 18:58:56,490 - INFO - [33mpred_pressure_np.shape: (10000,)[0m
+2025-07-11 18:58:56,493 - INFO - [35mSaved raw prdiction data to results/Train_Test/prediction_data/N_S_WWS_WM_073_prediction_data.npz[0m
+2025-07-11 18:58:56,494 - INFO - Loading cached data from /work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data/N_S_WWS_WM_323.npz
+2025-07-11 18:58:56,560 - INFO - [32mtargets: torch.Size([1, 10000])[0m
+2025-07-11 18:58:56,560 - INFO - [33moutputs: torch.Size([1, 10000])[0m
+2025-07-11 18:58:56,560 - INFO - [32mtrue_pressure_np.shape: (10000, 3)[0m
+2025-07-11 18:58:56,560 - INFO - [32mtrue_pressure_np.shape: (10000,)[0m
+2025-07-11 18:58:56,561 - INFO - [33mpred_pressure_np.shape: (10000,)[0m
+2025-07-11 18:58:56,565 - INFO - [35mSaved raw prdiction data to results/Train_Test/prediction_data/N_S_WWS_WM_323_prediction_data.npz[0m
+2025-07-11 18:58:56,565 - INFO - Loading cached data from /work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data/N_S_WWS_WM_240.npz
+2025-07-11 18:58:56,628 - INFO - [32mtargets: torch.Size([1, 10000])[0m
+2025-07-11 18:58:56,628 - INFO - [33moutputs: torch.Size([1, 10000])[0m
+2025-07-11 18:58:56,629 - INFO - [32mtrue_pressure_np.shape: (10000, 3)[0m
+2025-07-11 18:58:56,629 - INFO - [32mtrue_pressure_np.shape: (10000,)[0m
+2025-07-11 18:58:56,629 - INFO - [33mpred_pressure_np.shape: (10000,)[0m
+2025-07-11 18:58:56,632 - INFO - [35mSaved raw prdiction data to results/Train_Test/prediction_data/N_S_WWS_WM_240_prediction_data.npz[0m
+2025-07-11 18:58:56,634 - INFO - Evaluation complete, Results save to results/Train_Test
+2025-07-11 18:58:56,634 - INFO - [35mRaw prediction data saved to results/Train_Test/prediction_data[0m
+2025-07-11 18:58:56,634 - INFO - Evaluation Results: 
+2025-07-11 18:58:56,634 - INFO - [33mMSE_mean:  0.242434[0m
+2025-07-11 18:58:56,634 - INFO - [33mMSE_std:  0.307976[0m
+2025-07-11 18:58:56,634 - INFO - [33mMAE_mean:  0.167413[0m
+2025-07-11 18:58:56,635 - INFO - [33mMAE_std:  0.007127[0m
+2025-07-11 18:58:56,635 - INFO - [33mRMSE_mean:  0.423062[0m
+2025-07-11 18:58:56,635 - INFO - [33mRMSE_std:  0.251898[0m
+2025-07-11 18:58:56,635 - INFO - [33mMax_Error_mean:  16.225632[0m
+2025-07-11 18:58:56,635 - INFO - [33mMax_Error_std:  23.296082[0m
+2025-07-11 18:58:56,635 - INFO - [33mRel_L2_mean:  1.861108[0m
+2025-07-11 18:58:56,635 - INFO - [33mRel_L2_std:  0.297842[0m
+2025-07-11 18:58:56,635 - INFO - [33mRel_L1_mean:  1.861108[0m
+2025-07-11 18:58:56,635 - INFO - [33mRel_L1_std:  0.297842[0m
+2025-07-11 19:03:29,949 - INFO - [31m**************************** Starting evaluation of RegDGCNN model[0m
+2025-07-11 19:03:29,950 - INFO - Arguments:
+{ 'cache_dir': '/work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data',
+  'dataset_path': '/work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Data_Pressure/PressureVTK/N_S_WWS_WM',
+  'dropout': 0.4,
+  'emb_dims': 1024,
+  'exp_name': 'Train_Test',
+  'k': 40,
+  'model_checkpoint': 'experiments/Train_Test/best_model_pth',
+  'num_points': 100000,
+  'num_vis_samples': 5,
+  'output_channels': 1,
+  'sample_ids': None,
+  'seed': 1,
+  'visualize': True}
+2025-07-11 19:03:30,034 - INFO - Using device: cuda:0
+2025-07-11 19:03:30,225 - INFO - Loading model form experiments/Train_Test/best_model_pth
+2025-07-11 19:03:30,248 - INFO - ********************
+2025-07-11 19:03:30,277 - INFO - Loading cached data from /work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data/N_S_WWS_WM_292.npz
+2025-07-11 19:05:09,547 - INFO - [31m**************************** Starting evaluation of RegDGCNN model[0m
+2025-07-11 19:05:09,549 - INFO - Arguments:
+{ 'cache_dir': '/work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data',
+  'dataset_path': '/work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Data_Pressure/PressureVTK/N_S_WWS_WM',
+  'dropout': 0.4,
+  'emb_dims': 1024,
+  'exp_name': 'Train_Test',
+  'k': 40,
+  'model_checkpoint': 'experiments/Train_Test/best_model_pth',
+  'num_points': 100000,
+  'num_vis_samples': 5,
+  'output_channels': 1,
+  'sample_ids': None,
+  'seed': 1,
+  'visualize': True}
+2025-07-11 19:05:09,646 - INFO - Using device: cuda:0
+2025-07-11 19:05:09,835 - INFO - Loading model form experiments/Train_Test/best_model_pth
+2025-07-11 19:05:09,859 - INFO - ********************
+2025-07-11 19:05:09,868 - INFO - Loading cached data from /work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data/N_S_WWS_WM_292.npz
+2025-07-12 08:06:52,287 - INFO - [31m**************************** Starting evaluation of RegDGCNN model[0m
+2025-07-12 08:06:52,290 - INFO - Arguments:
+{ 'cache_dir': '/work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data',
+  'dataset_path': '/work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Data_Pressure/PressureVTK/N_S_WWS_WM',
+  'dropout': 0.4,
+  'emb_dims': 1024,
+  'exp_name': 'Train_Test',
+  'k': 40,
+  'model_checkpoint': 'experiments/Train_Test/best_model_pth',
+  'num_points': 50000,
+  'num_vis_samples': 5,
+  'output_channels': 1,
+  'sample_ids': None,
+  'seed': 1,
+  'visualize': True}
+2025-07-12 08:06:52,525 - INFO - Using device: cuda:0
+2025-07-12 08:06:52,779 - INFO - Loading model form experiments/Train_Test/best_model_pth
+2025-07-12 08:06:52,812 - INFO - ********************
+2025-07-12 08:06:52,938 - INFO - Loading cached data from /work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data/N_S_WWS_WM_292.npz
+2025-07-12 08:07:47,397 - INFO - [31m**************************** Starting evaluation of RegDGCNN model[0m
+2025-07-12 08:07:47,398 - INFO - Arguments:
+{ 'cache_dir': '/work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data',
+  'dataset_path': '/work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Data_Pressure/PressureVTK/N_S_WWS_WM',
+  'dropout': 0.4,
+  'emb_dims': 1024,
+  'exp_name': 'Train_Test',
+  'k': 40,
+  'model_checkpoint': 'experiments/Train_Test/best_model_pth',
+  'num_points': 50000,
+  'num_vis_samples': 5,
+  'output_channels': 1,
+  'sample_ids': None,
+  'seed': 1,
+  'visualize': True}
+2025-07-12 08:07:47,598 - INFO - Using device: cuda:0
+2025-07-12 08:07:47,834 - INFO - Loading model form experiments/Train_Test/best_model_pth
+2025-07-12 08:07:47,860 - INFO - ********************
+2025-07-12 08:07:47,870 - INFO - Loading cached data from /work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data/N_S_WWS_WM_292.npz
+2025-07-12 08:50:50,942 - INFO - [31m**************************** Starting evaluation of RegDGCNN model[0m
+2025-07-12 08:50:50,946 - INFO - Arguments:
+{ 'cache_dir': '/work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data',
+  'dataset_path': '/work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Data_Pressure/PressureVTK/N_S_WWS_WM',
+  'dropout': 0.4,
+  'emb_dims': 1024,
+  'exp_name': 'Train_Test',
+  'k': 40,
+  'model_checkpoint': 'experiments/Train_Test/best_model_pth',
+  'num_points': 50000,
+  'num_vis_samples': 5,
+  'output_channels': 1,
+  'sample_ids': None,
+  'seed': 1,
+  'visualize': True}
+2025-07-12 08:50:51,351 - INFO - Using device: cuda:0
+2025-07-12 08:50:51,633 - INFO - Loading model form experiments/Train_Test/best_model_pth
+2025-07-12 08:50:51,665 - INFO - ********************
+2025-07-12 08:50:51,712 - INFO - Loading cached data from /work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data/N_S_WWS_WM_292.npz
+2025-07-12 08:51:36,878 - INFO - [31m**************************** Starting evaluation of RegDGCNN model[0m
+2025-07-12 08:51:36,881 - INFO - Arguments:
+{ 'cache_dir': '/work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data',
+  'dataset_path': '/work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Data_Pressure/PressureVTK/N_S_WWS_WM',
+  'dropout': 0.4,
+  'emb_dims': 1024,
+  'exp_name': 'Train_Test',
+  'k': 40,
+  'model_checkpoint': 'experiments/Train_Test/best_model_pth',
+  'num_points': 10000,
+  'num_vis_samples': 5,
+  'output_channels': 1,
+  'sample_ids': None,
+  'seed': 1,
+  'visualize': True}
+2025-07-12 08:51:37,085 - INFO - Using device: cuda:0
+2025-07-12 08:51:37,337 - INFO - Loading model form experiments/Train_Test/best_model_pth
+2025-07-12 08:51:37,363 - INFO - ********************
+2025-07-12 08:51:37,417 - INFO - Loading cached data from /work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data/N_S_WWS_WM_292.npz
+2025-07-14 08:18:59,078 - INFO - [31m**************************** Starting evaluation of RegDGCNN model[0m
+2025-07-14 08:18:59,084 - INFO - Arguments:
+{ 'cache_dir': '/work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data',
+  'dataset_path': '/work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Data_Pressure/PressureVTK/N_S_WWS_WM',
+  'dropout': 0.4,
+  'emb_dims': 1024,
+  'exp_name': 'Train_Test',
+  'k': 40,
+  'model_checkpoint': 'experiments/Train_Test/best_model_pth',
+  'num_points': 100000,
+  'num_vis_samples': 5,
+  'output_channels': 1,
+  'sample_ids': None,
+  'seed': 1,
+  'visualize': True}
+2025-07-14 08:18:59,125 - INFO - Using device: cuda:0
+2025-07-14 08:18:59,356 - INFO - Loading model form experiments/Train_Test/best_model_pth
+2025-07-14 08:18:59,374 - INFO - ********************
+2025-07-14 08:18:59,398 - INFO - Loading cached data from /work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data/N_S_WWS_WM_292.npz
+2025-08-07 12:22:31,153 - INFO - [31m**************************** Starting evaluation of RegDGCNN model[0m
+2025-08-07 12:22:31,165 - INFO - Arguments:
+{ 'cache_dir': '/work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data',
+  'dataset_path': '/work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Data_Pressure/PressureVTK/N_S_WWS_WM',
+  'dropout': 0.4,
+  'emb_dims': 1024,
+  'exp_name': 'Train_Test',
+  'k': 40,
+  'model_checkpoint': 'experiments/Train_Test/best_model_pth',
+  'num_points': 50000,
+  'num_vis_samples': 5,
+  'output_channels': 1,
+  'sample_ids': None,
+  'seed': 1,
+  'visualize': True}
+2025-08-07 12:22:31,186 - INFO - Using device: cuda:0
+2025-08-07 12:22:31,402 - INFO - Loading model form experiments/Train_Test/best_model_pth
+2025-08-07 12:22:31,489 - INFO - ********************

@@ -235,7 +235,7 @@ def main():
         results['evaluate'] = evaluate_model(args)
     else:
         # If evaluation not requested, mark as true for final success check
-        if 'evaluation' not in stages:
+        if 'evaluate' not in stages:
             results['evaluate'] = True
             logging.info("Evaluation stage skipped.")
 

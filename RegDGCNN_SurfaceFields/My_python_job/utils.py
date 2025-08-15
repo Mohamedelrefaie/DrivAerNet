@@ -23,7 +23,7 @@ from data_loader import PRESSURE_MEAN, PRESSURE_STD
 def setup_seed(seed):
     """
     Set the random seed for reproducibility.
-    
+
     Args:
         seed: The random seed to use
     """
@@ -39,7 +39,7 @@ def setup_seed(seed):
 def setup_logger(log_file=None, level=logging.INFO):
     """
     Set up the logger for the application.
-    
+
     Args:
         log_file: Path to the log file
         level: Logging level
@@ -47,18 +47,18 @@ def setup_logger(log_file=None, level=logging.INFO):
     # Create logger
     logger = logging.getLogger()
     logger.setLevel(level)
-    
+
     # Remove existing handlers to avoid duplicate logs
     for handler in logger.handlers[:]:
         logger.removeHandler(handler)
-    
+
     # Create console handler
     console_handler = logging.StreamHandler()
     console_handler.setLevel(level)
     console_format = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
     console_handler.setFormatter(console_format)
     logger.addHandler(console_handler)
-    
+
     # Create file handler if log_file is provided
     if log_file:
         os.makedirs(os.path.dirname(log_file), exist_ok=True)
@@ -119,10 +119,43 @@ def visualize_pressure_field(points, true_pressure, pred_pressure, output_path):
     plotter.screenshot(output_path)
     plotter.close()
 
+def write_pointnet_vtk(points: np.ndarray,
+                       pressure: np.ndarray,
+                       fname: str = "pressure_cloud.vtk",
+                       binary: bool = True) -> None:
+    """
+    :param points: (N,3) float array of xyz positions
+    :param pressure: (N,) or (N,1) float array per point
+    """
+    assert points.ndim == 2 and points.shape[1] == 3, \
+        f"points should be (N,3), got {points.shape}"
+    pressure = pressure.reshape(-1)
+    assert pressure.shape[0] == points.shape[0], \
+        "pressure must have same N as points"
+
+    # Wrap into a PyVista PolyData
+    cloud = pv.PolyData(points)
+
+    # Attach per-point scalar array
+    cloud["pressure"] = pressure
+
+    # (Optional) Quick visualization check
+    try:
+        cloud.plot(render_points_as_spheres=True,
+                   scalars="pressure",
+                   point_size=5,
+                   cmap="viridis")
+    except Exception:
+        pass
+
+    # Save to .vtk (legacy VTK format)
+    cloud.save(fname, binary=binary)
+    print(f"Saved {points.shape[0]} points with 'pressure' → {fname}")
+
 def plot_error_distribution(true_pressure, pred_pressure, output_path):
     """
     Plot the distribution of prediction errors.
-    
+
     Args:
         true_pressure: Ground truth pressure values
         pred_pressure: Predicted pressure values
@@ -130,7 +163,7 @@ def plot_error_distribution(true_pressure, pred_pressure, output_path):
     """
     # Calculate absolute errors
     errors = np.abs(true_pressure - pred_pressure)
-    
+
     # Create histogram
     plt.figure(figsize=(10, 6))
     plt.hist(errors, bins=50, alpha=0.7)
@@ -145,7 +178,7 @@ def plot_error_distribution(true_pressure, pred_pressure, output_path):
 def save_training_curve(train_losses, val_losses, output_path):
     """
     Save a plot of training and validation loss curves.
-    
+
     Args:
         train_losses: List of training losses
         val_losses: List of validation losses
@@ -166,11 +199,11 @@ def save_training_curve(train_losses, val_losses, output_path):
 def calculate_metrics(true_values, predicted_values):
     """
     Calculate various evaluation metrics.
-    
+
     Args:
         true_values: Ground truth values
         predicted_values: Predicted values
-        
+
     Returns:
         Dictionary of metrics
     """
@@ -179,27 +212,27 @@ def calculate_metrics(true_values, predicted_values):
         true_values = true_values.cpu().numpy()
     if torch.is_tensor(predicted_values):
         predicted_values = predicted_values.cpu().numpy()
-    
+
     # Mean Squared Error
     mse = np.mean((true_values - predicted_values) ** 2)
-    
+
     # Mean Absolute Error
     mae = np.mean(np.abs(true_values - predicted_values))
-    
+
     # Root Mean Squared Error
     rmse = np.sqrt(mse)
-    
+
     # Maximum Absolute Error
     max_error = np.max(np.abs(true_values - predicted_values))
-    
+
     # Relative L2 Error (normalized)
-    rel_l2 = np.mean(np.linalg.norm(true_values - predicted_values, axis=0) / 
+    rel_l2 = np.mean(np.linalg.norm(true_values - predicted_values, axis=0) /
                      np.linalg.norm(true_values, axis=0))
-    
+
     # Relative L1 Error (normalized)
-    rel_l1 = np.mean(np.sum(np.abs(true_values - predicted_values), axis=0) / 
+    rel_l1 = np.mean(np.sum(np.abs(true_values - predicted_values), axis=0) /
                      np.sum(np.abs(true_values), axis=0))
-    
+
     return {
         'MSE': mse,
         'MAE': mae,

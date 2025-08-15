@@ -18,6 +18,7 @@ import pprint
 from data_loader import get_dataloaders, PRESSURE_MEAN, PRESSURE_STD
 from model_pressure import RegDGCNN_pressure
 from utils import setup_logger, setup_seed
+from colorama import Fore, Style
 
 def parse_args():
     """Parse command line arguments."""
@@ -224,7 +225,7 @@ def train_and_evaluate(rank, world_size, args):
         setup_logger(log_file)
         logging.info(f"args.exp_name : {args.exp_name}")
         logging.info(f"Arguments:\n" + pprint.pformat(vars(args), indent=2))
-        logging.info(f"Starting training with {world_size} GPUs")
+        logging.info(f"{Fore.RED}*******************************Starting training with {world_size} GPUs{Style.RESET_ALL}")
 
     # Initialize model
     model = initialize_model(args, local_rank)

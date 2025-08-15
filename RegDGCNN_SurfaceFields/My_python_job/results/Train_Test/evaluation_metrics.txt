@@ -2,15 +2,15 @@ Evaluation Metrics for RegDGCNN
 Model Checkpoint: experiments/Train_Test/best_model_pth
 Number of samples: 5
 
-MSE_mean:  0.240974
-MSE_std:  0.305666
-MAE_mean:  0.167481
-MAE_std:  0.007664
-RMSE_mean:  0.421983
-RMSE_std:  0.250806
-Max_Error_mean:  16.072868
-Max_Error_std:  23.293617
-Rel_L2_mean:  1.924997
-Rel_L2_std:  0.335800
-Rel_L1_mean:  1.924997
-Rel_L1_std:  0.335800
+MSE_mean:  0.242434
+MSE_std:  0.307976
+MAE_mean:  0.167413
+MAE_std:  0.007127
+RMSE_mean:  0.423062
+RMSE_std:  0.251898
+Max_Error_mean:  16.225632
+Max_Error_std:  23.296082
+Rel_L2_mean:  1.861108
+Rel_L2_std:  0.297842
+Rel_L1_mean:  1.861108
+Rel_L1_std:  0.297842

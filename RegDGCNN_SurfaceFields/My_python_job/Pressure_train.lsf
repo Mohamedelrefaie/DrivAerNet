@@ -1,6 +1,6 @@
 #!/bin/bash
 #BSUB -J DrivAerNet_Pressure_GPU      # Job name
-#BSUB -q  2v100-32-sc              # Queue name (change if needed)
+#BSUB -q 2v100-32-e5          # Queue name (change if needed)
 #BSUB -n 1                            # Number of CPU cores
 #BSUB -R "span[ptile=1]"
 #BSUB -gpu "num=1"
@@ -25,19 +25,19 @@ conda activate d2l
 nvidia-smi
 
 # Remove old logs but keep the ones for this job
-#find ./logs/ -name '*.log' ! -name "*_${LSB_JOBID}*.log" -delete
+find ./logs/ -name '*.log' ! -name "*_${LSB_JOBID}*.log" -delete
 
 # Run your Preprocess script
-# sh ./Model_Script/Model_Preprocess.sh 
+ sh ./Model_Script/Model_Preprocess.sh 
 
 # Run your training script
  sh ./Model_Script/Model_Training.sh
 
 # Run your Evaluation script
-# sh ./Model_Script/Model_Evaluate.sh
+ sh ./Model_Script/Model_Evaluate.sh
 
-# Run your Test script
-# sh ./Model_Script/Model_Test.sh
+# Run your Visualize script(only in the local computer)
+# sh ./Model_Script/Model_Visualize.sh
 
 
 
