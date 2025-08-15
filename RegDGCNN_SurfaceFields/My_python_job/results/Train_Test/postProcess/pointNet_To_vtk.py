@@ -21,15 +21,6 @@ def write_pointnet_vtk(points,
     # Attach per-point scalar array
     cloud["pressure"] = pressure
 
-    # (Optional) Quick visualization check
-    try:
-        cloud.plot(render_points_as_spheres=True,
-                   scalars="pressure",
-                   point_size=5,
-                   cmap="viridis")
-    except Exception:
-        pass
-
     # Save to .vtk (legacy VTK format)
     cloud.save(fname, binary=binary)
     print(f"Saved {points.shape[0]} points with 'pressure' → {fname}")
