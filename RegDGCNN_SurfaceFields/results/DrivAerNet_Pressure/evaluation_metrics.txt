@@ -1,0 +1,16 @@
+Evaluation Metrics for RegDGCNN
+Model Checkpoint: experiments/DrivAerNet_Pressure/best_model.pth
+Number of samples: 5
+
+MSE: 0.220634
+MSE_std: 0.292034
+MAE: 0.151986
+MAE_std: 0.006885
+RMSE: 0.397497
+RMSE_std: 0.250260
+Max_Error: 15.301218
+Max_Error_std: 22.838867
+Rel_L2: 1.749491
+Rel_L2_std: 0.377447
+Rel_L1: 1.749491
+Rel_L1_std: 0.377447
