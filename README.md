@@ -1,6 +1,6 @@
 # DrivAerNet++
 
-> Update (07.07.2025):  There was a temporary outage with the NESE Globus endpoints on July 3rd, affecting dataset transfers. The issue has now been resolved and downloads should work as expected. Please try again and feel free to reach out via email if you experience any further problems.
+> Update (04.09.2025):  We are releasing comprehensive [sketch representations (Canny edge and CLIPasso hand-drawn styles)](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/JRHNAX) and [high-fidelity photorealistic renderings](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/XKW8WI) to complement our automotive 3D mesh/CFD dataset, enabling advanced multi-modal machine learning research in automotive design and computer vision.
 
 > Update (26.05.2025): We've updated our benchmarking with extensive results comparing TripNet with Nvidia's FigConvNet, Transolver, and RegDGCNN ([paper](https://arxiv.org/pdf/2503.17400)). We're also [releasing new data modalities](#-coming-soon) for DrivAerNet++ soon, including photorealistic renderings, sketches, 2D slices, SDFs, and more.
 
