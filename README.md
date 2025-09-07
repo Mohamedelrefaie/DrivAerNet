@@ -1,5 +1,7 @@
 # DrivAerNet++
 
+> Update (07.09.2025): Check out our latest paper: [TripOptimizer](https://www.researchgate.net/publication/395335112_TripOptimizer_Generative_3D_Shape_Optimization_and_Drag_Prediction_using_Triplane_VAE_Networks), a fully differentiable deep-learning framework for rapid aerodynamic analysis and shape optimization on industry-standard car designs, overcoming adjoint-based limitations by reducing per-iteration CFD cost and operating robustly on non-watertight meshes.
+
 > Update (04.09.2025):  We are releasing comprehensive [sketch representations (Canny edge and CLIPasso hand-drawn styles)](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/JRHNAX) and [high-fidelity photorealistic renderings](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/XKW8WI) to complement our automotive 3D mesh/CFD dataset, enabling advanced multi-modal machine learning research in automotive design and computer vision.
 
 > Update (26.05.2025): We've updated our benchmarking with extensive results comparing TripNet with Nvidia's FigConvNet, Transolver, and RegDGCNN ([paper](https://arxiv.org/pdf/2503.17400)). We're also [releasing new data modalities](#-coming-soon) for DrivAerNet++ soon, including photorealistic renderings, sketches, 2D slices, SDFs, and more.
