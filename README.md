@@ -71,15 +71,14 @@ Dataset diversity and shape variation are crucial for developing robust deep lea
   Global performance metrics such as drag coefficient (Cd), lift coefficient (Cl), and moment coefficients, computed via CFD.
 - **Annotations**  
   Per-part semantic labels for each car, enabling part-aware learning and geometric reasoning.
-  
----
-
-### 🚧 Coming Soon
-
 - **Renderings**  
   High-quality photorealistic 2D renderings from multiple views, useful for multimodal learning and image-based supervision.
 - **Sketches**  
  Hand-drawn style sketches for vision-based tasks and generative models.
+---
+
+### 🚧 Coming Soon
+
 - **2D Slices**  
   Planar field extractions (2d silhouettes, 2d mesh, pressure, and velocity).
 - **Signed Distance Fields (SDF)**  
