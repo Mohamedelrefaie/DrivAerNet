@@ -1,5 +1,7 @@
 # DrivAerNet++
 
+📢 We’ve released CarBench: a unified benchmark for high-fidelity 3D car aerodynamics and generalization testing. Check it out at: [CarBench Leaderboard](https://mohamedelrefaie.github.io/CarBench/),  [CarBench Paper](https://www.researchgate.net/publication/398002820_CarBench_A_Comprehensive_Benchmark_for_Neural_Surrogates_on_High-Fidelity_3D_Car_Aerodynamics)
+
 > Update (07.09.2025): Check out our latest paper: [TripOptimizer](https://www.researchgate.net/publication/395335112_TripOptimizer_Generative_3D_Shape_Optimization_and_Drag_Prediction_using_Triplane_VAE_Networks), a fully differentiable deep-learning framework for rapid aerodynamic analysis and shape optimization on industry-standard car designs, overcoming adjoint-based limitations by reducing per-iteration CFD cost and operating robustly on non-watertight meshes.
 
 > Update (04.09.2025):  We are releasing comprehensive [sketch representations (Canny edge and CLIPasso hand-drawn styles)](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/JRHNAX) and [high-fidelity photorealistic renderings](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/XKW8WI) to complement our automotive 3D mesh/CFD dataset, enabling advanced multi-modal machine learning research in automotive design and computer vision.
