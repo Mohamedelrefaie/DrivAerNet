@@ -24,28 +24,28 @@ from utils import setup_logger, setup_seed, visualize_pressure_field, plot_error
 def parse_args():
     """Parse command line arguments."""
     parser = argparse.ArgumentParser(description='Evaluate pressure prediction models on DrivAerNet++')
-    
+
     # Basic settings
     parser.add_argument('--exp_name', type=str, required=True, help='Experiment name for results folder')
     parser.add_argument('--model_checkpoint', type=str, required=True, help='Path to model checkpoint')
     parser.add_argument('--seed', type=int, default=1, help='Random seed')
-    
+
     # Data settings
     parser.add_argument('--dataset_path', type=str, required=True, help='Path to dataset')
     parser.add_argument('--cache_dir', type=str, help='Path to cache directory')
     parser.add_argument('--num_points', type=int, default=10000, help='Number of points to sample')
     parser.add_argument('--sample_ids', type=str, help='Path to file with sample IDs to evaluate')
-    
+
     # Model settings
     parser.add_argument('--dropout', type=float, default=0.4, help='Dropout rate (for model initialization)')
     parser.add_argument('--emb_dims', type=int, default=1024, help='Embedding dimensions (for model initialization)')
     parser.add_argument('--k', type=int, default=40, help='Number of nearest neighbors (for model initialization)')
     parser.add_argument('--output_channels', type=int, default=1, help='Number of output channels')
-    
+
     # Visualization settings
     parser.add_argument('--visualize', action='store_true', help='Generate visualizations')
     parser.add_argument('--num_vis_samples', type=int, default=5, help='Number of samples to visualize')
-    
+
     return parser.parse_args()
 
 
@@ -85,10 +85,10 @@ def initialize_model(args, device):
 def prepare_dataset(args):
     """
     Prepare the dataset for evaluation.
-    
+
     Args:
         args: Command line arguments
-        
+
     Returns:
         Prepared dataset and sample indices
     """
@@ -99,17 +99,17 @@ def prepare_dataset(args):
         preprocess=False,  # We don't need to preprocess if using cached data
         cache_dir=args.cache_dir
     )
-    
+
     # Determine which samples to evaluate
     if args.sample_ids:
         try:
             with open(args.sample_ids, 'r') as f:
                 sample_ids = [id_.strip() for id_ in f.readlines()]
-            
+
             # Filter to only include VTK files that match the sample IDs
             sample_files = [f for f in dataset.vtk_files if any(id_ in f for id_ in sample_ids)]
             sample_indices = [dataset.vtk_files.index(f) for f in sample_files]
-            
+
             logging.info(f"Found {len(sample_indices)} samples matching the provided IDs")
         except Exception as e:
             logging.error(f"Error loading sample IDs: {e}")
@@ -117,11 +117,11 @@ def prepare_dataset(args):
     else:
         # Use all samples
         sample_indices = list(range(len(dataset)))
-        
+
         # If visualizing, limit to the specified number
         if args.visualize and args.num_vis_samples < len(sample_indices):
             sample_indices = sample_indices[:args.num_vis_samples]
-    
+
     return dataset, sample_indices
 
 
@@ -239,30 +239,30 @@ def main():
     """Main function to run the evaluation."""
     args = parse_args()
     setup_seed(args.seed)
-    
+
     # Set up logging
     results_dir = os.path.join('results', args.exp_name)
     os.makedirs(results_dir, exist_ok=True)
     log_file = os.path.join(results_dir, 'evaluation.log')
     setup_logger(log_file)
-    
+
     logging.info(f"Starting evaluation of RegDGCNN model")
     logging.info(f"Arguments: {args}")
-    
+
     # Determine device
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
     logging.info(f"Using device: {device}")
-    
+
     # Initialize model
     model = initialize_model(args, device)
     model.eval()
-    
+
     # Prepare dataset
     dataset, sample_indices = prepare_dataset(args)
-    
+
     # Evaluate model
     metrics = evaluate_model(model, dataset, sample_indices, args)
-    
+
     # Log results
     logging.info("Evaluation Results:")
     for metric_name, value in metrics.items():

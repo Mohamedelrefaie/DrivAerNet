@@ -1,0 +1,68 @@
+2025-07-07 15:27:15,573 - INFO - Starting evaluation of RegDGCNN model
+2025-07-07 15:27:15,576 - INFO - Arguments: Namespace(exp_name='DrivAerNet_Pressure', model_checkpoint='experiments/DrivAerNet_Pressure/best_model.pth', seed=1, dataset_path='/work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Data_Pressure/PressureVTK/N_S_WWS_WM', cache_dir='/work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data', num_points=10000, sample_ids=None, dropout=0.4, emb_dims=1024, k=40, output_channels=1, visualize=True, num_vis_samples=5)
+2025-07-07 15:27:15,777 - INFO - Using device: cuda:0
+2025-07-07 15:27:15,961 - INFO - Loading model from experiments/DrivAerNet_Pressure/best_model.pth
+2025-07-07 15:27:16,117 - INFO - Loading cached data from /work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data/N_S_WWS_WM_292.npz
+2025-07-07 15:27:16,748 - INFO - Saved raw prediction data to results/DrivAerNet_Pressure/prediction_data/N_S_WWS_WM_292_prediction_data.npz
+2025-07-07 15:27:16,751 - INFO - Sample: N_S_WWS_WM_292, Max Error: 968.950439, Mean Error: 81.853455, Std Error: 82.278198
+2025-07-07 15:27:16,752 - INFO - Loading cached data from /work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data/N_S_WWS_WM_215.npz
+2025-07-07 15:27:16,794 - INFO - Saved raw prediction data to results/DrivAerNet_Pressure/prediction_data/N_S_WWS_WM_215_prediction_data.npz
+2025-07-07 15:27:16,794 - INFO - Sample: N_S_WWS_WM_215, Max Error: 1269.971924, Mean Error: 81.675697, Std Error: 77.120552
+2025-07-07 15:27:16,795 - INFO - Loading cached data from /work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data/N_S_WWS_WM_073.npz
+2025-07-07 15:27:16,836 - INFO - Saved raw prediction data to results/DrivAerNet_Pressure/prediction_data/N_S_WWS_WM_073_prediction_data.npz
+2025-07-07 15:27:16,837 - INFO - Sample: N_S_WWS_WM_073, Max Error: 8266.425781, Mean Error: 89.897110, Std Error: 146.105804
+2025-07-07 15:27:16,837 - INFO - Loading cached data from /work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data/N_S_WWS_WM_323.npz
+2025-07-07 15:27:16,879 - INFO - Saved raw prediction data to results/DrivAerNet_Pressure/prediction_data/N_S_WWS_WM_323_prediction_data.npz
+2025-07-07 15:27:16,879 - INFO - Sample: N_S_WWS_WM_323, Max Error: 1473.806274, Mean Error: 90.924103, Std Error: 90.256660
+2025-07-07 15:27:16,880 - INFO - Loading cached data from /work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data/N_S_WWS_WM_240.npz
+2025-07-07 15:27:16,920 - INFO - Saved raw prediction data to results/DrivAerNet_Pressure/prediction_data/N_S_WWS_WM_240_prediction_data.npz
+2025-07-07 15:27:16,921 - INFO - Sample: N_S_WWS_WM_240, Max Error: 1177.688843, Mean Error: 88.236313, Std Error: 85.693665
+2025-07-07 15:27:16,923 - INFO - Evaluation complete. Results saved to results/DrivAerNet_Pressure
+2025-07-07 15:27:16,923 - INFO - Raw prediction data saved to results/DrivAerNet_Pressure/prediction_data
+2025-07-07 15:27:16,925 - INFO - Evaluation Results:
+2025-07-07 15:27:16,925 - INFO - MSE: 1.266539
+2025-07-07 15:27:16,925 - INFO - MSE_std: 0.447364
+2025-07-07 15:27:16,925 - INFO - MAE: 0.737888
+2025-07-07 15:27:16,925 - INFO - MAE_std: 0.033899
+2025-07-07 15:27:16,925 - INFO - RMSE: 1.110539
+2025-07-07 15:27:16,925 - INFO - RMSE_std: 0.182324
+2025-07-07 15:27:16,925 - INFO - Max_Error: 22.442377
+2025-07-07 15:27:16,925 - INFO - Max_Error_std: 24.069933
+2025-07-07 15:27:16,925 - INFO - Rel_L2: 9.471090
+2025-07-07 15:27:16,925 - INFO - Rel_L2_std: 3.523058
+2025-07-07 15:27:16,925 - INFO - Rel_L1: 9.471090
+2025-07-07 15:27:16,925 - INFO - Rel_L1_std: 3.523058
+2025-07-08 10:57:42,139 - INFO - Starting evaluation of RegDGCNN model
+2025-07-08 10:57:42,144 - INFO - Arguments: Namespace(exp_name='DrivAerNet_Pressure', model_checkpoint='experiments/DrivAerNet_Pressure/best_model.pth', seed=1, dataset_path='/work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Data_Pressure/PressureVTK/N_S_WWS_WM', cache_dir='/work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data', num_points=10000, sample_ids=None, dropout=0.4, emb_dims=1024, k=40, output_channels=1, visualize=True, num_vis_samples=5)
+2025-07-08 10:57:42,592 - INFO - Using device: cuda:0
+2025-07-08 10:57:42,829 - INFO - Loading model from experiments/DrivAerNet_Pressure/best_model.pth
+2025-07-08 10:57:43,102 - INFO - Loading cached data from /work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data/N_S_WWS_WM_292.npz
+2025-07-08 10:57:43,724 - INFO - Saved raw prediction data to results/DrivAerNet_Pressure/prediction_data/N_S_WWS_WM_292_prediction_data.npz
+2025-07-08 10:57:43,728 - INFO - Sample: N_S_WWS_WM_292, Max Error: 393.243195, Mean Error: 17.564648, Std Error: 25.212502
+2025-07-08 10:57:44,053 - INFO - Loading cached data from /work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data/N_S_WWS_WM_215.npz
+2025-07-08 10:57:44,119 - INFO - Saved raw prediction data to results/DrivAerNet_Pressure/prediction_data/N_S_WWS_WM_215_prediction_data.npz
+2025-07-08 10:57:44,119 - INFO - Sample: N_S_WWS_WM_215, Max Error: 492.861816, Mean Error: 16.419321, Std Error: 24.999308
+2025-07-08 10:57:44,143 - INFO - Loading cached data from /work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data/N_S_WWS_WM_073.npz
+2025-07-08 10:57:44,190 - INFO - Saved raw prediction data to results/DrivAerNet_Pressure/prediction_data/N_S_WWS_WM_073_prediction_data.npz
+2025-07-08 10:57:44,190 - INFO - Sample: N_S_WWS_WM_073, Max Error: 7149.266602, Mean Error: 17.930588, Std Error: 103.619286
+2025-07-08 10:57:44,208 - INFO - Loading cached data from /work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data/N_S_WWS_WM_323.npz
+2025-07-08 10:57:44,267 - INFO - Saved raw prediction data to results/DrivAerNet_Pressure/prediction_data/N_S_WWS_WM_323_prediction_data.npz
+2025-07-08 10:57:44,267 - INFO - Sample: N_S_WWS_WM_323, Max Error: 493.402832, Mean Error: 18.697931, Std Error: 30.359562
+2025-07-08 10:57:44,284 - INFO - Loading cached data from /work/mae-zhangbj/ML_Turbulent/Data_Pressure_Field/Cache_data/N_S_WWS_WM_240.npz
+2025-07-08 10:57:44,352 - INFO - Saved raw prediction data to results/DrivAerNet_Pressure/prediction_data/N_S_WWS_WM_240_prediction_data.npz
+2025-07-08 10:57:44,352 - INFO - Sample: N_S_WWS_WM_240, Max Error: 441.564026, Mean Error: 18.489374, Std Error: 25.603153
+2025-07-08 10:57:44,361 - INFO - Evaluation complete. Results saved to results/DrivAerNet_Pressure
+2025-07-08 10:57:44,363 - INFO - Raw prediction data saved to results/DrivAerNet_Pressure/prediction_data
+2025-07-08 10:57:44,363 - INFO - Evaluation Results:
+2025-07-08 10:57:44,363 - INFO - MSE: 0.220634
+2025-07-08 10:57:44,363 - INFO - MSE_std: 0.292034
+2025-07-08 10:57:44,363 - INFO - MAE: 0.151986
+2025-07-08 10:57:44,363 - INFO - MAE_std: 0.006885
+2025-07-08 10:57:44,363 - INFO - RMSE: 0.397497
+2025-07-08 10:57:44,363 - INFO - RMSE_std: 0.250260
+2025-07-08 10:57:44,363 - INFO - Max_Error: 15.301218
+2025-07-08 10:57:44,363 - INFO - Max_Error_std: 22.838867
+2025-07-08 10:57:44,363 - INFO - Rel_L2: 1.749491
+2025-07-08 10:57:44,363 - INFO - Rel_L2_std: 0.377447
+2025-07-08 10:57:44,363 - INFO - Rel_L1: 1.749491
+2025-07-08 10:57:44,363 - INFO - Rel_L1_std: 0.377447
