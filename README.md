@@ -1,13 +1,10 @@
 # DrivAerNet++: High-Fidelity Computational Fluid Dynamics & Deep Learning Benchmarks
 
-<p align="center">
-  <img src="assets/drivaernet_banner.png" alt="DrivAerNet++ Banner" width="100%">
-</p>
 
 <p align="center">
   <a href="https://neurips.cc/virtual/2024/poster/97609"><img src="https://img.shields.io/badge/NeurIPS-2024-blue.svg" alt="NeurIPS 2024"></a>
   <a href="https://arxiv.org/abs/2406.09624"><img src="https://img.shields.io/badge/arXiv-2406.09624-b31b1b.svg" alt="arXiv"></a>
-  <a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/ZQLJJL"><img src="https://img.shields.io/badge/Dataset-Harvard%20Dataverse-orange.svg" alt="Dataset"></a>
+  <a href="https://dataverse.harvard.edu/dataverse/DrivAerNet"><img src="https://img.shields.io/badge/Dataset-Harvard%20Dataverse-orange.svg" alt="Dataset"></a>
   <a href="https://creativecommons.org/licenses/by-nc/4.0/"><img src="https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg" alt="License"></a>
 </p>
 
@@ -15,7 +12,7 @@
   <b>The largest and most comprehensive multimodal dataset for aerodynamic car design</b>
 </p>
 
-We present **DrivAerNet++**, comprising **8,000 diverse car designs** modeled with high-fidelity computational fluid dynamics (CFD) simulations, covering configurations such as fastback, notchback, and estateback.
+We present **DrivAerNet++**, comprising **8,150 diverse car designs** modeled with high-fidelity computational fluid dynamics (CFD) simulations, covering configurations such as fastback, notchback, and estateback.
 
 ---
 
