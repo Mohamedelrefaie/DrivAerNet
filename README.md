@@ -22,8 +22,8 @@ We present **DrivAerNet++**, comprising **8,150 diverse car designs** modeled wi
 |------|------|
 | 🆕 **2024** | **CarBench Released** — A unified benchmark for high-fidelity 3D car aerodynamics and generalization testing |
 
-- 🏆 **Leaderboard:** [CarBench Leaderboard](https://decode.mit.edu/carbench)
-- 📄 **Paper:** [CarBench Paper](https://arxiv.org/abs/2505.00000)
+- 🏆 **Leaderboard:** [CarBench Leaderboard](https://mohamedelrefaie.github.io/CarBench/)
+- 📄 **Paper:** [CarBench Paper](https://www.researchgate.net/publication/398002820_CarBench_A_Comprehensive_Benchmark_for_Neural_Surrogates_on_High-Fidelity_3D_Car_Aerodynamics)
 
 ---
 
@@ -32,10 +32,11 @@ We present **DrivAerNet++**, comprising **8,150 diverse car designs** modeled wi
 | Resource | Description | Link |
 |----------|-------------|------|
 | DrivAerNet++ Paper | NeurIPS 2024 Full Paper | [arXiv](https://arxiv.org/abs/2406.09624) |
-| Dataset Download | Hosted on Harvard Dataverse | [Access Data](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/ZQLJJL) |
+| Dataset Download | Hosted on Harvard Dataverse | [Access Data](https://dataverse.harvard.edu/dataverse/DrivAerNet) |
 | Leaderboard | Submit models & compare results | [DrivAerNet++ Leaderboard](https://decode.mit.edu/drivaernetpp) |
-| Video Summary | Overview of the project | [YouTube](https://www.youtube.com/watch?v=example) |
-| Podcasts | Deep dive discussions | [DrivAerNet++](https://example.com/podcast) |
+| Video Summary | Overview of the project | [YouTube](https://youtu.be/Y2-s0R_yHpo?si=E_U6FH4s-6xUXbr7) |
+| Podcasts | Deep dive discussions | [DrivAerNet++](https://soundcloud.com/mohamed-elrefaie-6/drivaernet-podcast) |
+| Podcasts | Deep dive discussions | [AI Design Agents](https://substack.com/@hodgesj/note/p-166693500) |
 
 ---
 
