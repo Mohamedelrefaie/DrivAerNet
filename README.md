@@ -33,7 +33,7 @@ We present **DrivAerNet++**, comprising **8,150 diverse car designs** modeled wi
 |----------|-------------|------|
 | DrivAerNet++ Paper | NeurIPS 2024 Full Paper | [arXiv](https://arxiv.org/abs/2406.09624) |
 | Dataset Download | Hosted on Harvard Dataverse | [Access Data](https://dataverse.harvard.edu/dataverse/DrivAerNet) |
-| Leaderboard | Submit models & compare results | [DrivAerNet++ Leaderboard](https://decode.mit.edu/drivaernetpp) |
+| Leaderboard | Submit models & compare results | [DrivAerNet++ Leaderboard](https://mohamedelrefaie.github.io/CarBench) |
 | Video Summary | Overview of the project | [YouTube](https://youtu.be/Y2-s0R_yHpo?si=E_U6FH4s-6xUXbr7) |
 | Podcasts | Deep dive discussions | [DrivAerNet++](https://soundcloud.com/mohamed-elrefaie-6/drivaernet-podcast) |
 | Podcasts | Deep dive discussions | [AI Design Agents](https://substack.com/@hodgesj/note/p-166693500) |
