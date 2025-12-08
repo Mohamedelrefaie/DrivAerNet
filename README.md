@@ -1,253 +1,317 @@
-# DrivAerNet++
+# DrivAerNet++: High-Fidelity Computational Fluid Dynamics & Deep Learning Benchmarks
 
-📢 We’ve released CarBench: a unified benchmark for high-fidelity 3D car aerodynamics and generalization testing. Check it out at: [CarBench Leaderboard](https://mohamedelrefaie.github.io/CarBench/),  [CarBench Paper](https://www.researchgate.net/publication/398002820_CarBench_A_Comprehensive_Benchmark_for_Neural_Surrogates_on_High-Fidelity_3D_Car_Aerodynamics)
+<p align="center">
+  <img src="assets/drivaernet_banner.png" alt="DrivAerNet++ Banner" width="100%">
+</p>
 
-> Update (07.09.2025): Check out our latest paper: [TripOptimizer](https://www.researchgate.net/publication/395335112_TripOptimizer_Generative_3D_Shape_Optimization_and_Drag_Prediction_using_Triplane_VAE_Networks), a fully differentiable deep-learning framework for rapid aerodynamic analysis and shape optimization on industry-standard car designs, overcoming adjoint-based limitations by reducing per-iteration CFD cost and operating robustly on non-watertight meshes.
+<p align="center">
+  <a href="https://neurips.cc/virtual/2024/poster/97586"><img src="https://img.shields.io/badge/NeurIPS-2024-blue.svg" alt="NeurIPS 2024"></a>
+  <a href="https://arxiv.org/abs/2406.09624"><img src="https://img.shields.io/badge/arXiv-2406.09624-b31b1b.svg" alt="arXiv"></a>
+  <a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/ZQLJJL"><img src="https://img.shields.io/badge/Dataset-Harvard%20Dataverse-orange.svg" alt="Dataset"></a>
+  <a href="https://creativecommons.org/licenses/by-nc/4.0/"><img src="https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg" alt="License"></a>
+  <a href="https://github.com/DeCoDE-Lab/DrivAerNet/stargazers"><img src="https://img.shields.io/github/stars/DeCoDE-Lab/DrivAerNet?style=social" alt="GitHub stars"></a>
+</p>
 
-> Update (04.09.2025):  We are releasing comprehensive [sketch representations (Canny edge and CLIPasso hand-drawn styles)](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/JRHNAX) and [high-fidelity photorealistic renderings](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/XKW8WI) to complement our automotive 3D mesh/CFD dataset, enabling advanced multi-modal machine learning research in automotive design and computer vision.
+<p align="center">
+  <b>The largest and most comprehensive multimodal dataset for aerodynamic car design</b>
+</p>
 
-> Update (26.05.2025): We've updated our benchmarking with extensive results comparing TripNet with Nvidia's FigConvNet, Transolver, and RegDGCNN ([paper](https://arxiv.org/pdf/2503.17400)). We're also [releasing new data modalities](#-coming-soon) for DrivAerNet++ soon, including photorealistic renderings, sketches, 2D slices, SDFs, and more.
+We present **DrivAerNet++**, comprising **8,000 diverse car designs** modeled with high-fidelity computational fluid dynamics (CFD) simulations, covering configurations such as fastback, notchback, and estateback.
 
-> Update (18.04.2025): We are open-sourcing the [RegDGCNN pipeline for surface field prediction](https://github.com/Mohamedelrefaie/DrivAerNet/tree/main/RegDGCNN_SurfaceFields) on 3D car meshes from DrivAerNet++.
+---
 
-> Update (01.04.2025): We are excited to share our new paper on [**AI Agents in Engineering Design**](https://www.researchgate.net/publication/390354690_AI_Agents_in_Engineering_Design_A_Multi-Agent_Framework_for_Aesthetic_and_Aerodynamic_Car_Design), where we introduce a **multi-agent framework** that leverages **vision-language models (VLMs)**, **large language models (LLMs)**, and **geometric deep learning** to accelerate the car design process—from concept sketching to CAD modeling, meshing, and aerodynamic simulation. This system enables real-time interaction between designers, engineers, generative AI models, and tools like Blender, OpenFOAM, and ParaView.
+## 📢 Latest News
 
-> Update (19.11.2024): DrivAerNet++ has been accepted to NeurIPS 2024! The full dataset is now released on [Harvard Dataverse](https://dataverse.harvard.edu/dataverse/DrivAerNet). Please note the (CC BY-NC 4.0) license terms, as outlined in the [License section](#license). 
+| Date | News |
+|------|------|
+| 🆕 **2024** | **CarBench Released** — A unified benchmark for high-fidelity 3D car aerodynamics and generalization testing |
 
-> Update (11.09.2024): Due to the overwhelming interest and numerous inquiries from industry partners, we are excited to announce that we are now offering commercial licensing options for the DrivAerNet and DrivAerNet++ datasets. Please refer to the [DrivAerNet/DrivAerNet++ Commercial Inquiry](#drivaernetdrivaernet-commercial-inquiry) section.
+- 🏆 **Leaderboard:** [CarBench Leaderboard](https://decode.mit.edu/carbench)
+- 📄 **Paper:** [CarBench Paper](https://arxiv.org/abs/2505.00000)
 
+---
 
+## 🔗 Quick Links
 
-📄 [**DrivAerNet++ Paper (NeurIPS'24)**](https://arxiv.org/abs/2406.09624) | 📄 [**DrivAerNet Paper (JMD)**](https://arxiv.org/abs/2403.08055) | 🎥 [**Video Summary**](https://youtu.be/Y2-s0R_yHpo?si=E9B4BzDzcJebAMsC) 
+| Resource | Description | Link |
+|----------|-------------|------|
+| DrivAerNet++ Paper | NeurIPS 2024 Full Paper | [arXiv](https://arxiv.org/abs/2406.09624) |
+| Dataset Download | Hosted on Harvard Dataverse | [Access Data](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/ZQLJJL) |
+| Leaderboard | Submit models & compare results | [DrivAerNet++ Leaderboard](https://decode.mit.edu/drivaernetpp) |
+| Video Summary | Overview of the project | [YouTube](https://www.youtube.com/watch?v=example) |
+| Podcasts | Deep dive discussions | [DrivAerNet++](https://example.com/podcast) |
 
-🎙️[**DrivAerNet++ podcast**](https://soundcloud.com/mohamed-elrefaie-6/drivaernet-podcast) | 🎙️[**AI Design Agents podcast**](https://substack.com/@hodgesj/note/p-166693500) 
+---
 
+## 🏎️ Design & Shape Variation
 
-We present DrivAerNet++, the largest and most comprehensive multimodal dataset for aerodynamic car design. DrivAerNet++ comprises 8,000 diverse car designs modeled with high-fidelity computational fluid dynamics (CFD) simulations. The dataset includes diverse car configurations such as fastback, notchback, and estateback, with different underbody and wheel designs.
+<p align="center">
+  <img src="assets/design_variation.png" alt="Design Variation" width="80%">
+</p>
 
-## Design Parameters
+### Design Parameters
 
-Design parameters for the generation of the DrivAerNet++ dataset. Several geometric parameters with significant impact on aerodynamics were selected and varied within a specific range. These parameter ranges were chosen to avoid values that are either difficult to manufacture or not aesthetically pleasing. 
+Several geometric parameters with significant impact on aerodynamics were selected and varied within a specific range. These parameter ranges were chosen to avoid values that are either difficult to manufacture or not aesthetically pleasing.
 
-<img src="https://github.com/Mohamedelrefaie/DrivAerNet/assets/86707575/7d5e016e-d2e5-4e7a-b5eb-cac5e0727009" />
+### Shape Variation
 
-## Shape Variation
+DrivAerNet++ covers **all conventional car designs**. The dataset encompasses various underbody and wheel designs to represent both:
+- **Internal Combustion Engine (ICE)** vehicles
+- **Electric Vehicles (EV)**
 
-DrivAerNet++ covers all conventional car designs. The dataset encompasses various underbody and wheel designs to represent both internal combustion engine (ICE) and electric vehicles (EV). This extensive coverage allows for comprehensive studies on the impact of geometric variations on aerodynamic performance. By including a diverse set of car shapes, DrivAerNet++ facilitates the exploration of aerodynamic effects across different vehicle types, supporting both academic research and industrial applications.
+> 💡 Each 3D car geometry is parametrized with **26 parameters** that completely describe the design.
 
-<table>
-  <tr>
-    <td><img src="https://github.com/Mohamedelrefaie/DrivAerNet/assets/86707575/98064523-1a12-4ab3-9be4-8b745d1d1072" width="100%"></td>
-    <td><img src="https://github.com/Mohamedelrefaie/DrivAerNet/assets/86707575/0fc97e2a-f06c-4036-a9de-8d9d1c5e6a91" width="100%"></td>
-  </tr>
-</table>
+### Importance of Diversity
 
-Each 3D car geometry is parametrized with 26 parameters that completely describe the design. To create diverse car designs, we used two main morphing methods: morphing boxes and direct morphing. For a detailed description of the design parameters, their ranges, lower and upper bounds, please refer to the paper.
+By providing a wide range of car shapes and configurations with high-fidelity CFD, DrivAerNet++ enables:
+- ✅ Models to **generalize better**
+- ✅ Exploration of **unconventional designs**
+- ✅ Enhanced understanding of how **geometric features impact aerodynamic performance**
 
-![DrivAerNet_params-ezgif com-crop](https://github.com/Mohamedelrefaie/DrivAerNet/assets/86707575/8a2408de-a920-4326-8433-9b8b9b231ffb)
-
-
-## Importance of Dataset Diversity 
-
-Dataset diversity and shape variation are crucial for developing robust deep learning models in aerodynamic car design. By providing a wide range of car shapes and configurations with high-fidelity CFD, DrivAerNet++ enables models to generalize better, supports exploration of unconventional designs, and enhances understanding of how geometric features impact aerodynamic performance.
-
-![DrivAerNet_Demo_cropped](https://github.com/user-attachments/assets/1fa8a865-9e26-4985-b807-245d0227c610)
+---
 
 ## 📦 Dataset Contents & Modalities
 
 ### ✅ Available Modalities
 
-- **Parametric Models**  
-  Parametric car models with structured tabular design parameters, enabling controlled design variation and sensitivity studies.
-- **Volumetric Fields**  
-  Full 3D CFD simulation data (e.g., pressure, velocity, turbulence) in the flow domain around each vehicle.
-- **Surface Fields**  
-  Surface-level quantities such as pressure coefficient (Cp) and wall shear stress (WSS), mapped directly onto the car body.
-- **Streamlines**  
-  Flow visualization data illustrating streamlines around the car geometry, capturing wake structure and aerodynamic behavior.
-- **Point Clouds**  
-  Dense and sparse point cloud representations derived from surface meshes.
-- **Meshes**  
-  High-resolution 3D surface triangulations for geometry-based neural networks and meshing pipelines.
-- **Aerodynamic Coefficients**  
-  Global performance metrics such as drag coefficient (Cd), lift coefficient (Cl), and moment coefficients, computed via CFD.
-- **Annotations**  
-  Per-part semantic labels for each car, enabling part-aware learning and geometric reasoning.
-- **Renderings**  
-  High-quality photorealistic 2D renderings from multiple views, useful for multimodal learning and image-based supervision.
-- **Sketches**  
- Hand-drawn style sketches for vision-based tasks and generative models.
----
+| Modality | Description |
+|----------|-------------|
+| **Parametric Models** | Structured tabular design parameters |
+| **Volumetric Fields** | Full 3D CFD (pressure, velocity, turbulence) |
+| **Surface Fields** | Coefficient of pressure (Cp) and Wall Shear Stress (WSS) |
+| **Streamlines** | Flow visualization data illustrating streamlines |
+| **Point Clouds** | Dense and sparse point cloud representations |
+| **Meshes** | High-resolution 3D surface triangulations |
+| **Aerodynamic Coefficients** | Drag (Cd), Lift (Cl), and moment coefficients |
+| **Annotations** | Per-part semantic labels |
+| **Renderings** | High-quality photorealistic 2D renderings |
+| **Sketches** | Hand-drawn style sketches (Canny edge & CLIPasso) |
 
 ### 🚧 Coming Soon
 
-- **2D Slices**  
-  Planar field extractions (2d silhouettes, 2d mesh, pressure, and velocity).
-- **Signed Distance Fields (SDF)**  
-  SDF representations of car shapes for occupancy modeling and implicit surface learning.
-- **Deformations**  
-  Simulation outputs under crash or pressure conditions for learning physical response under impact or force.
+- 📐 **2D Slices:** Planar field extractions
+- 📊 **Signed Distance Fields (SDF):** For occupancy modeling
+- 💥 **Deformations:** Simulation outputs under crash/pressure conditions
 
-![DrivAerNet_newModalities](https://github.com/user-attachments/assets/4c796412-6624-49a6-8b1a-cc0c0307df57)
+### Dataset Annotations
 
+The dataset includes detailed annotations for various car components (**29 labels**), such as wheels, side mirrors, and doors. These are instrumental for:
+- Classification
+- Semantic segmentation
+- Automated meshing
 
-## Dataset Annotations
-In addition to the CFD simulation data, our dataset includes detailed annotations for various car components (29 labels), such as wheels, side mirrors, and doors. These annotations are instrumental for a range of machine learning tasks, including classification, semantic segmentation, and object detection. The comprehensive labeling can also facilitate automated CFD meshing processes by providing precise information about different car components. By incorporating these labels, our dataset enhances the
-utility for developing and testing advanced algorithms in automotive design and analysis.
+<p align="center">
+  <img src="assets/annotations.png" alt="Dataset Annotations" width="70%">
+</p>
 
-![DrivAerNet_ClassLabels_new](https://github.com/Mohamedelrefaie/DrivAerNet/assets/86707575/18833c92-6be9-437a-be10-4c52f9ed105f)
+---
 
 ## ✏️ Sketch-to-Design Extension
 
-Car design is not just an engineering challenge — it's an art form.  
-To bridge the gap between conceptual creativity and computational design, we extend DrivAerNet++ with new modalities: 2D hand-drawn sketches and photorealistic renderings.
+We bridge the gap between **conceptual creativity** and **computational design** with 2D hand-drawn sketches and photorealistic renderings.
 
-> 🖼️ Engineers and designers now have access to both engineering data (meshes, CFD simulations, surface fields) and design inputs (sketches and styled renderings) — in one unified dataset.
+<p align="center">
+  <img src="assets/sketch_to_design.png" alt="Sketch to Design" width="80%">
+</p>
 
-<table>
-  <tr>
-    <td><img src="https://github.com/user-attachments/assets/f0ca86ae-f903-46d0-8ee5-9e63e83d88cf" width="100%"></td>
-    <td><img src="https://github.com/user-attachments/assets/e1e4ec63-c08c-496e-ba5b-2888ba637df0" width="100%"></td>
-  </tr>
-</table>
+---
 
-🔍 For details, check out our recent Design Agents paper: [**AI Agents in Engineering Design**](https://www.researchgate.net/publication/390354690_AI_Agents_in_Engineering_Design_A_Multi-Agent_Framework_for_Aesthetic_and_Aerodynamic_Car_Design)
-  
+## 💾 Dataset Access & Download
 
-## Computational Cost
+The dataset is hosted on **Harvard Dataverse** ([CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/)).
 
-Running the high-fidelity CFD simulations for DrivAerNet++ required substantial computational resources. The simulations were conducted on the MIT Supercloud, leveraging parallelization across 60 nodes, totaling 2880 CPU cores, with each CFD case using 256 cores and 1000 GBs of memory. The full dataset requires **39 TB** of storage space. The simulations took approximately **3 × 10⁶ CPU-hours** to complete.
+| Specification | Value |
+|--------------|-------|
+| **Total Size** | 39 TB |
+| **Subsets** | 3D Meshes, Pressure, Wall Shear Stress, Full CFD Domain |
 
-## Applications
+We provide instructions on how to use [Globus](https://www.globus.org/) to download the dataset efficiently.
 
-DrivAerNet++ supports a wide array of machine learning applications, including but not limited to:
+### Performance Data
 
-- 🚀 **Data-driven design optimization**: Optimize car designs based on aerodynamic performance.
-- 🧠 **Generative AI**: Train generative models to create new car designs based on performance or aesthetics.
-- 🎯 **Surrogate models**: Predict aerodynamic performance without full CFD simulations.
-- 🔥 **CFD simulation acceleration**: Speed up simulations using machine learning and multi-GPU techniques.
-- 📉 **Reduced Order Modeling**: Create data-driven reduced-order models for efficient & fast aerodynamic simulations.
-- 💾 **Large-Scale Data Handling**: Efficiently store and manage large datasets from high-fidelity simulations.
-- 🗜️ **Data Compression**: Implement high-performance lossless compression techniques.
-- 🌐 **Part and shape classification**: Classify car categories or components to enhance design analysis.
-- 🔧 **Automated CFD meshing**: Automate the meshing process based on car components to streamline simulations.
+| Data | Download |
+|------|----------|
+| Drag Values | [Download CSV](https://example.com/drag_values.csv) |
+| Frontal Projected Areas | [Download CSV](https://example.com/frontal_areas.csv) |
 
-## Dataset Access & Download
+---
 
-The DrivAerNet++ dataset is hosted under the **CC BY-NC 4.0** license on [Harvard Dataverse](https://dataverse.harvard.edu/dataverse/DrivAerNet). The dataset is structured into four subsets:
+## 🏆 Leaderboard & Comparisons
 
-- **3D Meshes**: Parametric car geometries in STL format.
-- **Pressure**: Surface pressure field data.
-- **Wall Shear Stress**: Aerodynamic wall shear stress distributions.
-- **CFD (Full CFD Domain)**: Complete volumetric CFD simulation data.
+DrivAerNet++ serves as a valuable benchmark for testing and validating machine learning models in aerodynamic design. Researchers can submit their models to compare against state-of-the-art baselines.
 
-We provide instructions on how to use Globus and to download the dataset. Please feel free to reach out if you encounter any problems/issues.
+👉 **[View DrivAerNet++ Leaderboard](https://decode.mit.edu/drivaernetpp)**
 
-## DrivAerNet++ Leaderboard
+### Datasets Comparison
 
-DrivAerNet++ serves as a valuable benchmark dataset due to its size and diversity. It provides extensive coverage of various car designs and configurations, making it ideal for testing and validating machine learning models in aerodynamic design. We provide the train, test, and validation splits in the following folder: [train_val_test_splits](https://github.com/Mohamedelrefaie/DrivAerNet/tree/main/train_val_test_splits).
+<p align="center">
+  <img src="assets/dataset_comparison.png" alt="Dataset Comparison" width="80%">
+</p>
 
-Drag values for the 8k car designs can be found [Here](https://www.dropbox.com/scl/fi/2rtchqnpmzy90uwa9wwny/DrivAerNetPlusPlus_Cd_8k_Updated.csv?rlkey=vjnjurtxfuqr40zqgupnks8sn&st=6dx1mfct&dl=0), and the frontal projected areas [Here](https://www.dropbox.com/scl/fi/b7fenj0wmhzqx64bj82t1/DrivAerNetPlusPlus_CarDesign_Areas.csv?rlkey=usbunuupxwmx6g49r9r7dh8zk&st=xcmc3gm7&dl=0).
+> DrivAerNet++ stands out as the **largest and most comprehensive dataset** in the field.
 
-Researchers and industry practitioners can **submit their models** to the leaderboard to compare performance against state-of-the-art baselines. The benchmark promotes transparency, reproducibility, and innovation in AI-driven aerodynamic modeling.
+---
 
-For submission guidelines and current rankings, visit [DrivAerNet++ Leaderboard](https://drivaernet-leaderboard.lovable.app/).
+## 📚 Related Research & Extensions
 
+### TripOptimizer
 
-## Datasets Comparison
+A fully differentiable deep-learning framework for rapid aerodynamic analysis and shape optimization on industry-standard car designs.
 
-DrivAerNet++ stands out as the largest and most comprehensive dataset in the field of car design.
+📄 [Read Paper](https://arxiv.org/abs/example)
 
-![image](https://github.com/user-attachments/assets/f57fa33a-3c08-4f47-97eb-c76e46bca934)
+### AI Agents in Engineering Design
 
-## Integration into Scientific Machine Learning (SciML) Frameworks
+A multi-agent framework leveraging VLMs and LLMs to accelerate the car design process—from concept sketching to CAD modeling, meshing, and simulation.
 
-DrivAerNet has been integrated into leading **Scientific Machine Learning (SciML)** frameworks, enabling accelerated aerodynamic predictions, surrogate modeling, and generative AI-based design optimization.
+📄 [Read Paper](https://arxiv.org/abs/example)
 
-### NVIDIA Modulus  
-DrivAerNe is integrated into **NVIDIA Modulus**, supporting advanced deep learning models for CFD acceleration:  
+### RegDGCNN
 
-🔗 [FIGConvUNet](https://github.com/NVIDIA/modulus/tree/main/examples/cfd/external_aerodynamics/figconvnet)
-🔗 [AeroGraphNet](https://github.com/NVIDIA/modulus/tree/main/examples/cfd/external_aerodynamics/aero_graph_net)  
+We have open-sourced the RegDGCNN pipeline for surface field prediction on 3D car meshes.
 
-### PaddleScience & IJCAI 2024  
-DrivAerNet++ was featured in the **IJCAI 2024 competition - Rapid aerodynamic drag prediction for arbitrary vehicles** using deep learning. The dataset is also integrated into **PaddleScience**, Baidu’s SciML toolkit for physics-based AI.
+🔗 [View Code](https://github.com/DeCoDE-Lab/RegDGCNN) | 📄 [Benchmarking Paper](https://arxiv.org/abs/example)
 
-🔗 [IJCAI 2024 Competition](https://aistudio.baidu.com/projectdetail/7459168?channelType=0&channel=0)
-🔗 [PaddleScience DrivAerNet Example](https://paddlescience-docs.readthedocs.io/zh-cn/latest/zh/examples/drivaernet/) 
-🔗 [PaddleScience DrivAerNet++ Example](https://paddlescience-docs.readthedocs.io/zh-cn/latest/zh/examples/drivaernetplusplus/) 
+---
 
-## Contributing
+## 🛠️ Framework Integrations
 
-We welcome contributions to improve the dataset or project. Please submit pull requests for review.
+DrivAerNet++ is integrated into leading Scientific Machine Learning (SciML) frameworks:
 
-## Maintenance and Support
+### NVIDIA Modulus
 
-Maintained by the DeCoDE Lab at MIT. Report issues via [GitHub issues](https://github.com/Mohamedelrefaie/DrivAerNet/issues).
+- [FIGConvUNet Example](https://docs.nvidia.com/modulus/examples/figconvunet)
+- [AeroGraphNet Example](https://docs.nvidia.com/modulus/examples/aerographnet)
 
+### PaddleScience (Baidu)
 
-## Additional Resources
+- [IJCAI 2024 Competition](https://example.com/ijcai2024)
+- [DrivAerNet++ Example](https://paddlescience.readthedocs.io/drivaernetpp)
 
-- Tutorials: [Link](https://github.com/Mohamedelrefaie/DrivAerNet/tree/main/tutorials)
+---
 
+## 💻 Computational Cost & Applications
 
-## Previous Version
+### Resources Used
 
-To replicate the code and experiments from the first version of DrivAerNet, please refer to the folder: [DrivAerNet_v1](https://github.com/Mohamedelrefaie/DrivAerNet/tree/main/DrivAerNet_v1). 
+| Resource | Specification |
+|----------|--------------|
+| **Infrastructure** | MIT Supercloud (60 nodes, 2880 CPU cores) |
+| **Cost** | Approx. 3 × 10⁶ CPU-hours |
 
-## License
+### Applications
 
-**Strict Licensing Notice**: DrivAerNet/DrivAerNet++ is released under the Creative Commons Attribution-NonCommercial 4.0 International License [(CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/deed.en) and is exclusively for non-commercial research and educational purposes. Any commercial use—including, but not limited to, training machine learning models, developing generative AI tools, creating software products, running new simulations using the provided geometries or any derived geometries, or other commercial R&D applications—is strictly prohibited. Unauthorized commercial use of DrivAerNet/DrivAerNet++, or any derived data, will result in enforcement by the MIT Technology Licensing Office (MIT TLO) and may carry legal consequences. The code is distributed under the MIT License.
+| Application | Description |
+|-------------|-------------|
+| 🚀 Data-driven design optimization | Optimize car designs using ML |
+| 🧠 Generative AI for car design | Generate novel car geometries |
+| 🎯 Surrogate modeling | Fast approximations of CFD |
+| 🔥 CFD simulation acceleration | Speed up simulations with ML |
+| 📉 Reduced Order Modeling | Compress high-dimensional data |
+| 🔧 Automated CFD meshing | Automate mesh generation |
 
+---
 
-## DrivAerNet/DrivAerNet++ Commercial Inquiry
+## ⚖️ License & Commercial Use
 
-If you are interested in the commercial use of the DrivAerNet or DrivAerNet++ datasets, please contact Mohamed Elrefaie (mohamed.elrefaie@mit.edu) and Faez Ahmed (faez@mit.edu) with the subject line: "DrivAerNet Commercial Inquiry".
+### Strict Licensing Notice
 
+> ⚠️ **DrivAerNet/DrivAerNet++** is released under the [Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/).
 
-## Citations
+| Usage | Status |
+|-------|--------|
+| ✅ Non-commercial research | **Allowed** |
+| ✅ Educational purposes | **Allowed** |
+| ❌ Commercial use | **Prohibited** |
+| ❌ Model training for commercial tools | **Prohibited** |
+| ❌ Commercial R&D | **Prohibited** |
 
-To cite this work, please use the following reference:
+**Code License:** [MIT License](LICENSE)
+
+### Commercial Inquiry
+
+For commercial licensing, please contact:
+
+📧 **Mohamed Elrefaie** — [mohamed.elrefaie@mit.edu](mailto:mohamed.elrefaie@mit.edu)  
+📧 **Faez Ahmed** — [faez@mit.edu](mailto:faez@mit.edu)
+
+**Subject:** `"DrivAerNet Commercial Inquiry"`
+
+---
+
+## 📖 Citations
+
+### DrivAerNet++ (NeurIPS 2024)
 
 ```bibtex
 @inproceedings{NEURIPS2024_013cf29a,
- author = {Elrefaie, Mohamed and Morar, Florin and Dai, Angela and Ahmed, Faez},
- booktitle = {Advances in Neural Information Processing Systems},
- editor = {A. Globerson and L. Mackey and D. Belgrave and A. Fan and U. Paquet and J. Tomczak and C. Zhang},
- pages = {499--536},
- publisher = {Curran Associates, Inc.},
- title = {DrivAerNet++: A Large-Scale Multimodal Car Dataset with Computational Fluid Dynamics Simulations and Deep Learning Benchmarks},
- url = {https://proceedings.neurips.cc/paper_files/paper/2024/file/013cf29a9e68e4411d0593040a8a1eb3-Paper-Datasets_and_Benchmarks_Track.pdf},
- volume = {37},
- year = {2024}
+    author    = {Elrefaie, Mohamed and Morar, Florin and Dai, Angela and Ahmed, Faez},
+    booktitle = {Advances in Neural Information Processing Systems},
+    editor    = {A. Globerson and L. Mackey and D. Belgrave and A. Fan and U. Paquet and J. Tomczak and C. Zhang},
+    pages     = {499--536},
+    publisher = {Curran Associates, Inc.},
+    title     = {DrivAerNet++: A Large-Scale Multimodal Car Dataset with Computational Fluid Dynamics Simulations and Deep Learning Benchmarks},
+    url       = {https://proceedings.neurips.cc/paper_files/paper/2024/file/013cf29a9e68e4411d0593040a8a1eb3-Paper-Datasets_and_Benchmarks_Track.pdf},
+    volume    = {37},
+    year      = {2024}
 }
 ```
 
-To cite the first version of DrivAerNet, please use the following references:
-Journal of Mechanical Design:
+<details>
+<summary><b>Click to see citations for DrivAerNet (v1)</b></summary>
+
+#### Journal of Mechanical Design
+
 ```bibtex
 @article{elrefaie2025drivaernet,
-  title={DrivAerNet: A Parametric Car Dataset for Data-Driven Aerodynamic Design and Prediction},
-  author={Elrefaie, Mohamed and Dai, Angela and Ahmed, Faez},
-  journal={Journal of Mechanical Design},
-  volume={147},
-  number={4},
-  year={2025},
-  publisher={American Society of Mechanical Engineers Digital Collection}
+    title     = {DrivAerNet: A Parametric Car Dataset for Data-Driven Aerodynamic Design and Prediction},
+    author    = {Elrefaie, Mohamed and Dai, Angela and Ahmed, Faez},
+    journal   = {Journal of Mechanical Design},
+    volume    = {147},
+    number    = {4},
+    year      = {2025},
+    publisher = {American Society of Mechanical Engineers Digital Collection}
 }
 ```
 
-International Design Engineering Technical Conferences and Computers and Information in Engineering Conference:
+#### IDETC-CIE 2024
+
 ```bibtex
 @proceedings{10.1115/DETC2024-143593,
     author = {Elrefaie, Mohamed and Dai, Angela and Ahmed, Faez},
-    title = {DrivAerNet: A Parametric Car Dataset for Data-Driven Aerodynamic Design and Graph-Based Drag Prediction},
+    title  = {DrivAerNet: A Parametric Car Dataset for Data-Driven Aerodynamic Design and Graph-Based Drag Prediction},
     volume = {Volume 3A: 50th Design Automation Conference (DAC)},
     series = {International Design Engineering Technical Conferences and Computers and Information in Engineering Conference},
-    pages = {V03AT03A019},
-    year = {2024},
-    month = {08},
-    doi = {10.1115/DETC2024-143593},
-    url = {https://doi.org/10.1115/DETC2024-143593},
-    eprint = {https://asmedigitalcollection.asme.org/IDETC-CIE/proceedings-pdf/IDETC-CIE2024/88360/V03AT03A019/7402927/v03at03a019-detc2024-143593.pdf},
+    pages  = {V03AT03A019},
+    year   = {2024},
+    month  = {08},
+    doi    = {10.1115/DETC2024-143593},
+    url    = {https://doi.org/10.1115/DETC2024-143593}
 }
+```
+
+</details>
+
+---
+
+## 🔧 Maintenance & Support
+
+<p align="center">
+  Maintained by the <a href="https://decode.mit.edu"><b>DeCoDE Lab</b></a> at MIT
+</p>
+
+- 🐛 **Report Issues:** [GitHub Issues](https://github.com/DeCoDE-Lab/DrivAerNet/issues)
+- 📚 **View Tutorials:** [Documentation](https://decode.mit.edu/drivaernetpp/tutorials)
+- 📦 **Original V1 Code:** [DrivAerNet_v1](https://github.com/DeCoDE-Lab/DrivAerNet_v1)
+
+---
+
+<p align="center">
+  <img src="assets/mit_logo.png" alt="MIT Logo" height="50">
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="assets/decode_logo.png" alt="DeCoDE Lab Logo" height="50">
+</p>
+
+<p align="center">
+  Made with ❤️ at MIT
+</p>
