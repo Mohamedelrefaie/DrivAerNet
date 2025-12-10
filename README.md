@@ -149,8 +149,8 @@ We provide instructions on how to use [Globus](https://www.globus.org/) to downl
 
 | Data | Download |
 |------|----------|
-| Drag Values | [Download CSV](https://example.com/drag_values.csv) |
-| Frontal Projected Areas | [Download CSV](https://example.com/frontal_areas.csv) |
+| Drag Values | [Download CSV](https://www.dropbox.com/scl/fi/2rtchqnpmzy90uwa9wwny/DrivAerNetPlusPlus_Cd_8k_Updated.csv?rlkey=vjnjurtxfuqr40zqgupnks8sn&st=6dx1mfct&dl=0) |
+| Frontal Projected Areas | [Download CSV](https://www.dropbox.com/scl/fi/b7fenj0wmhzqx64bj82t1/DrivAerNetPlusPlus_CarDesign_Areas.csv?rlkey=usbunuupxwmx6g49r9r7dh8zk&st=xcmc3gm7&dl=0) |
 
 ---
 
@@ -206,8 +206,8 @@ DrivAerNet++ is integrated into leading Scientific Machine Learning (SciML) fram
 
 ### NVIDIA Modulus
 
-- [FIGConvUNet Example](https://docs.nvidia.com/modulus/examples/figconvunet)
-- [AeroGraphNet Example](https://docs.nvidia.com/modulus/examples/aerographnet)
+- [FIGConvUNet Example](https://github.com/NVIDIA/physicsnemo/tree/main/examples/cfd/external_aerodynamics/figconvnet)
+- [AeroGraphNet Example](https://github.com/NVIDIA/physicsnemo/tree/main/examples/cfd/external_aerodynamics/aero_graph_net)
 
 ### PaddleScience (Baidu)
 
@@ -239,7 +239,7 @@ DrivAerNet++ supports a wide array of machine learning applications, including b
 - 🗜️ **Data Compression**: Implement high-performance lossless compression techniques.
 - 🌐 **Part and shape classification**: Classify car categories or components to enhance design analysis.
 - 🔧 **Automated CFD meshing**: Automate the meshing process based on car components to streamline simulations.
-- 
+  
 ---
 
 ## ⚖️ License & Commercial Use
@@ -287,8 +287,6 @@ For commercial licensing, please contact:
 }
 ```
 
-<details>
-<summary><b>Click to see citations for DrivAerNet (v1)</b></summary>
 
 #### Journal of Mechanical Design
 
@@ -320,8 +318,6 @@ For commercial licensing, please contact:
 }
 ```
 
-</details>
-
 ---
 
 ## 🔧 Maintenance & Support
@@ -330,6 +326,6 @@ For commercial licensing, please contact:
   Maintained by the <a href="https://decode.mit.edu"><b>DeCoDE Lab</b></a> at MIT
 </p>
 
-- 🐛 **Report Issues:** [GitHub Issues](https://github.com/DeCoDE-Lab/DrivAerNet/issues)
-- 📚 **View Tutorials:** [Documentation](https://decode.mit.edu/drivaernetpp/tutorials)
-- 📦 **Original V1 Code:** [DrivAerNet_v1](https://github.com/DeCoDE-Lab/DrivAerNet_v1)
+- 🐛 **Report Issues:** [GitHub Issues](https://github.com/Mohamedelrefaie/DrivAerNet/issues)
+- 📚 **View Tutorials:** [Documentation](https://github.com/Mohamedelrefaie/DrivAerNet/tree/main/tutorials)
+- 📦 **Original V1 Code:** [DrivAerNet_v1](https://github.com/Mohamedelrefaie/DrivAerNet/tree/main/DrivAerNet_v1)
