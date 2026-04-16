@@ -33,7 +33,7 @@ CarMRI predicts the aerodynamic drag coefficient (Cd) from 3D vehicle point clou
 |--------|-------|
 | MSE | 6.60 x 10⁻⁵ |
 | MAE | 6.111 x 10⁻³ |
-| Max AE | 4.50 x 10⁻² |
+| Max MAE | 4.50 x 10⁻² |
 | R² | 0.9525 |
 | Inference Latency | 0.025 s/sample |
 | Parameters | 2.80M |
