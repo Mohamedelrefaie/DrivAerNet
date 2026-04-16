@@ -1,0 +1,5 @@
+Test MSE: 0.0000660
+Test MAE: 0.006111
+Max MAE: 0.0450
+Test R²: 0.9525
+Total inference time: 28.95s for 1158 samples
