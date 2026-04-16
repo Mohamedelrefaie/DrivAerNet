@@ -1,5 +1,9 @@
 # CarMRI: Slice-based Surrogate Model for Drag Coefficient Prediction
 
+## Award
+
+**Miltos Petridis Memorial Trophy — Best Student Application Paper** at AI-2025, the 45th SGAI International Conference on Artificial Intelligence, BCS, Cambridge University (December 2025)
+
 ## Model Architecture
 
 CarMRI predicts the aerodynamic drag coefficient (Cd) from 3D vehicle point clouds using a sequential, slice-based approach inspired by how MRI/CT scans represent 3D anatomical structures. The architecture (PointNet2D + BiLSTM) has three main components:
