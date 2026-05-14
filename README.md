@@ -24,6 +24,7 @@ We present **DrivAerNet++**, comprising **8,150 diverse car designs** modeled wi
 | 🆕 **2026** | **CarBench Released** — A unified benchmark for high-fidelity 3D car aerodynamics and generalization testing |
 
 - 🚗 **CarCrashNet Paper:** [CarCrashNet Paper](https://arxiv.org/abs/2605.07098)
+- 💥 **CarCrashNet Repo:** [CarCrashNet Paper](https://github.com/Mohamedelrefaie/CarCrashNet)
 - 🏆 **CarBench Leaderboard:** [CarBench Leaderboard](https://mohamedelrefaie.github.io/CarBench/)
 - 📄 **CarBench Paper:** [CarBench Paper](https://www.researchgate.net/publication/398002820_CarBench_A_Comprehensive_Benchmark_for_Neural_Surrogates_on_High-Fidelity_3D_Car_Aerodynamics)
 -
