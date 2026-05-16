@@ -1,27 +1,27 @@
 #!/usr/bin/env python3
 # run_pipeline.py
-"""
-@author: Mohamed Elrefaie, mohamed.elrefaie@mit.edu
-
-Pipeline script for the DrivAerNet pressure field prediction project.
-
-This script provides a complete pipeline for training and evaluating
-pressure field prediction models on the DrivAerNet++ dataset, including
-data preprocessing, model training, and result visualization.
-"""
 
 import os
 import argparse
 import subprocess
 import logging
 import time
+import pprint
 from datetime import datetime
 from utils import setup_logger
+from colorama import Fore, Style
 
+
+
+#logging.basicConfig(
+#    level=logging.INFO,  # <-- This enables logging.info()
+#    format='[%(asctime)s] %(levelname)s: %(message)s',
+#    datefmt='%H:%M:%S'
+#)
 
 def parse_args():
-    """Parse command line arguments."""
-    parser = argparse.ArgumentParser(description='Run the complete DrivAerNet pipeline')
+
+    parser = argparse.ArgumentParser(description="Test")
 
     # Pipeline control
     parser.add_argument('--stages', type=str, default='all',
@@ -29,12 +29,12 @@ def parse_args():
                         help='Pipeline stages to run')
 
     # Basic settings
-    parser.add_argument('--exp_name', type=str, required=True, help='Experiment name')
+    parser.add_argument('--exp_name', type=str, required=True, help="Test")
     parser.add_argument('--seed', type=int, default=1, help='Random seed')
 
     # Data settings
-    parser.add_argument('--dataset_path', type=str, required=True, help='Path to dataset')
-    parser.add_argument('--subset_dir', type=str, required=True, help='Path to train/val/test splits')
+    parser.add_argument('--dataset_path', type=str, help='Path to dataset')
+    parser.add_argument('--subset_dir', type=str, help='Path to train/val/test splits')
     parser.add_argument('--cache_dir', type=str, help='Path to cache directory')
     parser.add_argument('--num_points', type=int, default=10000, help='Number of points to sample')
 
@@ -42,8 +42,9 @@ def parse_args():
     parser.add_argument('--batch_size', type=int, default=12, help='Batch size per GPU')
     parser.add_argument('--epochs', type=int, default=150, help='Number of epochs')
     parser.add_argument('--lr', type=float, default=0.001, help='Learning rate')
+    parser.add_argument('--test_only', type=int, default=0, help='Only test the model, no training')
     parser.add_argument('--num_workers', type=int, default=4, help='Number of data loading workers')
-    parser.add_argument('--gpus', type=str, default="0", help='GPUs to use (comma-separated)')
+    parser.add_argument('--gpus', type=str, default='0', help='GPUs to use (comma-separated)')
 
     # Model settings
     parser.add_argument('--dropout', type=float, default=0.4, help='Dropout rate')
@@ -56,18 +57,16 @@ def parse_args():
 
     return parser.parse_args()
 
-
 def preprocess_data(args):
+
     """
     Preprocess the dataset to create cached point cloud data.
 
     Args:
-        args: Command line arguments
-
-    Returns:
         True if preprocessing was successful, False otherwise
     """
-    logging.info("Starting data preprocessing...")
+
+    logging.info("**************************Starting data preprocessing...")
 
     # Create cache directory if it doesn't exist
     cache_dir = args.cache_dir or os.path.join(args.dataset_path, "processed_data")
@@ -79,36 +78,26 @@ def preprocess_data(args):
 
         # Create the dataset with preprocessing enabled
         dataset = SurfacePressureDataset(
-            root_dir=args.dataset_path,
-            num_points=args.num_points,
-            preprocess=True,
-            cache_dir=cache_dir
-        )
+            root_dir = args.dataset_path,
+            num_points = args.num_points,
+            preprocess = True,
+            cache_dir = cache_dir
+            )
 
         # Process all files
         logging.info(f"Processing {len(dataset.vtk_files)} VTK files with {args.num_points} points per sample")
-        for i, vtk_file in enumerate(dataset.vtk_files):
-            logging.info(f"Processing file {i + 1}/{len(dataset.vtk_files)}: {os.path.basename(vtk_file)}")
-            _ = dataset[i]  # This will trigger preprocessing and caching
+        for ii, vtk_file in enumerate(dataset.vtk_files):
+            logging.info(f"Processing file {ii+1} / {len(dataset.vtk_files)}: {os.path.basename(vtk_file)}")
+            _ = dataset[ii] # This will trigger preprocessing and caching
 
-        logging.info(f"Data preprocessing complete. Cached data saved to {cache_dir}")
+        logging.info(f"{Fore.MAGENTA}Data preprocessing complete. Cache data saved to {cache_dir}{Style.RESET_ALL}")
         return True
     except Exception as e:
         logging.error(f"Preprocessing failed with error: {e}")
         return False
 
-
 def train_model(args):
-    """
-    Train the model using the train.py script.
-
-    Args:
-        args: Command line arguments
-
-    Returns:
-        True if training was successful, False otherwise
-    """
-    logging.info("Starting model training...")
+    logging.info("*************************Starting model training...")
 
     # Prepare command for training script
     cmd = [
@@ -120,12 +109,13 @@ def train_model(args):
         "--batch_size", str(args.batch_size),
         "--epochs", str(args.epochs),
         "--lr", str(args.lr),
-        "--num_workers", str(args.num_workers),
         "--dropout", str(args.dropout),
         "--emb_dims", str(args.emb_dims),
         "--k", str(args.k),
         "--output_channels", str(args.output_channels),
-        "--seed", str(args.seed)
+        "--seed", str(args.seed),
+        "--num_workers", str(args.num_workers),
+        "--test_only", str(args.test_only)
     ]
 
     if args.cache_dir:
@@ -145,13 +135,13 @@ def train_model(args):
         return False
 
     elapsed_time = time.time() - start_time
+    logging.info(f"**********************Model training completed ")
     logging.info(f"Model training completed in {elapsed_time:.2f} seconds")
     return True
 
-
 def evaluate_model(args):
     """
-    Evaluate the trained model using the evaluate.py script.
+    Evaluatie the trained model using the evaluate.py script.
 
     Args:
         args: Command line arguments
@@ -159,10 +149,10 @@ def evaluate_model(args):
     Returns:
         True if evaluation was successful, False otherwise
     """
-    logging.info("Starting model evaluation...")
+    logging.info("*************************starting model evaluation...")
 
     # Path to the trained model
-    model_checkpoint = os.path.join("experiments", args.exp_name, "best_model.pth")
+    model_checkpoint = os.path.join("experiments", args.exp_name, "best_model_pth")
 
     if not os.path.exists(model_checkpoint):
         logging.error(f"Model checkpoint not found at {model_checkpoint}")
@@ -203,7 +193,7 @@ def evaluate_model(args):
 
 
 def main():
-    """Main function to run the complete pipeline."""
+    """ main function to run the complete pipeline. """
     args = parse_args()
 
     # Set up logging
@@ -214,12 +204,12 @@ def main():
     setup_logger(log_file)
 
     logging.info(f"Starting DrivAerNet pipeline - Experiment: {args.exp_name}")
-    logging.info(f"Arguments: {args}")
+    logging.info(f"Arguments:\n" + pprint.pformat(vars(args), indent=2))
 
     # Execute the selected pipeline stages
     stages = args.stages.split(',') if ',' in args.stages else [args.stages]
     if 'all' in stages:
-        stages = ['preprocess', 'train', 'evaluate']
+        stages = ['preporcess', 'train', 'evaluate']
 
     results = {}
 
@@ -249,18 +239,19 @@ def main():
             results['evaluate'] = True
             logging.info("Evaluation stage skipped.")
 
-    # Print summary
-    logging.info("Pipeline execution complete.")
-    logging.info("Results summary:")
+    # Print Summary
+    logging.info("Pipleline execution complete.")
+    logging.info("Results summary: ")
     for stage, success in results.items():
         status = "Success" if success else "Failed"
-        logging.info(f"  {stage}: {status}")
+        logging.info(f" {stage}: {status}")
 
     # Check if experiment was successful overall
-    overall_success = all(results.values())
-    logging.info(f"Overall status: {'Success' if overall_success else 'Failed'}")
-    return 0 if overall_success else 1
+#    overall_success = all(results.values())
+#    loggiing.info(f"Overall status: {'Success' if overall_success else 'Failed'}")
+#    return 0 if overall_success else 1
 
 
-if __name__ == "__main__":
+if __name__=="__main__":
     exit(main())
+

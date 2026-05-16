@@ -16,6 +16,7 @@ import torch.distributed as dist
 import pyvista as pv
 import logging
 
+from colorama import Fore, Style
 
 class SurfacePressureDataset(Dataset):
     """
@@ -132,7 +133,7 @@ def create_subset(dataset, ids_file):
     try:
         with open(ids_file, 'r') as file:
             subset_ids = [id_.strip() for id_ in file.readlines()]
-        subset_files = [f for f in dataset.vtk_files if any(id_ in f for id_ in subset_ids)]
+        subset_files   = [f for f in dataset.vtk_files if any(id_ in f for id_ in subset_ids)]
         subset_indices = [dataset.vtk_files.index(f) for f in subset_files]
         if not subset_indices:
             logging.error(f"No matching VTK files found for IDs in {ids_file}.")
@@ -168,8 +169,8 @@ def get_dataloaders(dataset_path: str, subset_dir: str, num_points: int, batch_s
     )
 
     train_dataset = create_subset(full_dataset, os.path.join(subset_dir, 'train_design_ids.txt'))
-    val_dataset = create_subset(full_dataset, os.path.join(subset_dir, 'val_design_ids.txt'))
-    test_dataset = create_subset(full_dataset, os.path.join(subset_dir, 'test_design_ids.txt'))
+    val_dataset   = create_subset(full_dataset, os.path.join(subset_dir, 'val_design_ids.txt'))
+    test_dataset  = create_subset(full_dataset, os.path.join(subset_dir, 'test_design_ids.txt'))
 
     # Distributed samplers for DDP
     train_sampler = torch.utils.data.distributed.DistributedSampler(

@@ -1,11 +1,4 @@
 # train.py
-"""
-@author: Mohamed Elrefaie, mohamed.elrefaie@mit.edu
-
-Training script for RegDGCNN pressure field prediction model on the DrivAerNet++ dataset.
-This version includes distributed training support for multi-GPU acceleration.
-"""
-
 import os
 import torch
 import torch.distributed as dist
@@ -19,12 +12,13 @@ import argparse
 import matplotlib.pyplot as plt
 from tqdm import tqdm
 import logging
+import pprint
 
 # Import modules
 from data_loader import get_dataloaders, PRESSURE_MEAN, PRESSURE_STD
 from model_pressure import RegDGCNN_pressure
 from utils import setup_logger, setup_seed
-
+from colorama import Fore, Style
 
 def parse_args():
     """Parse command line arguments."""
@@ -35,8 +29,8 @@ def parse_args():
     parser.add_argument('--seed', type=int, default=1, help='Random seed')
 
     # Data settings
-    parser.add_argument('--dataset_path', type=str, required=True, help='Path to dataset')
-    parser.add_argument('--subset_dir', type=str, required=True, help='Path to train/val/test splits')
+    parser.add_argument('--dataset_path', type=str,  help='Path to dataset')
+    parser.add_argument('--subset_dir', type=str, help='Path to train/val/test splits')
     parser.add_argument('--cache_dir', type=str, help='Path to cache directory')
     parser.add_argument('--num_points', type=int, default=10000, help='Number of points to sample')
 
@@ -44,9 +38,10 @@ def parse_args():
     parser.add_argument('--batch_size', type=int, default=12, help='Batch size per GPU')
     parser.add_argument('--epochs', type=int, default=150, help='Number of epochs')
     parser.add_argument('--lr', type=float, default=0.001, help='Learning rate')
+#    parser.add_argument('--test_only', action='store_true', help='Only test the model, no training')
+    parser.add_argument('--test_only', type=int, default=0, help='Only test the model, no training')
     parser.add_argument('--num_workers', type=int, default=4, help='Number of data loading workers')
-    parser.add_argument('--test_only', action='store_true', help='Only test the model, no training')
-    parser.add_argument('--gpus', type=str, default="0", help='GPUs to use (comma-separated)')
+    parser.add_argument('--gpus', type=str, default='0', help='GPUs to use (comma-separated)')
 
     # Model settings
     parser.add_argument('--dropout', type=float, default=0.4, help='Dropout rate')
@@ -56,17 +51,17 @@ def parse_args():
 
     return parser.parse_args()
 
-
 def initialize_model(args, local_rank):
-    """Initialize and return the RegDGCNN model."""
+    """ Initialize and return the RegDGCN model. """
     args = vars(args)
-
     model = RegDGCNN_pressure(args).to(local_rank)
     model = torch.nn.parallel.DistributedDataParallel(
-        model, device_ids=[local_rank], find_unused_parameters=True, output_device=local_rank
+            model,
+            device_ids=[local_rank],
+            find_unused_parameters=True,
+            output_device=local_rank
     )
     return model
-
 
 def train_one_epoch(model, train_dataloader, optimizer, criterion, local_rank):
     """Train for one epoch."""
@@ -74,7 +69,21 @@ def train_one_epoch(model, train_dataloader, optimizer, criterion, local_rank):
     total_loss = 0
 
     for data, targets in tqdm(train_dataloader, desc="[Training]"):
+        global PRESSURE_MEAN, PRESSURE_STD
+
+        # Right version
+        """
+        PRESSURE_MEAN = torch.tensor(PRESSURE_MEAN, device=data.device)
+        PRESSURE_STD  = torch.tensor(PRESSURE_STD, device=data.device)
+
         data, targets = data.squeeze(1).to(local_rank), targets.squeeze(1).to(local_rank)
+        targets = (targets - PRESSURE_MEAN) / PRESSURE_STD
+        """
+
+        # Logic bug version
+        data = data.squeeze(1).to(local_rank)
+        targets = targets.squeeze(1).to(local_rank)
+
         targets = (targets - PRESSURE_MEAN) / PRESSURE_STD
 
         optimizer.zero_grad()
@@ -87,26 +96,25 @@ def train_one_epoch(model, train_dataloader, optimizer, criterion, local_rank):
 
     return total_loss / len(train_dataloader)
 
-
 def validate(model, val_dataloader, criterion, local_rank):
-    """Validate the model."""
+    """ Validate the model"""
     model.eval()
     total_loss = 0
 
     with torch.no_grad():
         for data, targets in tqdm(val_dataloader, desc="[Validation]"):
-            data, targets = data.squeeze(1).to(local_rank), targets.squeeze(1).to(local_rank)
+            data    = data.squeeze(1).to(local_rank)
+            targets = targets.squeeze(1).to(local_rank)
             targets = (targets - PRESSURE_MEAN) / PRESSURE_STD
 
-            outputs = model(data)
-            loss = criterion(outputs.squeeze(1), targets)
+            outputs     = model(data)
+            loss        = criterion(outputs.squeeze(1), targets)
             total_loss += loss.item()
 
     return total_loss / len(val_dataloader)
 
-
 def test_model(model, test_dataloader, criterion, local_rank, exp_dir):
-    """Test the model and calculate metrics."""
+    """ Test the model and calculate metrics. """
     model.eval()
     total_mse, total_mae = 0, 0
     total_rel_l2, total_rel_l1 = 0, 0
@@ -152,8 +160,8 @@ def test_model(model, test_dataloader, criterion, local_rank, exp_dir):
     # Aggregate results across all processes
     total_mse_tensor = torch.tensor(total_mse).to(local_rank)
     total_mae_tensor = torch.tensor(total_mae).to(local_rank)
-    total_rel_l2_tensor = torch.tensor(total_rel_l2).to(local_rank)
-    total_rel_l1_tensor = torch.tensor(total_rel_l1).to(local_rank)
+    total_rel_l2_tensor  = torch.tensor(total_rel_l2).to(local_rank)
+    total_rel_l1_tensor  = torch.tensor(total_rel_l1).to(local_rank)
     total_samples_tensor = torch.tensor(total_samples).to(local_rank)
 
     dist.reduce(total_mse_tensor, dst=0, op=dist.ReduceOp.SUM)
@@ -162,7 +170,11 @@ def test_model(model, test_dataloader, criterion, local_rank, exp_dir):
     dist.reduce(total_rel_l1_tensor, dst=0, op=dist.ReduceOp.SUM)
     dist.reduce(total_samples_tensor, dst=0, op=dist.ReduceOp.SUM)
 
-    if local_rank == 0:
+    # Checkout the value
+    if dist.get_rank() == 0:
+      logging.info(f"Total MSE across all processes: {total_mse_tensor.item()}")
+
+    if local_rank ==0:
         # Calculate aggregated metrics
         avg_mse = total_mse_tensor.item() / total_samples_tensor.item()
         avg_mae = total_mae_tensor.item() / total_samples_tensor.item()
@@ -172,38 +184,37 @@ def test_model(model, test_dataloader, criterion, local_rank, exp_dir):
         # Calculate R² score - only on rank 0 with locally collected data
         all_outputs = torch.cat(all_outputs, dim=0).numpy()
         all_targets = torch.cat(all_targets, dim=0).numpy()
+        tmp = np.mean(all_targets)
+        logging.info("mean value for all_targets: {tmp}")
         ss_tot = np.sum((all_targets - np.mean(all_targets)) ** 2)
         ss_res = np.sum((all_targets - all_outputs) ** 2)
         r_squared = 1 - (ss_res / ss_tot) if ss_tot > 0 else 0
 
-        # Calculate max MAE
-        max_mae = np.max(np.abs(all_targets - all_outputs))
-
-        print(f"Test MSE: {avg_mse:.6f}, Test MAE: {avg_mae:.6f}, Max MAE: {max_mae:.6f}, Test R²: {r_squared:.4f}")
-        print(f"Relative L2 Error: {avg_rel_l2:.6f}, Relative L1 Error: {avg_rel_l1:.6f}")
-        print(f"Total inference time: {total_inference_time:.2f}s for {total_samples_tensor.item()} samples")
+        # Calculate max AE
+        max_ae = np.max(np.abs(all_targets - all_outputs))
+        logging.info(f"Test MSE: {avg_mse:.6f}, Test MAE: {avg_mae:.6f}, Max AE: {max_ae:.6f}, Test R2: {r_squared:.4f}")
+        logging.info(f"Relative L2 Error: {avg_rel_l2:.6f}, Relative L1 error: {avg_rel_l1:.6f}")
+        logging.info(f"Total inference time: {total_inference_time: .2f}s for {total_samples_tensor.item()} samples")
 
         # Save metrics to a text file
         metrics_file = os.path.join(exp_dir, 'test_metrics.txt')
         with open(metrics_file, 'w') as f:
-            f.write(f"Test MSE: {avg_mse:.6f}\n")
-            f.write(f"Test MAE: {avg_mae:.6f}\n")
-            f.write(f"Max MAE: {max_mae:.6f}\n")
-            f.write(f"R² Score: {r_squared:.6f}\n")
-            f.write(f"Relative L2 Error: {avg_rel_l2:.6f}\n")
-            f.write(f"Relative L1 Error: {avg_rel_l1:.6f}\n")
-            f.write(f"Total inference time: {total_inference_time:.2f}s for {total_samples_tensor.item()} samples\n")
-
+          f.write(f"Test MSE: {avg_mse:.6f}\n")
+          f.write(f"Test MAE: {avg_mae:.6f}\n")
+          f.write(f"Max MAE: {max_ae:.6f}\n")
+          f.write(f"Test R2: {r_squared:.4f}\n")
+          f.write(f"Relative L2 Error: {avg_rel_l2:.6f}\n")
+          f.write(f"Relative L1 error: {avg_rel_l1:.6f}\n")
+          f.write(f"Total inference time: {total_inference_time: .2f}s for {total_samples_tensor.item()} samples\n")
 
 def train_and_evaluate(rank, world_size, args):
-    """Main function for distributed training and evaluation."""
+    """ main function for Distributed training and evaluation. """
     setup_seed(args.seed)
 
     # Initialize process group for DDP
     dist.init_process_group(backend='nccl', init_method='env://', world_size=world_size, rank=rank)
 
     local_rank = rank
-    logging.info(f"local_rank: {local_rank}")
     torch.cuda.set_device(local_rank)
 
     # Set up logging (only on rank 0)
@@ -212,9 +223,9 @@ def train_and_evaluate(rank, world_size, args):
         os.makedirs(exp_dir, exist_ok=True)
         log_file = os.path.join(exp_dir, 'training.log')
         setup_logger(log_file)
-        logging.info(f"Arguments: {args}")
-        logging.info(f"Starting training with {world_size} GPUs")
-        print(f"Starting training with {world_size} GPUs")
+        logging.info(f"args.exp_name : {args.exp_name}")
+        logging.info(f"Arguments:\n" + pprint.pformat(vars(args), indent=2))
+        logging.info(f"{Fore.RED}*******************************Starting training with {world_size} GPUs{Style.RESET_ALL}")
 
     # Initialize model
     model = initialize_model(args, local_rank)
@@ -222,7 +233,6 @@ def train_and_evaluate(rank, world_size, args):
     if local_rank == 0:
         total_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
         logging.info(f"Total trainable parameters: {total_params}")
-        print(f"Total trainable parameters: {total_params}")
 
     # Prepare DataLoaders
     train_dataloader, val_dataloader, test_dataloader = get_dataloaders(
@@ -231,11 +241,10 @@ def train_and_evaluate(rank, world_size, args):
         args.num_workers
     )
 
+
     # Log dataset info
     if local_rank == 0:
         logging.info(
-            f"Data loaded: {len(train_dataloader)} training batches, {len(val_dataloader)} validation batches, {len(test_dataloader)} test batches")
-        print(
             f"Data loaded: {len(train_dataloader)} training batches, {len(val_dataloader)} validation batches, {len(test_dataloader)} test batches")
 
     # Set up criterion, optimizer, and scheduler
@@ -243,8 +252,10 @@ def train_and_evaluate(rank, world_size, args):
     optimizer = optim.Adam(model.parameters(), lr=args.lr, weight_decay=1e-4)
     scheduler = ReduceLROnPlateau(optimizer, 'min', patience=10, factor=0.1, verbose=True)
 
-    best_model_path = os.path.join('experiments', args.exp_name, 'best_model.pth')
-    final_model_path = os.path.join('experiments', args.exp_name, 'final_model.pth')
+    best_model_path  = os.path.join('experiments', args.exp_name, 'best_model_pth')
+    final_model_path = os.path.join('experiments', args.exp_name, 'final_model_pth')
+    #best_model_path  = os.path.join('experiments', args.exp_name, 'best_model_tmp')
+    #final_model_path = os.path.join('experiments', args.exp_name, 'final_model_tmp')
 
     # Check if test_only and model exists
     if args.test_only and os.path.exists(best_model_path):
@@ -262,8 +273,7 @@ def train_and_evaluate(rank, world_size, args):
     val_losses = []
 
     if local_rank == 0:
-        logging.info(f"Starting training for {args.epochs} epochs")
-        print(f"Starting training for {args.epochs} epochs")
+        logging.info(f"Staring training for {args.epochs} epochs")
 
     # Training loop
     for epoch in range(args.epochs):
@@ -276,12 +286,11 @@ def train_and_evaluate(rank, world_size, args):
         # Validation
         val_loss = validate(model, val_dataloader, criterion, local_rank)
 
-        # Record losses
+        # Record losses. There has a change
         if local_rank == 0:
             train_losses.append(train_loss)
             val_losses.append(val_loss)
             logging.info(f"Epoch {epoch + 1}/{args.epochs} - Train Loss: {train_loss:.6f}, Val Loss: {val_loss:.6f}")
-            print(f"Epoch {epoch + 1}/{args.epochs} - Train Loss: {train_loss:.6f}, Val Loss: {val_loss:.6f}")
 
             # Save the best model
             if val_loss < best_val_loss:
@@ -292,23 +301,22 @@ def train_and_evaluate(rank, world_size, args):
             # Update learning rate scheduler
             scheduler.step(val_loss)
 
-            # Save progress plot
+            # Save progress rate scheduler
             if (epoch + 1) % 10 == 0 or epoch == args.epochs - 1:
                 plt.figure(figsize=(10, 5))
                 plt.plot(range(1, epoch + 2), train_losses, label='Training Loss')
-                plt.plot(range(1, epoch + 2), val_losses, label='Validation Loss')
+                plt.plot(range(1, epoch + 2), val_losses,   label='Validation Loss')
                 plt.xlabel('Epoch')
                 plt.ylabel('Loss')
                 plt.legend()
                 plt.title(f'Training Progress - RegDGCNN')
-                plt.savefig(os.path.join('experiments', args.exp_name, 'training_progress.png'))
+                plt.savefig(os.path.join('experiments', args.exp_name, f'training_progress.png'))
                 plt.close()
 
     # Save final model
     if local_rank == 0:
         torch.save(model.state_dict(), final_model_path)
         logging.info(f"Final model saved to {final_model_path}")
-        print(f"Final model saved to {final_model_path}")
 
     # Make sure all processes sync up before testing
     dist.barrier()
@@ -316,29 +324,25 @@ def train_and_evaluate(rank, world_size, args):
     # Test the final model
     if local_rank == 0:
         logging.info("Testing the final model")
-        print("Testing the final model:")
-    test_model(model, test_dataloader, criterion, local_rank, os.path.join('experiments', args.exp_name))
+    #test_model(model, test_dataloader, criterion, local_rank, os.path.join('experiments', args.exp_name))
 
     # Test the best model
     if local_rank == 0:
         logging.info("Testing the best model")
-        print("Testing the best model:")
-    model.load_state_dict(torch.load(best_model_path, map_location=f'cuda:{local_rank}'))
-    test_model(model, test_dataloader, criterion, local_rank, os.path.join('experiments', args.exp_name))
+        model.load_state_dict(torch.load(best_model_path, map_location=f'cuda:{local_rank}'))
+    #test_model(model, test_dataloader, criterion, local_rank, os.path.join('experiments', args.exp_name))
 
     # Clean up
     dist.destroy_process_group()
-
-
 def main():
-    """Main function to parse arguments and start training."""
+    """ main function to parse arguments and start training."""
     args = parse_args()
 
     # Set the master address and port for DDP
     os.environ['MASTER_ADDR'] = 'localhost'
     os.environ['MASTER_PORT'] = '12355'
 
-    # Set visible GPUs
+    # Set visible GPUS
     gpu_list = args.gpus
     os.environ['CUDA_VISIBLE_DEVICES'] = gpu_list
 
@@ -349,9 +353,67 @@ def main():
     exp_dir = os.path.join('experiments', args.exp_name)
     os.makedirs(exp_dir, exist_ok=True)
 
+
     # Start distributed training
     mp.spawn(train_and_evaluate, args=(world_size, args), nprocs=world_size, join=True)
 
 
-if __name__ == "__main__":
+if __name__=="__main__":
     main()
+
+'''
+    # Checkout the DataLoader object
+    logging.info(f"Type of train_dataloader: {type(train_dataloader)}")
+    logging.info(f"Number of train_dataloader: {len(train_dataloader)}")
+    #logging.info(f"List all methods and attributs of Dataloader: {dir(train_dataloader)}")
+    logging.info(f"We can access the internal conetnt by dataloader: ")
+    for ii, (points, pressure)in enumerate(train_dataloader):
+        logging.info(f"Batch: {ii}")
+        logging.info(f"Batch.points.shape: {points.shape}") # [2, 1, 3, 10000]
+
+        sample_0 = points[0]                    # [1, 3, 10000]
+        sample_1 = points[1]                    # [1, 3, 10000]
+        logging.info(f"points_sample_0.shape: {sample_0.shape}")
+
+        sample_0 = sample_0.squeeze(0)          # [3, 10000]
+        sample_1 = sample_1.squeeze(0)          # [3, 10000]
+        logging.info(f"points_sample_0.shape: {sample_0.shape}")
+
+        x0 = sample_0[0]
+        x1 = sample_1[0]
+        logging.info(f"The first 10 points in x_coor for the sample_0: {x0[:10]}")
+        logging.info(f"The first 10 points in x_coor for the sample_1: {x1[:10]}")
+
+        logging.info(f"Batch.Pressure.shape: {pressure.shape}") #[2, 1, 10000]
+
+        sample_0 = pressure[0]                    # [1, 10000]
+        sample_1 = pressure[1]                    # [1, 10000]
+        logging.info(f"pressure_sample_0.shape: {sample_0.shape}")
+
+        sample_0 = sample_0.squeeze(0)          # [10000]
+        sample_1 = sample_1.squeeze(0)          # [10000]
+        logging.info(f"pressure_sample_0.shape: {sample_0.shape}")
+
+        logging.info(f"The first 10 points pressure for the sample_0: {sample_0[:10]}")
+        logging.info(f"The first 10 points pressure for the sample_1: {sample_1[:10]}")
+
+
+    # Checkout the torch.utils.data.subset object
+    train_subset = train_dataloader.dataset
+    logging.info(f"Type of train_subset: {type(train_subset)}")
+    logging.info(f"Number of samples of train_subset : {len(train_subset)}")
+    logging.info(f"Subset indices: {train_subset.indices[:5]}")
+    logging.info(f"List the train_subset vtk files:")
+    for ii, idx in enumerate(train_subset.indices):
+        vtk_file = train_subset.dataset.vtk_files[idx]
+        logging.info(f"{ii:3d}: {vtk_file}")
+    #logging.info(f"List all methods and attributs of subset: {dir(dataset)})")
+
+
+    # Checkout the full_dataset i.e. all .vtk files
+    full_dataset = train_subset.dataset
+    logging.info(f"Type of full_dataset: {type(full_dataset)}")
+    logging.info(f"Number of samples of full_dataset: {len(full_dataset.vtk_files)}")
+    for f, ii in enumerate(full_dataset.vtk_files):
+        logging.info(f"  {ii: >2}: {f}")
+'''
